@@ -72,49 +72,6 @@ sup {
   vertical-align: super;
 }
 
-.fill-animation {
-  position: relative;
-  overflow: hidden;
-  // transform: translateZ(0);
-  // mask-image: radial-gradient(white, black);
-  // will-change: transform;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  mask-image: radial-gradient(white, black);
-
-  span {
-    @include position(absolute, 0, auto, auto, 0);
-    height: 100%;
-    width: 100%;
-    z-index: 10;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @include hover {
-    span {
-      mix-blend-mode: difference;
-    }
-
-    &::after {
-      content: "";
-      @include position(absolute, 0, auto, auto, 0);
-      height: 100%;
-      background: var(--fill-color);
-      transform: translateY(105%);
-      transition: 0.8s transform cubic-bezier(0.16, 1, 0.3, 1);
-      width: 100%;
-    }
-
-    &:hover {
-      &::after {
-        transform: translateY(0%);
-      }
-    }
-  }
-}
-
 // Be sure markers on top
 .gsap-marker-end,
 .gsap-marker-start,
@@ -133,17 +90,5 @@ sup {
 
   &.loaded {
     opacity: 1;
-  }
-}
-
-.blog-item {
-  margin-bottom: desktop-vw(22px);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @include mobile {
-    margin-bottom: mobile-vw(16px);
   }
 }
