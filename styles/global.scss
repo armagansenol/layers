@@ -1,0 +1,149 @@
+@import "./_reset.scss";
+@import "./_fonts.scss";
+@import "./_colors.scss";
+@import "./_easings.scss";
+@import "./_functions.scss";
+@import "./_layout.scss";
+@import "./_utils.scss";
+@import "./_font-style.scss";
+@import "./_scroll.scss";
+
+:root {
+  --header-height: #{desktop-vw(140px)};
+  --padding-l: #{desktop-vw(120px)};
+  --padding-100: #{desktop-vw(100px)};
+
+  @include mobile {
+    --header-height: #{mobile-vw(120px)};
+    --padding-l: #{mobile-vw(16px)};
+    --padding-100: #{mobile-vw(60px)};
+  }
+}
+
+html {
+  font-weight: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--kuretake-black-manga);
+  scrollbar-width: thin;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a,
+button,
+input,
+label,
+textarea,
+select {
+  color: inherit;
+  cursor: pointer;
+}
+
+*::selection {
+  background-color: var(--caribbean-green);
+  color: var(--kuretake-black-manga);
+}
+
+main {
+  overflow: hidden;
+  position: relative;
+  z-index: z-index("main");
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+
+.italic {
+  font-style: italic;
+}
+
+sup {
+  font-size: xx-small;
+  vertical-align: super;
+}
+
+.fill-animation {
+  position: relative;
+  overflow: hidden;
+  // transform: translateZ(0);
+  // mask-image: radial-gradient(white, black);
+  // will-change: transform;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+
+  span {
+    @include position(absolute, 0, auto, auto, 0);
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include hover {
+    span {
+      mix-blend-mode: difference;
+    }
+
+    &::after {
+      content: "";
+      @include position(absolute, 0, auto, auto, 0);
+      height: 100%;
+      background: var(--fill-color);
+      transform: translateY(105%);
+      transition: 0.8s transform cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+    }
+
+    &:hover {
+      &::after {
+        transform: translateY(0%);
+      }
+    }
+  }
+}
+
+// Be sure markers on top
+.gsap-marker-end,
+.gsap-marker-start,
+.gsap-marker-scroller-end,
+.gsap-marker-scroller-start {
+  z-index: z-index("gsap-markers") !important;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.lazy {
+  opacity: 0;
+  transition: 0.4s all ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.blog-item {
+  margin-bottom: desktop-vw(22px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    margin-bottom: mobile-vw(16px);
+  }
+}
