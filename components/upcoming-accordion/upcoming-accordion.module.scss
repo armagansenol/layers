@@ -1,19 +1,70 @@
 .accordionHeader {
   align-items: center;
+  column-gap: desktop-vw(8px);
   display: flex;
-  justify-content: center;
-  padding: desktop-vw(10px) 0;
+  justify-content: space-between;
+  padding: desktop-vw(10px) desktop-vw(120px);
 
-  .text {
+  &.open {
+    .close {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .iconC {
+      &.arrow {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  > * {
+    align-items: center;
+    column-gap: desktop-vw(8px);
+    display: flex;
+  }
+
+  .title,
+  .close {
     font-family: Inter;
     font-size: desktop-vw(15px);
     font-weight: 500;
   }
+
+  .iconC {
+    @include dims(desktop-vw(12px));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.arrow {
+      transition: 0.8s transform ease;
+      will-change: transform;
+    }
+  }
+
+  .close {
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s opacity ease;
+
+    &.dummy {
+      visibility: hidden;
+    }
+  }
 }
 
 .accordionBody {
-  height: 90vh;
+  --margin-top: #{desktop-vw(50px)};
+
+  @include mobile {
+    --margin-top: #{mobile-vw(50px)};
+  }
+
+  height: calc(90vh - var(--margin-top));
+  margin-top: var(--margin-top);
   overflow: scroll;
+  padding-bottom: desktop-vw(200px);
 
   &::after {
     content: '';
@@ -27,7 +78,6 @@
   }
 
   .items {
-    // margin-bottom: desktop-vw(200px);
     position: relative;
     padding-bottom: desktop-vw(300px);
 

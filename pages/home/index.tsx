@@ -1,12 +1,11 @@
 import HomeSlider from '@/components/home-slider'
 import NextItemMarquee from '@/components/next-item-marquee'
+import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import cn from 'clsx'
 import s from './home.module.scss'
 
-type Props = {}
-
-const Home = (props: Props) => {
+const Home = () => {
   return (
     <Layout>
       <>
@@ -14,6 +13,7 @@ const Home = (props: Props) => {
           <HomeSlider />
         </section>
         <NextItemMarquee type="SERVICE" text="Assesments & Exams" url="/" />
+        <Subscribe />
       </>
     </Layout>
   )
