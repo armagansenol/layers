@@ -3,19 +3,17 @@
   border: 1px solid var(--hydrargyrum);
   border-radius: desktop-vw(8px);
   display: inline-flex;
-  height: desktop-vw(47px);
-  padding: 2px;
+  padding: desktop-vw(2px);
 
   .text {
     flex: 1;
     font-family: Inter;
-    font-size: desktop-vw(15px);
     font-weight: 500;
-    margin: 0 desktop-vw(45px) 0 desktop-vw(20px);
+    margin-left: desktop-vw(20px);
   }
 
   .iconC {
-    @include dims(desktop-vw(53px), 100%);
+    @include dims(20%, 100%);
     align-items: center;
     background: var(--innocent-snowdrop);
     border-radius: desktop-vw(6px);
@@ -23,10 +21,32 @@
     justify-content: center;
 
     .icon {
-      @include dims(desktop-vw(16px));
+      @include dims(40%);
       align-items: center;
       display: flex;
       justify-content: center;
     }
+  }
+
+  &.sm {
+    height: desktop-vw(47px);
+    width: desktop-vw(240px);
+  }
+
+  &.md {
+    height: desktop-vw(47px);
+    font-size: desktop-vw(15px);
+    width: desktop-vw(240px);
+  }
+
+  &.l {
+    height: desktop-vw(68px);
+    font-size: desktop-vw(21px);
+    width: desktop-vw(350px);
+  }
+
+  &.xl {
+    height: desktop-vw(68px);
+    width: desktop-vw(350px);
   }
 }

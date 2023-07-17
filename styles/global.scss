@@ -96,8 +96,9 @@ sup {
 .content-box {
   background: var(--white);
   border-radius: desktop-vw(30px);
-  margin: 0 desktop-vw(16px);
+  margin: desktop-vw(20px) desktop-vw(16px);
   padding: desktop-vw(120px) desktop-vw(80px);
+  overflow: hidden;
 
   flex: 1;
 }

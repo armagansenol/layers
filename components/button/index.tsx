@@ -9,11 +9,12 @@ import IconArrow from '@/components/icons/icon-arrow'
 type Props = {
   text: string
   path: string
+  size?: 'sm' | 'md' | 'l' | 'xl'
 }
 
-const Button = ({ text = 'Button Text', path = '/' }: Props) => {
+const Button = ({ text = 'Button Text', path = '/', size = 'md' }: Props) => {
   return (
-    <Link href={path} className={cn(s.button, 'cursor-pointer')}>
+    <Link href={path} className={cn(s.button, 'cursor-pointer', [s[size]])}>
       <span className={s.text}> {text}</span>
       <span className={s.iconC}>
         <div className={s.icon}>

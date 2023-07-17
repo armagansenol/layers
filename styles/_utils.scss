@@ -50,6 +50,12 @@
   }
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 html:not(.has-scroll-smooth) {
   .hide-on-native-scroll {
     display: none;
