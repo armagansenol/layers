@@ -1,0 +1,18 @@
+.images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+
+  @include mobile {
+    grid-gap: mobile-vw(8px);
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: var(--width) / var(--height);
+  }
+}

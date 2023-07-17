@@ -1,12 +1,12 @@
-@import "./_reset.scss";
-@import "./_fonts.scss";
-@import "./_colors.scss";
-@import "./_easings.scss";
-@import "./_functions.scss";
-@import "./_layout.scss";
-@import "./_utils.scss";
-@import "./_font-style.scss";
-@import "./_scroll.scss";
+@import './_reset.scss';
+@import './_fonts.scss';
+@import './_colors.scss';
+@import './_easings.scss';
+@import './_functions.scss';
+@import './_layout.scss';
+@import './_utils.scss';
+@import './_font-style.scss';
+@import './_scroll.scss';
 
 :root {
   --header-height: #{desktop-vw(140px)};
@@ -54,7 +54,7 @@ select {
 main {
   overflow: hidden;
   position: relative;
-  z-index: z-index("main");
+  z-index: z-index('main');
 }
 
 * {
@@ -77,7 +77,7 @@ sup {
 .gsap-marker-start,
 .gsap-marker-scroller-end,
 .gsap-marker-scroller-start {
-  z-index: z-index("gsap-markers") !important;
+  z-index: z-index('gsap-markers') !important;
 }
 
 .overflow-hidden {
@@ -91,4 +91,13 @@ sup {
   &.loaded {
     opacity: 1;
   }
+}
+
+.content-box {
+  background: var(--white);
+  border-radius: desktop-vw(30px);
+  margin: 0 desktop-vw(16px);
+  padding: desktop-vw(120px) desktop-vw(80px);
+
+  flex: 1;
 }
