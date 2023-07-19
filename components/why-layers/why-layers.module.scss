@@ -4,22 +4,33 @@
 
   .imgs {
     @include position(absolute, 50%, auto, auto, 50%);
-    @include dims(desktop-vw(360px), desktop-vw(500px));
-    transform: translate(-50%, 0);
+    @include dims(desktop-vw(400px), desktop-vw(540px));
+    transform: translate(-50%, -50%);
 
-    .t {
-      @include dims(desktop-vw(360px), desktop-vw(500px));
-      position: absolute;
-    }
+    // border: 1px solid blue;
 
     .imgC {
       position: absolute;
       top: 0;
       left: 0;
+      right: 0;
+      bottom: 0;
 
-      @include dims(desktop-vw(460px), desktop-vw(560px));
-      overflow: hidden;
-      border-radius: 30px;
+      // border: 1px solid red;
+
+      .transformC {
+        @include dims(100%);
+        border-radius: 30px;
+        overflow: hidden;
+
+        // border: 1px solid green;
+      }
+
+      .img {
+        @include dims(100%);
+        display: block;
+        object-fit: cover;
+      }
     }
   }
 

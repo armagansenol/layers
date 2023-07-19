@@ -94,11 +94,27 @@ sup {
 }
 
 .content-box {
-  background: var(--white);
-  border-radius: desktop-vw(30px);
-  margin: desktop-vw(20px) desktop-vw(16px);
-  padding: desktop-vw(120px) desktop-vw(80px);
-  overflow: hidden;
+  &-sm {
+    background: var(--white);
+    border-radius: desktop-vw(30px);
+    flex: 1;
+    margin: desktop-vw(20px) desktop-vw(8px);
+    padding: desktop-vw(120px) desktop-vw(16px);
+  }
 
-  flex: 1;
+  &-md {
+    background: var(--white);
+    border-radius: desktop-vw(30px);
+    flex: 1;
+    margin: desktop-vw(20px) desktop-vw(16px);
+    padding: desktop-vw(100px) 0;
+  }
+
+  &-lg {
+    background: var(--white);
+    border-radius: desktop-vw(30px);
+    flex: 1;
+    margin: desktop-vw(20px) desktop-vw(60px);
+    padding: desktop-vw(80px) 0;
+  }
 }

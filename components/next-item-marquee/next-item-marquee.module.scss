@@ -1,6 +1,6 @@
 .nextItem {
-  margin: desktop-vw(45px) 0;
-  padding: 0 desktop-vw(60px);
+  margin: desktop-vw(20px) 0;
+  width: 100%;
 
   .title {
     display: block;
@@ -44,6 +44,7 @@
       @include dims(desktop-vw(155px), 100%);
       background: var(--innocent-snowdrop);
       border-radius: desktop-vw(27px);
+      padding: desktop-vw(45px);
 
       display: flex;
       align-items: center;

@@ -3,8 +3,8 @@ import NextImage from 'next/image'
 import s from './image.module.scss'
 
 type Props = {
-  className: string
-  style: React.CSSProperties
+  className?: string
+  style?: React.CSSProperties
   src: string
   loading?: 'eager' | 'lazy'
   quality?: number

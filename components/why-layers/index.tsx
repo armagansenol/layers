@@ -4,6 +4,7 @@ import s from './why-layers.module.scss'
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import Image from 'next/image'
 gsap.registerPlugin(ScrollTrigger)
 
 const WhyLayers = () => {
@@ -11,29 +12,25 @@ const WhyLayers = () => {
   const q = gsap.utils.selector(ref)
 
   const imgs = [
-    'https://images.unsplash.com/photo-1688902325667-d26ac5bcc16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=701&q=80',
-    'https://images.unsplash.com/photo-1688902325667-d26ac5bcc16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=701&q=80',
-    'https://images.unsplash.com/photo-1688902325667-d26ac5bcc16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=701&q=80',
-    'https://images.unsplash.com/photo-1688902325667-d26ac5bcc16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=701&q=80',
+    'https://images.unsplash.com/photo-1688590361364-2d153dac2a15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    'https://images.unsplash.com/photo-1516519700326-137a56a20cb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    'https://images.unsplash.com/photo-1688248335728-3ec6d3e1950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    'https://images.unsplash.com/photo-1687699498075-5cce2d93d019?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80',
   ]
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const why = q('[data-text-why]')
       const layers = q('[data-text-layers]')
-
-      const imgs = q('[data-imgs]')
       const imgsArr = q('[data-img]')
-
-      gsap.set(imgs, {
-        yPercent: -500,
-      })
 
       imgsArr.forEach((img, i) => {
         gsap.set(img, {
-          yPercent: () => -100 * i,
-          rotate: () => -10 * i,
-          opacity: () => 0 - i * 0.2,
+          yPercent: () => Math.pow(i, 2.5),
+          xPercent: () => gsap.utils.random(-10, 10) * gsap.utils.random(-1, 1),
+          rotation: () =>
+            i % 2 === 0 ? gsap.utils.random(-10, -5) : gsap.utils.random(5, 10),
+          opacity: 0,
         })
       })
 
@@ -55,10 +52,11 @@ const WhyLayers = () => {
           's'
         )
         .to(
-          [imgs, ...imgsArr],
+          imgsArr,
           {
-            yPercent: -50,
             opacity: 1,
+            stagger: 1,
+            duration: 0,
           },
           's'
         )
@@ -66,11 +64,11 @@ const WhyLayers = () => {
       ScrollTrigger.create({
         id: 'pinned-images',
         animation: tl,
-        scrub: 1,
+        scrub: true,
         trigger: ref.current,
-        markers: true,
-        pin: true,
-        end: () => `+=${5000}px`,
+        start: 'top+=25% center',
+        end: 'center+=25% center',
+        // markers: true,
       })
     })
 
@@ -80,15 +78,15 @@ const WhyLayers = () => {
   return (
     <div className={cn(s.whyLayers, 'flex-center')} ref={ref}>
       <div className={s.imgs}>
-        <div className={s.t} data-imgs>
-          {imgs.map((img, i) => {
-            return (
-              <div key={i} className={s.imgC} data-img>
-                <img src={img} alt="alt" />
+        {imgs.map((img, i) => {
+          return (
+            <div key={i} className={s.imgC}>
+              <div className={s.transformC} data-img>
+                <img className={s.img} src={img} alt="alt" />
               </div>
-            )
-          })}
-        </div>
+            </div>
+          )
+        })}
       </div>
 
       <h2 className={s.textC}>

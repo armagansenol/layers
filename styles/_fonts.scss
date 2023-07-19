@@ -50,3 +50,14 @@
   font-display: swap;
   unicode-range: U+000-5FF; /* Latin glyphs */
 }
+
+// Dream Believer
+@font-face {
+  font-family: 'DreamBeliever';
+  src: url('/fonts/DreamBeliever.woff2') format('woff2'),
+    url('/fonts/DreamBeliever.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+}

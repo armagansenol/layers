@@ -1,36 +1,43 @@
-import React from 'react'
 import s from './next-item-marquee.module.scss'
+
 import { Marquee } from '@/components/marquee'
+import IconArrow from '../icons/icon-arrow'
 import Link from 'next/link'
 
 type Props = {
-  type: 'SERVICE' | 'FEATURE'
-  text: string
+  title?: string
+  text: {
+    t1: string
+    t2: string
+  }
   url: string
 }
 
 const NextItemMarquee = ({
-  type = 'FEATURE',
-  text = 'text',
+  title = '',
+  text = {
+    t1: '',
+    t2: '',
+  },
   url = '/',
 }: Props) => {
-  const formattedType = type === 'FEATURE' ? 'Feature' : 'Service'
-
   return (
-    <section className={s.nextItem}>
-      <small className={s.title}>Next {formattedType}</small>
+    <div className={s.nextItem}>
+      {title && <small className={s.title}>{title}</small>}
       <Link href={url} className={s.marqueeC}>
         <Marquee repeat={2} duration={20}>
           <>
             <h5 className={s.marqueeText}>
-              <span className={s.text}>Next {formattedType}</span>
-              <span className={s.text}>{text}</span>
+              <span className={s.text}>{text.t1}</span>
+              <span className={s.text}>{text.t2}</span>
             </h5>
           </>
         </Marquee>
-        <div className={s.iconC}>icon</div>
+        <div className={s.iconC}>
+          <IconArrow />
+        </div>
       </Link>
-    </section>
+    </div>
   )
 }
 
