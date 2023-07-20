@@ -208,7 +208,7 @@ const UpcomingAccordion = () => {
       </div>
 
       <motion.div
-        className="overflow-hidden"
+        className="hidden-overflow"
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
         exit="closed"

@@ -11,6 +11,7 @@ import Button from '@/components/button'
 import { Marquee } from '@/components/marquee'
 import { Image } from '@/components/image'
 import ReferencesMarquee from '@/components/references-marquee'
+import Header from '@/components/header'
 
 const Home = () => {
   const references = [
@@ -26,6 +27,7 @@ const Home = () => {
     <Layout>
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
+          <Header />
           <HomeSlider />
         </section>
 

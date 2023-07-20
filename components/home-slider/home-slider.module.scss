@@ -1,8 +1,8 @@
 .slider {
+  align-items: center;
   display: grid;
   grid-template-columns: 1fr auto;
-
-  align-items: center;
+  padding-left: desktop-vw(90px);
 
   .text {
     width: desktop-vw(453px);

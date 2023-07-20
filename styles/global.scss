@@ -77,19 +77,6 @@ sup {
   z-index: z-index('gsap-markers') !important;
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.lazy {
-  opacity: 0;
-  transition: 0.4s all ease;
-
-  &.loaded {
-    opacity: 1;
-  }
-}
-
 .content-box {
   &-sm {
     background: var(--white);

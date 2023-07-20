@@ -42,6 +42,15 @@
   }
 }
 
+.lazy {
+  opacity: 0;
+  transition: 0.4s all ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
 .cursor-pointer {
   cursor: pointer;
 
