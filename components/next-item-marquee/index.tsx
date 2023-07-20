@@ -1,5 +1,6 @@
 import s from './next-item-marquee.module.scss'
 
+import cn from 'clsx'
 import { Marquee } from '@/components/marquee'
 import IconArrow from '../icons/icon-arrow'
 import Link from 'next/link'
@@ -22,7 +23,7 @@ const NextItemMarquee = ({
   url = '/',
 }: Props) => {
   return (
-    <div className={s.nextItem}>
+    <div className={cn(s.nextItem, 'cursor-pointer')}>
       {title && <small className={s.title}>{title}</small>}
       <Link href={url} className={s.marqueeC}>
         <Marquee repeat={2} duration={20}>

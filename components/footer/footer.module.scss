@@ -1,0 +1,99 @@
+.title {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: desktop-vw(15px);
+  margin-bottom: desktop-vw(16px);
+}
+
+.linkC {
+  .link {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: desktop-vw(13px);
+  }
+}
+
+.footer {
+  .main {
+    border-top: 1px solid var(--wistful);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 desktop-vw(60px);
+    padding: desktop-vw(50px) 0;
+
+    .gridY {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      row-gap: desktop-vw(80px);
+
+      .info {
+        display: flex;
+        column-gap: desktop-vw(60px);
+
+        .logoC {
+          @include dims(desktop-vw(185px), desktop-vw(160px));
+          background: var(--white);
+          border: 1px solid var(--black);
+          border-radius: desktop-vw(30px);
+          padding: desktop-vw(32px);
+        }
+      }
+
+      .linksC {
+        .links {
+          align-items: flex-start;
+          justify-content: flex-start;
+          height: desktop-vw(150px);
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          margin-right: auto;
+          row-gap: desktop-vw(8px);
+          column-gap: desktop-vw(70px);
+
+          .linkC {
+            display: inline-block;
+
+            .link {
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    align-items: center;
+    border-top: 1px solid var(--wistful);
+    font-family: Inter;
+    font-size: desktop-vw(15px);
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 desktop-vw(60px);
+    padding: desktop-vw(60px) 0;
+
+    .signature {
+      font-family: Inter;
+      font-size: desktop-vw(15px);
+      font-weight: 400;
+
+      .jdfx {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .iskur {
+    background: var(--white);
+    border-top-left-radius: desktop-vw(30px);
+    border-top-right-radius: desktop-vw(30px);
+    padding: desktop-vw(35px) desktop-vw(75px);
+
+    small {
+      font-family: Inter;
+      font-weight: 400;
+      font-size: desktop-vw(11px);
+    }
+  }
+}

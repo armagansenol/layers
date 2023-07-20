@@ -85,22 +85,6 @@
   }
 }
 
-.references {
-  padding: desktop-vw(100px) 0;
-
-  .iconC {
-    margin: 0 desktop-vw(50px);
-    width: desktop-vw(100px);
-  }
-}
-
-.trialC {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: 0 desktop-vw(60px);
-}
-
 .flexible {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -193,4 +177,12 @@
       }
     }
   }
+}
+
+.trialC {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: desktop-vw(50px);
+  padding: 0 desktop-vw(60px);
 }

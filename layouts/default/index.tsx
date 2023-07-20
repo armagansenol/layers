@@ -3,6 +3,7 @@ import { CustomHead } from '@/components/custom-head'
 import { ReactElement } from 'react'
 import s from './layout.module.scss'
 import UpcomingAccordion from '@/components/upcoming-accordion'
+import Footer from '@/components/footer'
 
 // const Header = dynamic(
 //   () => import('components/header').then(({ Header }) => Header),
@@ -67,7 +68,7 @@ export function Layout({
         {/* <Header title="STUDIO FREIGHT" principles={principles} contact={contactData} /> */}
         <UpcomingAccordion />
         <main className={s.main}>{children}</main>
-        {/* <Footer links={footerLinks} studioInfo={studioInfo} /> */}
+        <Footer />
       </div>
     </>
   )

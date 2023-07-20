@@ -6,17 +6,14 @@
 @import './_layout.scss';
 @import './_utils.scss';
 @import './_font-style.scss';
+@import './_themes.scss';
 @import './_scroll.scss';
 
 :root {
-  --header-height: #{desktop-vw(140px)};
-  --padding-l: #{desktop-vw(120px)};
-  --padding-100: #{desktop-vw(100px)};
+  --header-height: #{desktop-vw(120px)};
 
   @include mobile {
     --header-height: #{mobile-vw(120px)};
-    --padding-l: #{mobile-vw(16px)};
-    --padding-100: #{mobile-vw(60px)};
   }
 }
 

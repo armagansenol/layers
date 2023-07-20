@@ -10,8 +10,18 @@ import PinnedFeatures from '@/components/pinned-features'
 import Button from '@/components/button'
 import { Marquee } from '@/components/marquee'
 import { Image } from '@/components/image'
+import ReferencesMarquee from '@/components/references-marquee'
 
 const Home = () => {
+  const references = [
+    { logo: '/img/wired.svg', url: '/' },
+    { logo: '/img/wired.svg', url: '/' },
+    { logo: '/img/wired.svg', url: '/' },
+    { logo: '/img/wired.svg', url: '/' },
+    { logo: '/img/wired.svg', url: '/' },
+    { logo: '/img/wired.svg', url: '/' },
+  ]
+
   return (
     <Layout>
       <>
@@ -69,39 +79,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className={s.references}>
-          <Marquee duration={30}>
-            <>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-              <div className={s.iconC}>
-                <img src="/img/layers-logo.svg" alt="Layers Logo" />
-              </div>
-            </>
-          </Marquee>
-        </section>
+        <ReferencesMarquee items={references} />
 
         <section className={cn(s.flexible, 'content-box-lg')}>
           <div className={s.textt}>
