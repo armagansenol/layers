@@ -1,4 +1,4 @@
-import {
+import React, {
   ReactElement,
   forwardRef,
   useImperativeHandle,
@@ -6,12 +6,12 @@ import {
   useState,
 } from 'react'
 import s from './slider.module.scss'
-import './custom.scss'
+// import './custom.scss'
 
 import cn from 'clsx'
 import Navigation from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Swiper as SwiperCore } from 'swiper/types'
+// import { Swiper as SwiperCore } from 'swiper/types'
 
 import 'swiper/css'
 // import "swiper/css/navigation"
@@ -23,7 +23,8 @@ type ResponsiveUnits = {
 }
 
 type Props = {
-  items: ReactElement[]
+  children: ReactElement[]
+  items?: ReactElement[]
   prevButton?: ReactElement | null
   nextButton?: ReactElement | null
   slidesPerView?: ResponsiveUnits
@@ -44,6 +45,7 @@ type Props = {
 
 const Slider = (
   {
+    children = [],
     items = [],
     // prevButton = null,
     // nextButton = null,
@@ -77,10 +79,7 @@ const Slider = (
   ref: any
 ) => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  // const [nextEl, nextElRef] = useSwiperRef<HTMLButtonElement>()
-  // const [prevEl, prevElRef] = useSwiperRef<HTMLButtonElement>()
-
-  const swiperRef = useRef<SwiperCore>()
+  const swiperRef = useRef<any>(Swiper)
 
   function prev() {
     swiperRef.current?.slidePrev()
@@ -131,8 +130,8 @@ const Slider = (
         }}
         modules={[Navigation]}
       >
-        {Array.isArray(items) &&
-          items.map((item, i) => {
+        {children.length &&
+          React.Children.toArray(children).map((item, i) => {
             return (
               <SwiperSlide key={i}>
                 <div className={s.slide}>{item}</div>

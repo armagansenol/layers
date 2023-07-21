@@ -1,5 +1,6 @@
 import cn from 'clsx'
 
+import BlazeSlider from '@/components/blaze-slider'
 import Header from '@/components/header'
 import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
@@ -144,6 +145,20 @@ const About = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section>
+          <div className={s.slidesC}>
+            <BlazeSlider className={s.slides} slidesToShow={3}>
+              <div className={s.slideItem}>lol - 1</div>
+              <div className={s.slideItem}>lol - 2</div>
+              <div className={s.slideItem}>lol - 3</div>
+              <div className={s.slideItem}>lol - 4</div>
+              <div className={s.slideItem}>lol - 5</div>
+              <div className={s.slideItem}>lol - 6</div>
+              <div className={s.slideItem}>lol - 7</div>
+            </BlazeSlider>
           </div>
         </section>
 

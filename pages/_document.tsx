@@ -9,35 +9,35 @@ export default function Document() {
       <Head>
         <meta charSet="UTF-8" />
         <link
-          href="/fonts/WTgothic-Bold.woff2"
+          href="/fonts/WTGothic-Bold.woff2"
           as="font"
           rel="preload prefetch"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
-          href="/fonts/WTgothic-BoldItalic.woff2"
+          href="/fonts/WTGothic-BoldItalic.woff2"
           as="font"
           rel="preload prefetch"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
-          href="/fonts/WTgothic-Medium.woff2"
+          href="/fonts/WTGothic-Medium.woff2"
           as="font"
           rel="preload prefetch"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
-          href="/fonts/WTgothic-Regular.woff2"
+          href="/fonts/WTGothic-Regular.woff2"
           as="font"
           rel="preload prefetch"
           type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
-          href="/fonts/WTgothic-RegularItalic.woff2"
+          href="/fonts/WTGothic-RegularItalic.woff2"
           as="font"
           rel="preload prefetch"
           type="font/woff2"
