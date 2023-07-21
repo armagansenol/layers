@@ -1,0 +1,77 @@
+.slider {
+  position: relative;
+
+  .navigation {
+    @include dims(100vw, auto);
+    @include position(absolute, 50%, auto, auto, auto);
+    transform: translateY(-50%);
+    padding: 0 desktop-vw(24px);
+    pointer-events: none;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .btnWrapper {
+      opacity: 1;
+      pointer-events: auto;
+      transition: 0.3s all ease;
+      z-index: 20;
+
+      display: flex;
+
+      @include mobile {
+        display: flex;
+      }
+
+      &.disabled {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &.btnPrev {
+        justify-content: flex-start;
+        left: desktop-vw(25px);
+
+        @include mobile {
+          left: 5vw;
+        }
+      }
+
+      &.btnNext {
+        justify-content: flex-end;
+        right: desktop-vw(25px);
+
+        @include mobile {
+          right: 5vw;
+        }
+      }
+    }
+  }
+
+  .sliderBtn {
+    @include dims(desktop-vw(40px));
+    background: var(--liliac);
+    border: 1px solid var(--kuretake-black-manga);
+    border-radius: 50%;
+    padding: desktop-vw(12px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      @include dims(mobile-vw(36px));
+      padding: mobile-vw(12px);
+    }
+
+    &.sliderPrev {
+      transform: rotate(-135deg);
+    }
+
+    &.sliderNext {
+      transform: rotate(45deg);
+    }
+  }
+}

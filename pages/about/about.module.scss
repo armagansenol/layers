@@ -1,0 +1,141 @@
+.trialC {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: desktop-vw(50px);
+  padding: 0 desktop-vw(60px);
+}
+
+.intro {
+  position: relative;
+
+  .inner {
+    padding: desktop-vw(50px) 0 desktop-vw(100px) 0;
+
+    .imgC {
+      &.gurl {
+        @include position(
+          absolute,
+          auto,
+          desktop-vw(150px),
+          desktop-vw(-130px),
+          auto
+        );
+        @include dims(desktop-vw(400px), desktop-vw(500px));
+      }
+
+      &.allInOne {
+        @include position(
+          absolute,
+          auto,
+          desktop-vw(420px),
+          desktop-vw(-30px),
+          auto
+        );
+        @include dims(desktop-vw(175px), desktop-vw(85px));
+      }
+    }
+  }
+}
+
+.marqueeC {
+  margin: desktop-vw(50px) 0;
+}
+
+.peopleFirst {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  margin-bottom: desktop-vw(230px);
+
+  .imgs {
+    position: relative;
+
+    .imgC {
+      overflow: hidden;
+
+      &:nth-child(1) {
+        @include position(
+          absolute,
+          desktop-vw(-150px),
+          auto,
+          auto,
+          desktop-vw(-100px)
+        );
+        @include dims(desktop-vw(650px), desktop-vw(450px));
+        border-radius: desktop-vw(16px);
+        transform: rotate(-10deg);
+      }
+
+      &:nth-child(2) {
+        @include position(
+          absolute,
+          desktop-vw(250px),
+          auto,
+          auto,
+          desktop-vw(100px)
+        );
+        @include dims(desktop-vw(522px), desktop-vw(240px));
+      }
+    }
+  }
+
+  .text {
+    width: desktop-vw(460px);
+
+    .title {
+      font-family: WtGothic;
+      font-size: desktop-vw(45px);
+      font-weight: 700;
+      margin-bottom: desktop-vw(30px);
+    }
+
+    .par {
+      font-family: Inter;
+      font-size: desktop-vw(18px);
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: desktop-vw(30px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.services {
+  padding: 0 desktop-vw(80px);
+
+  .title {
+    font-family: WtGothic;
+    font-size: desktop-vw(45px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(120px);
+    width: desktop-vw(400px);
+  }
+
+  .grid {
+    column-gap: desktop-vw(150px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    .gridItem {
+      .iconC {
+        @include dims(desktop-vw(45px));
+        margin-bottom: desktop-vw(30px);
+      }
+
+      .par {
+        font-family: Inter;
+        font-size: desktop-vw(18px);
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: desktop-vw(30px);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

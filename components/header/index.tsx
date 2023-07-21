@@ -249,7 +249,7 @@ const Header = () => {
     <header
       className={cn(s.header, [s[currentRoute && routes[currentRoute].type]])}
     >
-      <div className={s.logoC}>
+      <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
         <Image
           src="/img/layers-logo.svg"
           alt="6 hours"
@@ -257,7 +257,7 @@ const Header = () => {
           height="193"
           style={{ objectFit: 'contain' }}
         />
-      </div>
+      </Link>
 
       <nav className={s.navigation} onMouseLeave={() => setIsOpen(false)}>
         {Object.entries(routes).map(([key, value], i) => {
@@ -325,9 +325,9 @@ const Header = () => {
                         routes[currentRoute].children?.map((item, i) => {
                           return (
                             <Link
-                              href={item.path}
-                              key={i}
                               className={cn(s.menuItem, 'cursor-pointer')}
+                              href={`${routes[currentRoute].path}/${item.path}`}
+                              key={i}
                             >
                               <div className={s.iconC}>
                                 <Image

@@ -1,17 +1,48 @@
-import { Html, Head, Main, NextScript } from "next/document"
+import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en" className={`${process.env.NODE_ENV === "development" && "dev"}`}>
+    <Html
+      lang="en"
+      className={`${process.env.NODE_ENV === 'development' && 'dev'}`}
+    >
       <Head>
         <meta charSet="UTF-8" />
-        {/* <link
-          href="/fonts/NeueMontreal-Light.woff2"
+        <link
+          href="/fonts/WTgothic-Bold.woff2"
           as="font"
           rel="preload prefetch"
           type="font/woff2"
           crossOrigin="anonymous"
-        /> */}
+        />
+        <link
+          href="/fonts/WTgothic-BoldItalic.woff2"
+          as="font"
+          rel="preload prefetch"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="/fonts/WTgothic-Medium.woff2"
+          as="font"
+          rel="preload prefetch"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="/fonts/WTgothic-Regular.woff2"
+          as="font"
+          rel="preload prefetch"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="/fonts/WTgothic-RegularItalic.woff2"
+          as="font"
+          rel="preload prefetch"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
       </Head>
       <body>
         <Main />

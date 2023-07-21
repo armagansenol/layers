@@ -1,17 +1,16 @@
+import Button from '@/components/button'
+import Header from '@/components/header'
 import HomeSlider from '@/components/home-slider'
+import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
+import PinnedFeatures from '@/components/pinned-features'
+import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
 import { Layout } from '@/layouts/default'
 import cn from 'clsx'
 import s from './home.module.scss'
-import PinnedFeatures from '@/components/pinned-features'
-import Button from '@/components/button'
-import { Marquee } from '@/components/marquee'
-import { Image } from '@/components/image'
-import ReferencesMarquee from '@/components/references-marquee'
-import Header from '@/components/header'
 
 const Home = () => {
   const references = [
@@ -108,19 +107,21 @@ const Home = () => {
           </div>
           <div className={s.imgs}>
             <div className={s.imgC}>
-              <img
-                className={s.img}
-                src="https://images.unsplash.com/photo-1688504278800-fcbd88b2ea82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1076&q=80"
+              <Image
                 alt="alt"
+                className={s.img}
+                height="137"
+                src="https://images.unsplash.com/photo-1688504278800-fcbd88b2ea82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1076&q=80"
+                width="146"
               />
             </div>
             <div className={cn(s.sticker, s.hours)}>
               <Image
                 src="/img/6-hours.svg"
                 alt="6 hours"
-                width="146"
-                height="137"
                 style={{ objectFit: 'contain' }}
+                width="206"
+                height="193"
               />
             </div>
             <div className={cn(s.sticker, s.laptop)}>

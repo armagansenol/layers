@@ -3,7 +3,7 @@
 @import './_colors.scss';
 @import './_easings.scss';
 @import './_functions.scss';
-@import './_layout.scss';
+// @import './_layout.scss';
 @import './_utils.scss';
 @import './_font-style.scss';
 @import './_themes.scss';
@@ -22,6 +22,9 @@ html {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--kuretake-black-manga);
   scrollbar-width: thin;
+
+  background-color: var(--theme-primary);
+  color: var(--theme-secondary);
 }
 
 html,
@@ -82,7 +85,7 @@ sup {
     background: var(--white);
     border-radius: desktop-vw(30px);
     flex: 1;
-    margin: desktop-vw(20px) desktop-vw(8px);
+    margin: 0 desktop-vw(8px) desktop-vw(20px) desktop-vw(8px);
     padding: desktop-vw(120px) desktop-vw(16px);
   }
 

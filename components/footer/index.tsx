@@ -41,7 +41,7 @@ const Footer = (props: Props) => {
               <h6 className={s.title}>COMPANY</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="">
+                  <Link className={s.link} href="about">
                     About
                   </Link>
                 </li>

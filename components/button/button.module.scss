@@ -1,7 +1,7 @@
 .button {
   align-items: center;
   border: 1px solid var(--hydrargyrum);
-  border-radius: desktop-vw(8px);
+  border-radius: desktop-vw(11px);
   display: inline-flex;
   padding: desktop-vw(2px);
 
@@ -16,7 +16,7 @@
     @include dims(20%, 100%);
     align-items: center;
     background: var(--innocent-snowdrop);
-    border-radius: desktop-vw(6px);
+    border-radius: desktop-vw(8px);
     display: flex;
     justify-content: center;
 
