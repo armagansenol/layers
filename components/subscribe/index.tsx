@@ -1,9 +1,7 @@
-import React from 'react'
-
 import { useEffect, useState } from 'react'
 import s from './subscribe.module.scss'
 
-import api from '@/api'
+import api from '@/api-client'
 import axios from 'axios'
 import cn from 'clsx'
 import { useFormik } from 'formik'
@@ -15,9 +13,7 @@ interface ISubscribeFormData {
   email: string
 }
 
-type Props = {}
-
-const Subscribe = (props: Props) => {
+const Subscribe = () => {
   const [responseMessage, setResponseMessage] = useState(null)
   const [success, setSuccess] = useState(false)
 
