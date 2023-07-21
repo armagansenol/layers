@@ -1,15 +1,3 @@
-import Head from "next/head"
+import home from './home'
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Layers</title>
-        <meta name="description" content="Description" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main></main>
-    </>
-  )
-}
+export default home
