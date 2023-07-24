@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './footer.module.scss'
-import Link from 'next/link'
 import { Image } from '../image'
+import { Link } from '@/components/link'
 
 type Props = {}
 
@@ -11,7 +11,7 @@ const Footer = (props: Props) => {
       <div className={s.main}>
         <div className={s.gridY}>
           <div className={s.info}>
-            <div className={s.logoC}>
+            <Link href="/" className={s.logoC}>
               <Image
                 src="/img/layers-logo.svg"
                 alt="6 hours"
@@ -19,7 +19,7 @@ const Footer = (props: Props) => {
                 height="193"
                 style={{ objectFit: 'contain' }}
               />
-            </div>
+            </Link>
             <div className={s.linksC}>
               <h6 className={s.title}>DOWNLOAD</h6>
               <ul className={s.links}>

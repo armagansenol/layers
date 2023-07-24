@@ -4,7 +4,7 @@ import s from './header.module.scss'
 import { Image } from '@/components/image'
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
-import Link from 'next/link'
+import { Link } from '@/components/link'
 
 type Route = {
   type: 'features' | 'services' | 'resources' | 'requestADemo'

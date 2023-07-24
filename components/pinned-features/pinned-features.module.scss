@@ -1,5 +1,6 @@
 .pinnedFeatures {
   @include dims(100%, 100vh);
+  padding: 0 desktop-vw(100px);
   position: relative;
 
   display: grid;
@@ -41,6 +42,7 @@
     }
   }
 }
+
 .media {
   .videoC {
     @include dims(100%, auto);

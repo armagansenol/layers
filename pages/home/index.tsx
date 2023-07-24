@@ -11,7 +11,6 @@ import WhyLayers from '@/components/why-layers'
 import { Layout } from '@/layouts/default'
 import cn from 'clsx'
 import s from './home.module.scss'
-import PageTransition from '@/components/page-transition'
 
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 

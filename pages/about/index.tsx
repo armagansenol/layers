@@ -9,7 +9,6 @@ import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import s from './about.module.scss'
-import PageTransition from '@/components/page-transition'
 
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 

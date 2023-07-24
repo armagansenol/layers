@@ -1,0 +1,174 @@
+.contactForm {
+  .row {
+    display: flex;
+    column-gap: desktop-vw(20px);
+    margin-bottom: desktop-vw(30px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .field {
+    --input-padding: 20px;
+    width: 100%;
+
+    @include mobile {
+      --input-padding: 16px;
+      width: 100%;
+    }
+
+    .inputC {
+      background: #f8f8f8;
+      border-radius: desktop-vw(11px);
+      position: relative;
+      transition: 0.3s all ease;
+
+      @include mobile {
+        border-radius: mobile-vw(26px);
+        margin-bottom: mobile-vw(14px);
+      }
+
+      .input {
+        @include dims(100%);
+        border-radius: desktop-vw(26px);
+        color: var(--liliac);
+        font-family: Inter;
+        font-size: desktop-vw(15px);
+        font-weight: 400;
+        padding: desktop-vw(15px) var(--input-padding);
+
+        @include mobile {
+          border-radius: mobile-vw(26px);
+          font-size: mobile-vw(14px);
+          padding: mobile-vw(17px) var(--input-padding);
+        }
+
+        &::placeholder {
+          transition: 0.4s all ease;
+        }
+
+        &:focus {
+          &::placeholder {
+            opacity: 0.3;
+          }
+        }
+      }
+
+      &.textarea {
+        height: desktop-vh(180px);
+        line-height: 1.5;
+        resize: none;
+        word-break: break-all;
+      }
+
+      &.required {
+        box-shadow: red 0px 0px 0px 1px;
+      }
+
+      &.disabled {
+        opacity: 0.1;
+        pointer-events: none;
+      }
+
+      .counter {
+        @include position(
+          absolute,
+          calc(100% + desktop-vw(4px)),
+          var(--input-padding),
+          desktop-vw(8px),
+          auto
+        );
+        color: var(--liliac);
+        font-family: WTGothic;
+        font-size: desktop-vw(12px);
+        font-weight: 100;
+
+        @include mobile {
+          @include position(
+            absolute,
+            mobile-vw(-18px),
+            var(--input-padding),
+            0,
+            auto
+          );
+          font-size: mobile-vw(9px);
+        }
+      }
+    }
+  }
+
+  .confirmation {
+    --box-dims: 18px;
+    margin-bottom: desktop-vw(10px);
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @include mobile {
+      --boxDims: 16px;
+      margin-bottom: mobile-vw(50px);
+    }
+
+    .checkbox {
+      @include dims(var(--box-dims));
+      border: 1px solid var(--innocent-snowdrop);
+      border-radius: desktop-vw(4px);
+      flex-shrink: 0;
+      margin-top: 0.25vw;
+      position: relative;
+
+      @include mobile {
+        @include dims(var(--boxDims));
+        border-radius: mobile-vw(4px);
+      }
+
+      .fill {
+        @include position(absolute, 50%, auto, auto, 50%);
+        @include dims(calc(var(--box-dims) - 6px));
+        background: var(--innocent-snowdrop);
+        border-radius: 2px;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: 300ms all ease;
+
+        &.visible {
+          opacity: 1;
+        }
+      }
+    }
+
+    .legalText {
+      margin-left: desktop-vw(16px);
+
+      @include mobile {
+        margin-left: mobile-vw(10px);
+      }
+
+      .small,
+      .link {
+        color: var(--liliac);
+        font-family: Inter;
+        font-size: desktop-vw(15px);
+        font-weight: 100;
+        line-height: 1.5;
+        margin-bottom: 1vw;
+
+        @include mobile {
+          font-size: 3.25vw;
+        }
+      }
+
+      .link {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

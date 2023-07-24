@@ -17,7 +17,7 @@ const PinnedFeatures = (props: Props) => {
     function updateVideo(val: number) {
       if (videoRef.current) {
         const mapped = parseFloat(
-          gsap.utils.mapRange(0, 1, 0, 10, val).toFixed(3)
+          gsap.utils.mapRange(0, 1, 0, 22, val).toFixed(3)
         )
         console.log('mapped', mapped)
         videoRef.current.currentTime = mapped
@@ -47,7 +47,7 @@ const PinnedFeatures = (props: Props) => {
           // markers: true,
           pin: true,
           pinSpacing: true,
-          // end: '5000px top',
+          end: '15000px top',
           onUpdate: (self) => {
             //   console.log('progress', self.progress)
             updateVideo(self.progress)
@@ -151,8 +151,8 @@ const PinnedFeatures = (props: Props) => {
         <div className={s.videoC}>
           <video
             className={s.video}
-            src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
-            // src="/video/sample.mp4"
+            // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
+            src="/video/sample120.mp4"
             // autoPlay
             // muted
             // loop
