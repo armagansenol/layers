@@ -11,10 +11,12 @@ import WhyLayers from '@/components/why-layers'
 import { Layout } from '@/layouts/default'
 import cn from 'clsx'
 import s from './home.module.scss'
+import { useMenuStore } from '@/lib/menuStore'
 
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 
 const Home = (ref: IndexPageRef) => {
+  const { setIsOpen, setCurrentRoute } = useMenuStore()
   const references = [
     { logo: '/img/wired.svg', url: '/' },
     { logo: '/img/wired.svg', url: '/' },
@@ -23,6 +25,11 @@ const Home = (ref: IndexPageRef) => {
     { logo: '/img/wired.svg', url: '/' },
     { logo: '/img/wired.svg', url: '/' },
   ]
+
+  function toFeatures() {
+    setIsOpen(true)
+    setCurrentRoute('features')
+  }
 
   return (
     <Layout>
@@ -47,10 +54,12 @@ const Home = (ref: IndexPageRef) => {
           <div className={cn(s.cards, 'content-box-lg', 'flex-center')}>
             cards
           </div>
-          <NextItemMarquee
-            text={{ t1: 'See All Features', t2: 'See All Features' }}
-            url="/"
-          />
+          <div className={s.trigger} onClick={toFeatures}>
+            <NextItemMarquee
+              text={{ t1: 'See All Features', t2: 'See All Features' }}
+              url="/"
+            />
+          </div>
         </section>
 
         <section className={cn(s.photo, 'content-box-md')}>

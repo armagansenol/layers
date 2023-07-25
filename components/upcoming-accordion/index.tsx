@@ -3,13 +3,15 @@ import s from './upcoming-accordion.module.scss'
 
 import cn from 'clsx'
 import { cubicBezier, motion } from 'framer-motion'
-import { EventAccordion } from '../project-accordion'
+import { useLockBodyScroll } from 'react-use'
+import IconArrowDropdown from '../icons/icon-arrow-dropdown'
 import IconCalendar from '../icons/icon-calendar'
 import IconX from '../icons/icon-x'
-import IconArrowDropdown from '../icons/icon-arrow-dropdown'
+import { EventAccordion } from '../project-accordion'
 
 const UpcomingAccordion = () => {
   const [isOpen, setIsOpen] = useState(false)
+  useLockBodyScroll(isOpen)
 
   const accItems = [
     {

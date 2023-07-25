@@ -1,14 +1,10 @@
-import cn from 'clsx'
-import { useEffect, useRef } from 'react'
-
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { memo, useEffect, useRef } from 'react'
 import s from './pinned-features.module.scss'
-gsap.registerPlugin(ScrollTrigger)
 
-type Props = {}
+import cn from 'clsx'
+import gsap from 'gsap'
 
-const PinnedFeatures = (props: Props) => {
+const PinnedFeatures = () => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -165,4 +161,4 @@ const PinnedFeatures = (props: Props) => {
   )
 }
 
-export default PinnedFeatures
+export default memo(PinnedFeatures)

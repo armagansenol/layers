@@ -23,6 +23,10 @@
   .cards {
     @include dims(100%, 100vh);
   }
+
+  .trigger {
+    width: 100%;
+  }
 }
 
 .photo {

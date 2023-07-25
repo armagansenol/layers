@@ -30,7 +30,8 @@
     "swiper": "^10.0.4",
     "swiper-react": "^1.0.0",
     "typescript": "5.1.6",
-    "yup": "^1.2.0"
+    "yup": "^1.2.0",
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@types/gsap": "^3.0.0"

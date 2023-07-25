@@ -1,5 +1,5 @@
-@use "sass:math";
-@import "./_variables.scss";
+@use 'sass:math';
+@import './_variables.scss';
 
 // Breakpoint
 @mixin mobile {
@@ -37,7 +37,10 @@
 }
 
 @function columns($columns) {
-  @return calc((#{$columns} * var(--layout-column-width)) + ((#{$columns} - 1) * var(--layout-columns-gap)));
+  @return calc(
+    (#{$columns} * var(--layout-column-width)) +
+      ((#{$columns} - 1) * var(--layout-columns-gap))
+  );
 }
 
 @mixin hover {
@@ -57,7 +60,13 @@
   height: $height;
 }
 
-@mixin position($position, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+@mixin position(
+  $position,
+  $top: auto,
+  $right: auto,
+  $bottom: auto,
+  $left: auto
+) {
   position: $position;
   top: $top;
   right: $right;
@@ -67,17 +76,18 @@
 
 // z-index
 $z-indexes: (
-  "gsap-markers",
-  "privacy-popup",
-  "menu",
-  "cursor",
-  "header",
-  "sticky-filter",
-  "logo",
-  "img",
-  "main",
-  "footer",
-  "bg"
+  'gsap-markers',
+  'privacy-popup',
+  'navigation',
+  'menu',
+  'cursor',
+  'header',
+  'sticky-filter',
+  'logo',
+  'img',
+  'main',
+  'footer',
+  'bg'
 );
 
 @function z-index($name) {

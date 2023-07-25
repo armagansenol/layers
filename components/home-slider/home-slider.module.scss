@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   padding-left: desktop-vw(90px);
+  padding-top: desktop-vw(30px);
 
   .text {
     width: desktop-vw(453px);
@@ -24,7 +25,7 @@
   }
 
   .media {
-    @include dims(desktop-vw(670px), desktop-vw(686px));
+    @include dims(desktop-vw(670px), desktop-vw(500px));
     border-radius: desktop-vw(12px);
     overflow: hidden;
     position: relative;

@@ -25,7 +25,7 @@ const NextItemMarquee = ({
   return (
     <div className={cn(s.nextItem, 'cursor-pointer')}>
       {title && <small className={s.title}>{title}</small>}
-      <Link href={url} className={s.marqueeC}>
+      <div className={s.marqueeC}>
         <Marquee repeat={2} duration={20}>
           <>
             <h5 className={s.marqueeText}>
@@ -37,7 +37,7 @@ const NextItemMarquee = ({
         <div className={s.iconC}>
           <IconArrow />
         </div>
-      </Link>
+      </div>
     </div>
   )
 }

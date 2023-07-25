@@ -3,7 +3,8 @@
   column-gap: desktop-vw(8px);
   display: flex;
   justify-content: space-between;
-  padding: desktop-vw(10px) desktop-vw(120px);
+  // padding: desktop-vw(10px) desktop-vw(120px);
+  height: var(--upcoming-accordion-height);
 
   &.open {
     .close {
