@@ -1,22 +1,23 @@
+import s from './home.module.scss'
+
+import cn from 'clsx'
+
 import Button from '@/components/button'
 import Header from '@/components/header'
 import HomeSlider from '@/components/home-slider'
-import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
 import PinnedFeatures from '@/components/pinned-features'
 import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
+import { Image } from '@/components/image'
 import { Layout } from '@/layouts/default'
-import cn from 'clsx'
-import s from './home.module.scss'
 import { useMenuStore } from '@/lib/menuStore'
 
-type IndexPageRef = React.ForwardedRef<HTMLDivElement>
-
-const Home = (ref: IndexPageRef) => {
+const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
+
   const references = [
     { logo: '/img/wired.svg', url: '/' },
     { logo: '/img/wired.svg', url: '/' },
@@ -52,7 +53,18 @@ const Home = (ref: IndexPageRef) => {
             software.
           </h2>
           <div className={cn(s.cards, 'content-box-lg', 'flex-center')}>
-            cards
+            <div className={s.videoC} style={{ width: '200px' }}>
+              <video
+                style={{ width: '100%', height: '100%' }}
+                className={s.video}
+                // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
+                src="/video/gif.mp4"
+                autoPlay
+                muted
+                loop
+                // controls
+              ></video>
+            </div>
           </div>
           <div className={s.trigger} onClick={toFeatures}>
             <NextItemMarquee

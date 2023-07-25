@@ -1,12 +1,11 @@
 import s from './contact-form.module.scss'
+import { useState } from 'react'
 
 import cn from 'clsx'
 import { useFormik } from 'formik'
-
 import * as Yup from 'yup'
-import Button from '../button'
-import { useState } from 'react'
 import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+import Button from '@/components/button'
 
 type Props = {
   formType: 'contact' | 'demo' | 'service'

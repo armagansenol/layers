@@ -2,10 +2,9 @@ import React from 'react'
 import s from './footer.module.scss'
 import { Image } from '../image'
 import { Link } from '@/components/link'
+import { routes } from '@/global'
 
-type Props = {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <footer className={s.footer}>
       <div className={s.main}>
@@ -41,8 +40,13 @@ const Footer = (props: Props) => {
               <h6 className={s.title}>COMPANY</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="about">
+                  <Link className={s.link} href="/about">
                     About
+                  </Link>
+                </li>
+                <li className={s.linkC}>
+                  <Link className={s.link} href="/contact">
+                    Contact
                   </Link>
                 </li>
               </ul>
@@ -51,17 +55,22 @@ const Footer = (props: Props) => {
               <h6 className={s.title}>SUPPORT</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="">
-                    Pricing
+                  <Link className={s.link} href="/get-an-offer">
+                    Get an Offer
                   </Link>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="">
+                  <Link className={s.link} href="/request-a-demo">
+                    Request a Demo
+                  </Link>
+                </li>
+                <li className={s.linkC}>
+                  <Link className={s.link} href="/terms-of-use">
                     Terms of Use
                   </Link>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="">
+                  <Link className={s.link} href="/privacy-policy">
                     Privacy Policy
                   </Link>
                 </li>
@@ -73,131 +82,37 @@ const Footer = (props: Props) => {
           <div className={s.linksC}>
             <h6 className={s.title}>FEATURES</h6>
             <ul className={s.links}>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
+              {routes.features.children?.map((route, i) => {
+                return (
+                  <li className={s.linkC} key={i}>
+                    <Link
+                      className={s.link}
+                      href={`/${routes.features.path}/${route.path}`}
+                    >
+                      {route.ui}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           <div className={s.linksC}>
             <h6 className={s.title}>SERVICES</h6>
             <ul className={s.links}>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
-              <li className={s.linkC}>
-                <Link className={s.link} href="">
-                  Employee Database
-                </Link>
-              </li>
+              <ul className={s.links}>
+                {routes.services.children?.map((route, i) => {
+                  return (
+                    <li className={s.linkC} key={i}>
+                      <Link
+                        className={s.link}
+                        href={`/${routes.services.path}/${route.path}`}
+                      >
+                        {route.ui}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
             </ul>
           </div>
         </div>

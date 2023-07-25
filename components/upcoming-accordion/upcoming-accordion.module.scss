@@ -28,12 +28,12 @@
   .title,
   .close {
     font-family: Inter;
-    font-size: desktop-vw(15px);
+    font-size: desktop-vw(12px);
     font-weight: 500;
   }
 
   .iconC {
-    @include dims(desktop-vw(12px));
+    @include dims(desktop-vw(10px));
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,10 +1,12 @@
+import CustomCursor from '@/components/custom-cursor'
 import { CustomHead } from '@/components/custom-head'
 import Footer from '@/components/footer'
+import PageTransition from '@/components/page-transition'
 import UpcomingAccordion from '@/components/upcoming-accordion'
 import cn from 'clsx'
 import { ReactElement } from 'react'
 import s from './layout.module.scss'
-import PageTransition from '@/components/page-transition'
+import { useMenuStore } from '@/lib/menuStore'
 
 // const Header = dynamic(
 //   () => import('components/header').then(({ Header }) => Header),
@@ -60,13 +62,11 @@ export function Layout({
   children,
   className,
 }: Props) {
-  // const isTouchDevice = useIsTouchDevice()
   return (
     <PageTransition>
       <CustomHead {...seo} />
       <div className={cn(s.layout, className)}>
-        {/* {isTouchDevice === false && <Cursor />} */}
-        {/* <Header title="STUDIO FREIGHT" principles={principles} contact={contactData} /> */}
+        <CustomCursor />
         <UpcomingAccordion />
         <main className={s.main}>{children}</main>
         <Footer />

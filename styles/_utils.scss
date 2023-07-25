@@ -26,6 +26,10 @@
   overflow: hidden;
 }
 
+.pointer-none {
+  pointer-events: none;
+}
+
 .relative {
   position: relative;
 }

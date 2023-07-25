@@ -1,0 +1,31 @@
+/* Jelly Blob Div */
+.jellyBlob {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 25px;
+  height: 25px;
+  //   mix-blend-mode: difference;
+  background-color: var(--mint-blue);
+  border-radius: 50%;
+  opacity: 0.5;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%);
+  will-change: width, height, transform, border;
+  z-index: z-index('cursor');
+  pointer-events: none;
+}
+
+/* Text Inside Jelly Blob */
+.insideText {
+  opacity: 1;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 300px;
+  text-align: center;
+  vertical-align: middle;
+}

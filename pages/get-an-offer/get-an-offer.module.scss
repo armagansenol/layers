@@ -1,0 +1,67 @@
+.intro {
+  .text {
+    margin: desktop-vw(75px) auto 0 auto;
+    text-align: center;
+    width: desktop-vw(900px);
+
+    .contactInfo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .detail {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      .detail > label {
+        font-family: WTGothic;
+        font-size: desktop-vw(15px);
+        font-weight: 400;
+        margin-bottom: desktop-vw(10px);
+      }
+
+      .detail > p {
+        font-family: Inter;
+        font-size: desktop-vw(28px);
+        font-weight: 400;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .text > h1 {
+    font-family: Inter;
+    font-size: desktop-vw(15px);
+    font-weight: 500;
+    margin-bottom: desktop-vw(10px);
+  }
+
+  .text > p {
+    font-family: WTGothic;
+    font-size: desktop-vw(60px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(30px);
+  }
+
+  .text > p > span {
+    color: var(--mint-blue);
+  }
+
+  .contactFormC {
+    margin: 0 auto desktop-vw(50px) auto;
+    padding: desktop-vw(80px) desktop-vw(170px);
+    width: desktop-vw(1080px);
+    min-height: desktop-vw(880px);
+  }
+}
+
+.trialC {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: desktop-vw(50px);
+  padding: 0 desktop-vw(60px);
+}
