@@ -5,7 +5,7 @@ type Route = {
   children?: {
     ui: string
     path: string
-    desc: string
+    desc?: string
   }[]
 }
 
@@ -155,65 +155,16 @@ export const routes: Routes = {
     path: 'resources',
     children: [
       {
-        ui: 'Employee Database',
-        path: 'employee-database',
-        desc: 'Streamline organizational chart, files, docs, and personal info management with ease.',
+        ui: 'About Layers',
+        path: 'about',
       },
       {
-        ui: 'Employee Center / HR Portal',
-        path: 'employee-center-and-hr-portal',
-        desc: 'Simplify employee needs with a centralized web/mobile center for leave, expenses, and more.',
+        ui: 'Get an Offer',
+        path: 'get-an-offer',
       },
       {
-        ui: 'Reporting & HR Analytics',
-        path: 'reporting-and-hr-analytics',
-        desc: 'Effortlessly track your workforce with 50+ reports and AI-powered analytics.',
-      },
-      {
-        ui: 'Workflows & Forms',
-        path: 'employee-database',
-        desc: 'Manage 10+ processes and tasks: personal requests, leave, expenses, overtime, travel, and purchases.',
-      },
-      {
-        ui: 'Feedback Management',
-        path: 'feedback-management',
-        desc: 'Collect and report feedback from your employees.',
-      },
-      {
-        ui: 'Orientation & Learning Center',
-        path: 'orientation-and-learning-center',
-        desc: 'Plan orientation sessions, presentations, and provide documents/videos for new and existing employees.',
-      },
-      {
-        ui: 'Exam & Surveys',
-        path: 'exam-and-surveys',
-        desc: 'Evaluate through quizzes and surveys using 100+ predefined tests and templates.',
-      },
-      {
-        ui: 'Gamifications & Appreciations',
-        path: 'gamifications-and-appreciations',
-        desc: 'Drive motivation and evaluations by defining gamification scenarios linked to your business processes.',
-      },
-
-      {
-        ui: 'Recruitment Center',
-        path: 'recruitment-center',
-        desc: 'Manage open positions, job postings, candidates, and interviews with an ATS system and generate reports.',
-      },
-      {
-        ui: 'Assessment & Onboarding',
-        path: 'assessment-and-onboarding',
-        desc: 'Manage documents and paperwork effortlessly. Convert candidates to employees with a single click.',
-      },
-      {
-        ui: 'Compensation & Benefits',
-        path: 'compensation-and-benefits',
-        desc: 'Effortlessly plan, maintain, and report on payroll systems and protections.',
-      },
-      {
-        ui: 'OKR & Performance Management',
-        path: 'okr-and-performance-management',
-        desc: 'Use KPIs or OKRs for performance management and reporting.',
+        ui: 'Contact',
+        path: 'contact',
       },
     ],
   },

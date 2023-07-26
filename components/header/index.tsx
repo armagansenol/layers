@@ -9,10 +9,12 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useEffect, useRef } from 'react'
 import s from './header.module.scss'
+import { useRouter } from 'next/router'
 
 const Header = () => {
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
   const menuRef = useRef<HTMLElement>(null)
+  const router = useRouter()
   const ease = cubicBezier(0.16, 1, 0.3, 1)
 
   function handleMenu(type: any) {
@@ -52,7 +54,7 @@ const Header = () => {
         onUpdate: (self) => {
           self.direction === -1 ? showAnim.play() : showAnim.reverse()
         },
-        markers: true,
+        // markers: true,
       })
     })
 
@@ -60,6 +62,10 @@ const Header = () => {
       ctx && ctx.revert()
     }
   }, [])
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [router.asPath])
 
   return (
     <>
@@ -158,21 +164,27 @@ const Header = () => {
                             return (
                               <Link
                                 className={cn(s.menuItem, 'cursor-pointer')}
-                                href={`${routes[currentRoute].path}/${item.path}`}
+                                href={`${
+                                  currentRoute !== 'resources'
+                                    ? routes[currentRoute].path
+                                    : ''
+                                }/${item.path}`}
                                 key={i}
                               >
-                                <div className={s.iconC}>
-                                  <Image
-                                    src={`/img/${item.path}.png`}
-                                    width={100}
-                                    height={100}
-                                    alt="Feature Icons"
-                                    style={{ objectFit: 'contain' }}
-                                  />
-                                </div>
-                                <div>
-                                  <h5 className={s.title}>{item.ui}</h5>
-                                  <p className={s.desc}>{item.desc}</p>
+                                {currentRoute !== 'resources' && (
+                                  <div className={s.iconC}>
+                                    <Image
+                                      src={`/img/${item.path}.png`}
+                                      width={100}
+                                      height={100}
+                                      alt="Feature Icons"
+                                      style={{ objectFit: 'contain' }}
+                                    />
+                                  </div>
+                                )}
+                                <div className={s.text}>
+                                  {item.ui && <h5>{item.ui}</h5>}
+                                  {item.desc && <p>{item.desc}</p>}
                                 </div>
                               </Link>
                             )

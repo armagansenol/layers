@@ -1,4 +1,4 @@
-import Header from '@/components/header'
+import ContactForm from '@/components/contact-form'
 import IconArrow from '@/components/icons/icon-arrow'
 import { Marquee } from '@/components/marquee'
 import NextItemMarquee from '@/components/next-item-marquee'
@@ -6,14 +6,13 @@ import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import cn from 'clsx'
 import s from './contact.module.scss'
-import ContactForm from '@/components/contact-form'
 
 const Contact = () => {
   return (
     <Layout>
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
-          <Header />
+          {/* <Header /> */}
           <div className={s.text}>
             <h1>Contact Us</h1>
             <p>Let’s have a conversation about your HR needs.</p>

@@ -1,9 +1,10 @@
+import Detail from '@/layouts/detail'
 import React from 'react'
 
 type Props = {}
 
 const Features = (props: Props) => {
-  return <div>Features</div>
+  return <Detail />
 }
 
 export default Features

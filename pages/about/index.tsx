@@ -1,7 +1,6 @@
 import cn from 'clsx'
 
 import BlazeSlider from '@/components/blaze-slider'
-import Header from '@/components/header'
 import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
 import ReferencesMarquee from '@/components/references-marquee'
@@ -26,7 +25,7 @@ const About = (ref: IndexPageRef) => {
     <Layout>
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
-          <Header />
+          {/* <Header /> */}
           <div className={s.inner}>
             <RequestDemo />
             <div className={cn(s.imgC, s.gurl)}>

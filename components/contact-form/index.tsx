@@ -233,16 +233,49 @@ const ContactForm = (props: Props) => {
     })
   }
 
-  const screens = {
-    date: (
-      <div className={s.phase2}>
-        <div className={s.btns}>
-          <Button text="Preivous" path="/" callback={handlePrev} />
+  // function handleNavigation(direction: "NEXT" | "PREV") {
+  //   gsap.to(formRef.current, {
+  //     autoAlpha: 0,
+  //     duration: 0.2,
+  //     onComplete: () => {
+  //       switch (direction) {
+  //         case "NEXT":
+  //           setCurrentStep((prev) => prev + 1)
+  //           break
+  //         case "PREV":
+  //           if (currentStep > 0) {
+  //             setCurrentStep((prev) => Math.max(prev - 1, 0))
+  //           }
+  //           break
+  //         default:
+  //           break
+  //       }
+  //       gsap.to(formRef.current, {
+  //         autoAlpha: 1,
+  //         duration: 0.6,
+  //         delay: 0.4,
+  //       })
+  //     },
+  //   })
+  // }
 
-          <Button text="Nexts" path="/" callback={handleNext} />
-        </div>
-      </div>
-    ),
+  // function handleSubmit(values: any) {
+  //   if (currentStep === steps.length - 1) {
+  //     if (!privacyNotice) return
+
+  //     submitForm(values).then((res) => {
+  //       if (res.success) {
+  //         setEnd(true)
+  //       } else {
+  //         setError(res.message)
+  //       }
+  //     })
+  //   } else {
+  //     handleNavigation("NEXT")
+  //   }
+  // }
+
+  const screens = {
     form: (
       <div className={s.phase1}>
         <div className={s.contactForm}>
@@ -529,6 +562,15 @@ const ContactForm = (props: Props) => {
 
             <Button text="Nexts" path="/" callback={handleNext} />
           </div>
+        </div>
+      </div>
+    ),
+    date: (
+      <div className={s.phase2}>
+        <div className={s.btns}>
+          <Button text="Preivous" path="/" callback={handlePrev} />
+
+          <Button text="Nexts" path="/" callback={handleNext} />
         </div>
       </div>
     ),

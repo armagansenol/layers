@@ -7,6 +7,7 @@ import cn from 'clsx'
 import { ReactElement } from 'react'
 import s from './layout.module.scss'
 import { useMenuStore } from '@/lib/menuStore'
+import Header from '@/components/header'
 
 // const Header = dynamic(
 //   () => import('components/header').then(({ Header }) => Header),
@@ -68,6 +69,7 @@ export function Layout({
       <div className={cn(s.layout, className)}>
         <CustomCursor />
         <UpcomingAccordion />
+        <Header />
         <main className={s.main}>{children}</main>
         <Footer />
       </div>

@@ -3,15 +3,14 @@ import s from './home.module.scss'
 import cn from 'clsx'
 
 import Button from '@/components/button'
-import Header from '@/components/header'
 import HomeSlider from '@/components/home-slider'
+import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
 import PinnedFeatures from '@/components/pinned-features'
 import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
-import { Image } from '@/components/image'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
 
@@ -36,7 +35,6 @@ const Home = () => {
     <Layout>
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
-          <Header />
           <HomeSlider />
         </section>
 

@@ -1,6 +1,4 @@
 import ContactForm from '@/components/contact-form'
-import Header from '@/components/header'
-import NextItemMarquee from '@/components/next-item-marquee'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import cn from 'clsx'
@@ -11,7 +9,7 @@ const RequestADemo = () => {
     <Layout>
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
-          <Header />
+          {/* <Header /> */}
           <div className={s.text}>
             <h1>Request a Demo</h1>
             <p>See Layers in action.</p>

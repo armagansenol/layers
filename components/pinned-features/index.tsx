@@ -43,7 +43,7 @@ const PinnedFeatures = () => {
           // markers: true,
           pin: true,
           pinSpacing: true,
-          end: '15000px top',
+          end: '5000px top',
           onUpdate: (self) => {
             //   console.log('progress', self.progress)
             updateVideo(self.progress)
