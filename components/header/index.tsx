@@ -1,15 +1,15 @@
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { Image } from '@/components/image'
 import { Link } from '@/components/link'
-import { routes } from '@/global'
+import { DynamicRoutes, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
 import cn from 'clsx'
 import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useRouter } from 'next/router'
 import { useEffect, useRef } from 'react'
 import s from './header.module.scss'
-import { useRouter } from 'next/router'
 
 const Header = () => {
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
@@ -17,7 +17,7 @@ const Header = () => {
   const router = useRouter()
   const ease = cubicBezier(0.16, 1, 0.3, 1)
 
-  function handleMenu(type: any) {
+  function handleMenu(type: DynamicRoutes.features | DynamicRoutes.services) {
     if (type) {
       setCurrentRoute(type)
     }
@@ -91,14 +91,15 @@ const Header = () => {
           ])}
           onMouseLeave={() => setIsOpen(false)}
         >
-          {Object.entries(routes).map(([key, value], i) => {
+          {Object.values(routes).map((value, i) => {
             return (
               <div
                 className={cn(s.navItemC, 'cursor-pointer', [s[value.type]])}
                 key={i}
-                onMouseEnter={() =>
-                  value.type !== 'requestADemo' && handleMenu(value.type)
-                }
+                // onMouseEnter={() =>
+                //   value.type !== 'requestADemo' && handleMenu(value.type)
+                // }
+                onMouseEnter={() => handleMenu(value.type)}
               >
                 <p className={s.itemText}>{value.ui}</p>
                 {value.children && (
@@ -160,35 +161,33 @@ const Header = () => {
                         }}
                       >
                         {routes[currentRoute].children &&
-                          routes[currentRoute].children?.map((item, i) => {
-                            return (
-                              <Link
-                                className={cn(s.menuItem, 'cursor-pointer')}
-                                href={`${
-                                  currentRoute !== 'resources'
-                                    ? routes[currentRoute].path
-                                    : ''
-                                }/${item.path}`}
-                                key={i}
-                              >
-                                {currentRoute !== 'resources' && (
-                                  <div className={s.iconC}>
-                                    <Image
-                                      src={`/img/${item.path}.png`}
-                                      width={100}
-                                      height={100}
-                                      alt="Feature Icons"
-                                      style={{ objectFit: 'contain' }}
-                                    />
+                          Object.values(routes[currentRoute].children).map(
+                            (item, i) => {
+                              return (
+                                <Link
+                                  className={cn(s.menuItem, 'cursor-pointer')}
+                                  href={`/${routes[currentRoute].path}/${item.path}`}
+                                  key={i}
+                                >
+                                  {
+                                    <div className={s.iconC}>
+                                      <Image
+                                        src={`/img/${item.path}.png`}
+                                        width={100}
+                                        height={100}
+                                        alt="Feature Icons"
+                                        style={{ objectFit: 'contain' }}
+                                      />
+                                    </div>
+                                  }
+                                  <div className={s.text}>
+                                    {item.ui && <h5>{item.ui}</h5>}
+                                    {item.desc && <p>{item.desc}</p>}
                                   </div>
-                                )}
-                                <div className={s.text}>
-                                  {item.ui && <h5>{item.ui}</h5>}
-                                  {item.desc && <p>{item.desc}</p>}
-                                </div>
-                              </Link>
-                            )
-                          })}
+                                </Link>
+                              )
+                            }
+                          )}
                       </motion.div>
                     )}
                   </AnimatePresence>

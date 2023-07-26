@@ -82,7 +82,7 @@ const Footer = () => {
           <div className={s.linksC}>
             <h6 className={s.title}>FEATURES</h6>
             <ul className={s.links}>
-              {routes.features.children?.map((route, i) => {
+              {Object.values(routes.features.children).map((route, i) => {
                 return (
                   <li className={s.linkC} key={i}>
                     <Link
@@ -100,7 +100,7 @@ const Footer = () => {
             <h6 className={s.title}>SERVICES</h6>
             <ul className={s.links}>
               <ul className={s.links}>
-                {routes.services.children?.map((route, i) => {
+                {Object.values(routes.services.children).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
                       <Link

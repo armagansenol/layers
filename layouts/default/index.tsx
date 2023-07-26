@@ -1,13 +1,11 @@
 import CustomCursor from '@/components/custom-cursor'
 import { CustomHead } from '@/components/custom-head'
 import Footer from '@/components/footer'
-import PageTransition from '@/components/page-transition'
+import Header from '@/components/header'
 import UpcomingAccordion from '@/components/upcoming-accordion'
 import cn from 'clsx'
 import { ReactElement } from 'react'
 import s from './layout.module.scss'
-import { useMenuStore } from '@/lib/menuStore'
-import Header from '@/components/header'
 
 // const Header = dynamic(
 //   () => import('components/header').then(({ Header }) => Header),
@@ -64,7 +62,7 @@ export function Layout({
   className,
 }: Props) {
   return (
-    <PageTransition>
+    <>
       <CustomHead {...seo} />
       <div className={cn(s.layout, className)}>
         <CustomCursor />
@@ -73,6 +71,6 @@ export function Layout({
         <main className={s.main}>{children}</main>
         <Footer />
       </div>
-    </PageTransition>
+    </>
   )
 }

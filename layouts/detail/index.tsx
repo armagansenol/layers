@@ -1,16 +1,17 @@
 import s from './detail.module.scss'
 
+import cn from 'clsx'
+
 import Button from '@/components/button'
 import NextItemMarquee from '@/components/next-item-marquee'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import cn from 'clsx'
 
 type Props = {
   pageData: {
     intro: {
-      h1: string
-      p: string
+      title: string
+      desc: string
       small: string
       media: {
         path: string
@@ -18,14 +19,14 @@ type Props = {
     }
     detail: {
       d1: {
-        h3: string
-        p: string
+        title: string
+        desc: string
         media: {
           path: string
         }
       }
       d2: {
-        h4: string
+        desc: string
         media: {
           path: string
         }
@@ -33,25 +34,24 @@ type Props = {
     }
     nextPage: {
       title: string
-      text: string
+      text: { t1: string; t2: string }
       url: string
     }
   }
 }
 
-const Detail = (props: Props) => {
+const Detail = ({ pageData }: Props) => {
+  console.log('detail props', pageData)
+
   return (
     <Layout>
       <>
         <div className={cn(s.intro, 'content-box-sm')}>
           <div className={s.content}>
             <div className={s.text}>
-              <h1>Employee Database</h1>
-              <p>Access your personal database with just a click.</p>
-              <small>
-                Streamline organizational chart, files, docs, and personal info
-                management with ease.
-              </small>
+              <h1>{pageData.intro.title}</h1>
+              <p>{pageData.intro.desc}</p>
+              <small>{pageData.intro.small}</small>
             </div>
           </div>
           <div className={s.mediaC}>
@@ -93,20 +93,13 @@ const Detail = (props: Props) => {
               </div>
             </div>
             <div className={s.text}>
-              <h3>All your people data in one place.</h3>
-              <p>
-                Easily manage, monitor and report your organizational chart,
-                personnel personal information, documents and personal
-                information.
-              </p>
+              <h3>{pageData.detail.d1.title}</h3>
+              <p>{pageData.detail.d1.desc}</p>
             </div>
           </div>
           <div>
             <div className={s.text}>
-              <h4>
-                With Layers, you gain efficiency, accuracy, and a holistic
-                perspective on your organization’s human capital.
-              </h4>
+              <h4>{pageData.detail.d2.desc}</h4>
               <Button text="Request a Demo" path="/request-a-demo" />
             </div>
             <div className={s.mediaC}>
@@ -134,9 +127,12 @@ const Detail = (props: Props) => {
         </div>
         <div className={s.mC}>
           <NextItemMarquee
-            title="Next Feature"
-            text={{ t1: 'Next Feature', t2: 'Employee Center / HR Portal' }}
-            url="/"
+            title={pageData.nextPage.title}
+            text={{
+              t1: pageData.nextPage.text.t1,
+              t2: pageData.nextPage.text.t2,
+            }}
+            url={pageData.nextPage.url}
           />
         </div>
         <Subscribe />
