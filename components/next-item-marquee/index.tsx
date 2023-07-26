@@ -1,9 +1,8 @@
 import s from './next-item-marquee.module.scss'
 
-import cn from 'clsx'
 import { Marquee } from '@/components/marquee'
+import cn from 'clsx'
 import IconArrow from '../icons/icon-arrow'
-import Link from 'next/link'
 
 type Props = {
   title?: string
