@@ -13,6 +13,7 @@ import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
+import { DynamicRoutes } from '@/global'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
@@ -28,7 +29,7 @@ const Home = () => {
 
   function toFeatures() {
     setIsOpen(true)
-    setCurrentRoute('features')
+    setCurrentRoute(DynamicRoutes.features)
   }
 
   return (
