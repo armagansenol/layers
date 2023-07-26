@@ -2,6 +2,7 @@ import { useCallback, useLayoutEffect, useRef } from 'react'
 import s from './custom-cursor.module.scss'
 
 import { gsap } from 'gsap'
+import { ClientOnly } from '../isomorphic'
 
 function useTicker(callback: () => void, paused: boolean) {
   useLayoutEffect(() => {

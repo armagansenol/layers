@@ -26,7 +26,7 @@ const features = {
         d2: {
           desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
           media: {
-            path: '/',
+            path: `/img/detail-${routes.features.children.employeeDatabase?.path}.png`,
           },
         },
       },

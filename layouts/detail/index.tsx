@@ -6,6 +6,7 @@ import Button from '@/components/button'
 import NextItemMarquee from '@/components/next-item-marquee'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
+import { Image } from '@/components/image'
 
 type Props = {
   pageData: {
@@ -66,11 +67,11 @@ const Detail = ({ pageData }: Props) => {
                   loop
                   // controls
                 ></video> */}
-              <img
-                src="/img/detail-employee-database.png"
+              <Image
+                src={pageData.detail.d2.media.path}
                 alt="Detail"
-                width="100"
-                height="100"
+                width="1136"
+                height="1291"
                 style={{ objectFit: 'contain' }}
               />
             </div>
@@ -114,12 +115,13 @@ const Detail = ({ pageData }: Props) => {
                   loop
                   // controls
                 ></video> */}
-                <img
-                  src="/img/detail-employee-database.png"
+                <Image
+                  src={pageData.detail.d2.media.path}
                   alt="Detail"
-                  width="100"
-                  height="100"
+                  width="1136"
+                  height="1291"
                   style={{ objectFit: 'contain' }}
+                  loading="lazy"
                 />
               </div>
             </div>
