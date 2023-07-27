@@ -1,8 +1,11 @@
+import CustomCursor from '@/components/custom-cursor'
+import { ClientOnly } from '@/components/isomorphic'
 import 'blaze-slider/dist/blaze.css'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
+
 import 'styles/global.scss'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -21,5 +24,12 @@ export default function App({ Component, pageProps }: AppProps) {
     window.scrollTo({ top: 0 })
   }
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <ClientOnly>
+        <CustomCursor />
+      </ClientOnly>
+      <Component {...pageProps} />
+    </>
+  )
 }

@@ -1,5 +1,5 @@
 .title {
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-weight: 500;
   font-size: desktop-vw(15px);
   margin-bottom: desktop-vw(16px);
@@ -7,7 +7,7 @@
 
 .linkC {
   .link {
-    font-family: Inter;
+    font-family: var(--font-inter);
     font-weight: 400;
     font-size: desktop-vw(13px);
   }
@@ -65,7 +65,7 @@
   .copyright {
     align-items: center;
     border-top: 1px solid var(--wistful);
-    font-family: Inter;
+    font-family: var(--font-inter);
     font-size: desktop-vw(15px);
     font-weight: 400;
     display: flex;
@@ -74,7 +74,7 @@
     padding: desktop-vw(60px) 0;
 
     .signature {
-      font-family: Inter;
+      font-family: var(--font-inter);
       font-size: desktop-vw(15px);
       font-weight: 400;
 
@@ -91,7 +91,7 @@
     padding: desktop-vw(35px) desktop-vw(75px);
 
     small {
-      font-family: Inter;
+      font-family: var(--font-inter);
       font-weight: 400;
       font-size: desktop-vw(11px);
     }

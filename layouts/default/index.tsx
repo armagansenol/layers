@@ -1,4 +1,3 @@
-import CustomCursor from '@/components/custom-cursor'
 import { CustomHead } from '@/components/custom-head'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
@@ -6,7 +5,6 @@ import UpcomingAccordion from '@/components/upcoming-accordion'
 import cn from 'clsx'
 import { ReactElement } from 'react'
 import s from './layout.module.scss'
-import { ClientOnly } from '@/components/isomorphic'
 
 // const Header = dynamic(
 //   () => import('components/header').then(({ Header }) => Header),
@@ -65,10 +63,8 @@ export function Layout({
   return (
     <>
       <CustomHead {...seo} />
+
       <div className={cn(s.layout, className)}>
-        <ClientOnly>
-          <CustomCursor />
-        </ClientOnly>
         <UpcomingAccordion />
         <Header />
         <main className={s.main}>{children}</main>

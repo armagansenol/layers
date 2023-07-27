@@ -33,7 +33,7 @@
         @include dims(100%);
         border-radius: desktop-vw(26px);
         color: var(--liliac);
-        font-family: Inter;
+        font-family: var(--font-inter);
         font-size: desktop-vw(15px);
         font-weight: 400;
         padding: desktop-vw(15px) var(--input-padding);
@@ -80,7 +80,7 @@
           auto
         );
         color: var(--liliac);
-        font-family: WTGothic;
+        font-family: var(--font-wt-gothic);
         font-size: desktop-vw(12px);
         font-weight: 100;
 
@@ -149,7 +149,7 @@
       .small,
       .link {
         color: var(--liliac);
-        font-family: Inter;
+        font-family: var(--font-inter);
         font-size: desktop-vw(15px);
         font-weight: 100;
         line-height: 1.5;

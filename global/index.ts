@@ -10,7 +10,7 @@ export enum SubRoutes {
   workflowsAndForms = 'workflowsAndForms',
   feedbackManagement = 'feedbackManagement',
   orientationAndLearningCenter = 'orientationAndLearningCenter',
-  examsAndSurveys = 'examsAndSurveys',
+  examAndSurveys = 'examAndSurveys',
   gamificationsAndAppreciations = 'gamificationsAndAppreciations',
   recruitmentCenter = 'recruitmentCenter',
   assesmentAndOnboarding = 'assesmentAndOnboarding',
@@ -72,7 +72,7 @@ export const routes: Routes = {
       },
       workflowsAndForms: {
         ui: 'Workflows & Forms',
-        path: 'employee-database',
+        path: 'workflows-and-forms',
         desc: 'Manage 10+ processes and tasks: personal requests, leave, expenses, overtime, travel, and purchases.',
       },
       feedbackManagement: {
@@ -85,9 +85,9 @@ export const routes: Routes = {
         path: 'orientation-and-learning-center',
         desc: 'Plan orientation sessions, presentations, and provide documents/videos for new and existing employees.',
       },
-      examsAndSurveys: {
-        ui: 'Exams & Surveys',
-        path: 'exams-and-surveys',
+      examAndSurveys: {
+        ui: 'Exam & Surveys',
+        path: 'exam-and-surveys',
         desc: 'Evaluate through quizzes and surveys using 100+ predefined tests and templates.',
       },
       gamificationsAndAppreciations: {

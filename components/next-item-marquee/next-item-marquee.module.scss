@@ -4,7 +4,7 @@
 
   .title {
     display: block;
-    font-family: WTGothic;
+    font-family: var(--font-wt-gothic);
     font-size: desktop-vw(20px);
     font-weight: 500;
     margin-bottom: desktop-vw(16px);
@@ -22,7 +22,7 @@
     column-gap: desktop-vw(20px);
 
     .marqueeText {
-      font-family: WTGothic;
+      font-family: var(--font-wt-gothic);
 
       .text {
         margin-right: desktop-vw(60px);

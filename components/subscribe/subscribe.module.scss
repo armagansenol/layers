@@ -45,7 +45,7 @@
     .input {
       @include dims(100%);
       border-radius: desktop-vw(30px);
-      font-family: WTGothic;
+      font-family: var(--font-wt-gothic);
       font-size: desktop-vw(19px);
       font-weight: 100;
       padding: desktop-vw(14px) var(--padding-left);
@@ -84,7 +84,7 @@
     span {
       color: var(--caribbean-green);
       display: inline-block;
-      font-family: WTGothic;
+      font-family: var(--font-wt-gothic);
       font-size: desktop-vw(19px);
       font-weight: 100;
       line-height: 1.5;
@@ -109,7 +109,7 @@
     span {
       color: var(--caribbean-green);
       display: inline-block;
-      font-family: WTGothic;
+      font-family: var(--font-wt-gothic);
       font-size: desktop-vw(13px);
       font-weight: 100;
       line-height: 1.5;
@@ -131,7 +131,7 @@
     border-radius: desktop-vw(30px);
     border: 2px solid var(--kuretake-black-manga);
     color: var(--caribbean-green);
-    font-family: WTGothic;
+    font-family: var(--font-wt-gothic);
     font-size: desktop-vw(20px);
     font-weight: 100;
     height: calc(100% - $distance * 2);
@@ -157,7 +157,7 @@
     @include position(absolute, 120%, auto, auto, auto);
     color: var(--liliac);
     display: inline-block;
-    font-family: WTGothic;
+    font-family: var(--font-wt-gothic);
     font-size: desktop-vw(13px);
     font-weight: 100;
     line-height: 1.5;

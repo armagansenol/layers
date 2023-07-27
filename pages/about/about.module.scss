@@ -83,14 +83,14 @@
     width: desktop-vw(460px);
 
     .title {
-      font-family: WtGothic;
+      font-family: var(--font-wt-gothic);
       font-size: desktop-vw(45px);
       font-weight: 700;
       margin-bottom: desktop-vw(30px);
     }
 
     .par {
-      font-family: Inter;
+      font-family: var(--font-inter);
       font-size: desktop-vw(18px);
       font-weight: 400;
       line-height: 1.5;
@@ -107,7 +107,7 @@
   padding: 0 desktop-vw(80px);
 
   .title {
-    font-family: WtGothic;
+    font-family: var(--font-wt-gothic);
     font-size: desktop-vw(45px);
     font-weight: 700;
     margin-bottom: desktop-vw(120px);
@@ -126,7 +126,7 @@
       }
 
       .par {
-        font-family: Inter;
+        font-family: var(--font-inter);
         font-size: desktop-vw(18px);
         font-weight: 400;
         line-height: 1.5;

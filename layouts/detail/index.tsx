@@ -9,6 +9,7 @@ import { Layout } from '@/layouts/default'
 import { Image } from '@/components/image'
 
 type Props = {
+  pageType: string
   pageData: {
     intro: {
       title: string
@@ -41,8 +42,8 @@ type Props = {
   }
 }
 
-const Detail = ({ pageData }: Props) => {
-  console.log('detail props', pageData)
+const Detail = ({ pageData, pageType }: Props) => {
+  console.log('detail props', pageData, pageType)
 
   return (
     <Layout>
@@ -54,29 +55,18 @@ const Detail = ({ pageData }: Props) => {
               <p>{pageData.intro.desc}</p>
               <small>{pageData.intro.small}</small>
             </div>
-          </div>
-          <div className={s.mediaC}>
-            <div className={s.media}>
-              {/* <video
-                  style={{ width: '100%', height: '100%' }}
-                  className={s.video}
-                  // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
-                  src="/video/gif.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  // controls
-                ></video> */}
+            <div className={s.mediaC}>
               <Image
-                src={pageData.detail.d2.media.path}
+                src={`/img/detail/${pageType}/intro.png`}
                 alt="Detail"
-                width="1136"
-                height="1291"
+                width={10000}
+                height={10000}
                 style={{ objectFit: 'contain' }}
               />
             </div>
           </div>
         </div>
+
         <div className={cn(s.detail, 'content-box-md')}>
           <div>
             <div className={s.mediaC}>
@@ -85,7 +75,8 @@ const Detail = ({ pageData }: Props) => {
                   style={{ width: '100%', height: '100%' }}
                   className={s.video}
                   // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
-                  src="/video/gif.mp4"
+                  // src="/video/gif.mp4"
+                  src="https://player.vimeo.com/progressive_redirect/playback/848990750/rendition/360p/file.mp4?loc=external&signature=193c52bb77ebeb66c6156648de7654365f00fab852322cc420d9bb19e22cf43d"
                   autoPlay
                   muted
                   loop
@@ -104,29 +95,17 @@ const Detail = ({ pageData }: Props) => {
               <Button text="Request a Demo" path="/request-a-demo" />
             </div>
             <div className={s.mediaC}>
-              <div className={s.media}>
-                {/* <video
-                  style={{ width: '100%', height: '100%' }}
-                  className={s.video}
-                  // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
-                  src="/video/gif.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  // controls
-                ></video> */}
-                <Image
-                  src={pageData.detail.d2.media.path}
-                  alt="Detail"
-                  width="1136"
-                  height="1291"
-                  style={{ objectFit: 'contain' }}
-                  loading="lazy"
-                />
-              </div>
+              <Image
+                src={`/img/detail/${pageType}/masked.png`}
+                alt="Detail"
+                style={{ objectFit: 'contain' }}
+                loading="lazy"
+                fill={true}
+              />
             </div>
           </div>
         </div>
+
         <div className={s.mC}>
           <NextItemMarquee
             title={pageData.nextPage.title}
@@ -137,6 +116,7 @@ const Detail = ({ pageData }: Props) => {
             url={pageData.nextPage.url}
           />
         </div>
+
         <Subscribe />
       </>
     </Layout>
