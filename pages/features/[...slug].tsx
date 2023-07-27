@@ -457,14 +457,12 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
 
   return {
     paths, // indicates that no page needs be created at build time
-    fallback: false, // indicates the type of fallback
+    fallback: true, // indicates the type of fallback
   }
 }
 
 export async function getStaticProps(context: any) {
   const { slug } = context.params
-
-  console.log('slug', slug[0])
 
   function getData() {
     const page = Object.values(features).filter((value) => {
