@@ -122,7 +122,7 @@
     }
 
     .mediaC {
-      @include dims(auto, 550px);
+      @include dims(auto, desktop-vw(550px));
       align-items: center;
       display: flex;
       justify-content: flex-end;

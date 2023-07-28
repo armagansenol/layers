@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, memo } from 'react'
 import cn from 'clsx'
 import s from './why-layers.module.scss'
 
@@ -82,7 +82,13 @@ const WhyLayers = () => {
           return (
             <div key={i} className={s.imgC}>
               <div className={s.transformC} data-img>
-                <img className={s.img} src={img} alt="alt" />
+                <Image
+                  className={s.img}
+                  src={`/img/pinned-${i + 1}.jpg`}
+                  alt="People Using App"
+                  height={10000}
+                  width={10000}
+                />
               </div>
             </div>
           )
@@ -97,4 +103,4 @@ const WhyLayers = () => {
   )
 }
 
-export default WhyLayers
+export default memo(WhyLayers)

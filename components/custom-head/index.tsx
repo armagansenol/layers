@@ -1,5 +1,5 @@
-import { NextSeo } from "next-seo"
-import NextHead from "next/head"
+import { NextSeo } from 'next-seo'
+import NextHead from 'next/head'
 
 type Props = {
   title: string
@@ -9,8 +9,8 @@ type Props = {
 }
 
 export function CustomHead({
-  title = "",
-  image = { url: "https://studiofreight.com/og.jpg" },
+  title = '',
+  image = { url: '' },
   description,
   keywords,
 }: Props) {
@@ -19,10 +19,29 @@ export function CustomHead({
       <NextHead>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
-        <meta name="robots" content={process.env.NODE_ENV !== "development" ? "index,follow" : "noindex,nofollow"} />
-        <meta name="googlebot" content={process.env.NODE_ENV !== "development" ? "index,follow" : "noindex,nofollow"} />
+        <meta
+          name="robots"
+          content={
+            process.env.NODE_ENV !== 'development'
+              ? 'index,follow'
+              : 'noindex,nofollow'
+          }
+        />
+        <meta
+          name="googlebot"
+          content={
+            process.env.NODE_ENV !== 'development'
+              ? 'index,follow'
+              : 'noindex,nofollow'
+          }
+        />
 
-        <meta name="keywords" content={`${keywords && keywords.length ? keywords.join(",") : keywords}`} />
+        <meta
+          name="keywords"
+          content={`${
+            keywords && keywords.length ? keywords.join(',') : keywords
+          }`}
+        />
         <meta name="author" content="JUST DESIGN FX" />
         <meta name="referrer" content="no-referrer" />
         <meta name="format-detection" content="telephone=no" />
@@ -32,9 +51,23 @@ export function CustomHead({
 
         {/* START FAVICON */}
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00FF6A" />
         <meta name="msapplication-TileColor" content="#00FF6A" />
@@ -51,8 +84,8 @@ export function CustomHead({
         openGraph={{
           title,
           description,
-          type: "website",
-          locale: "en_US",
+          type: 'website',
+          locale: 'en_US',
           images: [
             {
               url: image.url,
@@ -63,11 +96,11 @@ export function CustomHead({
           ],
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
-          site_name: "",
+          site_name: '',
         }}
         twitter={{
-          handle: "@studiofreight",
-          cardType: "summary_large_image",
+          handle: '@layers',
+          cardType: 'summary_large_image',
         }}
       />
     </>

@@ -3,6 +3,7 @@ import s from './home.module.scss'
 import cn from 'clsx'
 
 import Button from '@/components/button'
+import CardStack from '@/components/card-stack'
 import HomeSlider from '@/components/home-slider'
 import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
@@ -11,9 +12,9 @@ import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
+import { DynamicRoutes } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
-import { DynamicRoutes } from '@/global'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
@@ -51,19 +52,8 @@ const Home = () => {
             our <strong>all-in-one </strong>
             software.
           </h2>
-          <div className={cn(s.cards, 'content-box-lg', 'flex-center')}>
-            <div className={s.videoC} style={{ width: '200px' }}>
-              <video
-                style={{ width: '100%', height: '100%' }}
-                className={s.video}
-                // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
-                src="/video/gif.mp4"
-                autoPlay
-                muted
-                loop
-                // controls
-              ></video>
-            </div>
+          <div className={cn(s.cards)}>
+            <CardStack />
           </div>
           <div className={s.trigger} onClick={toFeatures}>
             <NextItemMarquee

@@ -1,14 +1,12 @@
 import * as Accordion from '@radix-ui/react-accordion'
 import cn from 'clsx'
 
-import IconArrow from '../icons/icon-arrow'
-import s from './project-accordion.module.scss'
 import Button from '@/components/button'
 import IconCalendar from '../icons/icon-calendar'
 import IconLocation from '../icons/icon-location'
-import { useState } from 'react'
-import IconPlus from '../icons/icon-plus'
 import IconMinus from '../icons/icon-minus'
+import IconPlus from '../icons/icon-plus'
+import s from './project-accordion.module.scss'
 
 type AccordionItem = {
   item: any
