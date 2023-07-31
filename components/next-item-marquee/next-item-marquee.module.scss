@@ -9,12 +9,13 @@
     font-weight: 500;
     margin-bottom: desktop-vw(16px);
     margin-right: auto;
+    padding-left: desktop-vw(35px);
   }
 
   .marqueeC {
     @include dims(100%, desktop-vw(155px));
     background: var(--white);
-    border-radius: 35px;
+    border-radius: desktop-vw(35px);
     padding: desktop-vw(20px) desktop-vw(20px) desktop-vw(20px) 0;
 
     display: flex;

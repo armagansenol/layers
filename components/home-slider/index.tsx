@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ComposableImage } from '../composable-image'
 import s from './home-slider.module.scss'
 
