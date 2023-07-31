@@ -43,7 +43,7 @@
 
     .iconC {
       @include dims(desktop-vw(155px), 100%);
-      background: var(--innocent-snowdrop);
+      background: var(--theme-secondary);
       border-radius: desktop-vw(27px);
       padding: desktop-vw(45px);
 
