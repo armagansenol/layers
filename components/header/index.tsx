@@ -182,7 +182,11 @@ const Header = () => {
                               return (
                                 <Link
                                   className={cn(s.menuItem, 'cursor-pointer')}
-                                  href={`/${routes[currentRoute].path}/${item.path}`}
+                                  href={`/${
+                                    routes[currentRoute].path
+                                      ? routes[currentRoute].path + '/'
+                                      : ''
+                                  }${item.path}`}
                                   key={i}
                                 >
                                   {currentRoute !== DynamicRoutes.resources && (

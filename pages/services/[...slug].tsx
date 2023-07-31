@@ -450,8 +450,6 @@ const services = {
 }
 
 const Services = ({ data }: any) => {
-  console.log('data', data)
-
   return <Detail pageData={data.data} pageType={data.type} />
 }
 
@@ -470,9 +468,8 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
 
 export async function getStaticProps(context: any) {
   const { slug } = context.params
-  const currentLocale = context.locale
 
-  console.log(context)
+  console.log('ctx', context)
 
   function getData() {
     const page = Object.values(services).filter((value) => {

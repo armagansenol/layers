@@ -4,7 +4,6 @@ import 'blaze-slider/dist/blaze.css'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import type { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
 
 import 'styles/global.scss'
 
