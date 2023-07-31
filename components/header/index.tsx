@@ -189,9 +189,9 @@ const Header = () => {
                                   {currentRoute !== MainRoute.resources && (
                                     <div className={s.iconC}>
                                       <Image
-                                        src={`/img/${item.path}.png`}
-                                        width={100}
-                                        height={100}
+                                        src={`/img/detail/${item.path}/menu-icon.png`}
+                                        width={150}
+                                        height={150}
                                         alt="Feature Icons"
                                         style={{ objectFit: 'contain' }}
                                       />
