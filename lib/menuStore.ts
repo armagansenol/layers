@@ -1,22 +1,18 @@
-import { DynamicRoutes } from '@/global'
+import { MainRoute } from '@/global'
 import { create } from 'zustand'
 
 interface State {
   isVisible: boolean
   isOpen: boolean
   currentRoute:
-    | DynamicRoutes.features
-    | DynamicRoutes.services
-    | DynamicRoutes.resources
+    | MainRoute.features
+    | MainRoute.services
+    | MainRoute.resources
     | null
   setVisibility: (val: boolean) => void
   setIsOpen: (val: boolean) => void
   setCurrentRoute: (
-    val:
-      | DynamicRoutes.features
-      | DynamicRoutes.services
-      | DynamicRoutes.resources
-      | null
+    val: MainRoute.features | MainRoute.services | MainRoute.resources | null
   ) => void
 }
 
@@ -27,11 +23,7 @@ export const useStore = create<State>((set) => ({
   setVisibility: (toggle: boolean) => set({ isVisible: toggle }),
   setIsOpen: (toggle: boolean) => set({ isOpen: toggle }),
   setCurrentRoute: (
-    toggle:
-      | DynamicRoutes.features
-      | DynamicRoutes.services
-      | DynamicRoutes.resources
-      | null
+    toggle: MainRoute.features | MainRoute.services | MainRoute.resources | null
   ) => set({ currentRoute: toggle }),
 }))
 

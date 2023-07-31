@@ -1,10 +1,10 @@
-export enum DynamicRoutes {
+export enum MainRoute {
   features = 'features',
   services = 'services',
   resources = 'resources',
 }
 
-export enum SubRoutes {
+export enum SubRoute {
   employeeDatabase = 'employeeDatabase',
   employeeCenterAndHrPortal = 'employeeCenterAndHrPortal',
   reportingAndHrAnalytics = 'reportingAndHrAnalytics',
@@ -34,22 +34,14 @@ export enum SubRoutes {
   contact = 'contact',
 }
 
-export enum StaticSubRoutes {
-  getAnOffer = 'getAnOffer',
-  aboutLayers = 'aboutLayers',
-  contact = 'contact',
-}
+// export enum StaticSubRoutes {
+//   getAnOffer = 'getAnOffer',
+//   aboutLayers = 'aboutLayers',
+//   contact = 'contact',
+// }
 
 export type Children = {
-  [key in SubRoutes]?: {
-    ui: string
-    path: string
-    desc?: string
-  }
-}
-
-export type StaticChildren = {
-  [key in StaticSubRoutes]?: {
+  [key in SubRoute]?: {
     ui: string
     path: string
     desc?: string
@@ -57,22 +49,19 @@ export type StaticChildren = {
 }
 
 export type Route = {
-  type:
-    | DynamicRoutes.features
-    | DynamicRoutes.services
-    | DynamicRoutes.resources
+  type: MainRoute
   ui: string
   path: string
   children: Children
 }
 
 export type Routes = {
-  [key in DynamicRoutes]: Route
+  [key in MainRoute]: Route
 }
 
 export const routes: Routes = {
   features: {
-    type: DynamicRoutes.features,
+    type: MainRoute.features,
     ui: 'Features',
     path: 'features',
     children: {
@@ -139,7 +128,7 @@ export const routes: Routes = {
     },
   },
   services: {
-    type: DynamicRoutes.services,
+    type: MainRoute.services,
     ui: 'Services',
     path: 'services',
     children: {
@@ -206,7 +195,7 @@ export const routes: Routes = {
     },
   },
   resources: {
-    type: DynamicRoutes.resources,
+    type: MainRoute.resources,
     ui: 'Resources',
     path: '',
     children: {

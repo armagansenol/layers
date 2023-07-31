@@ -12,7 +12,7 @@ import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
-import { DynamicRoutes } from '@/global'
+import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
 
@@ -30,7 +30,7 @@ const Home = () => {
 
   function toFeatures() {
     setIsOpen(true)
-    setCurrentRoute(DynamicRoutes.features)
+    setCurrentRoute(MainRoute.features)
   }
 
   return (

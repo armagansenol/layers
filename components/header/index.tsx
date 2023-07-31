@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { Image } from '@/components/image'
 import { Link } from '@/components/link'
-import { DynamicRoutes, routes } from '@/global'
+import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
 import { useRouter } from 'next/router'
 import LanguageSelect from '@/components/languageSelect'
@@ -22,10 +22,7 @@ const Header = () => {
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
 
   function handleMenu(
-    type:
-      | DynamicRoutes.features
-      | DynamicRoutes.services
-      | DynamicRoutes.resources
+    type: MainRoute.features | MainRoute.services | MainRoute.resources
   ) {
     if (type) {
       setCurrentRoute(type)
@@ -189,7 +186,7 @@ const Header = () => {
                                   }${item.path}`}
                                   key={i}
                                 >
-                                  {currentRoute !== DynamicRoutes.resources && (
+                                  {currentRoute !== MainRoute.resources && (
                                     <div className={s.iconC}>
                                       <Image
                                         src={`/img/${item.path}.png`}
