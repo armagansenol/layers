@@ -140,16 +140,23 @@
   }
 }
 
-.slidesC {
-  .slides {
-    grid-template-columns: 1fr;
-    padding: mobile-vw(16px) 0;
-    transform: translateX(100px);
+// .slidesC {
+//   .slides {
+//     grid-template-columns: 1fr;
+//     padding: mobile-vw(16px) 0;
 
-    .slideItem {
-      // @include dims(desktop-vw(450px), desktop-vw(325px));
-      background: var(--foundation-white);
-      height: desktop-vw(325px);
-    }
-  }
+//     .slideItem {
+//       // @include dims(desktop-vw(450px), desktop-vw(325px));
+//       background: var(--foundation-white);
+//       height: desktop-vw(325px);
+
+//       &:first-child {
+//         margin-left: 300px;
+//       }
+//     }
+//   }
+// }
+
+.carouselC {
+  position: relative;
 }

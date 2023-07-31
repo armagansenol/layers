@@ -11,7 +11,7 @@ type Props = {
 const ReferencesMarquee = ({ items = [{ logo: '', url: '' }] }: Props) => {
   return (
     <div className={s.referencesMarquee}>
-      <Marquee duration={30} repeat={2}>
+      <Marquee duration={30} repeat={3}>
         <>
           {items.map((item, i) => {
             return (

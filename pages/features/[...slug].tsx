@@ -452,9 +452,9 @@ const Features = ({ data }: any) => {
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
-  let paths: any[] = []
-  const subRoutes = routes.features.children
-  Object.values(subRoutes).map((value) => {
+  let paths: { params: { slug: string[] } }[] = []
+
+  Object.values(routes.features.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] } }]
   })
 
@@ -466,7 +466,6 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
 
 export async function getStaticProps(context: any) {
   const { slug } = context.params
-  const currentLocale = context.locale
 
   console.log(context)
 

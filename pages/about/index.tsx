@@ -1,15 +1,57 @@
 import cn from 'clsx'
 
-import BlazeSlider from '@/components/blaze-slider'
+import EmblaCarousel from '@/components/embla-carousel'
 import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
 import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
+import { EmblaOptionsType } from 'embla-carousel-react'
 import s from './about.module.scss'
 
 type IndexPageRef = React.ForwardedRef<HTMLDivElement>
+
+const OPTIONS: EmblaOptionsType = {
+  align: 0.1,
+  containScroll: false,
+  slidesToScroll: 1,
+}
+
+const SLIDES = [
+  <>
+    <Image
+      src={`/img/pinned-1.jpg`}
+      alt="Your alt text"
+      width={1500}
+      height={1500}
+    />
+  </>,
+  <>
+    <Image
+      src={`/img/pinned-2.jpg`}
+      alt="Your alt text"
+      width={1500}
+      height={1500}
+    />
+  </>,
+  <>
+    <Image
+      src={`/img/pinned-3.jpg`}
+      alt="Your alt text"
+      width={1500}
+      height={1500}
+    />
+  </>,
+  <>
+    <Image
+      src={`/img/pinned-4.jpg`}
+      alt="Your alt text"
+      width={1500}
+      height={1500}
+    />
+  </>,
+]
 
 const About = (ref: IndexPageRef) => {
   const references = [
@@ -149,7 +191,7 @@ const About = (ref: IndexPageRef) => {
           </div>
         </section>
 
-        <section>
+        {/* <section>
           <div className={s.slidesC}>
             <BlazeSlider className={s.slides} slidesToShow={3}>
               <div className={s.slideItem}>lol - 1</div>
@@ -161,6 +203,10 @@ const About = (ref: IndexPageRef) => {
               <div className={s.slideItem}>lol - 7</div>
             </BlazeSlider>
           </div>
+        </section> */}
+
+        <section className={s.carouselC}>
+          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
         </section>
 
         <section className={s.trialC}>

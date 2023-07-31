@@ -1,7 +1,7 @@
-import { routes } from '@/global'
+import { Children, routes } from '@/global'
 import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
-import { GetStaticPaths } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 const services = {
   executiveSearchAndRecruitment: {
@@ -459,9 +459,9 @@ const Services = ({ data }: any) => {
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
-  let paths: any[] = []
-  const subRoutes = { ...routes.services.children }
-  Object.values(subRoutes).map((value) => {
+  let paths: { params: { slug: string[] } }[] = []
+
+  Object.values(routes.services.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] } }]
   })
 
@@ -471,10 +471,8 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
   }
 }
 
-export async function getStaticProps(context: any) {
+export const getStaticProps: GetStaticProps = (context: any) => {
   const { slug } = context.params
-
-  console.log('ctx', context)
 
   function getData() {
     const page = Object.values(services).filter((value) => {
