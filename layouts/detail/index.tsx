@@ -76,7 +76,8 @@ const Detail = ({ pageData, pageType }: Props) => {
                   className={s.video}
                   // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
                   // src="/video/gif.mp4"
-                  src="https://player.vimeo.com/progressive_redirect/playback/848990750/rendition/360p/file.mp4?loc=external&signature=193c52bb77ebeb66c6156648de7654365f00fab852322cc420d9bb19e22cf43d"
+                  // src="https://player.vimeo.com/progressive_redirect/playback/848990750/rendition/360p/file.mp4?loc=external&signature=193c52bb77ebeb66c6156648de7654365f00fab852322cc420d9bb19e22cf43d"
+                  src={pageData.detail.d1.media.path}
                   autoPlay
                   muted
                   loop

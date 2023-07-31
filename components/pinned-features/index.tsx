@@ -9,6 +9,13 @@ const PinnedFeatures = () => {
   const q = gsap.utils.selector(ref)
   const videoRef = useRef<HTMLVideoElement>(null)
 
+  const mediaSrc =
+    'https://player.vimeo.com/progressive_redirect/playback/850057794/rendition/720p/file.mp4?loc=external&signature=5ca453ff652a314b3af459ccede5f72c3b12dd53c748df85f593dec31cee8d44'
+
+  const media = (
+    <video className={s.video} ref={videoRef} src={mediaSrc}></video>
+  )
+
   useEffect(() => {
     function updateVideo(val: number) {
       if (videoRef.current) {
@@ -143,13 +150,7 @@ const PinnedFeatures = () => {
         </div>
       </div>
       <div className={cn(s.media, 'flex-center')}>
-        <div className={s.videoC}>
-          <video
-            className={s.video}
-            ref={videoRef}
-            src="/video/sample120.mp4"
-          ></video>
-        </div>
+        <div className={s.videoC}>{media}</div>
       </div>
     </div>
   )

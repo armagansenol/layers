@@ -12,6 +12,7 @@ import { Link } from '@/components/link'
 import { DynamicRoutes, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
 import { useRouter } from 'next/router'
+import LanguageSelect from '@/components/languageSelect'
 
 const ease = cubicBezier(0.16, 1, 0.3, 1)
 
@@ -213,7 +214,9 @@ const Header = () => {
         </nav>
 
         <div className={s.actions}>
-          <div className={s.btn}>tr</div>
+          <div className={s.btn}>
+            <LanguageSelect />
+          </div>
           <button className={s.btn}>
             Login{' '}
             <div className={s.iconC}>

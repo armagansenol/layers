@@ -15,9 +15,11 @@ import WhyLayers from '@/components/why-layers'
 import { DynamicRoutes } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
+import { useTranslation } from 'next-i18next'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
+  const { t } = useTranslation()
 
   const references = [
     { logo: '/img/wired.svg', url: '/' },
@@ -38,6 +40,7 @@ const Home = () => {
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
           <HomeSlider />
+          {t('homeTitle')}
         </section>
 
         <section className={cn(s.whyLayersC, 'content-box-md')}>

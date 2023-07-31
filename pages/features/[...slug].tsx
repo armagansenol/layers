@@ -20,7 +20,7 @@ const features = {
           title: 'All your people data in one place.',
           desc: 'Easily manage, monitor and report your organizational chart, personnel personal information, documents and personal information.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850058184/rendition/360p/file.mp4?loc=external&signature=e159fe66e5d3439cdfb9b89349978f841e87991b48cf540f2f0394c0a21205fe',
           },
         },
         d2: {
@@ -54,7 +54,7 @@ const features = {
           title: 'Effortless Expense Management.',
           desc: 'With just a few clicks, employees can submit leave requests, track their remaining leave balances, and manage their expenses seamlessly.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850059769/rendition/360p/file.mp4?loc=external&signature=5652eb600e56f88064b7dbbb14892d6915ad4bb66ace3427255ccac0eebb8aea',
           },
         },
         d2: {
@@ -88,7 +88,7 @@ const features = {
           title: 'Customizable Dashboards.',
           desc: 'Tailor your analytics experience with customizable dashboards. Layers App allows you to create personalized dashboards that display the metrics and visualizations most relevant to your organization.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850059231/rendition/360p/file.mp4?loc=external&signature=2b4ac5b9e5eda8181ccc3407577f71e7af62c531c0b4d716fadfe0490f391862',
           },
         },
         d2: {
@@ -125,7 +125,7 @@ const features = {
           title: 'Automated Workflows.',
           desc: 'Workflows & Forms feature allows automate workflows, reducing administrative burdens and improving efficiency.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850061977/rendition/360p/file.mp4?loc=external&signature=db2b8ac8b77cc2eb672bf1dcb7118753d86256996254874a1ac48652a6144961',
           },
         },
         d2: {
@@ -162,7 +162,7 @@ const features = {
           title: 'Centralize Feedback',
           desc: 'Layers allows you to gather feedback from multiple channels, including surveys, reviews, all in one place. This centralized approach ensures that no valuable feedback goes unnoticed or gets lost in the shuffle.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850062282/rendition/360p/file.mp4?loc=external&signature=6c2d6e90dd62d67bf847443ac668c8fd180af5b4133e23e64cc690d4ded7f40f',
           },
         },
         d2: {
@@ -199,7 +199,7 @@ const features = {
           title: 'Setting the Stage for Success',
           desc: 'Set the stage for success by providing new employees with a comprehensive introduction to our company’s values, culture, and expectations.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850060596/rendition/360p/file.mp4?loc=external&signature=b6f5ea0e3ab421c560041615fe66d482d5d87ad4567d1e7a55ea5237e8df0021',
           },
         },
         d2: {
@@ -236,7 +236,7 @@ const features = {
           title: 'Unlocking Growth and Success',
           desc: 'With the “Exam & Surveys” feature, empowers individuals and organizations to efficiently assess knowledge, gather feedback, and unlock new opportunities for growth and success.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850062625/rendition/360p/file.mp4?loc=external&signature=335e371f0d0ed9d087d1b68ad6d0a26925b79763a2b8fe08085d59d882741eb9',
           },
         },
         d2: {
@@ -273,7 +273,7 @@ const features = {
           title: 'Level up your workforce',
           desc: 'With Layer’s gamification & appreciation features, you can foster a more motivated, connected, and productive workforce. Say goodbye to mundane routines and hello to a vibrant workplace where achievements are celebrated, and rewards await.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850063171/rendition/360p/file.mp4?loc=external&signature=b24ab8a1b4ec48ed11700cba67a20a4605b32b53d579061bc5010f20ae3bf307',
           },
         },
         d2: {
@@ -310,7 +310,7 @@ const features = {
           title: 'Powerful Candidate Search and Filtering',
           desc: 'With the Recruitment Center, you can search and filter candidates based on various criteria, such as skills, experience, education, and more.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850060884/rendition/360p/file.mp4?loc=external&signature=edab1692285d9091fd47624a7e0b6cf1e88f388f378b54761d59516b0109e196',
           },
         },
         d2: {
@@ -324,14 +324,14 @@ const features = {
         title: 'Next Feature',
         text: {
           t1: 'Next Feature',
-          t2: routes.features.children.assesmentAndOnboarding?.ui,
+          t2: routes.features.children.assessmentAndOnboarding?.ui,
         },
-        url: routes.features.children.assesmentAndOnboarding?.path,
+        url: routes.features.children.assessmentAndOnboarding?.path,
       },
     },
   },
   assessmentAndOnboarding: {
-    type: routes.features.children.assesmentAndOnboarding?.path,
+    type: routes.features.children.assessmentAndOnboarding?.path,
     data: {
       intro: {
         title: 'Assessment & Onboarding',
@@ -347,7 +347,7 @@ const features = {
           title: 'Automated Workflows',
           desc: 'Simplify your onboarding process with automated workflows. The Layers App enables you to automate repetitive tasks, such as sending welcome emails, assigning training modules, and generating necessary documentation.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850058792/rendition/360p/file.mp4?loc=external&signature=8f3fe9e448b1c723ccaad8ac0c7e96bbddd07980dcb3d921709e3e3f6e1e6f03',
           },
         },
         d2: {
@@ -384,7 +384,7 @@ const features = {
           title: 'Improve Wellbeing',
           desc: 'Keep an eye on who opts out or reduces contributions to learn about your team’s needs.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850061510/rendition/360p/file.mp4?loc=external&signature=b394000fc1547c9a198fa958fcca02b5808337228617cd621357525b4fecd8a2',
           },
         },
         d2: {
@@ -420,7 +420,7 @@ const features = {
           title: 'Analytics and insights',
           desc: 'Leverage the power of data to gain actionable insights into your organization’s performance.',
           media: {
-            path: '/',
+            path: 'https://player.vimeo.com/progressive_redirect/playback/850058432/rendition/360p/file.mp4?loc=external&signature=e60ed0ca64220da01397084a178980d1c4a71bb6a2a7d842e01e3e5ad0539359',
           },
         },
         d2: {
@@ -450,7 +450,7 @@ const Features = ({ data }: any) => {
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
   let paths: any[] = []
-  const subRoutes = { ...routes.features.children, ...routes.services.children }
+  const subRoutes = routes.features.children
   Object.values(subRoutes).map((value) => {
     paths = [...paths, { params: { slug: [value.path] } }]
   })
@@ -463,6 +463,9 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
 
 export async function getStaticProps(context: any) {
   const { slug } = context.params
+  const currentLocale = context.locale
+
+  console.log(context)
 
   function getData() {
     const page = Object.values(features).filter((value) => {

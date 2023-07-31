@@ -14,7 +14,7 @@ export enum SubRoutes {
   examAndSurveys = 'examAndSurveys',
   gamificationsAndAppreciations = 'gamificationsAndAppreciations',
   recruitmentCenter = 'recruitmentCenter',
-  assesmentAndOnboarding = 'assesmentAndOnboarding',
+  assessmentAndOnboarding = 'assessmentAndOnboarding',
   compensationAndBenefits = 'compensationAndBenefits',
   okrAndPerformanceManagement = 'okrAndPerformanceManagement',
   executiveSearchAndRecruitment = 'executiveSearchAndRecruitment',
@@ -23,7 +23,7 @@ export enum SubRoutes {
   payroll = 'payroll',
   massRecruitmentSolutions = 'massRecruitmentSolutions',
   recruitmentProcessOutsourcing = 'recruitmentProcessOutsourcing',
-  assesmentAndExam = 'assesmentAndExam',
+  assessmentAndExam = 'assessmentAndExam',
   outplacementAndCareerCoaching = 'outplacementAndCareerCoaching',
   hrCoachingAndTraining = 'hrCoachingAndTraining',
   hrMapping = 'hrMapping',
@@ -60,7 +60,7 @@ export type Route = {
     | DynamicRoutes.resources
   ui: string
   path: string
-  children: Children | StaticChildren
+  children: Children
 }
 
 export type Routes = {
@@ -118,7 +118,7 @@ export const routes: Routes = {
         path: 'recruitment-center',
         desc: 'Manage open positions, job postings, candidates, and interviews with an ATS system and generate reports.',
       },
-      assesmentAndOnboarding: {
+      assessmentAndOnboarding: {
         ui: 'Assessment & Onboarding',
         path: 'assessment-and-onboarding',
         desc: 'Manage documents and paperwork effortlessly. Convert candidates to employees with a single click.',
@@ -170,7 +170,7 @@ export const routes: Routes = {
         path: 'recruitment-process-outsourcing',
         desc: 'Outsource your recruitment processes.',
       },
-      assesmentAndExam: {
+      assessmentAndExam: {
         ui: 'Assessment & Exam',
         path: 'assessment-and-exam',
         desc: 'Comprehensive reporting on recruitment, promotion, and loss evaluations.',

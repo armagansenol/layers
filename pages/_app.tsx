@@ -8,9 +8,7 @@ import { useRouter } from 'next/router'
 
 import 'styles/global.scss'
 
-export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter()
-
+function App({ Component, pageProps }: AppProps) {
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
     // ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
@@ -33,3 +31,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   )
 }
+
+export default App
