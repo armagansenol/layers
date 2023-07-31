@@ -1,6 +1,7 @@
 export enum DynamicRoutes {
   features = 'features',
   services = 'services',
+  resources = 'resources',
 }
 
 export enum SubRoutes {
@@ -30,6 +31,12 @@ export enum SubRoutes {
   managementAuditAndBenchmarking = 'managementAuditAndBenchmarking',
 }
 
+export enum StaticSubRoutes {
+  getAnOffer = 'getAnOffer',
+  aboutLayers = 'aboutLayers',
+  contact = 'contact',
+}
+
 export type Children = {
   [key in SubRoutes]?: {
     ui: string
@@ -38,11 +45,22 @@ export type Children = {
   }
 }
 
+export type StaticChildren = {
+  [key in StaticSubRoutes]?: {
+    ui: string
+    path: string
+    desc?: string
+  }
+}
+
 export type Route = {
-  type: DynamicRoutes.features | DynamicRoutes.services
+  type:
+    | DynamicRoutes.features
+    | DynamicRoutes.services
+    | DynamicRoutes.resources
   ui: string
   path: string
-  children: Children
+  children: Children | StaticChildren
 }
 
 export type Routes = {
@@ -184,23 +202,23 @@ export const routes: Routes = {
       },
     },
   },
-  // resources: {
-  //   type: DynamicRoutes.resources,
-  //   ui: 'Resources',
-  //   path: 'resources',
-  //   children: [
-  //     {
-  //       ui: 'About Layers',
-  //       path: 'about',
-  //     },
-  //     {
-  //       ui: 'Get an Offer',
-  //       path: 'get-an-offer',
-  //     },
-  //     {
-  //       ui: 'Contact',
-  //       path: 'contact',
-  //     },
-  //   ],
-  // },
+  resources: {
+    type: DynamicRoutes.resources,
+    ui: 'Resources',
+    path: '',
+    children: {
+      aboutLayers: {
+        ui: 'About Layers',
+        path: 'about',
+      },
+      getAnOffer: {
+        ui: 'Get an Offer',
+        path: 'get-an-offer',
+      },
+      contact: {
+        ui: 'Contact',
+        path: 'contact',
+      },
+    },
+  },
 }

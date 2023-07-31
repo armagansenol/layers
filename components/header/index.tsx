@@ -1,23 +1,31 @@
+import { useEffect, useRef } from 'react'
+import s from './header.module.scss'
+
+import cn from 'clsx'
+import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { Image } from '@/components/image'
 import { Link } from '@/components/link'
 import { DynamicRoutes, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
-import cn from 'clsx'
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useRouter } from 'next/router'
-import { useEffect, useRef } from 'react'
-import s from './header.module.scss'
+
+const ease = cubicBezier(0.16, 1, 0.3, 1)
 
 const Header = () => {
-  const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
   const menuRef = useRef<HTMLElement>(null)
   const router = useRouter()
-  const ease = cubicBezier(0.16, 1, 0.3, 1)
+  const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
 
-  function handleMenu(type: DynamicRoutes.features | DynamicRoutes.services) {
+  function handleMenu(
+    type:
+      | DynamicRoutes.features
+      | DynamicRoutes.services
+      | DynamicRoutes.resources
+  ) {
     if (type) {
       setCurrentRoute(type)
     }
@@ -96,20 +104,27 @@ const Header = () => {
               <div
                 className={cn(s.navItemC, 'cursor-pointer', [s[value.type]])}
                 key={i}
-                // onMouseEnter={() =>
-                //   value.type !== 'requestADemo' && handleMenu(value.type)
-                // }
                 onMouseEnter={() => handleMenu(value.type)}
               >
                 <p className={s.itemText}>{value.ui}</p>
-                {value.children && (
-                  <div className={s.iconC}>
-                    <IconArrowDropdown />
-                  </div>
-                )}
+                <div className={s.iconC}>
+                  <IconArrowDropdown />
+                </div>
               </div>
             )
           })}
+          {/* <div
+            className={cn(s.navItemC, s.resources, 'cursor-pointer')}
+            // onMouseEnter={() =>
+            //   value.type !== 'requestADemo' && handleMenu(value.type)
+            // }
+            // onMouseEnter={() => handleMenu("resources")}
+          >
+            <p className={s.itemText}>Resources</p>
+            <div className={s.iconC}>
+              <IconArrowDropdown />
+            </div>
+          </div> */}
           <Link
             href="/request-a-demo"
             className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
@@ -169,7 +184,7 @@ const Header = () => {
                                   href={`/${routes[currentRoute].path}/${item.path}`}
                                   key={i}
                                 >
-                                  {
+                                  {currentRoute !== DynamicRoutes.resources && (
                                     <div className={s.iconC}>
                                       <Image
                                         src={`/img/${item.path}.png`}
@@ -179,7 +194,7 @@ const Header = () => {
                                         style={{ objectFit: 'contain' }}
                                       />
                                     </div>
-                                  }
+                                  )}
                                   <div className={s.text}>
                                     {item.ui && <h5>{item.ui}</h5>}
                                     {item.desc && <p>{item.desc}</p>}

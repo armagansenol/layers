@@ -4,11 +4,19 @@ import { create } from 'zustand'
 interface State {
   isVisible: boolean
   isOpen: boolean
-  currentRoute: DynamicRoutes.features | DynamicRoutes.services | null
+  currentRoute:
+    | DynamicRoutes.features
+    | DynamicRoutes.services
+    | DynamicRoutes.resources
+    | null
   setVisibility: (val: boolean) => void
   setIsOpen: (val: boolean) => void
   setCurrentRoute: (
-    val: DynamicRoutes.features | DynamicRoutes.services | null
+    val:
+      | DynamicRoutes.features
+      | DynamicRoutes.services
+      | DynamicRoutes.resources
+      | null
   ) => void
 }
 
@@ -19,7 +27,11 @@ export const useStore = create<State>((set) => ({
   setVisibility: (toggle: boolean) => set({ isVisible: toggle }),
   setIsOpen: (toggle: boolean) => set({ isOpen: toggle }),
   setCurrentRoute: (
-    toggle: DynamicRoutes.features | DynamicRoutes.services | null
+    toggle:
+      | DynamicRoutes.features
+      | DynamicRoutes.services
+      | DynamicRoutes.resources
+      | null
   ) => set({ currentRoute: toggle }),
 }))
 
