@@ -29,6 +29,9 @@ export enum SubRoutes {
   hrMapping = 'hrMapping',
   organisationalDueDiligence = 'organisationalDueDiligence',
   managementAuditAndBenchmarking = 'managementAuditAndBenchmarking',
+  getAnOffer = 'getAnOffer',
+  aboutLayers = 'aboutLayers',
+  contact = 'contact',
 }
 
 export enum StaticSubRoutes {
