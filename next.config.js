@@ -46,6 +46,16 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/services',
+        destination: '/services/executive-search-and-recruitment',
+        permanent: true,
+      },
+      {
+        source: '/features',
+        destination: '/services/employee-database',
+        permanent: true,
+      },
     ]
   },
 }
