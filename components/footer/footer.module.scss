@@ -15,7 +15,7 @@
 
 .footer {
   .main {
-    border-top: 1px solid var(--wistful);
+    border-top: 1px solid var(--theme-secondary);
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0 desktop-vw(60px);
@@ -64,7 +64,7 @@
 
   .copyright {
     align-items: center;
-    border-top: 1px solid var(--wistful);
+    border-top: 1px solid var(--theme-secondary);
     font-family: var(--font-inter);
     font-size: desktop-vw(15px);
     font-weight: 400;

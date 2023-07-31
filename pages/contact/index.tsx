@@ -9,7 +9,7 @@ import s from './contact.module.scss'
 
 const Contact = () => {
   return (
-    <Layout>
+    <Layout theme="main">
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
           {/* <Header /> */}

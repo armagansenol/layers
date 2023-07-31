@@ -8,7 +8,7 @@ import cn from 'clsx'
 
 const GetAnOffer = () => {
   return (
-    <Layout>
+    <Layout theme="main">
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
           {/* <Header /> */}

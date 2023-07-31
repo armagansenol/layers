@@ -6,7 +6,7 @@ import s from './request-a-demo.module.scss'
 
 const RequestADemo = () => {
   return (
-    <Layout>
+    <Layout theme="main">
       <>
         <section className={cn(s.intro, 'content-box-sm')}>
           {/* <Header /> */}

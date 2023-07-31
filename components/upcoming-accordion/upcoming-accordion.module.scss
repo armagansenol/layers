@@ -67,16 +67,16 @@
   overflow: scroll;
   padding-bottom: desktop-vw(200px);
 
-  &::after {
-    content: '';
-    @include position(absolute, auto, 0, 0, 0);
-    @include dims(100%, desktop-vw(300px));
-    background: linear-gradient(
-      180deg,
-      var(--innocent-snowdrop-transparent) 0%,
-      var(--innocent-snowdrop) 100%
-    );
-  }
+  // &::after {
+  //   content: '';
+  //   @include position(absolute, auto, 0, 0, 0);
+  //   @include dims(100%, desktop-vw(300px));
+  //   background: linear-gradient(
+  //     180deg,
+  //     var(--innocent-snowdrop-transparent) 0%,
+  //     var(--innocent-snowdrop) 100%
+  //   );
+  // }
 
   .items {
     position: relative;

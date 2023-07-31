@@ -23,6 +23,7 @@ type Props = {
   seo?: any
   children: ReactElement
   className?: string
+  theme: 'main' | 'services' | 'features'
 }
 
 export function Layout({
@@ -43,12 +44,13 @@ export function Layout({
   },
   children,
   className,
+  theme = 'main',
 }: Props) {
   return (
     <>
       <CustomHead {...seo} />
 
-      <div className={cn(s.layout, className)}>
+      <div className={cn(s.layout, className, `theme-${theme}`)}>
         <UpcomingAccordion />
         <Header />
         <main className={s.main}>{children}</main>

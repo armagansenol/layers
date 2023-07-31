@@ -1,4 +1,5 @@
 import { routes } from '@/global'
+import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
 import { GetStaticPaths } from 'next'
 
@@ -450,7 +451,11 @@ const services = {
 }
 
 const Services = ({ data }: any) => {
-  return <Detail pageData={data.data} pageType={data.type} />
+  return (
+    <Layout theme="services">
+      <Detail pageData={data.data} pageType={data.type} />
+    </Layout>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {

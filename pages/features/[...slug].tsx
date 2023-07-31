@@ -1,4 +1,5 @@
-import { DynamicRoutes, SubRoutes, routes } from '@/global'
+import { routes } from '@/global'
+import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
 import { GetStaticPaths } from 'next'
 
@@ -443,9 +444,11 @@ const features = {
 }
 
 const Features = ({ data }: any) => {
-  console.log('data', data)
-
-  return <Detail pageData={data.data} pageType={data.type} />
+  return (
+    <Layout theme="features">
+      <Detail pageData={data.data} pageType={data.type} />
+    </Layout>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths<any> = async () => {
