@@ -1,3 +1,35 @@
+export interface DynamicPageContent {
+  intro: {
+    title: string
+    desc: string
+    small: string
+    media: {
+      type: 'video' | 'image'
+      path?: string
+    }
+  }
+  detail: {
+    d1: {
+      title: string
+      desc: string
+      media: {
+        path: string
+      }
+    }
+    d2: {
+      desc: string
+      media: {
+        path: string
+      }
+    }
+  }
+  nextPage: {
+    title: string
+    text: { t1: string; t2: string }
+    url: string
+  }
+}
+
 export enum MainRoute {
   features = 'features',
   services = 'services',

@@ -7,40 +7,11 @@ import { Image } from '@/components/image'
 import NextItemMarquee from '@/components/next-item-marquee'
 import Subscribe from '@/components/subscribe'
 import Link from 'next/link'
+import { DynamicPageContent } from '@/global'
 
 type Props = {
   pageType: string
-  pageData: {
-    intro: {
-      title: string
-      desc: string
-      small: string
-      media: {
-        type: 'video' | 'image'
-        path?: string
-      }
-    }
-    detail: {
-      d1: {
-        title: string
-        desc: string
-        media: {
-          path: string
-        }
-      }
-      d2: {
-        desc: string
-        media: {
-          path: string
-        }
-      }
-    }
-    nextPage: {
-      title: string
-      text: { t1: string; t2: string }
-      url: string
-    }
-  }
+  pageData: DynamicPageContent
 }
 
 const Detail = ({ pageData, pageType }: Props) => {

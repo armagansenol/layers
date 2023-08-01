@@ -470,8 +470,6 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
 export const getStaticProps: GetStaticProps = (context: any) => {
   const { slug } = context.params
 
-  console.log(context)
-
   function getData() {
     const page = Object.values(features).filter((value) => {
       return value.type === slug[0]
