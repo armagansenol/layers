@@ -46,6 +46,12 @@
     display: flex;
     justify-content: center;
     margin: 0 auto;
+
+    .media {
+      @include dims(100%);
+      object-fit: cover;
+      display: block;
+    }
   }
 }
 
@@ -104,6 +110,12 @@
       margin-left: auto;
       margin-right: desktop-vw(100px);
       transform: rotate(12deg);
+
+      .media {
+        @include dims(100%);
+        object-fit: cover;
+        display: block;
+      }
     }
   }
 

@@ -1,4 +1,4 @@
-import { Children, routes } from '@/global'
+import { routes } from '@/global'
 import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -13,7 +13,8 @@ const services = {
         small:
           'We provide end-to-end services for quickly and effectively finding, assessing and hiring top executives and professionals.',
         media: {
-          path: '/',
+          type: 'video',
+          path: 'https://player.vimeo.com/progressive_redirect/playback/850180986/rendition/720p/file.mp4?loc=external&signature=c9405f4dc204aa7d5ffe9681c403b4b545929b62b3f9869494c436b21719e7f5',
         },
       },
       detail: {
@@ -50,7 +51,7 @@ const services = {
         small:
           'Flexible office solutions with recruitment and payroll management.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -87,7 +88,7 @@ const services = {
         small:
           'Tech-focused experts for tailored candidate selection and recruitment.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -124,7 +125,7 @@ const services = {
         small:
           'Accurate and timely payroll and personal affairs management for your financial benefit.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -161,7 +162,8 @@ const services = {
         small:
           'Efficient end-to-end recruitment process for multiple roles simultaneously.',
         media: {
-          path: '/',
+          type: 'video',
+          path: 'https://player.vimeo.com/progressive_redirect/playback/850180986/rendition/720p/file.mp4?loc=external&signature=c9405f4dc204aa7d5ffe9681c403b4b545929b62b3f9869494c436b21719e7f5',
         },
       },
       detail: {
@@ -198,7 +200,7 @@ const services = {
         small:
           'Perform some or all of your recruitment processes such as candidate search, interview, selection and placement for you.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -235,7 +237,7 @@ const services = {
         small:
           'In your recruitment, promotion or loss, review your observations and benefit from the exams, we will report in the format you want.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -272,7 +274,7 @@ const services = {
         small:
           'We offer your employees from the company of a professional to this need-based relocation and career coaching service.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -309,7 +311,7 @@ const services = {
         small:
           'Leadership, communication, teamwork, performance, etc. We provide coaching and training that will enable you to manage issues more effectively.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -346,7 +348,7 @@ const services = {
         small:
           'We analyze and report the data related to the current job by analyzing the equipment such as skills, experience and education level of the enterprises.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -383,7 +385,7 @@ const services = {
         small:
           "We analyze the human resources policy and management's requirements, ethical values and workforce traffic.",
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -420,7 +422,7 @@ const services = {
         small:
           'We analyze the human resources management and workforce of your business, compare them with similar businesses and report them.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {

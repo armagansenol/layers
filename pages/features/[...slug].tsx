@@ -1,7 +1,7 @@
 import { routes } from '@/global'
 import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
-import { GetStaticPaths } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
 const features = {
   employeeDatabase: {
@@ -13,7 +13,8 @@ const features = {
         small:
           'Streamline organizational chart, files, docs, and personal info management with ease.',
         media: {
-          path: '/',
+          type: 'video',
+          path: 'https://player.vimeo.com/progressive_redirect/playback/850179933/rendition/1080p/file.mp4?loc=external&signature=7ae4a329db4cf971dee94284b7a870881014e21130f6afb10bd4fb52fc30fe8a',
         },
       },
       detail: {
@@ -47,7 +48,7 @@ const features = {
         small:
           'Simplify employee needs with a centralized web/mobile center for leave, expenses, and more.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -81,7 +82,7 @@ const features = {
         small:
           'Effortlessly track your workforce with 50+ reports and AI-powered analytics.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -118,7 +119,8 @@ const features = {
         small:
           'Automate processes, eliminate manual tasks, and enhance collaboration, all in one comprehensive solution.',
         media: {
-          path: '/',
+          type: 'video',
+          path: 'https://player.vimeo.com/progressive_redirect/playback/850179396/rendition/720p/file.mp4?loc=external&signature=f94f86a7ec76c84b33f952b4985fa784d228658d9eaf10d8f88ebff0d3c88ead',
         },
       },
       detail: {
@@ -155,7 +157,7 @@ const features = {
         small:
           'Feedbacks are the lifeblood of growth and innovation. That’s why we’ve developed a comprehensive feedback management feature within our app, designed to help businesses harness the power of customer insights and drive meaningful change.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -192,7 +194,7 @@ const features = {
         small:
           'Facilitating seamless onboarding and continuous growth by organizing orientation sessions, engaging presentations, and delivering comprehensive documents and videos for both new and existing employees.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -229,7 +231,8 @@ const features = {
         small:
           'Empowers organizations to conduct comprehensive evaluations by utilizing quizzes, surveys, and an extensive library of over 100 predefined tests and templates.',
         media: {
-          path: '/',
+          type: 'video',
+          path: 'https://player.vimeo.com/progressive_redirect/playback/850180515/rendition/720p/file.mp4?loc=external&signature=b4349e949160d1cd132dc13af365ae71dca31eb8c60a8d33aa045dd906170f85',
         },
       },
       detail: {
@@ -266,7 +269,7 @@ const features = {
         small:
           'Drive motivation and evaluations by defining gamification scenarios linked to your business processes.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -303,7 +306,7 @@ const features = {
         small:
           'It is an ATS system where you can manage and report your open positions, job postings, candidates, interviewers and interview processes.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -340,7 +343,7 @@ const features = {
         small:
           'It can manage your recruitment and on-the-job processes, documents and papers in these processes. You can turn your candidates into personnel with a single click.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -377,7 +380,7 @@ const features = {
         small:
           'Effortlessly plan, maintain, and report on payroll systems and protections.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -413,7 +416,7 @@ const features = {
         desc: 'Observe your performance process with Layers.',
         small: 'Use KPIs or OKRs for performance management and reporting.',
         media: {
-          path: '/',
+          type: 'image',
         },
       },
       detail: {
@@ -464,7 +467,7 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
   }
 }
 
-export async function getStaticProps(context: any) {
+export const getStaticProps: GetStaticProps = (context: any) => {
   const { slug } = context.params
 
   console.log(context)

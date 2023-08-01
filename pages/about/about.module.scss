@@ -140,23 +140,16 @@
   }
 }
 
-// .slidesC {
-//   .slides {
-//     grid-template-columns: 1fr;
-//     padding: mobile-vw(16px) 0;
-
-//     .slideItem {
-//       // @include dims(desktop-vw(450px), desktop-vw(325px));
-//       background: var(--foundation-white);
-//       height: desktop-vw(325px);
-
-//       &:first-child {
-//         margin-left: 300px;
-//       }
-//     }
-//   }
-// }
-
 .carouselC {
+  margin: desktop-vw(140px) 0;
   position: relative;
+
+  h4 {
+    font-family: var(--font-wt-gothic);
+    font-size: desktop-vw(45px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(60px);
+    width: desktop-vw(400px);
+    margin-left: 20vw;
+  }
 }

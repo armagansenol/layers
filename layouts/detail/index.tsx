@@ -16,7 +16,8 @@ type Props = {
       desc: string
       small: string
       media: {
-        path: string
+        type: 'video' | 'image'
+        path?: string
       }
     }
     detail: {
@@ -53,13 +54,23 @@ const Detail = ({ pageData, pageType }: Props) => {
             <small>{pageData.intro.small}</small>
           </div>
           <div className={s.mediaC}>
-            <Image
-              src={`/img/detail/${pageType}/intro.png`}
-              alt="Detail"
-              width={10000}
-              height={10000}
-              style={{ objectFit: 'contain' }}
-            />
+            {pageData.intro.media.type === 'image' ? (
+              <Image
+                src={`/img/detail/${pageType}/intro.png`}
+                alt="Detail"
+                width={1000}
+                height={1000}
+                style={{ objectFit: 'contain' }}
+              />
+            ) : (
+              <video
+                className={s.media}
+                src={pageData.intro.media.path}
+                autoPlay
+                muted
+                loop
+              ></video>
+            )}
           </div>
         </div>
       </div>
@@ -67,20 +78,13 @@ const Detail = ({ pageData, pageType }: Props) => {
       <div className={cn(s.detail, 'content-box-md')}>
         <div>
           <div className={s.mediaC}>
-            <div className={s.media}>
-              <video
-                style={{ width: '100%', height: '100%' }}
-                className={s.video}
-                // src="https://www.apple.com/media/us/mac-pro/2013/16C1b6b5-1d91-4fef-891e-ff2fc1c1bb58/videos/macpro_main_desktop.mp4"
-                // src="/video/gif.mp4"
-                // src="https://player.vimeo.com/progressive_redirect/playback/848990750/rendition/360p/file.mp4?loc=external&signature=193c52bb77ebeb66c6156648de7654365f00fab852322cc420d9bb19e22cf43d"
-                src={pageData.detail.d1.media.path}
-                autoPlay
-                muted
-                loop
-                // controls
-              ></video>
-            </div>
+            <video
+              className={s.media}
+              src={pageData.detail.d1.media.path}
+              autoPlay
+              muted
+              loop
+            ></video>
           </div>
           <div className={s.text}>
             <h3>{pageData.detail.d1.title}</h3>

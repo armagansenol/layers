@@ -1,4 +1,7 @@
+import s from './about.module.scss'
+
 import cn from 'clsx'
+import { EmblaOptionsType } from 'embla-carousel-react'
 
 import EmblaCarousel from '@/components/embla-carousel'
 import { Image } from '@/components/image'
@@ -7,10 +10,6 @@ import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import { EmblaOptionsType } from 'embla-carousel-react'
-import s from './about.module.scss'
-
-type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 
 const OPTIONS: EmblaOptionsType = {
   align: 0.1,
@@ -53,7 +52,7 @@ const SLIDES = [
   </>,
 ]
 
-const About = (ref: IndexPageRef) => {
+const About = () => {
   const references = [
     { logo: '/img/wired.svg', url: '/' },
     { logo: '/img/wired.svg', url: '/' },
@@ -191,21 +190,8 @@ const About = (ref: IndexPageRef) => {
           </div>
         </section>
 
-        {/* <section>
-          <div className={s.slidesC}>
-            <BlazeSlider className={s.slides} slidesToShow={3}>
-              <div className={s.slideItem}>lol - 1</div>
-              <div className={s.slideItem}>lol - 2</div>
-              <div className={s.slideItem}>lol - 3</div>
-              <div className={s.slideItem}>lol - 4</div>
-              <div className={s.slideItem}>lol - 5</div>
-              <div className={s.slideItem}>lol - 6</div>
-              <div className={s.slideItem}>lol - 7</div>
-            </BlazeSlider>
-          </div>
-        </section> */}
-
         <section className={s.carouselC}>
+          <h4>What Clients Say About Layers</h4>
           <EmblaCarousel slides={SLIDES} options={OPTIONS} />
         </section>
 
