@@ -12,44 +12,72 @@ import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 
 const OPTIONS: EmblaOptionsType = {
-  align: 0.1,
-  containScroll: false,
   slidesToScroll: 1,
+  breakpoints: {
+    '(min-width: 800px)': { align: 0.1, containScroll: false },
+  },
+}
+
+type Slide = {
+  img: string
+  name: string
+  role: string
+  comment: string
+}
+
+function Slide(props: Slide) {
+  return (
+    <>
+      <div className={s.slide}>
+        <div className={s.info}>
+          <div className={s.imgC}>
+            <Image
+              src={props.img}
+              alt="Your alt text"
+              width={1500}
+              height={1500}
+            />
+          </div>
+          <div className={s.text}>
+            <p>{props.name}</p>
+            <small>{props.role}</small>
+          </div>
+        </div>
+        <p>{props.comment}</p>
+      </div>
+    </>
+  )
 }
 
 const SLIDES = [
-  <>
-    <Image
-      src={`/img/pinned-1.jpg`}
-      alt="Your alt text"
-      width={1500}
-      height={1500}
-    />
-  </>,
-  <>
-    <Image
-      src={`/img/pinned-2.jpg`}
-      alt="Your alt text"
-      width={1500}
-      height={1500}
-    />
-  </>,
-  <>
-    <Image
-      src={`/img/pinned-3.jpg`}
-      alt="Your alt text"
-      width={1500}
-      height={1500}
-    />
-  </>,
-  <>
-    <Image
-      src={`/img/pinned-4.jpg`}
-      alt="Your alt text"
-      width={1500}
-      height={1500}
-    />
-  </>,
+  {
+    img: '/img/pinned-1.jpg',
+    name: 'Ford Prefect',
+    role: 'Future Mobility Specialist of Herman Group',
+    comment:
+      'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+  },
+  {
+    img: '/img/pinned-2.jpg',
+    name: 'Ford Prefect',
+    role: 'Future Mobility Specialist of Herman Group',
+    comment:
+      'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+  },
+  {
+    img: '/img/pinned-3.jpg',
+    name: 'Ford Prefect',
+    role: 'Future Mobility Specialist of Herman Group',
+    comment:
+      'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+  },
+  {
+    img: '/img/pinned-4.jpg',
+    name: 'Ford Prefect',
+    role: 'Future Mobility Specialist of Herman Group',
+    comment:
+      'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+  },
 ]
 
 const About = () => {
@@ -133,7 +161,7 @@ const About = () => {
           </div>
 
           <div className={s.services}>
-            <div className={s.title}>Our Value-added Services.</div>
+            <div className={s.title}>Our Value-added Services</div>
             <div className={s.grid}>
               <div className={s.gridItem}>
                 <div className={s.iconC}>
@@ -156,10 +184,10 @@ const About = () => {
                 <div className={s.iconC}>
                   <Image
                     alt="Feature Icons"
-                    height={100}
+                    height={1000}
                     src={`/img/megaphone.png`}
                     style={{ objectFit: 'contain' }}
-                    width={100}
+                    width={1000}
                   />
                 </div>
                 <p className={s.par}>
@@ -192,10 +220,15 @@ const About = () => {
 
         <section className={s.carouselC}>
           <h4>What Clients Say About Layers</h4>
-          <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+          <EmblaCarousel
+            slides={SLIDES.map((data, i) => {
+              return <Slide key={i} {...data} />
+            })}
+            options={OPTIONS}
+          />
         </section>
 
-        <section className={s.trialC}>
+        <section className={'trial-c'}>
           <NextItemMarquee
             text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
             url="/"

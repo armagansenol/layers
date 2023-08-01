@@ -17,9 +17,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className={s.emblaContainer}>
           {slides.map((item, i) => (
             <div className={s.emblaSlide} key={i}>
-              <div className={s.emblaSlideNumber}>
-                <span>{i + 1}</span>
-              </div>
               <div className={s.emblaSlideContent}>{item}</div>
             </div>
           ))}

@@ -1,8 +1,17 @@
 .referencesMarquee {
   padding: desktop-vw(100px) 0;
 
+  @include mobile {
+    padding: mobile-vw(30px) 0;
+  }
+
   .iconC {
     margin: 0 desktop-vw(50px);
     width: desktop-vw(100px);
+
+    @include mobile {
+      margin: 0 mobile-vw(50px);
+      width: mobile-vw(100px);
+    }
   }
 }

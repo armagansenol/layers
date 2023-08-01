@@ -24,7 +24,7 @@ const GetAnOffer = () => {
           </div>
         </section>
 
-        <section className={s.trialC}>
+        <section className={'trial-c'}>
           <NextItemMarquee
             text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
             url="/"

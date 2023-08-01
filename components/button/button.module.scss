@@ -5,11 +5,22 @@
   display: inline-flex;
   padding: desktop-vw(2px);
 
+  @include mobile {
+    border-radius: mobile-vw(11px);
+    padding: mobile-vw(2px);
+  }
+
   .text {
     flex: 1;
     font-family: var(--font-inter);
+    font-size: desktop-vw(15px);
     font-weight: 500;
     margin-left: desktop-vw(20px);
+
+    @include mobile {
+      font-size: mobile-vw(15px);
+      margin-left: mobile-vw(20px);
+    }
   }
 
   .iconC {
@@ -20,6 +31,10 @@
     display: flex;
     justify-content: center;
 
+    @include mobile {
+      border-radius: mobile-vw(8px);
+    }
+
     .icon {
       @include dims(40%);
       align-items: center;
@@ -28,25 +43,40 @@
     }
   }
 
+  --mobile-width: #{mobile-vw(240px)};
+
   &.sm {
-    height: desktop-vw(47px);
-    width: desktop-vw(240px);
+    @include dims(desktop-vw(240px), desktop-vw(47px));
+
+    @include mobile {
+      @include dims(var(--mobile-width), mobile-vw(47px));
+    }
   }
 
   &.md {
-    height: desktop-vw(47px);
+    @include dims(desktop-vw(240px), desktop-vw(47px));
     font-size: desktop-vw(15px);
-    width: desktop-vw(240px);
+
+    @include mobile {
+      @include dims(var(--mobile-width), mobile-vw(47px));
+    }
   }
 
   &.l {
-    height: desktop-vw(68px);
+    @include dims(desktop-vw(350px), desktop-vw(68px));
     font-size: desktop-vw(21px);
-    width: desktop-vw(350px);
+
+    @include mobile {
+      @include dims(var(--mobile-width), mobile-vw(47px));
+      font-size: mobile-vw(15px);
+    }
   }
 
   &.xl {
-    height: desktop-vw(68px);
-    width: desktop-vw(350px);
+    @include dims(desktop-vw(350px), desktop-vw(68px));
+
+    @include mobile {
+      @include dims(var(--mobile-width), mobile-vw(47px));
+    }
   }
 }

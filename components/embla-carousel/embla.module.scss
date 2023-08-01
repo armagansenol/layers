@@ -1,37 +1,33 @@
 .embla {
   --slide-spacing: #{desktop-vw(30px)};
-  --slide-size: #{desktop-vw(480px)};
-  --slide-height: #{desktop-vw(325px)};
+
+  @include mobile {
+    --slide-spacing: #{mobile-vw(20px)};
+  }
 
   .emblaViewport {
     overflow: hidden;
 
-    .emblaContainer {
-      backface-visibility: hidden;
-      display: flex;
-      touch-action: pan-y;
-      margin-left: calc(var(--slide-spacing) * -1);
+    @include mobile {
+      padding: var(--slide-spacing);
+    }
+  }
 
-      .emblaSlide {
-        flex: 0 0 var(--slide-size);
-        min-width: 0;
-        padding-left: var(--slide-spacing);
-        position: relative;
+  .emblaContainer {
+    backface-visibility: hidden;
+    display: flex;
+    touch-action: pan-y;
+    margin-left: calc(var(--slide-spacing) * -1);
 
-        .emblaSlideNumber {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
+    .emblaSlide {
+      min-width: 0;
+      padding-left: var(--slide-spacing);
+      position: relative;
+      flex-shrink: 0;
 
-        .emblaSlideContent {
-          height: var(--slide-height);
-          width: 100%;
-
-          border-radius: desktop-vw(35px);
-          overflow: hidden;
-        }
+      .emblaSlideContent {
+        overflow: hidden;
+        width: 100%;
       }
     }
   }

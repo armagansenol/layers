@@ -1,13 +1,11 @@
-.trialC {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: desktop-vw(50px);
-  padding: 0 desktop-vw(60px);
-}
-
 .intro {
   position: relative;
+
+  @include mobile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 
   .inner {
     padding: desktop-vw(50px) 0 desktop-vw(100px) 0;
@@ -22,6 +20,13 @@
           auto
         );
         @include dims(desktop-vw(400px), desktop-vw(500px));
+
+        @include mobile {
+          @include dims(mobile-vw(350px), auto);
+          @include position(relative, auto, auto, auto, auto);
+          margin: 0 auto;
+          margin-bottom: mobile-vw(-100px);
+        }
       }
 
       &.allInOne {
@@ -32,7 +37,11 @@
           desktop-vw(-30px),
           auto
         );
-        @include dims(desktop-vw(175px), desktop-vw(85px));
+        @include dims(desktop-vw(175px), auto);
+
+        @include mobile {
+          @include dims(mobile-vw(175px), auto);
+        }
       }
     }
   }
@@ -46,6 +55,12 @@
   display: grid;
   grid-template-columns: 1.25fr 1fr;
   margin-bottom: desktop-vw(230px);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.75fr 1fr;
+    padding: 0 mobile-vw(16px);
+  }
 
   .imgs {
     position: relative;
@@ -64,6 +79,19 @@
         @include dims(desktop-vw(650px), desktop-vw(450px));
         border-radius: desktop-vw(16px);
         transform: rotate(-10deg);
+
+        @include mobile {
+          @include position(
+            absolute,
+            mobile-vw(-30px),
+            auto,
+            auto,
+            mobile-vw(-20px)
+          );
+          @include dims(mobile-vw(380px), mobile-vw(260px));
+          border-radius: mobile-vw(16px);
+          transform: rotate(-5deg);
+        }
       }
 
       &:nth-child(2) {
@@ -74,7 +102,18 @@
           auto,
           desktop-vw(100px)
         );
-        @include dims(desktop-vw(522px), desktop-vw(240px));
+        @include dims(desktop-vw(522px), auto);
+
+        @include mobile {
+          @include position(
+            absolute,
+            mobile-vw(180px),
+            auto,
+            auto,
+            mobile-vw(70px)
+          );
+          @include dims(mobile-vw(260px), auto);
+        }
       }
     }
   }
@@ -82,11 +121,21 @@
   .text {
     width: desktop-vw(460px);
 
+    @include mobile {
+      width: 100%;
+    }
+
     .title {
       font-family: var(--font-wt-gothic);
       font-size: desktop-vw(45px);
       font-weight: 700;
       margin-bottom: desktop-vw(30px);
+
+      @include mobile {
+        font-size: mobile-vw(45px);
+        margin-bottom: mobile-vw(30px);
+        text-align: center;
+      }
     }
 
     .par {
@@ -95,6 +144,12 @@
       font-weight: 400;
       line-height: 1.5;
       margin-bottom: desktop-vw(30px);
+
+      @include mobile {
+        font-size: mobile-vw(18px);
+        margin-bottom: mobile-vw(30px);
+        text-align: center;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -106,12 +161,22 @@
 .services {
   padding: 0 desktop-vw(80px);
 
+  @include mobile {
+    padding: 0 mobile-vw(16px);
+  }
+
   .title {
     font-family: var(--font-wt-gothic);
     font-size: desktop-vw(45px);
     font-weight: 700;
     margin-bottom: desktop-vw(120px);
     width: desktop-vw(400px);
+
+    @include mobile {
+      font-size: mobile-vw(32px);
+      text-align: center;
+      width: 100%;
+    }
   }
 
   .grid {
@@ -119,10 +184,25 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+    }
+
     .gridItem {
+      @include mobile {
+        margin-bottom: mobile-vw(50px);
+      }
+
       .iconC {
         @include dims(desktop-vw(45px));
         margin-bottom: desktop-vw(30px);
+
+        @include mobile {
+          @include dims(mobile-vw(105px));
+          margin: 0 auto;
+          margin-bottom: mobile-vw(20px);
+        }
       }
 
       .par {
@@ -131,6 +211,12 @@
         font-weight: 400;
         line-height: 1.5;
         margin-bottom: desktop-vw(30px);
+
+        @include mobile {
+          font-size: mobile-vw(18px);
+          margin-bottom: mobile-vw(30px);
+          text-align: center;
+        }
 
         &:last-child {
           margin-bottom: 0;
@@ -144,12 +230,114 @@
   margin: desktop-vw(140px) 0;
   position: relative;
 
-  h4 {
+  & > h4 {
     font-family: var(--font-wt-gothic);
     font-size: desktop-vw(45px);
     font-weight: 700;
     margin-bottom: desktop-vw(60px);
-    width: desktop-vw(400px);
-    margin-left: 20vw;
+    margin-left: desktop-vw(200px);
+    width: desktop-vw(450px);
+
+    @include mobile {
+      font-size: mobile-vw(40px);
+      margin: 0;
+      margin-bottom: mobile-vw(30px);
+      padding: 0 mobile-vw(16px);
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+.slide {
+  @include dims(desktop-vw(480px), desktop-vw(325px));
+  background: var(--foundation-white);
+  border-radius: desktop-vw(27px);
+  border-top-left-radius: desktop-vw(68px);
+  border-top-right-radius: desktop-vw(68px);
+  border-bottom-right-radius: desktop-vw(68px);
+  overflow: hidden;
+  padding: desktop-vw(20px);
+
+  @include mobile {
+    @include dims(mobile-vw(320px), mobile-vw(450px));
+    border-radius: mobile-vw(27px);
+    padding: mobile-vw(20px);
+  }
+
+  .info {
+    align-items: center;
+    column-gap: desktop-vw(20px);
+    display: flex;
+    margin-bottom: desktop-vw(60px);
+
+    @include mobile {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .imgC {
+      @include dims(desktop-vw(90px));
+      border-radius: 50%;
+      flex-shrink: 0;
+      overflow: hidden;
+
+      @include mobile {
+        @include dims(mobile-vw(120px));
+        margin-bottom: mobile-vw(20px);
+      }
+    }
+
+    .text {
+      @include mobile {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: desktop-vw(50px);
+      }
+
+      & > p {
+        font-family: var(--font-wt-gothic);
+        font-size: desktop-vw(23px);
+        font-weight: 500;
+        margin-bottom: desktop-vw(5px);
+
+        @include mobile {
+          font-size: mobile-vw(23px);
+          margin-bottom: mobile-vw(10px);
+          text-align: center;
+        }
+      }
+
+      & > small {
+        display: block;
+        font-family: var(--font-wt-gothic);
+        font-size: desktop-vw(15px);
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: desktop-vw(5px);
+        width: desktop-vw(200px);
+
+        @include mobile {
+          font-size: mobile-vw(15px);
+          margin-bottom: mobile-vw(5px);
+          text-align: center;
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  & > p {
+    font-family: var(--font-inter);
+    font-size: desktop-vw(16px);
+    font-weight: 400;
+    line-height: 1.6;
+
+    @include mobile {
+      font-size: mobile-vw(15px);
+      margin-bottom: mobile-vw(5px);
+      text-align: center;
+    }
   }
 }
