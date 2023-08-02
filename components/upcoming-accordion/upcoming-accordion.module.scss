@@ -2,9 +2,12 @@
   align-items: center;
   column-gap: desktop-vw(8px);
   display: flex;
-  justify-content: space-between;
-  // padding: desktop-vw(10px) desktop-vw(120px);
   height: var(--upcoming-accordion-height);
+  justify-content: space-between;
+
+  @include mobile {
+    column-gap: mobile-vw(8px);
+  }
 
   &.open {
     .close {
@@ -30,6 +33,10 @@
     font-family: var(--font-inter);
     font-size: desktop-vw(12px);
     font-weight: 500;
+
+    @include mobile {
+      font-size: mobile-vw(12px);
+    }
   }
 
   .iconC {
@@ -37,6 +44,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include mobile {
+      @include dims(mobile-vw(10px));
+    }
 
     &.arrow {
       transition: 0.8s transform ease;

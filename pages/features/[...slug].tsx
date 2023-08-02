@@ -34,8 +34,11 @@ const features = {
       },
       nextPage: {
         title: 'Next Feature',
-        text: { t1: 'Next Feature', t2: 'Employee Center & HR Reports' },
-        url: routes.features.children.employeeDatabase?.path,
+        text: {
+          t1: 'Next Feature',
+          t2: routes.features.children.employeeCenterAndHrPortal?.ui,
+        },
+        url: routes.features.children.employeeCenterAndHrPortal?.path,
       },
     },
   },
@@ -68,8 +71,11 @@ const features = {
       },
       nextPage: {
         title: 'Next Feature',
-        text: { t1: 'Next Feature', t2: 'Reporting & HR Analytics' },
-        url: routes.features.children.employeeDatabase?.path,
+        text: {
+          t1: 'Next Feature',
+          t2: routes.features.children.reportingAndHrAnalytics?.ui,
+        },
+        url: routes.features.children.reportingAndHrAnalytics?.path,
       },
     },
   },

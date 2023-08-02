@@ -1,51 +1,84 @@
-.intro {
-  .content {
-    align-items: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: desktop-vw(80px);
+.content {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: desktop-vw(80px);
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+    padding: 0 mobile-vw(16px);
   }
 
-  .text {
+  & > .text {
     margin-left: desktop-vw(90px);
     text-align: left;
-  }
 
-  .text > h1 {
-    font-family: var(--font-wt-gothic);
-    font-size: desktop-vw(20px);
-    font-weight: 500;
-    margin-bottom: desktop-vw(10px);
-  }
+    @include mobile {
+      margin: 0;
+      text-align: center;
+    }
 
-  .text > p {
-    font-family: var(--font-wt-gothic);
-    font-size: desktop-vw(35px);
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: desktop-vw(40px);
-    width: desktop-vw(550px);
-  }
+    & > h1 {
+      font-family: var(--font-wt-gothic);
+      font-size: desktop-vw(20px);
+      font-weight: 500;
+      margin-bottom: desktop-vw(10px);
 
-  .text > small {
-    display: inline-block;
-    font-family: var(--font-inter);
-    font-size: desktop-vw(20px);
-    font-weight: 400;
-    line-height: 1.5;
-    width: desktop-vw(480px);
+      @include mobile {
+        font-size: mobile-vw(20px);
+        margin-bottom: mobile-vw(10px);
+      }
+    }
 
-    .underline {
-      text-decoration: underline;
+    & > p {
+      font-family: var(--font-wt-gothic);
+      font-size: desktop-vw(35px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: desktop-vw(40px);
+      width: desktop-vw(550px);
+
+      @include mobile {
+        font-size: mobile-vw(25px);
+        margin-bottom: mobile-vw(10px);
+        width: auto;
+      }
+    }
+
+    & > small {
+      display: inline-block;
+      font-family: var(--font-inter);
+      font-size: desktop-vw(20px);
+      font-weight: 400;
+      line-height: 1.5;
+      width: desktop-vw(480px);
+
+      @include mobile {
+        font-size: mobile-vw(16px);
+        margin-bottom: mobile-vw(10px);
+        width: auto;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
     }
   }
 
-  .content > .mediaC {
+  & > .mediaC {
     @include dims(desktop-vw(550px));
     align-items: center;
     display: flex;
     justify-content: center;
     margin: 0 auto;
+
+    @include mobile {
+      @include dims(mobile-vw(300px), auto);
+      margin: mobile-vw(30px) auto;
+    }
 
     .media {
       @include dims(100%);
@@ -55,92 +88,158 @@
   }
 }
 
-.mC {
-  padding: 0 desktop-vw(60px);
-}
-
 .detail {
   margin-bottom: desktop-vw(100px);
-}
 
-.detail > div {
-  // column-gap: desktop-vw(100px);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding-bottom: desktop-vw(20px);
-  padding-top: desktop-vw(50px);
-  align-items: end;
+  & > .row {
+    // column-gap: desktop-vw(100px);
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+    &.intro {
+      align-items: end;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: desktop-vw(50px);
+      padding-bottom: desktop-vw(20px);
+      padding-top: desktop-vw(50px);
 
-  &:nth-child(1) {
-    margin-bottom: desktop-vw(50px);
-
-    .text {
-      padding-left: desktop-vw(50px);
-      padding-right: desktop-vw(200px);
-      width: 100%;
-
-      h3 {
-        font-family: var(--font-wt-gothic);
-        font-size: desktop-vw(40px);
-        font-weight: 500;
-        margin-bottom: desktop-vw(40px);
+      @include mobile {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        padding: mobile-vw(30px) mobile-vw(16px);
       }
 
-      p {
-        font-family: var(--font-inter);
-        font-size: desktop-vw(20px);
-        font-weight: 400;
-        margin-bottom: desktop-vw(10px);
+      .text {
+        padding-left: desktop-vw(50px);
+        padding-right: desktop-vw(200px);
+        width: 100%;
 
-        &:last-child {
-          margin-bottom: none;
+        @include mobile {
+          padding: 0 mobile-vw(16px);
+          text-align: center;
+        }
+
+        & > h3 {
+          font-family: var(--font-wt-gothic);
+          font-size: desktop-vw(40px);
+          font-weight: 500;
+          margin-bottom: desktop-vw(40px);
+
+          @include mobile {
+            font-size: mobile-vw(40px);
+            margin-bottom: mobile-vw(40px);
+          }
+        }
+
+        & > p {
+          font-family: var(--font-inter);
+          font-size: desktop-vw(20px);
+          font-weight: 400;
+          line-height: 1.5;
+          margin-bottom: desktop-vw(10px);
+
+          @include mobile {
+            font-size: mobile-vw(20px);
+            margin-bottom: mobile-vw(10px);
+          }
+
+          &:last-child {
+            margin-bottom: none;
+          }
+        }
+      }
+
+      .mediaC {
+        @include dims(desktop-vw(250px));
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+        margin-right: desktop-vw(100px);
+        transform: rotate(12deg);
+
+        @include mobile {
+          @include dims(mobile-vw(160px), auto);
+          margin: auto;
+          margin-bottom: mobile-vw(20px);
+        }
+
+        .media {
+          @include dims(100%);
+          object-fit: cover;
+          display: block;
         }
       }
     }
 
-    .mediaC {
-      @include dims(250px);
-      align-items: center;
-      display: flex;
-      justify-content: flex-end;
-      margin-left: auto;
-      margin-right: desktop-vw(100px);
-      transform: rotate(12deg);
+    &.listC {
+      padding: desktop-vw(120px) desktop-vw(60px);
 
-      .media {
-        @include dims(100%);
-        object-fit: cover;
-        display: block;
-      }
-    }
-  }
-
-  &:nth-child(2) {
-    .text {
-      padding-left: desktop-vw(140px);
-      width: 100%;
-
-      h4 {
-        font-family: var(--font-wt-gothic);
-        font-size: desktop-vw(30px);
-        font-weight: 500;
-        line-height: 1.3;
-        margin-bottom: desktop-vw(50px);
+      @include mobile {
+        padding: mobile-vw(50px) mobile-vw(16px);
       }
     }
 
-    .mediaC {
-      @include dims(desktop-vw(650px), desktop-vw(550px));
-      align-items: center;
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: desktop-vw(-190px);
-      padding-right: desktop-vw(75px);
-      position: relative;
+    &.redirect {
+      align-items: end;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding-bottom: desktop-vw(20px);
+      padding-top: desktop-vw(50px);
+
+      @include mobile {
+        align-items: center;
+        display: flex;
+        flex-direction: column-reverse;
+        grid-template-columns: unset;
+        grid-template-rows: unset;
+        padding: mobile-vw(50px) mobile-vw(16px);
+      }
+
+      & > .text {
+        margin-left: desktop-vw(140px);
+        width: 100%;
+
+        @include mobile {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+        }
+
+        & > h4 {
+          font-family: var(--font-wt-gothic);
+          font-size: desktop-vw(30px);
+          font-weight: 500;
+          line-height: 1.3;
+          margin-bottom: desktop-vw(50px);
+
+          @include mobile {
+            font-size: mobile-vw(25px);
+            line-height: 1.5;
+            margin-bottom: mobile-vw(50px);
+            text-align: center;
+          }
+        }
+      }
+
+      & > .mediaC {
+        @include dims(desktop-vw(650px), desktop-vw(550px));
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: desktop-vw(-190px);
+        padding-right: desktop-vw(75px);
+        position: relative;
+
+        @include mobile {
+          @include dims(mobile-vw(340px), mobile-vw(400px));
+          margin-bottom: mobile-vw(20px);
+        }
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }

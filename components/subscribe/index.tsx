@@ -7,7 +7,12 @@ import cn from 'clsx'
 import { useFormik } from 'formik'
 import { AnimatePresence, motion } from 'framer-motion'
 import * as Yup from 'yup'
-import IconInstagram from '../icons/icon-instagram'
+
+import IconInstagram from '@/components/icons/icon-instagram'
+import IconLinkedin from '@/components/icons/icon-linkedin'
+import IconMail from '@/components/icons/icon-mail'
+import IconShare from '@/components/icons/icon-share'
+import IconTwitter from '@/components/icons/icon-twitter'
 
 interface ISubscribeFormData {
   email: string
@@ -94,19 +99,16 @@ const Subscribe = () => {
           <IconInstagram fill="var(--black)" />
         </a>
         <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
-          <IconInstagram fill="var(--black)" />
+          <IconShare fill="var(--black)" />
         </a>
         <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
-          <IconInstagram fill="var(--black)" />
+          <IconMail fill="var(--black)" />
         </a>
         <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
-          <IconInstagram fill="var(--black)" />
+          <IconLinkedin fill="var(--black)" />
         </a>
         <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
-          <IconInstagram fill="var(--black)" />
-        </a>
-        <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
-          <IconInstagram fill="var(--black)" />
+          <IconTwitter fill="var(--black)" />
         </a>
       </div>
       <form

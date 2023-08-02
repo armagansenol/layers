@@ -8,6 +8,7 @@ import NextItemMarquee from '@/components/next-item-marquee'
 import Subscribe from '@/components/subscribe'
 import Link from 'next/link'
 import { DynamicPageContent } from '@/global'
+import FeatureList from '@/components/feature-list'
 
 type Props = {
   pageType: string
@@ -17,7 +18,7 @@ type Props = {
 const Detail = ({ pageData, pageType }: Props) => {
   return (
     <>
-      <div className={cn(s.intro, 'content-box-sm')}>
+      <section className="content-box-sm">
         <div className={s.content}>
           <div className={s.text}>
             <h1>{pageData.intro.title}</h1>
@@ -40,14 +41,15 @@ const Detail = ({ pageData, pageType }: Props) => {
                 autoPlay
                 muted
                 loop
+                playsInline
               ></video>
             )}
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={cn(s.detail, 'content-box-md')}>
-        <div>
+      <section className={cn(s.detail, 'content-box-md')}>
+        <div className={cn(s.row, s.intro)}>
           <div className={s.mediaC}>
             <video
               className={s.media}
@@ -55,6 +57,7 @@ const Detail = ({ pageData, pageType }: Props) => {
               autoPlay
               muted
               loop
+              playsInline
             ></video>
           </div>
           <div className={s.text}>
@@ -62,7 +65,12 @@ const Detail = ({ pageData, pageType }: Props) => {
             <p>{pageData.detail.d1.desc}</p>
           </div>
         </div>
-        <div>
+
+        <div className={cn(s.row, s.listC)}>
+          <FeatureList />
+        </div>
+
+        <div className={cn(s.row, s.redirect)}>
           <div className={s.text}>
             <h4>{pageData.detail.d2.desc}</h4>
             <Button text="Request a Demo" path="/request-a-demo" />
@@ -77,9 +85,9 @@ const Detail = ({ pageData, pageType }: Props) => {
             />
           </div>
         </div>
-      </div>
+      </section>
 
-      <Link href={pageData.nextPage.url} className={s.mC}>
+      <Link href={pageData.nextPage.url} className="next-item-c">
         <NextItemMarquee
           title={pageData.nextPage.title}
           text={{

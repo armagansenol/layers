@@ -1,43 +1,69 @@
 import React from 'react'
 import s from './footer.module.scss'
+
+import cn from 'clsx'
+
 import { Image } from '../image'
 import { Link } from '@/components/link'
 import { routes } from '@/global'
 
 const Footer = () => {
   return (
-    <footer className={s.footer}>
+    <footer>
       <div className={s.main}>
         <div className={s.gridY}>
-          <div className={s.info}>
+          <div className={s.layers}>
             <Link href="/" className={s.logoC}>
               <Image
-                src="/img/layers-logo.svg"
-                alt="6 hours"
+                src="/img/layers-logo-hr-technologies.svg"
+                alt="Layers Logo"
                 width="206"
                 height="193"
                 style={{ objectFit: 'contain' }}
               />
             </Link>
-            <div className={s.linksC}>
-              <h6 className={s.title}>DOWNLOAD</h6>
+            <div className={cn(s.linksC, s.download)}>
+              <h6>DOWNLOAD</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="">
-                    Employee Database
+                  <Link className={s.imgC} href="">
+                    <Image
+                      src="/img/apple-appstore.svg"
+                      alt="Apple Appstore Logo"
+                      width="300"
+                      height="300"
+                      style={{ objectFit: 'contain' }}
+                    />
                   </Link>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="">
-                    Employee Database
+                  <Link className={s.imgC} href="">
+                    <Image
+                      src="/img/google-play.svg"
+                      alt="Google Playstore Logo"
+                      width="300"
+                      height="300"
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </Link>
+                </li>
+                <li className={s.linkC}>
+                  <Link className={s.imgC} href="">
+                    <Image
+                      src="/img/huawei-app-gallery.svg"
+                      alt="Huawei Appgallery Logo"
+                      width="300"
+                      height="300"
+                      style={{ objectFit: 'contain' }}
+                    />
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
-          <div className={s.info}>
-            <div className={s.linksC}>
-              <h6 className={s.title}>COMPANY</h6>
+          <div>
+            <div className={cn(s.linksC, s.company)}>
+              <h6>COMPANY</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
                   <Link className={s.link} href="/about">
@@ -52,7 +78,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className={s.linksC}>
-              <h6 className={s.title}>SUPPORT</h6>
+              <h6>SUPPORT</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
                   <Link className={s.link} href="/get-an-offer">
@@ -78,28 +104,49 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className={s.gridY}>
-          <div className={s.linksC}>
-            <h6 className={s.title}>FEATURES</h6>
-            <ul className={s.links}>
-              {Object.values(routes.features.children).map((route, i) => {
-                return (
-                  <li className={s.linkC} key={i}>
-                    <Link
-                      className={s.link}
-                      href={`/${routes.features.path}/${route.path}`}
-                    >
-                      {route.ui}
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
+          <div>
+            <div className={cn(s.linksC, s.features)}>
+              <h6>FEATURES</h6>
+              <ul
+                className={s.links}
+                style={
+                  {
+                    '--column-count': Math.ceil(
+                      Object.keys(routes.features.children).length / 6
+                    ),
+                  } as React.CSSProperties
+                }
+              >
+                {Object.values(routes.features.children).map((route, i) => {
+                  return (
+                    <li className={s.linkC} key={i}>
+                      <Link
+                        className={s.link}
+                        href={`/${routes.features.path}/${route.path}`}
+                      >
+                        {route.ui}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
           </div>
-          <div className={s.linksC}>
-            <h6 className={s.title}>SERVICES</h6>
-            <ul className={s.links}>
-              <ul className={s.links}>
+          <div>
+            <div className={cn(s.linksC, s.services)}>
+              <h6>SERVICES</h6>
+              <ul
+                className={s.links}
+                style={
+                  {
+                    '--column-count': Math.ceil(
+                      Object.keys(routes.features.children).length / 6
+                    ),
+                  } as React.CSSProperties
+                }
+              >
                 {Object.values(routes.services.children).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
@@ -113,10 +160,11 @@ const Footer = () => {
                   )
                 })}
               </ul>
-            </ul>
+            </div>
           </div>
         </div>
       </div>
+
       <div className={s.copyright}>
         <small>© 2023 Layers. All Rights Reserved.</small>
         <small className={s.signature}>
@@ -132,7 +180,17 @@ const Footer = () => {
           <sup>®</sup>{' '}
         </small>
       </div>
+
       <div className={s.iskur}>
+        <div className={s.imgC}>
+          <Image
+            src="/img/iskur-logo.svg"
+            alt="Iskur Logo"
+            width="300"
+            height="300"
+            style={{ objectFit: 'contain' }}
+          />
+        </div>
         <small>
           Layers Yazılım ve İnsan Kaynakları Hizmetleri A.Ş. Özel İstihdam
           Bürosu Olarak 29/05/2023-28/05/2026 tarihleri arasında faaliyette
