@@ -77,11 +77,11 @@ const Detail = ({ pageData, pageType }: Props) => {
           </div>
           <div className={s.mediaC}>
             <Image
-              src={`/img/detail/${pageType}/masked.png`}
               alt="Detail"
-              style={{ objectFit: 'contain' }}
-              loading="lazy"
               fill={true}
+              loading="lazy"
+              src={`/img/detail/${pageType}/masked.png`}
+              style={{ objectFit: 'contain' }}
             />
           </div>
         </div>

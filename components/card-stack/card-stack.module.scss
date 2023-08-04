@@ -1,9 +1,9 @@
 .cardStack {
-  @include dims(100%, 120vh);
+  @include dims(100%, desktop-vw(750px));
   position: relative;
 
   @include mobile {
-    @include dims(100%, 100vh);
+    @include dims(100%, mobile-vw(650px));
   }
 
   .cardsC {
@@ -118,7 +118,7 @@
       transform: translateX(30%) scale(0);
       transition: 1s all cubic-bezier(0.87, 0, 0.13, 1);
       transform-origin: center center;
-      padding: desktop-vw(60px);
+      padding: desktop-vw(40px);
 
       @include mobile {
         @include position(absolute, 100%, auto, auto, 50%);

@@ -1,14 +1,13 @@
-import { routes } from '@/global'
-import Button from '../button'
-import { Image } from '../image'
-import s from './card-stack.module.scss'
-import cn from 'clsx'
 import { useState } from 'react'
-import { log } from 'console'
+import s from './card-stack.module.scss'
 
-type Props = {}
+import cn from 'clsx'
 
-const CardStack = (props: Props) => {
+import Button from '@/components/button'
+import { Image } from '@/components/image'
+import { routes } from '@/global'
+
+const CardStack = () => {
   const [activeItem, setActiveItem] = useState<number | null>(null)
 
   const cards = [
@@ -143,9 +142,9 @@ const CardStack = (props: Props) => {
                 <div className={cn(s.iconC, 'hidden-overflow')}>
                   <Image
                     src={`/img/detail/${card.path}/menu-icon.png`}
-                    alt="Detail"
-                    width={1000}
-                    height={1000}
+                    alt="Icon"
+                    width={500}
+                    height={500}
                     style={{ objectFit: 'contain' }}
                   />
                 </div>

@@ -181,6 +181,7 @@
 
     &.redirect {
       align-items: end;
+      column-gap: desktop-vw(50px);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       padding-bottom: desktop-vw(20px);
@@ -197,13 +198,14 @@
 
       & > .text {
         margin-left: desktop-vw(140px);
-        width: 100%;
+        width: desktop-vw(560px);
 
         @include mobile {
           align-items: center;
           display: flex;
           flex-direction: column;
           margin: 0;
+          width: 100%;
         }
 
         & > h4 {
@@ -223,7 +225,7 @@
       }
 
       & > .mediaC {
-        @include dims(desktop-vw(650px), desktop-vw(550px));
+        @include dims(desktop-vw(600px), desktop-vw(550px));
         align-items: center;
         display: flex;
         justify-content: flex-end;

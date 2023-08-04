@@ -4,6 +4,7 @@
   grid-template-columns: 1fr auto;
   padding-left: desktop-vw(90px);
   padding-top: desktop-vw(30px);
+  padding-right: desktop-vw(20px);
 
   @include mobile {
     align-items: center;
@@ -13,7 +14,7 @@
   }
 
   .text {
-    width: desktop-vw(453px);
+    width: desktop-vw(450px);
 
     @include mobile {
       margin-bottom: mobile-vw(50px);
@@ -65,33 +66,37 @@
 
     .nav {
       @include position(absolute, auto, 0, 0, auto);
-      @include dims(desktop-vw(278px), desktop-vw(51px));
+      @include dims(desktop-vw(278px), auto);
       align-items: center;
       background: var(--white);
       border-top-left-radius: desktop-vw(12px);
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-left: desktop-vw(30px);
+      padding-top: desktop-vw(18px);
+      padding-bottom: desktop-vw(8px);
 
       .items {
-        column-gap: desktop-vw(8px);
+        column-gap: desktop-vw(5px);
         display: flex;
       }
 
       .item {
         flex-shrink: 0;
-        opacity: 0.5;
-        transition: 0.4s all ease;
+        opacity: 0.3;
+        transition: 0.6s all cubic-bezier((0.16, 1, 0.3, 1));
         width: desktop-vw(16px);
 
         &.active {
           opacity: 1;
-          width: desktop-vw(64px);
+          width: desktop-vw(84px);
         }
 
         .bar {
           @include dims(100%, 2px);
+          border-radius: 4px;
           background: var(--black);
-          margin-bottom: desktop-vw(7px);
+          margin-bottom: desktop-vw(6px);
         }
 
         .index {

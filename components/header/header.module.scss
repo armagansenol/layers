@@ -54,11 +54,9 @@
       padding: desktop-vw(3px) desktop-vw(15px);
 
       .iconC {
-        height: desktop-vw(4px);
-        width: desktop-vw(12px);
-
-        display: flex;
+        @include dims(desktop-vw(12px), desktop-vw(4px));
         align-items: center;
+        display: flex;
         justify-content: center;
       }
     }

@@ -8,8 +8,8 @@ import IconArrow from '@/components/icons/icon-arrow'
 
 type Props = {
   text: string
-  path: string
-  size?: 'sm' | 'md' | 'l' | 'xl'
+  path?: string
+  size?: 'sm' | 'md' | 'lg' | 'xl'
   callback?: (() => void) | null
 }
 

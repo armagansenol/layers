@@ -13,7 +13,7 @@ const ease = cubicBezier(0.16, 1, 0.3, 1)
 
 export function NavbarMobile() {
   const [hamburger, setHamburger] = useState(false)
-  const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
+  const { currentRoute, setCurrentRoute, setIsOpen } = useMenuStore()
   const menuRef = useRef<HTMLElement>(null)
   useLockBodyScroll(hamburger)
 

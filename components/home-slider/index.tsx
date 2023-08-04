@@ -1,198 +1,160 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
-import { ComposableImage } from '../composable-image'
+import { useEffect, useState } from 'react'
 import s from './home-slider.module.scss'
 
-import Button from '@/components/button'
+import { AnimatePresence, motion } from 'framer-motion'
 import cn from 'clsx'
 
-type Props = {}
+import Button from '@/components/button'
+import { Image } from '@/components/image'
 
-const HomeSlider = (props: Props) => {
+const HomeSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  let timeout: ReturnType<typeof setTimeout>
 
   const slides = [
     {
-      title: '1 - Let Layers manage your time.',
+      title: 'Let Layers manage your time.',
       desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
       img: {
-        src: 'https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80',
-        title: 'alt',
+        src: '/img/downtown.jpg',
+        alt: 'Slide Image',
       },
       btn: {
-        text: '1 - Request a Demo',
-        path: '/',
+        text: 'Request a Demo',
+        path: '/request-a-demo',
       },
     },
     {
-      title: '2 - Let Layers manage your time.',
+      title: 'Let Layers manage your time.',
       desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
       img: {
-        src: 'https://images.unsplash.com/photo-1688504278800-fcbd88b2ea82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1076&q=80',
-        title: 'alt',
+        src: '/img/bike.jpg',
+        alt: 'Slide Image',
       },
       btn: {
-        text: '2 - Request a Demo',
-        path: '/',
+        text: 'Request a Demo',
+        path: '/request-a-demo',
       },
     },
     {
-      title: '3 - Let Layers manage your time.',
+      title: 'Let Layers manage your time.',
       desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
       img: {
-        src: 'https://images.unsplash.com/photo-1688634219076-aa0815bfa7b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80',
-        title: 'alt',
+        src: '/img/basketball.jpg',
+        alt: 'Slide Image',
       },
       btn: {
-        text: '3 - Request a Demo',
-        path: '/',
+        text: 'Request a Demo',
+        path: '/request-a-demo',
+      },
+    },
+    {
+      title: 'Let Layers manage your time.',
+      desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
+      img: {
+        src: '/img/conversation.jpg',
+        alt: 'Slide Image',
+      },
+      btn: {
+        text: 'Request a Demo',
+        path: '/request-a-demo',
       },
     },
   ]
 
-  //   useEffect(() => {
-  //     autoplay()
+  const animationVariants = {
+    initial: {
+      x: 0,
+    },
+    animate: {
+      x: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: -0.02,
+        ease: 'easeInOut',
+      },
+    },
+    exit: {
+      x: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: -0.02,
+        ease: 'easeInOut',
+      },
+    },
+  }
 
-  //     return () => {
-  //       clearTimeout(timeout)
-  //     }
-  //   }, [currentSlide])
+  const item = {
+    initial: { opacity: 0, x: -50, duration: 1, ease: 'easeInOut' },
+    animate: { opacity: 1, x: 0, duration: 1, ease: 'easeInOut' },
+    exit: { opacity: 0, x: 50, duration: 1, ease: 'easeInOut' },
+  }
 
-  //   function autoplay() {
-  //     timeout = setTimeout(() => {
-  //       setCurrentSlide((prev) => (prev + 1) % slides.length)
-  //       console.log(currentSlide)
-  //     }, 7000)
-  //   }
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 5000)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [currentSlide, slides.length])
+
+  function handleNavClick(index: number) {
+    if (index === currentSlide) return
+    setCurrentSlide(index)
+  }
 
   return (
-    <motion.div
-      className={s.slider}
-      key={`${currentSlide}_slider`}
-      initial="closed"
-      animate="open"
-      exit="closed"
-      variants={{
-        open: {
-          opacity: 1,
-          transition: { duration: 5, ease: 'easeInOut' },
-        },
-        closed: {
-          opacity: 1,
-          transition: { duration: 0, ease: 'easeInOut' },
-        },
-      }}
-      onAnimationComplete={() =>
-        setCurrentSlide((prev) => (prev + 1) % slides.length)
-      }
-    >
+    <div className={s.slider}>
       <div className={s.text}>
         <AnimatePresence mode="wait">
-          <motion.h2
-            key={`${currentSlide}_h2`}
-            initial="enter"
-            animate="initial"
+          <motion.div
+            key={`${currentSlide}_text`}
+            initial="initial"
+            animate="animate"
             exit="exit"
+            variants={animationVariants}
+          >
+            <motion.h2 variants={item}>{slides[currentSlide].title}</motion.h2>
+            <motion.p variants={item}>{slides[currentSlide].desc}</motion.p>
+            <motion.div variants={item} className={s.btnC}>
+              <Button
+                text={slides[currentSlide].btn.text}
+                path={slides[currentSlide].btn.path}
+              />
+            </motion.div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <div className={cn(s.media, 'hidden-overflow')}>
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            className={s.imgC}
+            key={`${currentSlide}_img`}
+            initial="closed"
+            animate="open"
+            exit="closed"
             variants={{
-              enter: {
-                opacity: 0,
-                x: -50,
-                transition: { duration: 0.5 },
-              },
-              initial: {
+              open: {
                 opacity: 1,
-                x: 0,
-                transition: { duration: 0.4 },
+                filter: 'grayscale(0)',
+                transition: { duration: 0.3, ease: 'easeInOut' },
               },
-              exit: {
+              closed: {
                 opacity: 0,
-                x: 50,
-                transition: { duration: 0.5 },
+                filter: 'grayscale(1)',
+                transition: { duration: 0.3, ease: 'easeInOut' },
               },
             }}
           >
-            {slides[currentSlide].title}
-          </motion.h2>
-        </AnimatePresence>
-
-        <motion.p
-          key={`${currentSlide}_p`}
-          initial="closed"
-          animate="open"
-          exit="closed"
-          variants={{
-            open: {
-              opacity: 1,
-              x: 0,
-              transition: { duration: 0.75, ease: 'easeInOut' },
-            },
-            closed: {
-              opacity: 0,
-              x: -100,
-              transition: { duration: 0.5, ease: 'easeInOut' },
-            },
-          }}
-        >
-          {slides[currentSlide].desc}
-        </motion.p>
-        <motion.div
-          className={s.btnC}
-          key={`${currentSlide}_button`}
-          initial="closed"
-          animate="open"
-          exit="closed"
-          variants={{
-            open: {
-              opacity: 1,
-              x: 0,
-              transition: { duration: 0.5, ease: 'easeInOut' },
-            },
-            closed: {
-              opacity: 0,
-              x: -150,
-              transition: { duration: 0.5, ease: 'easeInOut' },
-            },
-          }}
-        >
-          <Button
-            text={slides[currentSlide].btn.text}
-            path={slides[currentSlide].btn.path}
-          />
-        </motion.div>
-      </div>
-      <div className={cn(s.media, 'hidden-overflow')}>
-        <AnimatePresence mode="wait">
-          {
-            <motion.div
-              className={s.imgC}
-              key={`${currentSlide}_img`}
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={{
-                open: {
-                  opacity: 1,
-                  transition: { duration: 0.5, ease: 'easeInOut' },
-                },
-                closed: {
-                  opacity: 0,
-                  transition: { duration: 0.5, ease: 'easeInOut' },
-                },
-              }}
-            >
-              <ComposableImage
-                sources={{
-                  items: [
-                    {
-                      url: slides[currentSlide].img.src,
-                      title: slides[currentSlide].img.title,
-                    },
-                  ],
-                }}
-              />
-            </motion.div>
-          }
+            <Image
+              alt={slides[currentSlide].img.alt}
+              className={s.img}
+              height="1000"
+              src={slides[currentSlide].img.src}
+              width="1000"
+            />
+          </motion.div>
         </AnimatePresence>
 
         <div className={s.nav}>
@@ -200,8 +162,11 @@ const HomeSlider = (props: Props) => {
             {slides.map((item, i) => {
               return (
                 <div
-                  className={cn(s.item, { [s.active]: i === currentSlide })}
+                  className={cn(s.item, 'cursor-pointer', {
+                    [s.active]: i === currentSlide,
+                  })}
                   key={i}
+                  onClick={() => handleNavClick(i)}
                 >
                   <div className={s.bar}></div>
                   <div className={s.index}>0{i + 1}</div>
@@ -211,7 +176,7 @@ const HomeSlider = (props: Props) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

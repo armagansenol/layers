@@ -33,6 +33,11 @@ const Home = () => {
     setCurrentRoute(MainRoute.features)
   }
 
+  function toServices() {
+    setIsOpen(true)
+    setCurrentRoute(MainRoute.services)
+  }
+
   return (
     <Layout theme="main">
       <>
@@ -55,7 +60,7 @@ const Home = () => {
           <div className={cn(s.cards)}>
             <CardStack />
           </div>
-          <div className={s.trigger} onClick={toFeatures}>
+          <div className={s.callToAction} onClick={toFeatures}>
             <NextItemMarquee
               text={{ t1: 'See All Features', t2: 'See All Features' }}
               url="/"
@@ -72,13 +77,13 @@ const Home = () => {
                 business needs, utilizing our team of professionals and advanced
                 technologies.
               </p>
-              <Button text="See All Services" path="/" size="md" />
+              <Button text="See All Services" size="md" callback={toServices} />
             </div>
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <Image
                   className={s.img}
-                  src="https://images.unsplash.com/photo-1688504278800-fcbd88b2ea82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1076&q=80"
+                  src="/img/bike.jpg"
                   alt="alt"
                   height={1000}
                   width={1000}
@@ -88,7 +93,7 @@ const Home = () => {
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <Image
                   className={s.img}
-                  src="https://images.unsplash.com/photo-1688504278800-fcbd88b2ea82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1076&q=80"
+                  src="/img/cat.jpg"
                   alt="alt"
                   height={1000}
                   width={1000}
@@ -129,9 +134,9 @@ const Home = () => {
                 <Image
                   alt="alt"
                   className={s.img}
-                  height="137"
-                  src="https://images.unsplash.com/photo-1688504278800-fcbd88b2ea82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1076&q=80"
-                  width="146"
+                  height="1000"
+                  src="/img/basketball.jpg"
+                  width="1000"
                 />
               </div>
               <div className={cn(s.sticker, s.hours)}>
