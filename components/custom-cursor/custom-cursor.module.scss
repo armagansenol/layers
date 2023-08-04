@@ -1,32 +1,26 @@
 /* Jelly Blob Div */
 .jellyBlob {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 25px;
-  height: 25px;
-  // mix-blend-mode: difference;
+  @include position(fixed, 0, 0, 0, 0);
+  @include dims(16px);
   background-color: var(--lavender-syrup);
   border-radius: 50%;
   border: 1px solid var(--black);
-  opacity: 0.5;
+  opacity: 1;
+  pointer-events: none;
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%);
   will-change: width, height, transform, border;
   z-index: z-index('cursor');
-  pointer-events: none;
 }
 
 /* Text Inside Jelly Blob */
 .insideText {
-  opacity: 1;
-  color: white;
+  color: var(--white);
   align-items: center;
   justify-content: center;
   font-size: 24px;
   line-height: 300px;
+  opacity: 1;
   text-align: center;
   vertical-align: middle;
 }

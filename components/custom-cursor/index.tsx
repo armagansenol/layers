@@ -77,7 +77,7 @@ const CustomCursor = () => {
       const y = e.clientY
       const mx = e.movementX
       const my = e.movementY
-      const speed = 0.25
+      const speed = 0.1
 
       // Animate Pos Object and calculate Vel Object Velocity
       gsap.to(pos, {

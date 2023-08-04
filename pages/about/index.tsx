@@ -166,11 +166,11 @@ const About = () => {
               <div className={s.gridItem}>
                 <div className={s.iconC}>
                   <Image
-                    alt="Feature Icons"
-                    height={100}
+                    alt="Service Icons"
+                    height={500}
                     src={`/img/dart.png`}
                     style={{ objectFit: 'contain' }}
-                    width={100}
+                    width={500}
                   />
                 </div>
                 <p className={s.par}>
@@ -183,11 +183,11 @@ const About = () => {
               <div className={s.gridItem}>
                 <div className={s.iconC}>
                   <Image
-                    alt="Feature Icons"
-                    height={1000}
+                    alt="Service Icons"
+                    height={500}
                     src={`/img/megaphone.png`}
                     style={{ objectFit: 'contain' }}
-                    width={1000}
+                    width={500}
                   />
                 </div>
                 <p className={s.par}>
@@ -200,11 +200,11 @@ const About = () => {
               <div className={s.gridItem}>
                 <div className={s.iconC}>
                   <Image
-                    alt="Feature Icons"
-                    height={100}
+                    alt="Service Icons"
+                    height={500}
                     src={`/img/bell.png`}
                     style={{ objectFit: 'contain' }}
-                    width={100}
+                    width={500}
                   />
                 </div>
                 <p className={s.par}>
