@@ -11,13 +11,6 @@ const WhyLayers = () => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
 
-  const imgs = [
-    'https://images.unsplash.com/photo-1688590361364-2d153dac2a15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-    'https://images.unsplash.com/photo-1516519700326-137a56a20cb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    'https://images.unsplash.com/photo-1688248335728-3ec6d3e1950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-    'https://images.unsplash.com/photo-1687699498075-5cce2d93d019?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80',
-  ]
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       const why = q('[data-text-why]')
@@ -66,8 +59,9 @@ const WhyLayers = () => {
         animation: tl,
         scrub: true,
         trigger: ref.current,
-        start: 'top+=25% center',
-        end: 'center+=25% center',
+        // start: 'top+=25% center',
+        // end: 'center+=25% center',
+        pin: true,
         // markers: true,
       })
     })
@@ -78,7 +72,7 @@ const WhyLayers = () => {
   return (
     <div className={cn(s.whyLayers, 'flex-center')} ref={ref}>
       <div className={s.imgs}>
-        {imgs.map((img, i) => {
+        {new Array(4).fill('img').map((img, i) => {
           return (
             <div key={i} className={s.imgC}>
               <div className={s.transformC} data-img>

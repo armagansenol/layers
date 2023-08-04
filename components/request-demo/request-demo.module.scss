@@ -17,6 +17,7 @@
 
     @include mobile {
       font-size: mobile-vw(30px);
+      line-height: 1.6;
       margin-bottom: mobile-vw(70px);
       text-align: center;
     }

@@ -1,20 +1,28 @@
 .cardStack {
-  @include dims(100vw, 120vh);
+  @include dims(100%, 120vh);
   position: relative;
 
+  @include mobile {
+    @include dims(100%, 100vh);
+  }
+
   .cardsC {
+    @include dims(desktop-vw(1200px), desktop-vw(600px));
     @include position(absolute, 35%, auto, auto, 50%);
     transform: translate(-50%, -50%);
 
-    @include dims(desktop-vw(1200px), desktop-vw(600px));
+    @include mobile {
+      @include dims(100%, mobile-vw(400px));
+      transform: translate(-50%, -60%);
+    }
   }
 
   .cardC {
+    @include dims(inherit);
     @include position(absolute, 0, 0, 0, 0);
-    transition: 1s all cubic-bezier(0.16, 1, 0.3, 1);
+    transition: 3s all cubic-bezier(0.16, 1, 0.3, 1);
 
     &.first {
-      opacity: 0.25;
       transform: translateY(0) scale(0.85);
       z-index: 1;
 
@@ -32,10 +40,13 @@
     }
 
     &.second {
-      margin-top: 80px;
-      opacity: 0.5;
+      margin-top: desktop-vw(60px);
       transform: translateY(0) scale(0.9);
       z-index: 2;
+
+      @include mobile {
+        margin-top: mobile-vw(60px);
+      }
 
       &.active {
         transition: 0.2s all cubic-bezier(0.16, 1, 0.3, 1);
@@ -45,10 +56,13 @@
     }
 
     &.third {
-      margin-top: 160px;
-      opacity: 0.75;
+      margin-top: desktop-vw(120px);
       transform: translateY(0) scale(0.95);
       z-index: 3;
+
+      @include mobile {
+        margin-top: mobile-vw(120px);
+      }
 
       &.active {
         transition: 0.2s all cubic-bezier(0.16, 1, 0.3, 1);
@@ -58,30 +72,33 @@
     }
 
     &.fourth {
-      margin-top: 240px;
+      margin-top: desktop-vw(180px);
       opacity: 1;
       transform: translateY(0) scale(1);
-      z-index: 4;
-    }
+      z-index: 40;
 
-    --card-bg: var(--white);
-    --header-font-color: var(--hydrargyrum);
-    --header-font-weight: 100;
-
-    &.fourth {
-      // transform: scale(1);
-      // opacity: 1;
-
-      .cardHeader {
-        --card-bg: var(--placebo-purple);
-        --header-font-color: var(--black);
-        --header-font-weight: 700;
+      @include mobile {
+        margin-top: mobile-vw(180px);
       }
     }
 
+    --card-bg: var(--white);
+    --header-font-opacity: 0.2;
+    --header-font-weight: 100;
+
     &.fourth {
+      .cardHeader {
+        --card-bg: var(--placebo-purple);
+        --header-font-opacity: 1;
+        --header-font-weight: 700;
+      }
+
       .iconC {
         transform: translateX(30%) scale(1);
+
+        @include mobile {
+          transform: translate(-50%, -50%) scale(1);
+        }
       }
 
       .cardBody {
@@ -98,58 +115,95 @@
       border: 1px solid var(--white);
       display: flex;
       justify-content: center;
-
       transform: translateX(30%) scale(0);
       transition: 1s all cubic-bezier(0.87, 0, 0.13, 1);
       transform-origin: center center;
+      padding: desktop-vw(60px);
+
+      @include mobile {
+        @include position(absolute, 100%, auto, auto, 50%);
+        @include dims(mobile-vw(80px));
+        transform: translate(-50%, -50%) scale(0);
+      }
     }
   }
 
   .transformC {
+    @include dims(100%);
     pointer-events: none;
   }
 
   .card {
-    @include dims(desktop-vw(1200px), auto);
+    --border-width: 5px;
+    @include dims(inherit);
     background: var(--white);
     border-radius: desktop-vw(26px);
-    border: 5px solid var(--innocent-snowdrop);
+    border: var(--border-width) solid var(--innocent-snowdrop);
     overflow: hidden;
     transform-origin: top center;
     transition: 0.4s all cubic-bezier(0.16, 1, 0.3, 1);
 
-    .cardHeader {
-      background: var(--card-bg);
-      border-bottom: 5px solid var(--innocent-snowdrop);
-      color: var(--header-font-color);
-      font-weight: var(--header-font-weight);
-      transition: 1s all cubic-bezier(0.16, 1, 0.3, 1);
+    @include mobile {
+      --border-width: 3px;
+      border-radius: mobile-vw(26px);
+      border: var(--border-width) solid var(--innocent-snowdrop);
     }
 
-    .cardHeader > h5 {
-      font-family: var(--font-wt-gothic);
-      font-size: desktop-vw(22px);
+    .cardHeader {
+      background: var(--card-bg);
+      border-bottom: var(--border-width) solid var(--innocent-snowdrop);
+      color: var(--header-font-color);
+      font-weight: var(--header-font-weight);
       padding: desktop-vw(15px) 0;
-      text-align: center;
+      transition: 1s all cubic-bezier(0.16, 1, 0.3, 1);
+
+      @include mobile {
+        border-bottom: var(--border-width) solid var(--innocent-snowdrop);
+      }
+
+      & > h5 {
+        font-family: var(--font-wt-gothic);
+        font-size: desktop-vw(22px);
+        text-align: center;
+        opacity: var(--header-font-opacity);
+        transition: 1s opacity cubic-bezier(0.16, 1, 0.3, 1);
+
+        @include mobile {
+          font-size: mobile-vw(16px);
+          padding: mobile-vw(10px) 0;
+        }
+      }
     }
 
     .cardBody {
       align-items: center;
+      column-gap: desktop-vw(120px);
       display: grid;
       height: desktop-vw(540px);
-      column-gap: desktop-vw(120px);
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
-
       opacity: 0;
       transition: 1s all cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: center center;
+
+      @include mobile {
+        @include dims(100%);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: unset;
+        grid-template-rows: unset;
+      }
 
       .mediaC {
         align-items: center;
         display: flex;
         height: desktop-vw(450px);
         padding-left: desktop-vw(100px);
+
+        @include mobile {
+          display: none;
+        }
       }
 
       .text {
@@ -159,23 +213,41 @@
         margin-bottom: desktop-vw(30px);
         text-align: left;
         width: desktop-vw(300px);
-      }
 
-      .text > p {
-        font-family: var(--font-wt-gothic);
-        font-size: desktop-vw(25px);
-        font-weight: 700;
-        line-height: 1.5;
-        margin-bottom: desktop-vw(25px);
-      }
+        @include mobile {
+          align-items: center;
+          justify-content: center;
+          padding: mobile-vw(20px);
+          text-align: center;
+          width: auto;
+        }
 
-      .text > small {
-        display: inline-block;
-        font-family: var(--font-inter);
-        font-size: desktop-vw(18px);
-        font-weight: 400;
-        line-height: 1.5;
-        margin-bottom: desktop-vw(40px);
+        & > p {
+          font-family: var(--font-wt-gothic);
+          font-size: desktop-vw(25px);
+          font-weight: 700;
+          line-height: 1.5;
+          margin-bottom: desktop-vw(25px);
+
+          @include mobile {
+            font-size: mobile-vw(20px);
+            margin-bottom: mobile-vw(20px);
+          }
+        }
+
+        & > small {
+          display: inline-block;
+          font-family: var(--font-inter);
+          font-size: desktop-vw(18px);
+          font-weight: 400;
+          line-height: 1.5;
+          margin-bottom: desktop-vw(40px);
+
+          @include mobile {
+            font-size: mobile-vw(14px);
+            margin-bottom: mobile-vw(30px);
+          }
+        }
       }
     }
   }

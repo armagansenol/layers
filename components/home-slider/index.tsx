@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { ComposableImage } from '../composable-image'
 import s from './home-slider.module.scss'
@@ -88,26 +88,34 @@ const HomeSlider = (props: Props) => {
       }
     >
       <div className={s.text}>
-        <motion.h2
-          key={`${currentSlide}_h2`}
-          initial="closed"
-          animate="open"
-          exit="closed"
-          variants={{
-            open: {
-              opacity: 1,
-              x: 0,
-              transition: { duration: 1, ease: 'easeInOut' },
-            },
-            closed: {
-              opacity: 0,
-              x: -50,
-              transition: { duration: 0.5, ease: 'easeInOut' },
-            },
-          }}
-        >
-          {slides[currentSlide].title}
-        </motion.h2>
+        <AnimatePresence mode="wait">
+          <motion.h2
+            key={`${currentSlide}_h2`}
+            initial="enter"
+            animate="initial"
+            exit="exit"
+            variants={{
+              enter: {
+                opacity: 0,
+                x: -50,
+                transition: { duration: 0.5 },
+              },
+              initial: {
+                opacity: 1,
+                x: 0,
+                transition: { duration: 0.4 },
+              },
+              exit: {
+                opacity: 0,
+                x: 50,
+                transition: { duration: 0.5 },
+              },
+            }}
+          >
+            {slides[currentSlide].title}
+          </motion.h2>
+        </AnimatePresence>
+
         <motion.p
           key={`${currentSlide}_p`}
           initial="closed"
@@ -153,35 +161,40 @@ const HomeSlider = (props: Props) => {
           />
         </motion.div>
       </div>
-      <div className={s.media}>
-        <motion.div
-          className={s.imgC}
-          key={`${currentSlide}_img`}
-          initial="closed"
-          animate="open"
-          exit="closed"
-          variants={{
-            open: {
-              opacity: 1,
-              transition: { duration: 0.5, ease: 'easeInOut' },
-            },
-            closed: {
-              opacity: 0,
-              transition: { duration: 0.5, ease: 'easeInOut' },
-            },
-          }}
-        >
-          <ComposableImage
-            sources={{
-              items: [
-                {
-                  url: slides[currentSlide].img.src,
-                  title: slides[currentSlide].img.title,
+      <div className={cn(s.media, 'hidden-overflow')}>
+        <AnimatePresence mode="wait">
+          {
+            <motion.div
+              className={s.imgC}
+              key={`${currentSlide}_img`}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={{
+                open: {
+                  opacity: 1,
+                  transition: { duration: 0.5, ease: 'easeInOut' },
                 },
-              ],
-            }}
-          />
-        </motion.div>
+                closed: {
+                  opacity: 0,
+                  transition: { duration: 0.5, ease: 'easeInOut' },
+                },
+              }}
+            >
+              <ComposableImage
+                sources={{
+                  items: [
+                    {
+                      url: slides[currentSlide].img.src,
+                      title: slides[currentSlide].img.title,
+                    },
+                  ],
+                }}
+              />
+            </motion.div>
+          }
+        </AnimatePresence>
+
         <div className={s.nav}>
           <div className={s.items}>
             {slides.map((item, i) => {

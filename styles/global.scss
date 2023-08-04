@@ -22,9 +22,9 @@
   --font-wt-gothic: WTGothic;
 
   @include mobile {
-    --header-height: #{mobile-vw(90px)};
+    --header-height: #{mobile-vw(80px)};
     --upcoming-accordion-height: #{mobile-vw(30px)};
-    --nav-height: #{mobile-vw(15px)};
+    --nav-height: #{mobile-vw(20px)};
   }
 }
 
@@ -112,7 +112,7 @@ sup {
     padding: var(--header-height) 0;
 
     @include mobile {
-      border-radius: mobile-vw(30px);
+      border-radius: mobile-vw(20px);
       margin: 0;
       margin-bottom: mobile-vw(20px);
       padding-bottom: mobile-vw(50px);
@@ -127,10 +127,9 @@ sup {
     padding: desktop-vw(100px) 0;
 
     @include mobile {
-      border-radius: mobile-vw(30px);
-      margin: 0;
-      margin-bottom: mobile-vw(20px);
-      padding: mobile-vw(30px) 0;
+      border-radius: mobile-vw(20px);
+      margin: mobile-vw(20px) 0;
+      padding: mobile-vw(50px) 0;
     }
   }
 
@@ -142,10 +141,9 @@ sup {
     padding: desktop-vw(80px) 0;
 
     @include mobile {
-      border-radius: mobile-vw(30px);
-      margin: 0;
-      margin-bottom: mobile-vw(20px);
-      padding: mobile-vw(80px) 0;
+      border-radius: mobile-vw(20px);
+      margin: mobile-vw(20px) 0;
+      padding: mobile-vw(60px) 0;
     }
   }
 }
@@ -163,7 +161,7 @@ sup {
   padding: 0 desktop-vw(60px);
 
   @include mobile {
-    margin-bottom: mobile-vw(50px);
+    margin: 0;
     padding: 0 mobile-vw(16px);
   }
 }

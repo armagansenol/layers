@@ -125,8 +125,8 @@ const CardStack = (props: Props) => {
                       <Image
                         src={`/img/cards/c${i + 1}.png`}
                         alt="Detail"
-                        width={10000}
-                        height={10000}
+                        width={1000}
+                        height={1000}
                         style={{ objectFit: 'contain' }}
                       />
                     </div>
@@ -142,10 +142,10 @@ const CardStack = (props: Props) => {
                 </div>
                 <div className={cn(s.iconC, 'hidden-overflow')}>
                   <Image
-                    src={`/img/cards/c${i + 1}.png`}
+                    src={`/img/detail/${card.path}/menu-icon.png`}
                     alt="Detail"
-                    width={10000}
-                    height={10000}
+                    width={1000}
+                    height={1000}
                     style={{ objectFit: 'contain' }}
                   />
                 </div>

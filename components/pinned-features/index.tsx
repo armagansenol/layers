@@ -3,17 +3,27 @@ import s from './pinned-features.module.scss'
 
 import cn from 'clsx'
 import gsap from 'gsap'
+import { useMedia } from 'react-use'
+
+// const mediaSrc =
+//   'https://player.vimeo.com/progressive_redirect/playback/850057794/rendition/720p/file.mp4?loc=external&signature=5ca453ff652a314b3af459ccede5f72c3b12dd53c748df85f593dec31cee8d44'
+
+const mediaSrc = '/video/sample120.mp4'
 
 const PinnedFeatures = () => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
   const videoRef = useRef<HTMLVideoElement>(null)
-
-  const mediaSrc =
-    'https://player.vimeo.com/progressive_redirect/playback/850057794/rendition/720p/file.mp4?loc=external&signature=5ca453ff652a314b3af459ccede5f72c3b12dd53c748df85f593dec31cee8d44'
+  const isMobile = useMedia('(max-width: 800px)', true)
 
   const media = (
-    <video className={s.video} ref={videoRef} src={mediaSrc}></video>
+    <video
+      className={s.video}
+      ref={videoRef}
+      src={mediaSrc}
+      playsInline
+      {...(isMobile && { autoPlay: true, muted: true, loop: true })}
+    ></video>
   )
 
   useEffect(() => {
@@ -27,6 +37,8 @@ const PinnedFeatures = () => {
     }
 
     const ctx = gsap.context(() => {
+      if (isMobile) return
+
       const scroll = q('[data-scroll]')
       const boxes = q('.box')
 
@@ -100,48 +112,36 @@ const PinnedFeatures = () => {
       <div className={s.features}>
         <div className={s.transformC} data-scroll>
           <div className={cn(s.box, 'box')}>
-            <h3 className={s.title}>All-in-one Software</h3>
-            <p className={s.par}>
+            <h3>All-in-one Software</h3>
+            <p>
               Layers defines the employee experience by placing people at the
               heart of all people operations systems and processes.
             </p>
-            <p className={s.par}>
+            <p>
               By leveraging self-service functionality and seamless approvals,
               Layers ensures that employees can effortlessly access the
               resources they need without unnecessary hurdles.
             </p>
           </div>
           <div className={cn(s.box, 'box')}>
-            <h3 className={s.title}>All-in-one Software</h3>
-            <p className={s.par}>
+            <h3>All-in-one Software</h3>
+            <p>
               Layers defines the employee experience by placing people at the
               heart of all people operations systems and processes.
             </p>
-            <p className={s.par}>
+            <p>
               By leveraging self-service functionality and seamless approvals,
               Layers ensures that employees can effortlessly access the
               resources they need without unnecessary hurdles.
             </p>
           </div>
           <div className={cn(s.box, 'box')}>
-            <h3 className={s.title}>All-in-one Software</h3>
-            <p className={s.par}>
+            <h3>All-in-one Software</h3>
+            <p>
               Layers defines the employee experience by placing people at the
               heart of all people operations systems and processes.
             </p>
-            <p className={s.par}>
-              By leveraging self-service functionality and seamless approvals,
-              Layers ensures that employees can effortlessly access the
-              resources they need without unnecessary hurdles.
-            </p>
-          </div>
-          <div className={cn(s.box, 'box')}>
-            <h3 className={s.title}>All-in-one Software</h3>
-            <p className={s.par}>
-              Layers defines the employee experience by placing people at the
-              heart of all people operations systems and processes.
-            </p>
-            <p className={s.par}>
+            <p>
               By leveraging self-service functionality and seamless approvals,
               Layers ensures that employees can effortlessly access the
               resources they need without unnecessary hurdles.

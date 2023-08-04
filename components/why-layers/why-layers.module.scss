@@ -1,5 +1,5 @@
 .whyLayers {
-  @include dims(100%, 100vh);
+  @include dims(100%, 90vh);
   position: relative;
 
   .imgs {
@@ -7,23 +7,21 @@
     @include dims(desktop-vw(400px), desktop-vw(540px));
     transform: translate(-50%, -50%);
 
-    // border: 1px solid blue;
+    @include mobile {
+      @include dims(mobile-vw(250px), mobile-vw(350px));
+    }
 
     .imgC {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      // border: 1px solid red;
+      @include position(absolute, 0, 0, 0, 0);
 
       .transformC {
         @include dims(100%);
-        border-radius: 30px;
+        border-radius: desktop-vw(30px);
         overflow: hidden;
 
-        // border: 1px solid green;
+        @include mobile {
+          border-radius: mobile-vw(30px);
+        }
       }
 
       .img {
@@ -38,20 +36,24 @@
     align-items: center;
     column-gap: desktop-vw(50px);
     display: flex;
-  }
 
-  .textC span {
-    display: inline-block;
-    font-family: var(--font-wt-gothic);
-    font-size: desktop-vw(160px);
-    font-weight: 700;
+    & > span {
+      display: inline-block;
+      font-family: var(--font-wt-gothic);
+      font-size: desktop-vw(160px);
+      font-weight: 700;
 
-    &:nth-child(1) {
-      margin-bottom: desktop-vw(100px);
-    }
+      @include mobile {
+        font-size: mobile-vw(50px);
+      }
 
-    &:nth-child(2) {
-      margin-top: desktop-vw(100px);
+      &:nth-child(1) {
+        margin-bottom: desktop-vw(100px);
+      }
+
+      &:nth-child(2) {
+        margin-top: desktop-vw(100px);
+      }
     }
   }
 }

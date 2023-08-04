@@ -3,9 +3,13 @@
   display: flex;
   flex-direction: column;
   margin: desktop-vw(50px) 0 desktop-vw(100px) 0;
-  // padding: 0 desktop-vw(120px);
 
-  h2 {
+  @include mobile {
+    margin: mobile-vw(20px) 0;
+    padding: 0 mobile-vw(16px);
+  }
+
+  & > h2 {
     font-family: var(--font-wt-gothic);
     font-size: desktop-vw(60px);
     font-weight: 500;
@@ -13,6 +17,12 @@
     margin-bottom: desktop-vw(100px);
     text-align: center;
     width: desktop-vw(783px);
+
+    @include mobile {
+      font-size: mobile-vw(30px);
+      line-height: 1.5;
+      width: 100%;
+    }
 
     strong {
       font-weight: 700;
@@ -29,17 +39,32 @@
   }
 }
 
-.photo {
+.hrServices {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: desktop-vw(100px);
 
-  .textt {
+  @include mobile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: mobile-vw(100px);
+    padding-left: mobile-vw(16px);
+    padding-right: mobile-vw(16px);
+  }
+
+  .text {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 0 0 desktop-vw(120px);
+    margin: 0 0 0 desktop-vw(120px);
+
+    @include mobile {
+      align-items: center;
+      margin: 0;
+      margin-bottom: mobile-vw(50px);
+    }
 
     h2 {
       font-family: var(--font-wt-gothic);
@@ -47,6 +72,12 @@
       font-weight: 500;
       line-height: 1.2;
       margin-bottom: desktop-vw(40px);
+
+      @include mobile {
+        font-size: mobile-vw(40px);
+        margin-bottom: mobile-vw(40px);
+        text-align: center;
+      }
     }
 
     p {
@@ -56,6 +87,13 @@
       line-height: 1.6;
       margin-bottom: desktop-vw(60px);
       width: desktop-vw(460px);
+
+      @include mobile {
+        font-size: mobile-vw(17px);
+        margin-bottom: mobile-vw(60px);
+        text-align: center;
+        width: 100%;
+      }
     }
   }
 
@@ -65,18 +103,18 @@
     .imgC {
       overflow: hidden;
 
-      .img {
-        @include dims(100%);
-        display: block;
-        object-fit: cover;
-      }
-
       &:nth-child(1) {
         @include dims(desktop-vw(611px), desktop-vw(584px));
         border-top-left-radius: desktop-vw(30px);
         border-bottom-left-radius: desktop-vw(30px);
         margin-left: auto;
         transform: translateX(desktop-vw(16px));
+
+        @include mobile {
+          @include dims(mobile-vw(300px));
+          border-radius: mobile-vw(16px);
+          transform: none;
+        }
       }
 
       &:nth-child(2) {
@@ -84,6 +122,11 @@
         @include position(absolute, auto, auto, 0, 0);
         border-radius: desktop-vw(30px);
         transform: translate(desktop-vw(-30px), desktop-vw(200px));
+
+        @include mobile {
+          @include dims(mobile-vw(200px));
+          border-radius: mobile-vw(16px);
+        }
       }
     }
   }
@@ -95,7 +138,13 @@
   padding-right: desktop-vw(20px);
   padding-left: desktop-vw(90px);
 
-  .textt {
+  @include mobile {
+    flex-direction: column;
+    grid-template-columns: unset;
+    padding: 0 mobile-vw(16px);
+  }
+
+  .text {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -107,6 +156,31 @@
       font-weight: 500;
       line-height: 1.2;
       margin-bottom: desktop-vw(40px);
+
+      @include mobile {
+        font-size: mobile-vw(50px);
+        margin-bottom: mobile-vw(40px);
+        text-align: center;
+      }
+
+      & > span {
+        font-family: DreamBeliever;
+        font-size: desktop-vw(75px);
+        position: relative;
+
+        @include mobile {
+          font-size: mobile-vw(65px);
+        }
+
+        .underline {
+          position: absolute;
+          top: 110%;
+          left: -10%;
+          right: 0;
+          width: 100%;
+          height: auto;
+        }
+      }
     }
 
     p {
@@ -116,20 +190,12 @@
       line-height: 1.6;
       margin-bottom: desktop-vw(60px);
       width: desktop-vw(460px);
-    }
 
-    .dreamBeliever {
-      font-family: DreamBeliever;
-      font-size: desktop-vw(75px);
-      position: relative;
-
-      .underline {
-        position: absolute;
-        top: 110%;
-        left: -10%;
-        right: 0;
+      @include mobile {
+        font-size: mobile-vw(17px);
+        margin-bottom: mobile-vw(60px);
+        text-align: center;
         width: 100%;
-        height: auto;
       }
     }
   }
@@ -138,46 +204,73 @@
     position: relative;
 
     .imgC {
-      overflow: hidden;
-
-      .img {
-        @include dims(100%);
-        display: block;
-        object-fit: cover;
-      }
-
       @include dims(desktop-vw(447px), desktop-vw(481px));
-      border-radius: desktop-vw(30px);
+      border-radius: desktop-vw(32px);
+      flex-shrink: 0;
+
+      @include mobile {
+        @include dims(100%, mobile-vw(350px));
+        border-radius: mobile-vw(16px);
+      }
     }
 
     .sticker {
-      @include dims(desktop-vw(148px), desktop-vw(137px));
       position: absolute;
 
       &.hours {
-        top: desktop-vw(-50px);
         left: desktop-vw(-50px);
+        top: desktop-vw(-50px);
+        width: desktop-vw(150px);
+
+        @include mobile {
+          left: mobile-vw(-30px);
+          top: mobile-vw(-50px);
+          width: mobile-vw(115px);
+        }
       }
 
       &.laptop {
-        top: desktop-vw(-100px);
-        left: desktop-vw(400px);
+        right: desktop-vw(-50px);
+        top: desktop-vw(-150px);
+        width: desktop-vw(200px);
+
+        @include mobile {
+          width: mobile-vw(100px);
+        }
       }
 
       &.hybrid {
-        @include dims(desktop-vw(260px), desktop-vw(100px));
-        top: desktop-vw(300px);
         left: desktop-vw(-120px);
+        top: desktop-vw(300px);
+        width: desktop-vw(260px);
+
+        @include mobile {
+          left: mobile-vw(60px);
+          top: mobile-vw(280px);
+          width: mobile-vw(280px);
+        }
       }
 
       &.swoosh {
-        top: desktop-vw(0px);
-        left: desktop-vw(0px);
+        bottom: desktop-vw(-160px);
+        left: desktop-vw(50px);
+        width: desktop-vw(160px);
+
+        @include mobile {
+          width: mobile-vw(90px);
+        }
       }
 
       &.pin {
-        top: desktop-vw(0px);
-        left: desktop-vw(0px);
+        bottom: desktop-vw(-120px);
+        left: desktop-vw(-190px);
+        width: desktop-vw(120px);
+
+        @include mobile {
+          bottom: mobile-vw(10px);
+          left: mobile-vw(-25px);
+          width: mobile-vw(70px);
+        }
       }
     }
   }
