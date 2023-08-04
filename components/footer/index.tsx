@@ -26,7 +26,12 @@ const Footer = () => {
               <h6>DOWNLOAD</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link className={s.imgC} href="">
+                  <Link
+                    className={s.imgC}
+                    href="https://apps.apple.com/tr/app/layers-portal"
+                    target="blank"
+                    rel="noreferrer noopener"
+                  >
                     <Image
                       src="/img/apple-appstore.svg"
                       alt="Apple Appstore Logo"
@@ -37,7 +42,12 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.imgC} href="">
+                  <Link
+                    className={s.imgC}
+                    href="https://play.google.com/store/apps/details?id=com.neyasis.neyasis_mobile_portal"
+                    target="blank"
+                    rel="noreferrer noopener"
+                  >
                     <Image
                       src="/img/google-play.svg"
                       alt="Google Playstore Logo"
@@ -48,7 +58,12 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.imgC} href="">
+                  <Link
+                    className={s.imgC}
+                    href="#"
+                    target="blank"
+                    rel="noreferrer noopener"
+                  >
                     <Image
                       src="/img/huawei-app-gallery.svg"
                       alt="Huawei Appgallery Logo"

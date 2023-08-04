@@ -1,8 +1,9 @@
+import cn from 'clsx'
+import s from './request-a-demo.module.scss'
+
 import ContactForm from '@/components/contact-form'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import cn from 'clsx'
-import s from './request-a-demo.module.scss'
 
 const RequestADemo = () => {
   return (

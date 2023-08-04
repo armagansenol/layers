@@ -16,13 +16,6 @@ export default function Document() {
           crossOrigin="anonymous"
         />
         <link
-          href="/fonts/WTGothic-BoldItalic.woff2"
-          as="font"
-          rel="preload prefetch"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
           href="/fonts/WTGothic-Medium.woff2"
           as="font"
           rel="preload prefetch"
@@ -37,7 +30,14 @@ export default function Document() {
           crossOrigin="anonymous"
         />
         <link
-          href="/fonts/WTGothic-RegularItalic.woff2"
+          href="/fonts/Inter-Medium.woff2"
+          as="font"
+          rel="preload prefetch"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="/fonts/Inter-Regular.woff2"
           as="font"
           rel="preload prefetch"
           type="font/woff2"

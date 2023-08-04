@@ -14,15 +14,11 @@ function App({ Component, pageProps }: AppProps) {
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
     // ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
-
-    // reset scroll position
-    window.scrollTo(0, 0)
-    window.history.scrollRestoration = 'manual'
   }
 
-  const onExitComplete = () => {
-    window.scrollTo({ top: 0 })
-  }
+  // const onExitComplete = () => {
+  //   window.scrollTo({ top: 0 })
+  // }
 
   return (
     <>
