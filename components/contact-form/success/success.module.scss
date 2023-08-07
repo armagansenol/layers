@@ -1,61 +1,71 @@
 .success {
   align-items: center;
+  background: var(--zhen-zhu-bai-pearl);
+  border-radius: desktop-vw(11px);
   display: flex;
   flex-direction: column;
 
-  & > h2 {
-    font-family: var(--font-wt-gothic);
-    font-size: desktop-vw(60px);
-    font-weight: 700;
-    margin-bottom: desktop-vw(30px);
-    text-align: center;
+  .thanks {
+    align-items: center;
+    background: var(--white);
+    border-radius: desktop-vw(30px);
+    display: flex;
+    flex-direction: column;
+    margin: desktop-vw(25px);
+    padding: desktop-vw(35px) desktop-vw(25px);
 
-    @include mobile {
-      font-size: mobile-vw(40px);
-      margin-bottom: mobile-vw(30px);
-    }
-  }
+    & > h2 {
+      font-family: var(--font-wt-gothic);
+      font-size: desktop-vw(60px);
+      font-weight: 700;
+      margin-bottom: desktop-vw(30px);
+      text-align: center;
 
-  & > p {
-    font-family: var(--font-inter);
-    font-size: desktop-vw(15px);
-    font-weight: 400;
-    margin-bottom: desktop-vw(50px);
-    line-height: 1.8;
-    text-align: center;
-
-    @include mobile {
-      font-size: mobile-vw(16px);
-      margin-bottom: mobile-vw(50px);
+      @include mobile {
+        font-size: mobile-vw(40px);
+        margin-bottom: mobile-vw(30px);
+      }
     }
 
-    & > a {
-      font-weight: 500;
-      text-decoration: underline;
+    & > p {
+      font-family: var(--font-inter);
+      font-size: desktop-vw(15px);
+      font-weight: 400;
+      margin-bottom: desktop-vw(20px);
+      line-height: 1.8;
+      text-align: center;
+
+      @include mobile {
+        font-size: mobile-vw(16px);
+        margin-bottom: mobile-vw(20px);
+      }
+
+      & > a {
+        font-weight: 500;
+        text-decoration: underline;
+      }
     }
-  }
 
-  & > small {
-    display: inline-block;
-    font-family: var(--font-inter);
-    font-size: desktop-vw(15px);
-    font-weight: 400;
-    line-height: 1.8;
-    margin-bottom: desktop-vw(100px);
-    text-align: center;
-    width: desktop-vw(400px);
+    & > small {
+      display: inline-block;
+      font-family: var(--font-inter);
+      font-size: desktop-vw(15px);
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: desktop-vw(100px);
+      text-align: center;
+      width: desktop-vw(400px);
 
-    @include mobile {
-      font-size: mobile-vw(16px);
-      margin-bottom: mobile-vw(30px);
-      width: 100%;
+      @include mobile {
+        font-size: mobile-vw(16px);
+        margin-bottom: mobile-vw(30px);
+        width: 100%;
+      }
     }
   }
 
   .message {
     align-items: center;
-    background: var(--zhen-zhu-bai-pearl);
-    border-radius: desktop-vw(11px);
     display: flex;
     flex-direction: column;
     padding: desktop-vw(25px);
@@ -64,7 +74,6 @@
     @include mobile {
       border-radius: mobile-vw(11px);
       padding: mobile-vw(30px) mobile-vw(16px);
-      width: 100%;
     }
 
     & > p {

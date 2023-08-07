@@ -12,21 +12,23 @@ type Props = {}
 const ClientSuccess = (props: Props) => {
   return (
     <div className={s.success}>
-      <h2>Thank You!</h2>
-      <p>
-        Your demo request has been successfully received. We thank you for your
-        interest in Layers. Below are the details for our upcoming meeting. If
-        you wish to cancel the meeting for any reason, kindly contact us at{' '}
-        <a
-          href="mailto:info@layersup.com"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          info@layersup.com
-        </a>
-        .
-      </p>
-
+      <div className={s.thanks}>
+        <h2>Thank You!</h2>
+        <p>
+          Your demo request has been successfully received. We thank you for
+          your interest in Layers. Below are the details for our upcoming
+          meeting. If you wish to cancel the meeting for any reason, kindly
+          contact us at{' '}
+          <a
+            href="mailto:info@layersup.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            info@layersup.com
+          </a>
+          .
+        </p>
+      </div>
       <div className={s.message}>
         <p>The person who will get in touch with you</p>
         <div className={s.info}>
