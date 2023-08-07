@@ -1,25 +1,37 @@
+.accordion {
+  &.open {
+    .accordionHeader {
+      .close {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .iconC {
+        &.arrow {
+          transform: rotateX(180deg);
+        }
+      }
+    }
+
+    .accordionBody {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 .accordionHeader {
   align-items: center;
   column-gap: desktop-vw(8px);
   display: flex;
   height: var(--upcoming-accordion-height);
   justify-content: space-between;
+  padding: 0 desktop-vw(16px);
 
   @include mobile {
     column-gap: mobile-vw(8px);
-  }
-
-  &.open {
-    .close {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .iconC {
-      &.arrow {
-        transform: rotateX(180deg);
-      }
-    }
+    padding: 0 mobile-vw(16px);
   }
 
   > * {
@@ -40,17 +52,14 @@
   }
 
   .iconC {
-    @include dims(desktop-vw(10px));
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include dims(desktop-vw(10px), auto);
 
     @include mobile {
-      @include dims(mobile-vw(10px));
+      @include dims(mobile-vw(10px), auto);
     }
 
     &.arrow {
-      transition: 0.8s transform ease;
+      transition: 800ms transform ease;
       will-change: transform;
     }
   }
@@ -58,7 +67,7 @@
   .close {
     opacity: 0;
     pointer-events: none;
-    transition: 0.5s opacity ease;
+    transition: 500ms opacity ease;
 
     &.dummy {
       visibility: hidden;
@@ -68,38 +77,26 @@
 
 .accordionBody {
   --margin-top: #{desktop-vw(50px)};
-
-  @include mobile {
-    --margin-top: #{mobile-vw(50px)};
-  }
-
   height: calc(90vh - var(--margin-top));
   margin-top: var(--margin-top);
   overflow: scroll;
-  padding-bottom: desktop-vw(200px);
+  padding-bottom: desktop-vw(100px);
 
-  // &::after {
-  //   content: '';
-  //   @include position(absolute, auto, 0, 0, 0);
-  //   @include dims(100%, desktop-vw(300px));
-  //   background: linear-gradient(
-  //     180deg,
-  //     var(--innocent-snowdrop-transparent) 0%,
-  //     var(--innocent-snowdrop) 100%
-  //   );
-  // }
+  @include mobile {
+    --margin-top: #{mobile-vw(20px)};
+  }
 
-  .items {
-    position: relative;
-    padding-bottom: desktop-vw(300px);
-
-    .item {
-      padding: desktop-vw(30px) desktop-vw(60px);
-      border-bottom: 1px solid var(--black);
-
-      &:first-child {
-        border-top: 1px solid var(--black);
-      }
-    }
+  &::after {
+    content: '';
+    @include position(absolute, auto, 0, 0, 0);
+    @include dims(100%, desktop-vw(200px));
+    background: linear-gradient(
+      180deg,
+      var(#{--theme-primary}-transparent) 0%,
+      var(--theme-secondary) 100%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: 400ms all ease;
   }
 }

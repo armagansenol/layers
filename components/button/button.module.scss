@@ -24,26 +24,6 @@
     }
   }
 
-  .iconC {
-    @include dims(20%, 100%);
-    align-items: center;
-    background: var(--innocent-snowdrop);
-    border-radius: desktop-vw(8px);
-    display: flex;
-    justify-content: center;
-
-    @include mobile {
-      border-radius: mobile-vw(8px);
-    }
-
-    .icon {
-      @include dims(40%);
-      align-items: center;
-      display: flex;
-      justify-content: center;
-    }
-  }
-
   &.sm {
     @include dims(desktop-vw(240px), desktop-vw(47px));
 
@@ -57,6 +37,10 @@
 
     .text {
       font-size: desktop-vw(15px);
+
+      @include mobile {
+        font-size: mobile-vw(15px);
+      }
     }
 
     @include mobile {
@@ -85,6 +69,26 @@
 
     @include mobile {
       @include dims(var(--mobile-width), mobile-vw(47px));
+    }
+  }
+
+  .iconC {
+    @include dims(20%, 100%);
+    align-items: center;
+    background: var(--innocent-snowdrop);
+    border-radius: desktop-vw(8px);
+    display: flex;
+    justify-content: center;
+
+    @include mobile {
+      border-radius: mobile-vw(8px);
+    }
+
+    .icon {
+      @include dims(40%);
+      align-items: center;
+      display: flex;
+      justify-content: center;
     }
   }
 }

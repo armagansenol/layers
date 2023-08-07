@@ -26,7 +26,7 @@ const Button = ({
           className={cn(s.button, 'cursor-pointer', [s[size]])}
           onClick={callback}
         >
-          <span className={s.text}> {text}</span>
+          <span className={s.text}>{text}</span>
           <span className={s.iconC}>
             <div className={s.icon}>
               <IconArrow />

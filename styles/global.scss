@@ -42,10 +42,12 @@
 }
 
 html {
+  --theme-color: var(--theme-primary);
+  background: var(theme-color);
+  color: var(--black);
   font-weight: bolder;
   font-family: Arial, Helvetica, sans-serif;
   scrollbar-width: thin;
-  --theme-color: var(--theme-primary);
   @extend .noSelect;
 }
 

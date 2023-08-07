@@ -7,7 +7,9 @@ import { useLockBodyScroll } from 'react-use'
 import IconArrowDropdown from '../icons/icon-arrow-dropdown'
 import IconCalendar from '../icons/icon-calendar'
 import IconX from '../icons/icon-x'
-import { EventAccordion } from '../project-accordion'
+import { EventAccordion } from './event-accordion'
+
+const ease = cubicBezier(0.16, 1, 0.3, 1)
 
 const UpcomingAccordion = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,8 +25,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -36,8 +38,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -49,8 +51,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -62,8 +64,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -75,8 +77,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -88,8 +90,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -101,8 +103,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -114,8 +116,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -127,8 +129,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -140,8 +142,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -153,8 +155,8 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
     {
@@ -166,24 +168,24 @@ const UpcomingAccordion = () => {
         location: 'Istanbul, Turkey',
       },
       link: {
-        ui: 'Review Event',
-        url: '/',
+        text: 'Review Event',
+        path: '/',
       },
     },
   ]
 
-  const ease = cubicBezier(0.16, 1, 0.3, 1)
-
   return (
-    <div className={s.accordion}>
+    <div
+      className={cn(s.accordion, {
+        [s.open]: isOpen,
+      })}
+    >
       <div
-        className={cn(s.accordionHeader, 'cursor-pointer', {
-          [s.open]: isOpen,
-        })}
+        className={cn(s.accordionHeader, 'cursor-pointer')}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <div className={cn(s.close, s.dummy)}>
-          <div className={s.iconC}>
+          <div className={cn(s.iconC, 'flex-center')}>
             <IconX />
           </div>
           <p className={s.text}>Close</p>
@@ -196,7 +198,7 @@ const UpcomingAccordion = () => {
 
           <p className={s.text}>Upcoming Events</p>
 
-          <div className={cn(s.iconC, s.arrow)}>
+          <div className={cn(s.iconC, s.arrow, 'flex-center')}>
             <IconArrowDropdown />
           </div>
         </div>
@@ -217,12 +219,10 @@ const UpcomingAccordion = () => {
         variants={{
           open: {
             height: 'auto',
-            // opacity: 1,
             transition: { duration: 1, ease },
           },
           closed: {
             height: 0,
-            // opacity: 0,
             transition: { duration: 1, ease },
           },
         }}

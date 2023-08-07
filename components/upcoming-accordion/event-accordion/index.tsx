@@ -1,12 +1,13 @@
+import s from './project-accordion.module.scss'
+
 import * as Accordion from '@radix-ui/react-accordion'
 import cn from 'clsx'
 
 import Button from '@/components/button'
-import IconCalendar from '../icons/icon-calendar'
-import IconLocation from '../icons/icon-location'
-import IconMinus from '../icons/icon-minus'
-import IconPlus from '../icons/icon-plus'
-import s from './project-accordion.module.scss'
+import IconCalendar from '../../icons/icon-calendar'
+import IconLocation from '../../icons/icon-location'
+import IconMinus from '../../icons/icon-minus'
+import IconPlus from '../../icons/icon-plus'
 
 type AccordionItem = {
   item: any
@@ -32,11 +33,14 @@ const AccordionItem = ({ item, index }: AccordionItem) => {
         <Accordion.Trigger className={s.trigger}>
           <>
             <p className={s.text}>
-              {item.name} <span className={s.date}>({item.info.date})</span>
+              {item.name}{' '}
+              <span className={cn(s.date, 'hidden-overflow')}>
+                ({item.info.date})
+              </span>
             </p>
             <span className={s.iconC}>
               <span className={cn(s.icon, s.minus)}>
-                <IconMinus />
+                <IconMinus fill={'var(--theme-secondary)'} />
               </span>
               <span className={cn(s.icon, s.plus)}>
                 <IconPlus />
