@@ -19,7 +19,7 @@ import { useMenuStore } from '@/lib/menuStore'
 const Header = () => {
   const navbarRef = useRef<any>(null)
   const { currentRoute } = useMenuStore()
-  const isMobile = useMedia('(max-width: 800px)')
+  const isMobile = useMedia('(max-width: 800px)', true)
 
   const [isMounted, toggle] = useReducer((p) => !p, true)
   const [elementRect, setElementRect] = useState<any>()

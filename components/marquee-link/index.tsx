@@ -23,7 +23,7 @@ const MarqueeLink = ({
   },
   url = '/',
 }: Props) => {
-  const isMobile = useMedia('(max-width: 800px)')
+  const isMobile = useMedia('(max-width: 800px)', true)
 
   return (
     <div className={cn(s.nextItem, 'cursor-pointer')}>
