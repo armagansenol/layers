@@ -6,27 +6,34 @@ import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 import ClientInfo from './client-info'
 import ClientDate from './date'
 import ClientSuccess from './success'
+import Button from '../button'
 
 type Props = {
   formType: 'contact' | 'demo' | 'service'
 }
 
+const ease = cubicBezier(0.16, 1, 0.3, 1)
+
 const ContactForm = (props: Props) => {
-  const ease = cubicBezier(0.16, 1, 0.3, 1)
-  const [formPhase, setFormPhase] = useState<'form' | 'date' | 'success'>(
-    'success'
-  )
+  const [formPhase, setFormPhase] = useState(0)
 
-  // function handlePrev() {
-  //   console.log('prev')
-  // }
+  function handlePrev() {
+    console.log('prev')
+    if (formPhase < 0) return
+    setFormPhase((prev) => {
+      return prev - 1
+    })
+  }
 
-  // function handleNext() {
-  //   console.log('next')
-  //   contactFormik.submitForm().then((err) => {
-  //     console.log('profile validated', err)
-  //   })
-  // }
+  function handleNext() {
+    console.log('next')
+    setFormPhase((prev) => {
+      return prev + (1 % Object.keys(screens).length)
+    })
+    // contactFormik.submitForm().then((err) => {
+    //   console.log('profile validated', err)
+    // })
+  }
 
   // function handleNavigation(direction: "NEXT" | "PREV") {
   //   gsap.to(formRef.current, {
@@ -70,11 +77,17 @@ const ContactForm = (props: Props) => {
   //   }
   // }
 
-  const screens = {
-    form: <ClientInfo formType contactFormik />,
-    date: <ClientDate />,
-    success: <ClientSuccess />,
-  }
+  const screens = [
+    <>
+      <ClientInfo formType contactFormik />
+    </>,
+    <>
+      <ClientDate />
+    </>,
+    <>
+      <ClientSuccess />
+    </>,
+  ]
 
   return (
     <div className={s.formC}>
@@ -96,10 +109,15 @@ const ContactForm = (props: Props) => {
           }}
         >
           {screens[formPhase]}
-          {/* <div className={s.btns}>
-              <Button text="Preivous" path="/" callback={handlePrev} />
+
+          {formPhase !== screens.length - 1 && (
+            <div className={s.btns}>
+              {formPhase !== 0 && (
+                <Button text="Preivous" path="/" callback={handlePrev} />
+              )}
               <Button text="Nexts" path="/" callback={handleNext} />
-            </div> */}
+            </div>
+          )}
         </motion.div>
       </AnimatePresence>
     </div>
