@@ -5,7 +5,7 @@
     width: 100%;
 
     @include mobile {
-      padding: mobile-vw(10px) mobile-vw(16px);
+      padding: mobile-vw(12px) mobile-vw(16px);
     }
 
     &[data-state='open'] {
@@ -124,7 +124,7 @@
 
       @include mobile {
         flex-direction: column;
-        padding: mobile-vw(10px) mobile-vw(16px);
+        padding: mobile-vw(10px) mobile-vw(16px) mobile-vw(32px) mobile-vw(16px);
       }
 
       > * {
@@ -180,7 +180,7 @@
       @include mobile {
         font-size: mobile-vw(13px);
         margin-bottom: mobile-vw(30px);
-        width: 90%;
+        width: 95%;
       }
     }
 

@@ -10,13 +10,16 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: mobile-vw(50px) 0;
+    padding: mobile-vw(50px) mobile-vw(16px);
   }
 
   .text {
     width: desktop-vw(450px);
 
     @include mobile {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
       margin-bottom: mobile-vw(50px);
       padding: 0 mobile-vw(24px);
       width: 100%;
@@ -31,6 +34,7 @@
       @include mobile {
         font-size: mobile-vw(25px);
         margin-bottom: mobile-vw(20px);
+        text-align: center;
       }
     }
 
@@ -44,6 +48,8 @@
       @include mobile {
         font-size: mobile-vw(14px);
         margin-bottom: mobile-vw(60px);
+        line-height: 1.6;
+        text-align: center;
         width: 100%;
       }
     }
@@ -55,9 +61,8 @@
     position: relative;
 
     @include mobile {
-      @include dims(100%, mobile-vw(320px));
-      border-radius: mobile-vw(12px);
-      padding: 0 mobile-vw(16px);
+      @include dims(100%, mobile-vw(330px));
+      border-radius: mobile-vw(6px);
     }
 
     .imgC {
@@ -76,27 +81,56 @@
       padding-top: desktop-vw(18px);
       padding-bottom: desktop-vw(8px);
 
+      @include mobile {
+        @include dims(auto);
+        border-top-left-radius: mobile-vw(6px);
+        padding-left: mobile-vw(20px);
+        padding-top: mobile-vw(12px);
+        padding-bottom: mobile-vw(10px);
+        padding-right: mobile-vw(50px);
+      }
+
       .items {
         column-gap: desktop-vw(5px);
         display: flex;
+
+        @include mobile {
+          column-gap: mobile-vw(5px);
+        }
       }
 
       .item {
         flex-shrink: 0;
         opacity: 0.3;
-        transition: 0.6s all cubic-bezier((0.16, 1, 0.3, 1));
+        transition: 800ms all var(--ease-out-expo);
         width: desktop-vw(16px);
+
+        @include mobile {
+          width: mobile-vw(16px);
+        }
 
         &.active {
           opacity: 1;
           width: desktop-vw(84px);
+
+          @include mobile {
+            width: mobile-vw(84px);
+          }
         }
 
         .bar {
           @include dims(100%, 2px);
+          background: lightgray;
           border-radius: 4px;
-          background: var(--black);
           margin-bottom: desktop-vw(6px);
+          position: relative;
+
+          .progress {
+            @include position(absolute, 0, 0, 0, 0);
+            @include dims(100%);
+            background: var(--black);
+            will-change: width;
+          }
         }
 
         .index {
@@ -104,6 +138,10 @@
           font-size: desktop-vw(13px);
           font-weight: 400;
           margin-right: auto;
+
+          @include mobile {
+            font-size: mobile-vw(13px);
+          }
         }
       }
     }

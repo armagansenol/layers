@@ -34,10 +34,14 @@
     padding: 0 mobile-vw(16px);
   }
 
-  > * {
+  & > * {
     align-items: center;
     column-gap: desktop-vw(8px);
     display: flex;
+
+    @include mobile {
+      column-gap: mobile-vw(8px);
+    }
   }
 
   .title,
@@ -84,6 +88,7 @@
 
   @include mobile {
     --margin-top: #{mobile-vw(20px)};
+    padding-bottom: mobile-vw(100px);
   }
 
   &::after {
@@ -98,5 +103,9 @@
     opacity: 0;
     pointer-events: none;
     transition: 400ms all ease;
+
+    @include mobile {
+      @include dims(100%, mobile-vw(200px));
+    }
   }
 }

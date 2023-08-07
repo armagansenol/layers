@@ -82,9 +82,8 @@ const Home = () => {
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <Image
-                  className={s.img}
                   src="/img/bike.jpg"
-                  alt="alt"
+                  alt="Man on phone call"
                   height={1000}
                   width={1000}
                 />
@@ -92,9 +91,8 @@ const Home = () => {
 
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <Image
-                  className={s.img}
                   src="/img/cat.jpg"
-                  alt="alt"
+                  alt="Lady studying with a cat"
                   height={1000}
                   width={1000}
                 />

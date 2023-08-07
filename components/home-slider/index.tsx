@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
 import s from './home-slider.module.scss'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+
 import cn from 'clsx'
 
 import Button from '@/components/button'
 import { Image } from '@/components/image'
+
+const ease = cubicBezier(0.16, 1, 0.3, 1)
 
 const HomeSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -69,24 +72,39 @@ const HomeSlider = () => {
       x: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: -0.02,
-        ease: 'easeInOut',
+        staggerChildren: 0.05,
+        ease,
       },
     },
     exit: {
       x: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: -0.02,
-        ease: 'easeInOut',
+        staggerChildren: 0.05,
+        ease,
       },
     },
   }
 
   const item = {
-    initial: { opacity: 0, x: -50, duration: 1, ease: 'easeInOut' },
-    animate: { opacity: 1, x: 0, duration: 1, ease: 'easeInOut' },
-    exit: { opacity: 0, x: 50, duration: 1, ease: 'easeInOut' },
+    initial: {
+      opacity: 0,
+      x: -50,
+      duration: 6,
+      ease,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      duration: 6,
+      ease,
+    },
+    exit: {
+      opacity: 0,
+      x: 50,
+      duration: 6,
+      ease,
+    },
   }
 
   useEffect(() => {
@@ -106,26 +124,25 @@ const HomeSlider = () => {
 
   return (
     <div className={s.slider}>
-      <div className={s.text}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`${currentSlide}_text`}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={animationVariants}
-          >
-            <motion.h2 variants={item}>{slides[currentSlide].title}</motion.h2>
-            <motion.p variants={item}>{slides[currentSlide].desc}</motion.p>
-            <motion.div variants={item} className={s.btnC}>
-              <Button
-                text={slides[currentSlide].btn.text}
-                path={slides[currentSlide].btn.path}
-              />
-            </motion.div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          className={s.text}
+          key={`${currentSlide}_text`}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={animationVariants}
+        >
+          <motion.h2 variants={item}>{slides[currentSlide].title}</motion.h2>
+          <motion.p variants={item}>{slides[currentSlide].desc}</motion.p>
+          <motion.div variants={item} className={s.btnC}>
+            <Button
+              text={slides[currentSlide].btn.text}
+              path={slides[currentSlide].btn.path}
+            />
           </motion.div>
-        </AnimatePresence>
-      </div>
+        </motion.div>
+      </AnimatePresence>
       <div className={cn(s.media, 'hidden-overflow')}>
         <AnimatePresence mode="popLayout">
           <motion.div
@@ -168,7 +185,30 @@ const HomeSlider = () => {
                   key={i}
                   onClick={() => handleNavClick(i)}
                 >
-                  <div className={s.bar}></div>
+                  <div className={s.bar}>
+                    {currentSlide === i && (
+                      <AnimatePresence>
+                        <motion.div
+                          className={s.progress}
+                          key={`${currentSlide}_progress`}
+                          initial="initial"
+                          animate="animate"
+                          variants={{
+                            initial: {
+                              width: 0,
+                            },
+                            animate: {
+                              width: '100%',
+                              transition: {
+                                duration: 5,
+                                ease: 'easeOut',
+                              },
+                            },
+                          }}
+                        ></motion.div>
+                      </AnimatePresence>
+                    )}
+                  </div>
                   <div className={s.index}>0{i + 1}</div>
                 </div>
               )

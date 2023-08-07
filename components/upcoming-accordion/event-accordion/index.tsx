@@ -1,4 +1,4 @@
-import s from './project-accordion.module.scss'
+import s from './event-accordion.module.scss'
 
 import * as Accordion from '@radix-ui/react-accordion'
 import cn from 'clsx'
