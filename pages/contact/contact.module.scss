@@ -1,60 +1,117 @@
-.intro {
-  .text {
-    margin: desktop-vw(75px) auto 0 auto;
-    text-align: center;
-    width: desktop-vw(900px);
+.text {
+  margin: desktop-vw(75px) auto 0 auto;
+  text-align: center;
+  width: desktop-vw(900px);
 
-    .contactInfo {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      .detail {
-        align-items: flex-start;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        text-align: left;
-      }
-
-      .detail > label {
-        font-family: var(--font-wt-gothic);
-        font-size: desktop-vw(15px);
-        font-weight: 400;
-        margin-bottom: desktop-vw(10px);
-      }
-
-      .detail > p {
-        font-family: var(--font-inter);
-        font-size: desktop-vw(28px);
-        font-weight: 400;
-        line-height: 1.5;
-      }
-    }
+  @include mobile {
+    padding: mobile-vw(30px) mobile-vw(16px);
+    width: 100%;
   }
 
-  .text > p {
-    font-family: var(--font-wt-gothic);
-    font-size: desktop-vw(60px);
-    font-weight: 700;
-    margin-bottom: desktop-vw(30px);
-  }
-
-  .text > h1 {
+  & > h1 {
     font-family: var(--font-inter);
     font-size: desktop-vw(15px);
     font-weight: 500;
     margin-bottom: desktop-vw(10px);
+
+    @include mobile {
+      font-size: mobile-vw(18px);
+      margin-bottom: mobile-vw(30px);
+    }
   }
 
-  .text > small {
+  & > p {
+    font-family: var(--font-wt-gothic);
+    font-size: desktop-vw(60px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(30px);
+
+    @include mobile {
+      font-size: mobile-vw(32px);
+      line-height: 1.5;
+      margin-bottom: mobile-vw(30px);
+    }
+  }
+
+  & > small {
     display: inline-block;
     font-family: var(--font-inter);
     font-size: desktop-vw(15px);
     font-weight: 400;
     margin-bottom: desktop-vw(100px);
 
-    .underline {
+    @include mobile {
+      font-size: mobile-vw(16px);
+      line-height: 1.6;
+      margin-bottom: mobile-vw(70px);
+      width: 90%;
+    }
+
+    & > span {
       text-decoration: underline;
+    }
+  }
+
+  .contactInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include mobile {
+      align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: unset;
+    }
+
+    .detail {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: left;
+
+      @include mobile {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: unset;
+        text-align: center;
+      }
+
+      & > label {
+        font-family: var(--font-wt-gothic);
+        font-size: desktop-vw(15px);
+        font-weight: 400;
+        margin-bottom: desktop-vw(10px);
+
+        @include mobile {
+          font-size: mobile-vw(13px);
+          line-height: 1.6;
+          margin-bottom: mobile-vw(10px);
+          width: 90%;
+        }
+      }
+
+      & > p {
+        font-family: var(--font-inter);
+        font-size: desktop-vw(28px);
+        font-weight: 400;
+        line-height: 1.5;
+
+        @include mobile {
+          font-size: mobile-vw(16px);
+          font-weight: 500;
+          line-height: 1.6;
+          margin-bottom: mobile-vw(50px);
+          width: 90%;
+        }
+      }
+
+      &:last-child {
+        & > p {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
@@ -62,36 +119,50 @@
 .marqueeC {
   margin: desktop-vw(50px) 0;
 
+  @include mobile {
+    margin: mobile-vw(20px) 0;
+  }
+
   .inner {
     display: flex;
     align-items: center;
-  }
 
-  .inner > h2 {
-    color: var(--purple-sand);
-    font-family: var(--font-wt-gothic);
-    font-size: desktop-vw(90px);
+    & > h2 {
+      color: var(--purple-sand);
+      font-family: var(--font-wt-gothic);
+      font-size: desktop-vw(90px);
 
-    &.first {
-      font-style: italic;
-      font-weight: 700;
+      @include mobile {
+        font-size: mobile-vw(50px);
+      }
+
+      &.first {
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      &.second {
+        font-style: normal;
+        font-weight: 400;
+      }
     }
 
-    &.second {
-      font-style: normal;
-      font-weight: 400;
+    & > .iconC {
+      @include dims(desktop-vw(90px));
+      margin: 0 desktop-vw(100px);
     }
-  }
-
-  .inner > .iconC {
-    @include dims(desktop-vw(90px));
-    margin: 0 desktop-vw(100px);
   }
 }
 
 .contactFormC {
   margin: 0 auto desktop-vw(50px) auto;
   padding: desktop-vw(80px) desktop-vw(170px);
-  width: desktop-vw(1080px);
   min-height: desktop-vw(880px);
+  width: desktop-vw(1080px);
+
+  @include mobile {
+    min-height: unset;
+    padding: 0 mobile-vw(16px);
+    width: 100%;
+  }
 }

@@ -1,4 +1,3 @@
-import cn from 'clsx'
 import s from './request-a-demo.module.scss'
 
 import ContactForm from '@/components/contact-form'
@@ -9,8 +8,7 @@ const RequestADemo = () => {
   return (
     <Layout theme="main">
       <>
-        <section className={cn(s.intro, 'content-box-sm')}>
-          {/* <Header /> */}
+        <section className="content-box-sm">
           <div className={s.text}>
             <h1>Request a Demo</h1>
             <p>See Layers in action.</p>

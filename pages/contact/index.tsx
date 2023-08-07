@@ -1,24 +1,24 @@
+import s from './contact.module.scss'
+
+import cn from 'clsx'
+
 import ContactForm from '@/components/contact-form'
 import IconArrow from '@/components/icons/icon-arrow'
 import { Marquee } from '@/components/marquee'
 import NextItemMarquee from '@/components/next-item-marquee'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import cn from 'clsx'
-import s from './contact.module.scss'
 
 const Contact = () => {
   return (
     <Layout theme="main">
       <>
-        <section className={cn(s.intro, 'content-box-sm')}>
-          {/* <Header /> */}
+        <section className="content-box-sm">
           <div className={s.text}>
             <h1>Contact Us</h1>
             <p>Let’s have a conversation about your HR needs.</p>
             <small>
-              Drop us a line or use{' '}
-              <span className={s.underline}>the contact form</span> below to get
+              Drop us a line or use <span>the contact form</span> below to get
               in touch.
             </small>
             <div className={s.contactInfo}>
@@ -49,8 +49,10 @@ const Contact = () => {
           </Marquee>
         </section>
 
-        <section className={cn(s.contactFormC, 'content-box-lg')}>
-          <ContactForm formType="contact" />
+        <section className="content-box-lg">
+          <div className={s.contactFormC}>
+            <ContactForm formType="contact" />
+          </div>
         </section>
 
         <section className={'trial-c'}>

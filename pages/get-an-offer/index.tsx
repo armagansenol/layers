@@ -4,14 +4,12 @@ import ContactForm from '@/components/contact-form'
 import NextItemMarquee from '@/components/next-item-marquee'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import cn from 'clsx'
 
 const GetAnOffer = () => {
   return (
     <Layout theme="main">
       <>
-        <section className={cn(s.intro, 'content-box-sm')}>
-          {/* <Header /> */}
+        <section className="content-box-sm">
           <div className={s.text}>
             <h1>Get an Offer</h1>
             <p>
@@ -24,7 +22,7 @@ const GetAnOffer = () => {
           </div>
         </section>
 
-        <section className={'trial-c'}>
+        <section className="trial-c">
           <NextItemMarquee
             text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
             url="/"
