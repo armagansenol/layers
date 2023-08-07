@@ -1,10 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import s from './header.module.scss'
 
 import cn from 'clsx'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import { useRouter } from 'next/router'
 import { useMedia } from 'react-use'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
@@ -18,37 +17,55 @@ import { routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
 
 const Header = () => {
-  const navbarCRef = useRef<HTMLDivElement>(null)
-  const router = useRouter()
-  const { currentRoute, setIsOpen } = useMenuStore()
+  const navbarRef = useRef<any>(null)
+  const { currentRoute } = useMenuStore()
   const isMobile = useMedia('(max-width: 800px)')
 
+  const [isMounted, toggle] = useReducer((p) => !p, true)
+  const [elementRect, setElementRect] = useState<any>()
+
+  const handleRect = useCallback((node: HTMLDivElement) => {
+    navbarRef.current = node
+    setElementRect(node?.getBoundingClientRect())
+  }, [])
+
   useEffect(() => {
-    if (!navbarCRef.current) return
+    if (!elementRect) return
 
     const ctx = gsap.context(() => {
       const showAnim = gsap
-        .from(navbarCRef.current, {
+        .from(navbarRef.current, {
           autoAlpha: 0,
           paused: true,
           duration: 0.2,
-          yPercent: -100,
-          // onComplete: () => {
-          //   !navbarCRef.current?.classList.contains(s.fixed) &&
-          //     navbarCRef.current?.classList.toggle(s.fixed)
-          // },
         })
         .progress(1)
 
       ScrollTrigger.create({
-        start: `top+=${window.innerHeight / 2} top+=${
-          navbarCRef.current?.getBoundingClientRect().bottom
-        }`,
+        start: `top+=${window.innerHeight / 4} top+=${elementRect?.bottom}`,
         end: 'max',
-        // onEnterBack: () => {
-        //   !navbarCRef.current?.classList.contains(s.fixed) &&
-        //     navbarCRef.current?.classList.toggle(s.fixed)
-        // },
+        onEnter: () => {
+          gsap.to(navbarRef.current, {
+            yPercent: -50,
+          })
+        },
+        onEnterBack: () => {
+          gsap.to(navbarRef.current, {
+            yPercent: 0,
+            duration: 0.3,
+          })
+        },
+        onLeave: () => {
+          gsap.to(navbarRef.current, {
+            yPercent: -50,
+          })
+        },
+        onLeaveBack: () => {
+          gsap.to(navbarRef.current, {
+            yPercent: 0,
+            duration: 0.3,
+          })
+        },
         onUpdate: (self) => {
           self.direction === -1 ? showAnim.play() : showAnim.reverse()
         },
@@ -59,11 +76,7 @@ const Header = () => {
     return () => {
       ctx && ctx.revert()
     }
-  }, [])
-
-  useEffect(() => {
-    setIsOpen(false)
-  }, [router.asPath])
+  }, [isMounted, elementRect])
 
   return (
     <>
@@ -75,7 +88,7 @@ const Header = () => {
         <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
           <Image
             src="/img/layers-logo.svg"
-            alt="6 hours"
+            alt="Layers Logo"
             width="206"
             height="193"
             style={{ objectFit: 'contain' }}
@@ -83,9 +96,11 @@ const Header = () => {
         </Link>
 
         <ClientOnly>
-          <div className={s.navbarC} ref={navbarCRef}>
-            {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
-          </div>
+          {isMounted && (
+            <div className={s.navbarC} ref={handleRect}>
+              {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
+            </div>
+          )}
         </ClientOnly>
 
         <div className={s.actions}>

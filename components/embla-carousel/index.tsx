@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react'
 import s from './embla.module.scss'
 
 type PropType = {
+  slideSpacing?: number
   slides: ReactNode[]
   options?: EmblaOptionsType
 }
@@ -12,7 +13,14 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const [emblaRef] = useEmblaCarousel(options)
 
   return (
-    <div className={s.embla}>
+    <div
+      className={s.embla}
+      style={
+        {
+          '--slide-spacing': `#{${props.slideSpacing}}px`,
+        } as React.CSSProperties
+      }
+    >
       <div className={s.emblaViewport} ref={emblaRef}>
         <div className={s.emblaContainer}>
           {slides.map((item, i) => (

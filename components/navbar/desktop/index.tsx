@@ -23,6 +23,10 @@ export function NavbarDesktop() {
     setIsOpen(true)
   }
 
+  function handleClose() {
+    setIsOpen(false)
+  }
+
   return (
     <nav
       ref={menuRef}
@@ -119,6 +123,7 @@ export function NavbarDesktop() {
                                   : ''
                               }${item.path}`}
                               key={i}
+                              onClick={handleClose}
                             >
                               {currentRoute !== MainRoute.resources && (
                                 <div className={s.iconC}>

@@ -1,0 +1,87 @@
+.selectTrigger {
+  @include dims(100%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 desktop-vw(10px);
+  font-size: desktop-vw(15px);
+  font-family: Inter;
+  font-weight: 400;
+
+  &:hover {
+    background-color: var(--innocent-snowdrop);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px var(--black);
+  }
+
+  &[data-placeholder] {
+    color: var(--black);
+  }
+
+  .selectIcon {
+    color: Var(--black);
+  }
+}
+
+.selectContent {
+  overflow: hidden;
+  background-color: var(--white);
+  border-radius: 6px;
+  z-index: 99999999999;
+}
+
+.selectViewport {
+  padding: 5px;
+}
+
+.selectItem {
+  font-size: 13px;
+  line-height: 1;
+  color: var(--black);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 0 35px 0 25px;
+  position: relative;
+  user-select: none;
+
+  &[data-disabled] {
+    color: var(--mauve-8);
+    pointer-events: none;
+  }
+
+  &[data-highlighted] {
+    outline: none;
+    background-color: var(--black);
+    color: var(--violet-1);
+  }
+}
+
+.selectLabel {
+  padding: 0 25px;
+  font-size: 12px;
+  line-height: 25px;
+  color: var(--mauve-11);
+}
+
+.selectItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectScrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  background-color: white;
+  color: var(--black);
+  cursor: default;
+}

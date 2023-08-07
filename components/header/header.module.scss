@@ -63,13 +63,14 @@
   }
 
   .navbarC {
+    border: 1px solid transparent;
+    height: var(--nav-height);
+    left: 50%;
     position: fixed;
     top: calc(
       var(--upcoming-accordion-height) +
         ((var(--header-height) - var(--nav-height)) / 2)
     );
-    left: 50%;
-    height: var(--nav-height);
     transform: translateX(-50%);
 
     // position: absolute;
