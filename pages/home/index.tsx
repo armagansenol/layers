@@ -6,7 +6,7 @@ import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
 import HomeSlider from '@/components/home-slider'
 import { Image } from '@/components/image'
-import NextItemMarquee from '@/components/next-item-marquee'
+import MarqueeLink from '@/components/marquee-link'
 import PinnedFeatures from '@/components/pinned-features'
 import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
@@ -61,7 +61,7 @@ const Home = () => {
             <CardStack />
           </div>
           <div className={s.callToAction} onClick={toFeatures}>
-            <NextItemMarquee
+            <MarqueeLink
               text={{ t1: 'See All Features', t2: 'See All Features' }}
               url="/"
             />
@@ -189,7 +189,7 @@ const Home = () => {
         </section>
 
         <section className={'trial-c'}>
-          <NextItemMarquee
+          <MarqueeLink
             text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
             url="/"
           />

@@ -1,10 +1,12 @@
+import s from './layout.module.scss'
+import { ReactElement } from 'react'
+
+import cn from 'clsx'
+
 import { CustomHead } from '@/components/custom-head'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import UpcomingAccordion from '@/components/upcoming-accordion'
-import cn from 'clsx'
-import { ReactElement } from 'react'
-import s from './layout.module.scss'
 
 // const Header = dynamic(
 //   () => import('components/header').then(({ Header }) => Header),

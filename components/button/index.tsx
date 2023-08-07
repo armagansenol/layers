@@ -1,9 +1,8 @@
-import Link from 'next/link'
 import s from './button.module.scss'
 
 import cn from 'clsx'
+import Link from 'next/link'
 
-import React from 'react'
 import IconArrow from '@/components/icons/icon-arrow'
 
 type Props = {

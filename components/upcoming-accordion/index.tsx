@@ -4,9 +4,10 @@ import s from './upcoming-accordion.module.scss'
 import cn from 'clsx'
 import { cubicBezier, motion } from 'framer-motion'
 import { useLockBodyScroll } from 'react-use'
-import IconArrowDropdown from '../icons/icon-arrow-dropdown'
-import IconCalendar from '../icons/icon-calendar'
-import IconX from '../icons/icon-x'
+
+import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
+import IconCalendar from '@/components/icons/icon-calendar'
+import IconX from '@/components/icons/icon-x'
 import { EventAccordion } from './event-accordion'
 
 const ease = cubicBezier(0.16, 1, 0.3, 1)

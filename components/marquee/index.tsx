@@ -1,7 +1,9 @@
-import cn from 'clsx'
-import { ReactElement, useRef } from 'react'
-import { useIntersection } from 'react-use'
 import s from './marquee.module.scss'
+
+import cn from 'clsx'
+import { useIntersection } from 'react-use'
+
+import { ReactElement, useRef } from 'react'
 
 type Props = {
   children: ReactElement

@@ -1,12 +1,12 @@
 import s from './detail.module.scss'
 
 import cn from 'clsx'
+import Link from 'next/link'
 
 import Button from '@/components/button'
 import { Image } from '@/components/image'
-import NextItemMarquee from '@/components/next-item-marquee'
+import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
-import Link from 'next/link'
 import { DynamicPageContent } from '@/global'
 import FeatureList from '@/components/feature-list'
 
@@ -88,7 +88,7 @@ const Detail = ({ pageData, pageType }: Props) => {
       </section>
 
       <Link href={pageData.nextPage.url} className="next-item-c">
-        <NextItemMarquee
+        <MarqueeLink
           title={pageData.nextPage.title}
           text={{
             t1: pageData.nextPage.text.t1,

@@ -5,7 +5,7 @@ import { EmblaOptionsType } from 'embla-carousel-react'
 
 import EmblaCarousel from '@/components/embla-carousel'
 import { Image } from '@/components/image'
-import NextItemMarquee from '@/components/next-item-marquee'
+import MarqueeLink from '@/components/marquee-link'
 import ReferencesMarquee from '@/components/references-marquee'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
@@ -229,7 +229,7 @@ const About = () => {
         </section>
 
         <section className={'trial-c'}>
-          <NextItemMarquee
+          <MarqueeLink
             text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
             url="/"
           />

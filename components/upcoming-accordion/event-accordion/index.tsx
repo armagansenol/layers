@@ -4,10 +4,10 @@ import * as Accordion from '@radix-ui/react-accordion'
 import cn from 'clsx'
 
 import Button from '@/components/button'
-import IconCalendar from '../../icons/icon-calendar'
-import IconLocation from '../../icons/icon-location'
-import IconMinus from '../../icons/icon-minus'
-import IconPlus from '../../icons/icon-plus'
+import IconCalendar from '@/components/icons/icon-calendar'
+import IconLocation from '@/components/icons/icon-location'
+import IconMinus from '@/components/icons/icon-minus'
+import IconPlus from '@/components/icons/icon-plus'
 
 type AccordionItem = {
   item: any

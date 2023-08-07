@@ -5,7 +5,7 @@ import cn from 'clsx'
 import ContactForm from '@/components/contact-form'
 import IconArrow from '@/components/icons/icon-arrow'
 import { Marquee } from '@/components/marquee'
-import NextItemMarquee from '@/components/next-item-marquee'
+import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 
@@ -56,7 +56,7 @@ const Contact = () => {
         </section>
 
         <section className={'trial-c'}>
-          <NextItemMarquee
+          <MarqueeLink
             text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
             url="/"
           />

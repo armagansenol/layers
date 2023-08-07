@@ -1,5 +1,5 @@
-import React from 'react'
 import s from './select.module.scss'
+import React from 'react'
 
 import cn from 'clsx'
 import * as RadixSelect from '@radix-ui/react-select'

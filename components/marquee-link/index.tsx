@@ -1,9 +1,10 @@
-import s from './next-item-marquee.module.scss'
+import s from './marquee-link.module.scss'
+
+import cn from 'clsx'
+import { useMedia } from 'react-use'
 
 import { Marquee } from '@/components/marquee'
-import cn from 'clsx'
-import IconArrow from '../icons/icon-arrow'
-import { useMedia } from 'react-use'
+import IconArrow from '@/components/icons/icon-arrow'
 
 type Props = {
   title?: string
@@ -14,7 +15,7 @@ type Props = {
   url: string
 }
 
-const NextItemMarquee = ({
+const MarqueeLink = ({
   title = '',
   text = {
     t1: '',
@@ -44,4 +45,4 @@ const NextItemMarquee = ({
   )
 }
 
-export default NextItemMarquee
+export default MarqueeLink

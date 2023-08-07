@@ -1,7 +1,7 @@
 import s from './get-an-offer.module.scss'
 
 import ContactForm from '@/components/contact-form'
-import NextItemMarquee from '@/components/next-item-marquee'
+import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 
@@ -23,7 +23,7 @@ const GetAnOffer = () => {
         </section>
 
         <section className="trial-c">
-          <NextItemMarquee
+          <MarqueeLink
             text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
             url="/"
           />
