@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, memo } from 'react'
-import cn from 'clsx'
 import s from './why-layers.module.scss'
 
+import cn from 'clsx'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Image from 'next/image'
-gsap.registerPlugin(ScrollTrigger)
 
 const WhyLayers = () => {
   const ref = useRef(null)
@@ -61,6 +60,7 @@ const WhyLayers = () => {
         trigger: ref.current,
         // start: 'top+=25% center',
         // end: 'center+=25% center',
+        pinSpacing: true,
         pin: true,
         // markers: true,
       })
@@ -80,8 +80,9 @@ const WhyLayers = () => {
                   className={s.img}
                   src={`/img/pinned-${i + 1}.jpg`}
                   alt="People Using App"
-                  height={10000}
-                  width={10000}
+                  height={1000}
+                  width={1000}
+                  loading="lazy"
                 />
               </div>
             </div>

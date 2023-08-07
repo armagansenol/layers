@@ -167,9 +167,10 @@ const HomeSlider = () => {
             <Image
               alt={slides[currentSlide].img.alt}
               className={s.img}
-              height="1000"
+              height={1000}
               src={slides[currentSlide].img.src}
-              width="1000"
+              width={1000}
+              loading={currentSlide === 0 ? 'eager' : 'lazy'}
             />
           </motion.div>
         </AnimatePresence>

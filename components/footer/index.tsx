@@ -17,6 +17,7 @@ const Footer = () => {
               <Image
                 src="/img/layers-logo-hr-technologies.svg"
                 alt="Layers Logo"
+                loading="lazy"
                 width="206"
                 height="193"
                 style={{ objectFit: 'contain' }}
@@ -38,6 +39,7 @@ const Footer = () => {
                       width="300"
                       height="300"
                       style={{ objectFit: 'contain' }}
+                      loading="lazy"
                     />
                   </Link>
                 </li>
@@ -54,6 +56,7 @@ const Footer = () => {
                       width="300"
                       height="300"
                       style={{ objectFit: 'contain' }}
+                      loading="lazy"
                     />
                   </Link>
                 </li>
@@ -70,6 +73,7 @@ const Footer = () => {
                       width="300"
                       height="300"
                       style={{ objectFit: 'contain' }}
+                      loading="lazy"
                     />
                   </Link>
                 </li>
@@ -204,6 +208,7 @@ const Footer = () => {
             width="300"
             height="300"
             style={{ objectFit: 'contain' }}
+            loading="lazy"
           />
         </div>
         <small>

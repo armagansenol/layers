@@ -82,18 +82,20 @@ const Home = () => {
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <Image
-                  src="/img/bike.jpg"
                   alt="Man on phone call"
                   height={1000}
+                  loading="lazy"
+                  src="/img/bike.jpg"
                   width={1000}
                 />
               </div>
 
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <Image
-                  src="/img/cat.jpg"
                   alt="Lady studying with a cat"
                   height={1000}
+                  loading="lazy"
+                  src="/img/cat.jpg"
                   width={1000}
                 />
               </div>
@@ -112,7 +114,7 @@ const Home = () => {
                   <span className={s.underline}>
                     <Image
                       src="/img/marker-flexible.svg"
-                      alt="Pin"
+                      alt="Underline"
                       width="122"
                       height="137"
                       style={{ objectFit: 'contain' }}
@@ -130,9 +132,10 @@ const Home = () => {
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <Image
-                  alt="alt"
+                  alt="Man playing basketball"
                   className={s.img}
                   height="1000"
+                  loading="lazy"
                   src="/img/basketball.jpg"
                   width="1000"
                 />
@@ -141,45 +144,49 @@ const Home = () => {
                 <Image
                   src="/img/6-hours.svg"
                   alt="6 hours"
+                  loading="lazy"
                   style={{ objectFit: 'contain' }}
-                  width="206"
-                  height="193"
+                  height="300"
+                  width="300"
                 />
               </div>
               <div className={cn(s.sticker, s.laptop)}>
                 <Image
                   src="/img/laptop.png"
-                  alt="6 hours"
-                  width="206"
-                  height="193"
+                  alt="Laptop"
+                  loading="lazy"
                   style={{ objectFit: 'contain' }}
+                  height="300"
+                  width="300"
                 />
               </div>
               <div className={cn(s.sticker, s.hybrid)}>
                 <Image
                   src="/img/hybrid.svg"
                   alt="Hybrid Digital Solutions"
-                  width="146"
-                  height="137"
+                  loading="lazy"
                   style={{ objectFit: 'contain' }}
+                  height="300"
+                  width="300"
                 />
               </div>
               <div className={cn(s.sticker, s.swoosh)}>
                 <Image
                   src="/img/swoosh.png"
                   alt="Swoosh"
-                  width="161"
-                  height="169"
+                  loading="lazy"
                   style={{ objectFit: 'contain' }}
+                  height="300"
+                  width="300"
                 />
               </div>
               <div className={cn(s.sticker, s.pin)}>
                 <Image
                   src="/img/pin.png"
                   alt="Pin"
-                  width="122"
-                  height="137"
                   style={{ objectFit: 'contain' }}
+                  height="300"
+                  width="300"
                 />
               </div>
             </div>

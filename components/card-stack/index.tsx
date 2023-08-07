@@ -122,11 +122,12 @@ const CardStack = () => {
                   <div className={s.cardBody}>
                     <div className={s.mediaC}>
                       <Image
-                        src={`/img/cards/c${i + 1}.png`}
-                        alt="Detail"
-                        width={1000}
+                        alt="Feature App Visual"
                         height={1000}
+                        loading="lazy"
                         style={{ objectFit: 'contain' }}
+                        src={`/img/cards/c${i + 1}.png`}
+                        width={1000}
                       />
                     </div>
                     <div className={s.text}>
@@ -141,11 +142,12 @@ const CardStack = () => {
                 </div>
                 <div className={cn(s.iconC, 'hidden-overflow')}>
                   <Image
+                    alt="Feature Icon"
+                    height={300}
+                    loading="lazy"
                     src={`/img/detail/${card.path}/menu-icon.png`}
-                    alt="Icon"
-                    width={500}
-                    height={500}
                     style={{ objectFit: 'contain' }}
+                    width={300}
                   />
                 </div>
               </div>
