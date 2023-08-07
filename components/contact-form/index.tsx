@@ -5,6 +5,7 @@ import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 
 import ClientInfo from './client-info'
 import ClientDate from './date'
+import ClientSuccess from './success'
 
 type Props = {
   formType: 'contact' | 'demo' | 'service'
@@ -13,7 +14,7 @@ type Props = {
 const ContactForm = (props: Props) => {
   const ease = cubicBezier(0.16, 1, 0.3, 1)
   const [formPhase, setFormPhase] = useState<'form' | 'date' | 'success'>(
-    'form'
+    'success'
   )
 
   // function handlePrev() {
@@ -72,7 +73,7 @@ const ContactForm = (props: Props) => {
   const screens = {
     form: <ClientInfo formType contactFormik />,
     date: <ClientDate />,
-    success: <div>success</div>,
+    success: <ClientSuccess />,
   }
 
   return (

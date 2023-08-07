@@ -2,13 +2,19 @@ type Props = {
   fill?: string
 }
 
-const IconClock = ({ fill = "#fff" }: Props) => {
+const IconClock = ({ fill = '#fff' }: Props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 22 22">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 30 30"
+    >
       <path
-        id="Path_6813"
-        data-name="Path 6813"
-        d="M0,11A11,11,0,1,1,11,22,11,11,0,0,1,0,11Zm1.467,0A9.533,9.533,0,1,0,11,1.467,9.533,9.533,0,0,0,1.467,11Zm9.013.521A.733.733,0,0,1,10.267,11V5.134h1.467V10.7l3.418,3.41L14.11,15.151Z"
+        id="Path_1279"
+        data-name="Path 1279"
+        d="M6264,15a15,15,0,1,1,15,15A15,15,0,0,1,6264,15Zm2,0a13,13,0,1,0,13-13A13,13,0,0,0,6266,15Zm12.289.711A1.006,1.006,0,0,1,6278,15V7h2v7.59l4.66,4.649-1.42,1.42Z"
+        transform="translate(-6264)"
         fill={fill}
       />
     </svg>
