@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './references-marquee.module.scss'
-import { Marquee } from '../marquee'
+
+import { Marquee } from '@/components/marquee'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -8,7 +9,7 @@ type Props = {
   items: { logo: string; url: string }[]
 }
 
-const ReferencesMarquee = ({ items = [{ logo: '', url: '' }] }: Props) => {
+const MarqueeReferences = ({ items = [{ logo: '', url: '' }] }: Props) => {
   return (
     <div className={s.referencesMarquee}>
       <Marquee duration={30} repeat={3}>
@@ -31,4 +32,4 @@ const ReferencesMarquee = ({ items = [{ logo: '', url: '' }] }: Props) => {
   )
 }
 
-export default ReferencesMarquee
+export default MarqueeReferences

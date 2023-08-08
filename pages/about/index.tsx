@@ -6,10 +6,11 @@ import { EmblaOptionsType } from 'embla-carousel-react'
 import EmblaCarousel from '@/components/embla-carousel'
 import { Image } from '@/components/image'
 import MarqueeLink from '@/components/marquee-link'
-import ReferencesMarquee from '@/components/references-marquee'
+import MarqueeReferences from '@/components/marquee-references'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
+import { Link } from '@/components/link'
 
 const OPTIONS: EmblaOptionsType = {
   slidesToScroll: 1,
@@ -119,7 +120,7 @@ const About = () => {
         </section>
 
         <section className={s.marqueeC}>
-          <ReferencesMarquee items={references} />
+          <MarqueeReferences items={references} />
         </section>
 
         <section className="content-box-md">
@@ -228,12 +229,9 @@ const About = () => {
           />
         </section>
 
-        <section className={'trial-c'}>
-          <MarqueeLink
-            text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
-            url="/"
-          />
-        </section>
+        <Link href="/request-a-demo" className={'trial-c'}>
+          <MarqueeLink text={{ t1: 'Started Now', t2: '30 Day Free Trial' }} />
+        </Link>
 
         <Subscribe />
       </>

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import s from './home-slider.module.scss'
 
 import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
-
 import cn from 'clsx'
 
 import Button from '@/components/button'
@@ -168,9 +167,10 @@ const HomeSlider = () => {
               alt={slides[currentSlide].img.alt}
               className={s.img}
               height={1000}
+              loading={currentSlide === 0 ? 'eager' : 'lazy'}
+              priority={currentSlide === 0}
               src={slides[currentSlide].img.src}
               width={1000}
-              loading={currentSlide === 0 ? 'eager' : 'lazy'}
             />
           </motion.div>
         </AnimatePresence>

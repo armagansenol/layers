@@ -1,9 +1,8 @@
 import s from './contact.module.scss'
 
-import cn from 'clsx'
-
 import ContactForm from '@/components/contact-form'
 import IconArrow from '@/components/icons/icon-arrow'
+import { Link } from '@/components/link'
 import { Marquee } from '@/components/marquee'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
@@ -55,12 +54,9 @@ const Contact = () => {
           </div>
         </section>
 
-        <section className={'trial-c'}>
-          <MarqueeLink
-            text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
-            url="/"
-          />
-        </section>
+        <Link href="/request-a-demo" className={'trial-c'}>
+          <MarqueeLink text={{ t1: 'Started Now', t2: '30 Day Free Trial' }} />
+        </Link>
 
         <Subscribe />
       </>

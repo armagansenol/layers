@@ -3,14 +3,14 @@
   display: grid;
   grid-template-columns: 1fr auto;
   padding-left: desktop-vw(90px);
-  padding-top: desktop-vw(30px);
   padding-right: desktop-vw(20px);
+  padding-top: desktop-vw(30px);
 
   @include mobile {
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: mobile-vw(50px) mobile-vw(16px);
+    padding: mobile-vw(50px) mobile-vw(16px) 0 mobile-vw(16px);
   }
 
   .text {

@@ -92,6 +92,7 @@ const Header = () => {
             width="206"
             height="193"
             style={{ objectFit: 'contain' }}
+            priority="high"
           />
         </Link>
 

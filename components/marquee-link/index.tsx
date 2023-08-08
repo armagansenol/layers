@@ -12,7 +12,6 @@ type Props = {
     t1: string
     t2: string
   }
-  url: string
 }
 
 const MarqueeLink = ({
@@ -21,7 +20,6 @@ const MarqueeLink = ({
     t1: '',
     t2: '',
   },
-  url = '/',
 }: Props) => {
   const isMobile = useMedia('(max-width: 800px)', true)
 

@@ -8,13 +8,14 @@ import HomeSlider from '@/components/home-slider'
 import { Image } from '@/components/image'
 import MarqueeLink from '@/components/marquee-link'
 import PinnedFeatures from '@/components/pinned-features'
-import ReferencesMarquee from '@/components/references-marquee'
+import MarqueeReferences from '@/components/marquee-references'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
+import { Link } from '@/components/link'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
@@ -41,14 +42,16 @@ const Home = () => {
   return (
     <Layout theme="main">
       <>
-        <section className={cn(s.intro, 'content-box-sm')}>
+        <section className="content-box-sm">
           <HomeSlider />
         </section>
 
-        <section className={cn(s.whyLayersC, 'content-box-md')}>
-          <RequestDemo />
-          <WhyLayers />
-          <PinnedFeatures />
+        <section className="content-box-md">
+          <div className={s.whyLayersC}>
+            <RequestDemo />
+            <WhyLayers />
+            <PinnedFeatures />
+          </div>
         </section>
 
         <section className={cn(s.features)}>
@@ -63,7 +66,6 @@ const Home = () => {
           <div className={s.callToAction} onClick={toFeatures}>
             <MarqueeLink
               text={{ t1: 'See All Features', t2: 'See All Features' }}
-              url="/"
             />
           </div>
         </section>
@@ -103,7 +105,7 @@ const Home = () => {
           </div>
         </section>
 
-        <ReferencesMarquee items={references} />
+        <MarqueeReferences items={references} />
 
         <section className="content-box-lg">
           <div className={s.flexible}>
@@ -113,11 +115,11 @@ const Home = () => {
                   flexible{' '}
                   <span className={s.underline}>
                     <Image
-                      src="/img/marker-flexible.svg"
                       alt="Underline"
-                      width="122"
-                      height="137"
+                      height={137}
                       style={{ objectFit: 'contain' }}
+                      src="/img/marker-flexible.svg"
+                      width={122}
                     />
                   </span>{' '}
                 </span>{' '}
@@ -134,71 +136,69 @@ const Home = () => {
                 <Image
                   alt="Man playing basketball"
                   className={s.img}
-                  height="1000"
+                  height={1000}
                   loading="lazy"
                   src="/img/basketball.jpg"
-                  width="1000"
+                  width={1000}
                 />
               </div>
               <div className={cn(s.sticker, s.hours)}>
                 <Image
-                  src="/img/6-hours.svg"
                   alt="6 hours"
                   loading="lazy"
                   style={{ objectFit: 'contain' }}
-                  height="300"
-                  width="300"
+                  src="/img/6-hours.svg"
+                  height={300}
+                  width={300}
                 />
               </div>
               <div className={cn(s.sticker, s.laptop)}>
                 <Image
-                  src="/img/laptop.png"
                   alt="Laptop"
+                  height={300}
                   loading="lazy"
                   style={{ objectFit: 'contain' }}
-                  height="300"
-                  width="300"
+                  src="/img/laptop.png"
+                  width={300}
                 />
               </div>
               <div className={cn(s.sticker, s.hybrid)}>
                 <Image
-                  src="/img/hybrid.svg"
                   alt="Hybrid Digital Solutions"
+                  height={300}
                   loading="lazy"
                   style={{ objectFit: 'contain' }}
-                  height="300"
-                  width="300"
+                  src="/img/hybrid.svg"
+                  width={300}
                 />
               </div>
               <div className={cn(s.sticker, s.swoosh)}>
                 <Image
-                  src="/img/swoosh.png"
                   alt="Swoosh"
+                  height={300}
                   loading="lazy"
                   style={{ objectFit: 'contain' }}
-                  height="300"
-                  width="300"
+                  src="/img/swoosh.png"
+                  width={300}
                 />
               </div>
               <div className={cn(s.sticker, s.pin)}>
                 <Image
-                  src="/img/pin.png"
                   alt="Pin"
+                  height={300}
+                  loading="lazy"
                   style={{ objectFit: 'contain' }}
-                  height="300"
-                  width="300"
+                  src="/img/pin.png"
+                  width={300}
                 />
               </div>
             </div>
           </div>
         </section>
 
-        <section className={'trial-c'}>
-          <MarqueeLink
-            text={{ t1: 'Started Now', t2: '30 Day Free Trial' }}
-            url="/"
-          />
-        </section>
+        <Link href="/request-a-demo" className="trial-c">
+          <MarqueeLink text={{ t1: 'Started Now', t2: '30 Day Free Trial' }} />
+        </Link>
 
         <Subscribe />
       </>
