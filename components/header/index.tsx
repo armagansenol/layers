@@ -18,11 +18,11 @@ import { useMenuStore } from '@/lib/menuStore'
 
 const Header = () => {
   const navbarRef = useRef<any>(null)
-  const { currentRoute } = useMenuStore()
+  const { currentRoute, isOpen, setIsOpen } = useMenuStore()
   const isMobile = useMedia('(max-width: 800px)', true)
-
   const [isMounted, toggle] = useReducer((p) => !p, true)
   const [elementRect, setElementRect] = useState<any>()
+  const showAnim = useRef<any>(null)
 
   const handleRect = useCallback((node: HTMLDivElement) => {
     navbarRef.current = node
@@ -32,15 +32,15 @@ const Header = () => {
   useEffect(() => {
     if (!elementRect) return
 
-    const ctx = gsap.context(() => {
-      const showAnim = gsap
-        .from(navbarRef.current, {
-          autoAlpha: 0,
-          paused: true,
-          duration: 0.2,
-        })
-        .progress(1)
+    showAnim.current = gsap
+      .from(navbarRef.current, {
+        autoAlpha: 0,
+        paused: true,
+        duration: 0.2,
+      })
+      .progress(1)
 
+    const ctx = gsap.context(() => {
       ScrollTrigger.create({
         start: `top+=${window.innerHeight / 4} top+=${elementRect?.bottom}`,
         end: 'max',
@@ -67,7 +67,12 @@ const Header = () => {
           })
         },
         onUpdate: (self) => {
-          self.direction === -1 ? showAnim.play() : showAnim.reverse()
+          if (self.direction === -1) {
+            showAnim.current.play()
+          } else {
+            showAnim.current.reverse()
+            setIsOpen(false)
+          }
         },
         // markers: true,
       })
@@ -76,7 +81,15 @@ const Header = () => {
     return () => {
       ctx && ctx.revert()
     }
-  }, [isMounted, elementRect])
+  }, [isMounted, elementRect, setIsOpen])
+
+  useEffect(() => {
+    if (!showAnim.current) return
+
+    if (isOpen) {
+      showAnim.current.play()
+    }
+  }, [isOpen])
 
   return (
     <>
