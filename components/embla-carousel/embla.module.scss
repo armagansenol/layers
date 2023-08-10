@@ -1,9 +1,9 @@
 .embla {
-  --slide-spacing: #{desktop-vw(30px)};
+  --slide-spacing: #{var(--slide-spacing)};
   width: 100%;
 
   @include mobile {
-    --slide-spacing: #{mobile-vw(20px)};
+    --slide-spacing: #{var(--slide-spacing)};
   }
 
   .emblaViewport {

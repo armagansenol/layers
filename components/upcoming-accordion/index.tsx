@@ -1,19 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import s from './upcoming-accordion.module.scss'
 
 import cn from 'clsx'
-import { cubicBezier, motion } from 'framer-motion'
+import { cubicBezier } from 'framer-motion'
 import { useLockBodyScroll } from 'react-use'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import IconCalendar from '@/components/icons/icon-calendar'
 import IconX from '@/components/icons/icon-x'
+import { useMenuStore } from '@/lib/menuStore'
+import { gsap } from 'gsap'
 import { EventAccordion } from './event-accordion'
 
 const ease = cubicBezier(0.16, 1, 0.3, 1)
 
 const UpcomingAccordion = () => {
+  const wrapperRef = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)
+  const { setPosition } = useMenuStore()
   useLockBodyScroll(isOpen)
 
   const accItems = [
@@ -175,6 +179,50 @@ const UpcomingAccordion = () => {
     },
   ]
 
+  useEffect(() => {
+    gsap.set(wrapperRef.current, {
+      height: 0,
+    })
+  }, [])
+
+  useEffect(() => {
+    // const showAnim = gsap
+    //   .from(wrapperRef.current, {
+    //     ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+    //     height: 0,
+    //     onStart: () => {
+    //       setPosition(true)
+    //       console.log('start')
+    //     },
+    //     onComplete: () => {
+    //       setPosition(false)
+    //       console.log('end')
+    //     },
+    //   })
+    //   .progress(1)
+    // isOpen ? showAnim.play() : showAnim.reverse()
+
+    if (isOpen) {
+      gsap.to(wrapperRef.current, {
+        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        height: 'auto',
+        onStart: () => {
+          setPosition(true)
+          console.log('start')
+        },
+      })
+    } else {
+      gsap.to(wrapperRef.current, {
+        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        height: 0,
+        onComplete: () => {
+          setPosition(false)
+          console.log('end')
+        },
+      })
+    }
+  }, [isOpen, setPosition])
+
   return (
     <div
       className={cn(s.accordion, {
@@ -212,26 +260,11 @@ const UpcomingAccordion = () => {
         </div>
       </div>
 
-      <motion.div
-        className="hidden-overflow"
-        initial="closed"
-        animate={isOpen ? 'open' : 'closed'}
-        exit="closed"
-        variants={{
-          open: {
-            height: 'auto',
-            transition: { duration: 1, ease },
-          },
-          closed: {
-            height: 0,
-            transition: { duration: 1, ease },
-          },
-        }}
-      >
+      <div className="hidden-overflow" ref={wrapperRef}>
         <div className={s.accordionBody}>
           <EventAccordion items={accItems} />
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }

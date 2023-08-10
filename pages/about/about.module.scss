@@ -1,59 +1,53 @@
 .intro {
+  padding: desktop-vw(50px) 0 desktop-vw(100px) 0;
   position: relative;
 
   @include mobile {
     align-items: center;
     display: flex;
     flex-direction: column;
+    padding: 0 mobile-vw(16px);
+    padding-top: mobile-vw(30px);
   }
 
-  .inner {
-    padding: desktop-vw(50px) 0 desktop-vw(100px) 0;
+  .imgC {
+    &.gurl {
+      @include position(
+        absolute,
+        auto,
+        desktop-vw(150px),
+        desktop-vw(-200px),
+        auto
+      );
+      @include dims(desktop-vw(400px), desktop-vw(500px));
 
-    @include mobile {
-      padding: 0 mobile-vw(16px);
-      padding-top: mobile-vw(30px);
+      @include mobile {
+        @include position(relative, auto, auto, auto, auto);
+        @include dims(mobile-vw(350px), auto);
+        margin: 0 auto;
+        margin-top: mobile-vw(50px);
+      }
     }
 
-    .imgC {
-      &.gurl {
-        @include position(
-          absolute,
-          auto,
-          desktop-vw(150px),
-          desktop-vw(-130px),
-          auto
-        );
-        @include dims(desktop-vw(400px), desktop-vw(500px));
+    &.allInOne {
+      @include position(
+        absolute,
+        auto,
+        desktop-vw(420px),
+        desktop-vw(-30px),
+        auto
+      );
+      @include dims(desktop-vw(175px), auto);
 
-        @include mobile {
-          @include position(relative, auto, auto, auto, auto);
-          @include dims(mobile-vw(350px), auto);
-          margin: 0 auto;
-          margin-top: mobile-vw(50px);
-        }
-      }
-
-      &.allInOne {
-        @include position(
-          absolute,
-          auto,
-          desktop-vw(420px),
-          desktop-vw(-30px),
-          auto
-        );
-        @include dims(desktop-vw(175px), auto);
-
-        @include mobile {
-          @include position(absolute, auto, auto, mobile-vw(150px), 0);
-          @include dims(mobile-vw(150px), auto);
-        }
+      @include mobile {
+        @include position(absolute, auto, auto, mobile-vw(150px), 0);
+        @include dims(mobile-vw(150px), auto);
       }
     }
   }
 }
 
-.marqueeC {
+.references {
   margin: desktop-vw(50px) 0;
 }
 
@@ -242,7 +236,7 @@
   }
 }
 
-.carouselC {
+.testimonials {
   margin: desktop-vw(140px) 0;
   position: relative;
 

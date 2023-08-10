@@ -83,20 +83,18 @@ const SLIDES = [
 
 const About = () => {
   const references = [
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
+    { logo: '/img/wired.svg' },
+    { logo: '/img/microsoft.svg' },
+    { logo: '/img/blizzard.svg' },
+    { logo: '/img/uber.svg' },
+    { logo: '/img/walmart.svg' },
   ]
 
   return (
     <Layout theme="main">
       <>
-        <section className={cn(s.intro, 'content-box-sm')}>
-          {/* <Header /> */}
-          <div className={s.inner}>
+        <section className="content-box-sm">
+          <div className={s.intro}>
             <RequestDemo />
             <div className={cn(s.imgC, s.gurl)}>
               <Image
@@ -119,7 +117,7 @@ const About = () => {
           </div>
         </section>
 
-        <section className={s.marqueeC}>
+        <section className={s.references}>
           <MarqueeReferences items={references} />
         </section>
 
@@ -219,13 +217,14 @@ const About = () => {
           </div>
         </section>
 
-        <section className={s.carouselC}>
+        <section className={s.testimonials}>
           <h4>What Clients Say About Layers</h4>
           <EmblaCarousel
             slides={SLIDES.map((data, i) => {
               return <Slide key={i} {...data} />
             })}
             options={OPTIONS}
+            slideSpacing={30}
           />
         </section>
 

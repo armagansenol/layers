@@ -18,7 +18,7 @@ import { useMenuStore } from '@/lib/menuStore'
 
 const Header = () => {
   const navbarRef = useRef<any>(null)
-  const { currentRoute, isOpen, setIsOpen } = useMenuStore()
+  const { currentRoute, isOpen, setIsOpen, isAbsolute } = useMenuStore()
   const isMobile = useMedia('(max-width: 800px)', true)
   const [isMounted, toggle] = useReducer((p) => !p, true)
   const [elementRect, setElementRect] = useState<any>()
@@ -111,7 +111,10 @@ const Header = () => {
 
         <ClientOnly>
           {isMounted && (
-            <div className={s.navbarC} ref={handleRect}>
+            <div
+              className={cn(s.navbarC, { [s.absolute]: isAbsolute })}
+              ref={handleRect}
+            >
               {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
             </div>
           )}

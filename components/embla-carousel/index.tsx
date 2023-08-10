@@ -1,6 +1,7 @@
-import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 import React, { ReactNode } from 'react'
 import s from './embla.module.scss'
+
+import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 
 type PropType = {
   slideSpacing?: number
@@ -17,7 +18,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       className={s.embla}
       style={
         {
-          '--slide-spacing': `#{${props.slideSpacing}}px`,
+          '--slide-spacing': `${props.slideSpacing}px`,
         } as React.CSSProperties
       }
     >

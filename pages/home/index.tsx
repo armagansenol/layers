@@ -21,12 +21,11 @@ const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
 
   const references = [
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
-    { logo: '/img/wired.svg', url: '/' },
+    { logo: '/img/wired.svg' },
+    { logo: '/img/microsoft.svg' },
+    { logo: '/img/blizzard.svg' },
+    { logo: '/img/uber.svg' },
+    { logo: '/img/walmart.svg' },
   ]
 
   function toFeatures() {
@@ -105,7 +104,9 @@ const Home = () => {
           </div>
         </section>
 
-        <MarqueeReferences items={references} />
+        <section className={s.references}>
+          <MarqueeReferences items={references} />
+        </section>
 
         <section className="content-box-lg">
           <div className={s.flexible}>

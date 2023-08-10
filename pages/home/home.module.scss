@@ -42,8 +42,8 @@
 
 .hrServices {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: desktop-vw(100px);
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: desktop-vw(50px);
 
   @include mobile {
     align-items: stretch;
@@ -128,8 +128,8 @@
       }
 
       &:nth-child(2) {
-        @include dims(desktop-vw(420px));
-        @include position(absolute, auto, auto, desktop-vw(60px), 0);
+        @include dims(desktop-vw(450px));
+        @include position(absolute, auto, auto, 0, 0);
         border-radius: desktop-vw(30px);
         transform: translate(desktop-vw(-30px), desktop-vw(200px));
 
@@ -150,6 +150,14 @@
         }
       }
     }
+  }
+}
+
+.references {
+  margin-top: desktop-vw(70px);
+
+  @include mobile {
+    margin-top: mobile-vw(70px);
   }
 }
 

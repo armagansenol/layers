@@ -1,29 +1,27 @@
-import React from 'react'
 import s from './references-marquee.module.scss'
 
 import { Marquee } from '@/components/marquee'
-import Link from 'next/link'
 import Image from 'next/image'
 
 type Props = {
-  items: { logo: string; url: string }[]
+  items: { logo: string }[]
 }
 
-const MarqueeReferences = ({ items = [{ logo: '', url: '' }] }: Props) => {
+const MarqueeReferences = ({ items = [{ logo: '' }] }: Props) => {
   return (
     <div className={s.referencesMarquee}>
       <Marquee duration={30} repeat={3}>
         <>
           {items.map((item, i) => {
             return (
-              <Link href={item.url} className={s.iconC} key={i}>
+              <div className={s.iconC} key={i}>
                 <Image
                   alt="Layers Logo"
-                  height={100}
+                  height={150}
                   src={item.logo}
-                  width={100}
+                  width={150}
                 />
-              </Link>
+              </div>
             )
           })}
         </>
