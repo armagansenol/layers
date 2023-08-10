@@ -172,3 +172,9 @@ sup {
     padding: 0 mobile-vw(10px);
   }
 }
+
+.input-required {
+  // box-shadow: var(--error) 0px 0px 0px 1px;
+  color: var(--error);
+  transition: 400ms all ease;
+}

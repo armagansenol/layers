@@ -1,17 +1,26 @@
-import React, { useState } from 'react'
 import s from './date.module.scss'
 
 import cn from 'clsx'
-
+import { FormikProps } from 'formik'
 import moment from 'moment-timezone'
+
 import EmblaCarousel from '@/components/embla-carousel'
-import { EmblaOptionsType } from 'embla-carousel-react'
 import Select from '@/components/select'
+import timezones from '@/public/timezones.json'
+import { EmblaOptionsType } from 'embla-carousel-react'
+import { DemoDateForm, demoDateFormModel } from '../form-model/demo-date-form'
+
+type Slide = {
+  dayName: string
+  dayNumber: number
+  monthName: string
+  callback: () => void
+}
 
 function Slide(props: Slide) {
   return (
     <>
-      <div className={s.day}>
+      <div className={s.day} onClick={props.callback}>
         <p className={s.dayName}>{props.dayName}</p>
         <p className={s.dayNumber}>{props.dayNumber}</p>
         <p className={s.dayMonth}>{props.monthName}</p>
@@ -28,17 +37,11 @@ const OPTIONS: EmblaOptionsType = {
   },
 }
 
-type Slide = {
-  dayName: string
-  dayNumber: number
-  monthName: string
+type Props = {
+  formik?: FormikProps<DemoDateForm>
 }
 
-type Props = {}
-
-const ClientDate = (props: Props) => {
-  const [selectedHour, setSelectedHour] = useState<string | null>(null)
-
+const ClientDate = ({ formik }: Props) => {
   function generateHoursArray(): string[] {
     const hoursArray = []
     const startHour = 9 // 09:00 in 24-hour format
@@ -56,8 +59,15 @@ const ClientDate = (props: Props) => {
     return hoursArray
   }
 
+  console.log('RENDER')
+
   const hours = generateHoursArray()
-  const tz = moment.tz.names()
+
+  const tz = timezones
+    .map((zone) => {
+      return `${zone.text}`
+    })
+    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
 
   function generateIntervalAroundDay(day: string) {
     const intervalDays = 15
@@ -80,44 +90,72 @@ const ClientDate = (props: Props) => {
   // Example usage: Generating interval around August 10, 2023
   const givenDay = '2023-08-6' // Format: YYYY-MM-DD
   const intervalDays = generateIntervalAroundDay(givenDay)
-  console.log(intervalDays)
+
+  function handleTimezone(value: string) {
+    formik?.setFieldValue(
+      `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.timezone.name}`,
+      value
+    )
+  }
+
+  function handleDay(index: number) {
+    formik?.setFieldValue(
+      `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.date.name}`,
+      `${intervalDays[index].dayNumber} ${intervalDays[index].monthName} ${intervalDays[index].dayName}`
+    )
+  }
 
   return (
     <div className={s.phase2}>
       <h3>Select Day</h3>
-      <div className={s.days}>
+      <div
+        className={cn(s.days, {
+          ['input-required']:
+            formik?.errors.demoUserCalendarDto?.date &&
+            formik?.touched.demoUserCalendarDto?.date,
+        })}
+      >
         <EmblaCarousel
           slideSpacing={4}
           slides={intervalDays.map((data, i) => {
-            return <Slide key={i} {...data} />
+            return <Slide callback={() => handleDay(i)} key={i} {...data} />
           })}
           options={OPTIONS}
         />
-        {/* {intervalDays.map((day, i) => {
-        return (
-          <div className={s.day} key={i}>
-            <p className={s.dayName}>{day.dayName}</p>
-            <p className={s.dayNumber}>{day.dayNumber}</p>
-            <p className={s.dayMonth}>{day.monthName}</p>
-          </div>
-        )
-      })} */}
       </div>
 
       <h3>Select Time</h3>
       <div className={s.time}>
-        <div className={s.timeZone}>
-          <Select options={tz} />
+        <div
+          className={cn(s.timeZone, {
+            ['input-required']:
+              formik?.errors.demoUserCalendarDto?.timezone &&
+              formik?.touched.demoUserCalendarDto?.timezone,
+          })}
+        >
+          <Select options={tz} callback={handleTimezone} />
         </div>
-        <div className={s.hours}>
+        <div
+          className={cn(s.hours, {
+            ['input-required']:
+              formik?.errors.demoUserCalendarDto?.time &&
+              formik?.touched.demoUserCalendarDto?.time,
+          })}
+        >
           {hours.map((hour, i) => {
             return (
               <div
                 className={cn(s.hour, {
-                  [s.selected]: selectedHour === hour,
+                  [s.selected]:
+                    formik?.values.demoUserCalendarDto.time === hour,
                 })}
                 key={i}
-                onClick={() => setSelectedHour(hour)}
+                onClick={() =>
+                  formik?.setFieldValue(
+                    `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.time.name}`,
+                    hour
+                  )
+                }
               >
                 <span>{hour}</span>
               </div>

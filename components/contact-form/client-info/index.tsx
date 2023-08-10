@@ -1,228 +1,27 @@
-import { useFormik } from 'formik'
 import s from './client-info.module.scss'
 
 import cn from 'clsx'
-import * as Yup from 'yup'
+import { FormikProps } from 'formik'
 
-const contactFormModel = {
-  name: {
-    placeholder: 'Name',
-    name: 'name',
-    default: '',
-    required: true,
-  },
-  surname: {
-    placeholder: 'Surname',
-    name: 'surname',
-    default: '',
-    required: true,
-  },
-  companyName: {
-    placeholder: 'Company Name',
-    name: 'companyName',
-    default: '',
-    required: true,
-  },
-  title: {
-    placeholder: 'Title',
-    name: 'title',
-    default: '',
-    required: true,
-  },
-  numberOfEmployees: {
-    placeholder: 'Number of Employees',
-    name: 'numberOfEmployees',
-    default: '',
-    required: true,
-  },
-  interestedProduct: {
-    placeholder: 'Interested Product',
-    name: 'interestedProduct',
-    default: '',
-    required: true,
-  },
-  phone: {
-    placeholder: 'Phone',
-    name: 'phone',
-    default: '',
-    required: true,
-  },
-  note: {
-    placeholder: 'Message',
-    name: 'note',
-    default: '',
-    required: true,
-  },
-  companyEmail: {
-    placeholder: 'Company Email',
-    name: 'companyEmail',
-    default: '',
-    required: true,
-  },
-  acceptKvkk: {
-    placeholder: 'Kvkk',
-    name: 'acceptKvkk',
-    default: '',
-    required: true,
-  },
-  acceptFromSendingLayers: {
-    placeholder: 'Accept From Sending Layers',
-    name: 'acceptFromSendingLayers',
-    default: '',
-    required: true,
-  },
-  formType: 'demo',
-  usedHrProduct: {
-    placeholder: 'Hr Products Used',
-    name: 'usedHrProduct',
-    default: '',
-    required: true,
-  },
-  demoUserStatus: {
-    placeholder: 'Demo User Status',
-    name: 'demoUserStatus',
-    default: '',
-    required: true,
-  },
-  demoUserCalendarDto: {
-    demoUserId: {
-      placeholder: 'Demo User Id',
-      name: 'demoUserId',
-      default: '',
-      required: true,
-    },
-    devDemoUserId: {
-      placeholder: 'Dev Demo User Id',
-      name: 'devDemoUserId',
-      default: '',
-      required: true,
-    },
-    timezone: {
-      placeholder: 'Timezone',
-      name: 'timezone',
-      default: '',
-      required: true,
-    },
-    date: {
-      placeholder: 'Date',
-      name: 'date',
-      default: '',
-      required: true,
-    },
-    time: {
-      placeholder: 'Time',
-      name: 'time',
-      default: '',
-      required: true,
-    },
-    createdDate: 'date',
-  },
-}
-
-interface ContactFormData {
-  name: string
-  surname: string
-  companyName: string
-  title: string
-  numberOfEmployees: string
-  interestedProduct: string
-  phone: string
-  note: string
-  companyEmail: string
-  acceptKvkk: boolean
-  acceptFromSendingLayers: boolean
-  formType: string
-  usedHrProduct: string
-  demoUserStatus: string
-  demoUserCalendarDto: {
-    demoUserId: string
-    devDemoUserId: string
-    timezone: string
-    date: string
-    time: string
-  }
-  createdDate: string
-}
+import {
+  ClientInfoForm,
+  contactFormModel,
+} from '../form-model/client-info-form'
+import { FormType } from '../types'
 
 type Props = {
-  contactFormik?: any
-  formType: any
+  formik?: FormikProps<ClientInfoForm>
+  formType: FormType
 }
 
-const ClientInfo = ({ formType }: Props) => {
-  const contactValues: ContactFormData = {
-    name: '',
-    surname: '',
-    companyName: '',
-    title: '',
-    numberOfEmployees: '',
-    interestedProduct: '',
-    phone: '',
-    note: '',
-    companyEmail: '',
-    acceptKvkk: false,
-    acceptFromSendingLayers: false,
-    formType: '',
-    usedHrProduct: '',
-    demoUserStatus: '',
-    demoUserCalendarDto: {
-      demoUserId: '',
-      devDemoUserId: '',
-      timezone: '',
-      date: '',
-      time: '',
-    },
-    createdDate: '',
-  }
-
-  const contactSchema = Yup.object().shape({
-    name: Yup.string().required('Please fill in the field.'),
-    surname: Yup.string().required('Please fill in the field.'),
-    companyName: Yup.string().required('Please fill in the field.'),
-    title: Yup.string().required('Please fill in the field.'),
-    ...(formType === 'demo' && {
-      numberOfEmployees: Yup.string().required('Please fill in the field.'),
-    }),
-    ...(formType === 'service' && {
-      interestedProduct: Yup.string().required('Please fill in the field.'),
-    }),
-    phone: Yup.string().required('Please fill in the field.'),
-    note: Yup.string().required('Please fill in the field.'),
-    companyEmail: Yup.string().required('Please fill in the field.'),
-    acceptKvkk: Yup.boolean().required('Please fill in the field.'),
-    acceptFromSendingLayers: Yup.boolean().required(
-      'Please fill in the field.'
-    ),
-    formType: Yup.string().required('Please fill in the field.'),
-    usedHrProduct: Yup.string().required('Please fill in the field.'),
-    demoUserStatus: Yup.string().required('Please fill in the field.'),
-    demoUserCalendarDto: Yup.object().shape({
-      demoUserId: Yup.string().required('Please fill in the field.'),
-      devDemoUserId: Yup.string().required('Please fill in the field.'),
-      timezone: Yup.string().required('Please fill in the field.'),
-      date: Yup.string().required('Please fill in the field.'),
-      time: Yup.string().required('Please fill in the field.'),
-    }),
-    createdDate: Yup.string().required('Please fill in the field.'),
-  })
-
-  const contactFormik = useFormik({
-    initialValues: contactValues,
-    validationSchema: contactSchema,
-    validateOnMount: true,
-    onSubmit: (values, { validateForm }) => {
-      validateForm(values)
-    },
-  })
-
+const ClientInfo = ({ formType, formik }: Props) => {
   return (
     <div className={s.contactForm}>
       <div className={s.row}>
         <div className={s.field}>
           <div
             className={cn(s.inputC, {
-              [s.required]:
-                contactFormik.errors.name && contactFormik.touched.name,
+              ['input-required']: formik?.errors.name && formik?.touched.name,
             })}
           >
             <input
@@ -231,16 +30,16 @@ const ClientInfo = ({ formType }: Props) => {
               type="text"
               id={contactFormModel.name.name}
               name={contactFormModel.name.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.name}
+              onChange={formik?.handleChange}
+              value={formik?.values.name}
             />
           </div>
         </div>
         <div className={s.field}>
           <div
             className={cn(s.inputC, {
-              [s.required]:
-                contactFormik.errors.surname && contactFormik.touched.surname,
+              ['input-required']:
+                formik?.errors.surname && formik?.touched.surname,
             })}
           >
             <input
@@ -249,8 +48,8 @@ const ClientInfo = ({ formType }: Props) => {
               type="text"
               id={contactFormModel.surname.name}
               name={contactFormModel.surname.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.surname}
+              onChange={formik?.handleChange}
+              value={formik?.values.surname}
             />
           </div>
         </div>
@@ -260,9 +59,8 @@ const ClientInfo = ({ formType }: Props) => {
         <div className={s.field}>
           <div
             className={cn(s.inputC, {
-              [s.required]:
-                contactFormik.errors.companyName &&
-                contactFormik.touched.companyName,
+              ['input-required']:
+                formik?.errors.companyName && formik?.touched.companyName,
             })}
           >
             <input
@@ -271,16 +69,15 @@ const ClientInfo = ({ formType }: Props) => {
               type="text"
               id={contactFormModel.companyName.name}
               name={contactFormModel.companyName.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.companyName}
+              onChange={formik?.handleChange}
+              value={formik?.values.companyName}
             />
           </div>
         </div>
         <div className={s.field}>
           <div
             className={cn(s.inputC, {
-              [s.required]:
-                contactFormik.errors.title && contactFormik.touched.title,
+              ['input-required']: formik?.errors.title && formik?.touched.title,
             })}
           >
             <input
@@ -289,8 +86,8 @@ const ClientInfo = ({ formType }: Props) => {
               type="text"
               id={contactFormModel.title.name}
               name={contactFormModel.title.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.title}
+              onChange={formik?.handleChange}
+              value={formik?.values.title}
             />
           </div>
         </div>
@@ -301,9 +98,9 @@ const ClientInfo = ({ formType }: Props) => {
           <div className={s.field}>
             <div
               className={cn(s.inputC, {
-                [s.required]:
-                  contactFormik.errors.numberOfEmployees &&
-                  contactFormik.touched.numberOfEmployees,
+                ['input-required']:
+                  formik?.errors.numberOfEmployees &&
+                  formik?.touched.numberOfEmployees,
               })}
             >
               <input
@@ -312,8 +109,8 @@ const ClientInfo = ({ formType }: Props) => {
                 type="text"
                 id={contactFormModel.numberOfEmployees.name}
                 name={contactFormModel.numberOfEmployees.name}
-                onChange={contactFormik.handleChange}
-                value={contactFormik.values.numberOfEmployees}
+                onChange={formik?.handleChange}
+                value={formik?.values.numberOfEmployees}
               />
             </div>
           </div>
@@ -325,9 +122,9 @@ const ClientInfo = ({ formType }: Props) => {
           <div className={s.field}>
             <div
               className={cn(s.inputC, {
-                [s.required]:
-                  contactFormik.errors.interestedProduct &&
-                  contactFormik.touched.interestedProduct,
+                ['input-required']:
+                  formik?.errors.interestedProduct &&
+                  formik?.touched.interestedProduct,
               })}
             >
               <input
@@ -336,8 +133,8 @@ const ClientInfo = ({ formType }: Props) => {
                 type="text"
                 id={contactFormModel.interestedProduct.name}
                 name={contactFormModel.interestedProduct.name}
-                onChange={contactFormik.handleChange}
-                value={contactFormik.values.interestedProduct}
+                onChange={formik?.handleChange}
+                value={formik?.values.interestedProduct}
               />
             </div>
           </div>
@@ -348,8 +145,7 @@ const ClientInfo = ({ formType }: Props) => {
         <div className={s.field}>
           <div
             className={cn(s.inputC, {
-              [s.required]:
-                contactFormik.errors.phone && contactFormik.touched.phone,
+              ['input-required']: formik?.errors.phone && formik?.touched.phone,
             })}
           >
             <input
@@ -358,8 +154,8 @@ const ClientInfo = ({ formType }: Props) => {
               type="text"
               id={contactFormModel.phone.name}
               name={contactFormModel.phone.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.phone}
+              onChange={formik?.handleChange}
+              value={formik?.values.phone}
             />
           </div>
         </div>
@@ -367,9 +163,8 @@ const ClientInfo = ({ formType }: Props) => {
         <div className={s.field}>
           <div
             className={cn(s.inputC, {
-              [s.required]:
-                contactFormik.errors.companyEmail &&
-                contactFormik.touched.companyEmail,
+              ['input-required']:
+                formik?.errors.companyEmail && formik?.touched.companyEmail,
             })}
           >
             <input
@@ -378,8 +173,8 @@ const ClientInfo = ({ formType }: Props) => {
               type="text"
               id={contactFormModel.companyEmail.name}
               name={contactFormModel.companyEmail.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.companyEmail}
+              onChange={formik?.handleChange}
+              value={formik?.values.companyEmail}
             />
           </div>
         </div>
@@ -389,9 +184,8 @@ const ClientInfo = ({ formType }: Props) => {
         <div className={s.field}>
           <div
             className={cn(s.inputC, {
-              [s.required]:
-                contactFormik.errors.usedHrProduct &&
-                contactFormik.touched.usedHrProduct,
+              ['input-required']:
+                formik?.errors.usedHrProduct && formik?.touched.usedHrProduct,
             })}
           >
             <input
@@ -400,8 +194,8 @@ const ClientInfo = ({ formType }: Props) => {
               type="text"
               id={contactFormModel.usedHrProduct.name}
               name={contactFormModel.usedHrProduct.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.usedHrProduct}
+              onChange={formik?.handleChange}
+              value={formik?.values.usedHrProduct}
             />
           </div>
         </div>
@@ -411,8 +205,7 @@ const ClientInfo = ({ formType }: Props) => {
         <div className={s.field}>
           <div
             className={cn(s.inputC, s.textarea, {
-              [s.required]:
-                contactFormik.errors.note && contactFormik.touched.note,
+              ['input-required']: formik?.errors.note && formik?.touched.note,
             })}
           >
             <textarea
@@ -420,8 +213,8 @@ const ClientInfo = ({ formType }: Props) => {
               className={s.input}
               id={contactFormModel.note.name}
               name={contactFormModel.note.name}
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.note}
+              onChange={formik?.handleChange}
+              value={formik?.values.note}
             />
           </div>
         </div>
@@ -429,22 +222,20 @@ const ClientInfo = ({ formType }: Props) => {
 
       <div
         className={cn(s.confirmation, 'cursor-pointer', {
-          [s.required]:
-            contactFormik.errors.acceptKvkk && contactFormik.touched.acceptKvkk,
+          ['input-required']:
+            formik?.errors.acceptKvkk && formik?.touched.acceptKvkk,
         })}
         onClick={() => {
-          console.log('1')
-
-          contactFormik.setFieldValue(
+          formik?.setFieldValue(
             contactFormModel.acceptKvkk.name,
-            !contactFormik.values.acceptKvkk
+            !formik?.values.acceptKvkk
           )
         }}
       >
         <div className={cn(s.checkbox)}>
           <div
             className={cn(s.fill, {
-              [s.visible]: contactFormik.values.acceptKvkk,
+              [s.visible]: formik?.values.acceptKvkk,
             })}
           ></div>
         </div>
@@ -466,23 +257,23 @@ const ClientInfo = ({ formType }: Props) => {
 
       <div
         className={cn(s.confirmation, 'cursor-pointer', {
-          [s.required]:
-            contactFormik.errors.acceptFromSendingLayers &&
-            contactFormik.touched.acceptFromSendingLayers,
+          ['input-required']:
+            formik?.errors.acceptFromSendingLayers &&
+            formik?.touched.acceptFromSendingLayers,
         })}
         onClick={() => {
           console.log('2')
 
-          contactFormik.setFieldValue(
+          formik?.setFieldValue(
             contactFormModel.acceptFromSendingLayers.name,
-            !contactFormik.values.acceptFromSendingLayers
+            !formik?.values.acceptFromSendingLayers
           )
         }}
       >
         <div className={cn(s.checkbox)}>
           <div
             className={cn(s.fill, {
-              [s.visible]: contactFormik.values.acceptFromSendingLayers,
+              [s.visible]: formik?.values.acceptFromSendingLayers,
             })}
           ></div>
         </div>

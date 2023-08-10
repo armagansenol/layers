@@ -5,7 +5,7 @@ const SHALLOW_URLS = ['?demo=true']
 
 export const Link = forwardRef(
   (
-    { href, children, className, scroll = false, shallow, ...props }: any,
+    { href, children, className, scroll = true, shallow, ...props }: any,
     ref
   ) => {
     const attributes = {

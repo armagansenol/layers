@@ -7,7 +7,15 @@ import { Image } from '@/components/image'
 import IconClock from '@/components/icons/icon-clock'
 import IconCalendar from '@/components/icons/icon-calendar'
 
-type Props = {}
+type Props = {
+  date: string
+  email: string
+  nameSurname: string
+  responseName: string
+  responseSurname: string
+  time: string
+  title: string
+}
 
 const ClientSuccess = (props: Props) => {
   return (
@@ -34,15 +42,15 @@ const ClientSuccess = (props: Props) => {
         <div className={s.info}>
           <div className={cn(s.imgC, 'hidden-overflow')}>
             <Image
-              src="/img/pinned-1.jpg"
               alt="Your alt text"
-              width={1500}
-              height={1500}
+              height={300}
+              src="/img/pinned-1.jpg"
+              width={300}
             />
           </div>
           <div className={s.text}>
-            <p>James</p>
-            <small>Human Resources Specialist</small>
+            <p>{props.nameSurname}</p>
+            <small> {props.title}</small>
           </div>
         </div>
         <div className={s.seperator}></div>
@@ -51,13 +59,13 @@ const ClientSuccess = (props: Props) => {
             <div className={cn(s.iconC, 'flex-center')}>
               <IconCalendar fill="var(--black)" />
             </div>
-            Jun 10, 2023
+            {props.date}
           </div>
           <div className={s.box}>
             <div className={cn(s.iconC, 'flex-center')}>
               <IconClock fill="var(--black)" />
             </div>
-            Jun 10, 2023
+            {props.time}
           </div>
         </div>
         <small>

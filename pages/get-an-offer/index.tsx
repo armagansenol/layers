@@ -5,6 +5,7 @@ import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import { Link } from '@/components/link'
+import { FormType } from '@/components/contact-form/types'
 
 const GetAnOffer = () => {
   return (
@@ -19,7 +20,7 @@ const GetAnOffer = () => {
             </p>
           </div>
           <div className={s.contactFormC}>
-            <ContactForm formType="service" />
+            <ContactForm formType={FormType.service} />
           </div>
         </section>
 

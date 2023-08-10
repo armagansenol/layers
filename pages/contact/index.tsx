@@ -1,7 +1,8 @@
 import s from './contact.module.scss'
 
 import ContactForm from '@/components/contact-form'
-import IconArrow from '@/components/icons/icon-arrow'
+import { FormType } from '@/components/contact-form/types'
+import { Image } from '@/components/image'
 import { Link } from '@/components/link'
 import { Marquee } from '@/components/marquee'
 import MarqueeLink from '@/components/marquee-link'
@@ -38,11 +39,23 @@ const Contact = () => {
             <div className={s.inner}>
               <h2 className={s.first}>Get in Touch</h2>
               <div className={s.iconC}>
-                <IconArrow />
+                <Image
+                  alt="Man on phone call"
+                  height={300}
+                  loading="lazy"
+                  src="/img/wave.png"
+                  width={300}
+                />
               </div>
               <h2 className={s.second}>Say Hello !</h2>
               <div className={s.iconC}>
-                <IconArrow />
+                <Image
+                  alt="Man on phone call"
+                  height={300}
+                  loading="lazy"
+                  src="/img/wave.png"
+                  width={300}
+                />
               </div>
             </div>
           </Marquee>
@@ -50,7 +63,7 @@ const Contact = () => {
 
         <section className="content-box-lg">
           <div className={s.contactFormC}>
-            <ContactForm formType="contact" />
+            <ContactForm formType={FormType.contact} />
           </div>
         </section>
 

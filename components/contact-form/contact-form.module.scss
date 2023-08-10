@@ -1,5 +1,17 @@
+.screensC {
+  margin-bottom: desktop-vw(40px);
+}
+
 .btns {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .prevC {
+    visibility: hidden;
+
+    &.visible {
+      visibility: visible;
+    }
+  }
 }

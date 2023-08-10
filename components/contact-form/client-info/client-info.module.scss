@@ -36,7 +36,7 @@
 
       .input {
         @include dims(100%);
-        border-radius: desktop-vw(26px);
+        border-radius: desktop-vw(11px);
         color: var(--liliac);
         font-family: var(--font-inter);
         font-size: desktop-vw(15px);
@@ -44,7 +44,7 @@
         padding: desktop-vw(15px) var(--input-padding);
 
         @include mobile {
-          border-radius: mobile-vw(26px);
+          border-radius: mobile-vw(11px);
           font-size: mobile-vw(14px);
           padding: mobile-vw(17px) var(--input-padding);
         }
@@ -113,6 +113,10 @@
     @include mobile {
       --box-dims: #{16px};
       margin-bottom: mobile-vw(20px);
+    }
+
+    &.required {
+      background: red;
     }
 
     .checkbox {

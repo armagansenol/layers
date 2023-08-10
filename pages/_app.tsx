@@ -6,6 +6,10 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import type { AppProps } from 'next/app'
 import { useMedia } from 'react-use'
 
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
+
 import 'styles/global.scss'
 
 function App({ Component, pageProps }: AppProps) {
@@ -28,7 +32,9 @@ function App({ Component, pageProps }: AppProps) {
         </ClientOnly>
       )}
       <RealViewport />
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </>
   )
 }

@@ -30,11 +30,12 @@ SelectItem.displayName = 'SelectItem'
 
 type Props = {
   options: any[]
+  callback: (value: string) => void
 }
 
-const Select = ({ options = [] }: Props) => {
+const Select = ({ options = [], callback }: Props) => {
   return (
-    <RadixSelect.Root>
+    <RadixSelect.Root onValueChange={callback}>
       <RadixSelect.Trigger className={s.selectTrigger} aria-label="TimeZone">
         <RadixSelect.Value placeholder="Select Timezone" />
         <RadixSelect.Icon className={s.selectIcon}>

@@ -1,6 +1,7 @@
 import s from './request-a-demo.module.scss'
 
 import ContactForm from '@/components/contact-form'
+import { FormType } from '@/components/contact-form/types'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 
@@ -18,7 +19,7 @@ const RequestADemo = () => {
             </small>
           </div>
           <div className={s.contactFormC}>
-            <ContactForm formType="demo" />
+            <ContactForm formType={FormType.demo} />
           </div>
         </section>
 
