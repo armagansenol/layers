@@ -24,7 +24,7 @@ const GetAnOffer = () => {
           </div>
         </section>
 
-        <Link href="/request-a-demo" className="trial-c">
+        <Link href="/demo-request" className="trial-c">
           <MarqueeLink text={{ t1: 'Started Now', t2: '30 Day Free Trial' }} />
         </Link>
 

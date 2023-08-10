@@ -135,7 +135,7 @@ export function NavbarMobile() {
             })}
 
             <Link
-              href="/request-a-demo"
+              href="/demo-request"
               className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
               onClick={() => setIsOpen(false)}
             >
@@ -143,7 +143,7 @@ export function NavbarMobile() {
             </Link>
 
             <Link
-              href="/request-a-demo"
+              href="/demo-request"
               className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
               onClick={() => setIsOpen(false)}
             >

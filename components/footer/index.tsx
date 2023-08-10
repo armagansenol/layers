@@ -105,7 +105,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="/request-a-demo">
+                  <Link className={s.link} href="/demo-request">
                     Request a Demo
                   </Link>
                 </li>

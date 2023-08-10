@@ -1,4 +1,6 @@
 .header {
+  --t-color-primary: #{transparent};
+  --t-color-secondary: #{transparent};
   align-items: center;
   display: flex;
   height: var(--header-height);
@@ -7,9 +9,6 @@
   padding: 0 desktop-vw(90px);
   position: relative;
   z-index: z-index('header');
-
-  --t-color-primary: #{transparent};
-  --t-color-secondary: #{transparent};
 
   &.features {
     --t-color-primary: #{var(--water-squirt)};

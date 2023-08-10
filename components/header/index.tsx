@@ -92,47 +92,45 @@ const Header = () => {
   }, [isOpen])
 
   return (
-    <>
-      <header
-        className={cn(s.header, [
-          s[currentRoute ? routes[currentRoute].type : 'null'],
-        ])}
-      >
-        <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
-          <Image
-            src="/img/layers-logo.svg"
-            alt="Layers Logo"
-            width="206"
-            height="193"
-            style={{ objectFit: 'contain' }}
-            priority="high"
-          />
-        </Link>
+    <header
+      className={cn(s.header, [
+        s[currentRoute ? routes[currentRoute].type : 'null'],
+      ])}
+    >
+      <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
+        <Image
+          src="/img/layers-logo.svg"
+          alt="Layers Logo"
+          width={206}
+          height={193}
+          style={{ objectFit: 'contain' }}
+          priority="high"
+        />
+      </Link>
 
-        <ClientOnly>
-          {isMounted && (
-            <div
-              className={cn(s.navbarC, { [s.absolute]: isAbsolute })}
-              ref={handleRect}
-            >
-              {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
-            </div>
-          )}
-        </ClientOnly>
-
-        <div className={s.actions}>
-          <div className={s.btn}>
-            <LanguageSelect />
+      <ClientOnly>
+        {isMounted && (
+          <div
+            className={cn(s.navbarC, { [s.absolute]: isAbsolute })}
+            ref={handleRect}
+          >
+            {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
           </div>
-          <button className={s.btn}>
-            Login{' '}
-            <div className={s.iconC}>
-              <IconArrowDropdown />
-            </div>
-          </button>
+        )}
+      </ClientOnly>
+
+      <div className={s.actions}>
+        <div className={s.btn}>
+          <LanguageSelect />
         </div>
-      </header>
-    </>
+        <button className={s.btn}>
+          Login{' '}
+          <div className={s.iconC}>
+            <IconArrowDropdown />
+          </div>
+        </button>
+      </div>
+    </header>
   )
 }
 

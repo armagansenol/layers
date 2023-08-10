@@ -33,7 +33,7 @@ export function NavbarDesktop() {
       className={cn(s.navigation, s.fixed, [
         s[currentRoute ? routes[currentRoute].type : 'null'],
       ])}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseLeave={handleClose}
     >
       {Object.values(routes).map((value, i) => {
         return (
@@ -49,22 +49,10 @@ export function NavbarDesktop() {
           </div>
         )
       })}
-      {/* <div
-      className={cn(s.navItemC, s.resources, 'cursor-pointer')}
-      // onMouseEnter={() =>
-      //   value.type !== 'requestADemo' && handleMenu(value.type)
-      // }
-      // onMouseEnter={() => handleMenu("resources")}
-    >
-      <p className={s.itemText}>Resources</p>
-      <div className={s.iconC}>
-        <IconArrowDropdown />
-      </div>
-    </div> */}
       <Link
-        href="/request-a-demo"
+        href="/demo-request"
         className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
-        onMouseEnter={() => setIsOpen(false)}
+        onMouseEnter={handleClose}
       >
         <p>Request A Demo</p>
       </Link>
@@ -128,11 +116,11 @@ export function NavbarDesktop() {
                               {currentRoute !== MainRoute.resources && (
                                 <div className={s.iconC}>
                                   <Image
-                                    src={`/img/detail/${item.path}/menu-icon.png`}
-                                    width={150}
-                                    height={150}
                                     alt="Feature Icons"
+                                    height={150}
+                                    src={`/img/detail/${item.path}/menu-icon.png`}
                                     style={{ objectFit: 'contain' }}
+                                    width={150}
                                   />
                                 </div>
                               )}

@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import s from './upcoming-accordion.module.scss'
 
 import cn from 'clsx'
-import { cubicBezier } from 'framer-motion'
 import { useLockBodyScroll } from 'react-use'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
@@ -11,8 +10,6 @@ import IconX from '@/components/icons/icon-x'
 import { useMenuStore } from '@/lib/menuStore'
 import { gsap } from 'gsap'
 import { EventAccordion } from './event-accordion'
-
-const ease = cubicBezier(0.16, 1, 0.3, 1)
 
 const UpcomingAccordion = () => {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -180,12 +177,6 @@ const UpcomingAccordion = () => {
   ]
 
   useEffect(() => {
-    gsap.set(wrapperRef.current, {
-      height: 0,
-    })
-  }, [])
-
-  useEffect(() => {
     // const showAnim = gsap
     //   .from(wrapperRef.current, {
     //     ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
@@ -201,7 +192,6 @@ const UpcomingAccordion = () => {
     //   })
     //   .progress(1)
     // isOpen ? showAnim.play() : showAnim.reverse()
-
     if (isOpen) {
       gsap.to(wrapperRef.current, {
         ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
@@ -260,7 +250,7 @@ const UpcomingAccordion = () => {
         </div>
       </div>
 
-      <div className="hidden-overflow" ref={wrapperRef}>
+      <div className={cn(s.overflowC, 'hidden-overflow')} ref={wrapperRef}>
         <div className={s.accordionBody}>
           <EventAccordion items={accItems} />
         </div>

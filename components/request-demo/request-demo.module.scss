@@ -8,7 +8,7 @@
     padding: 0 mobile-vw(16px);
   }
 
-  .title {
+  & > h2 {
     font-family: var(--font-wt-gothic);
     font-size: desktop-vw(60px);
     font-weight: 700;
@@ -16,14 +16,40 @@
     margin-bottom: desktop-vw(70px);
 
     @include mobile {
-      font-size: mobile-vw(24px);
+      font-size: mobile-vw(28px);
       line-height: 1.6;
       margin-bottom: mobile-vw(70px);
       text-align: center;
     }
-  }
 
-  .title span {
-    color: var(--innocent-snowdrop);
+    .imgs {
+      align-items: center;
+      display: inline-flex;
+      margin: 0 desktop-vw(20px);
+      margin-left: desktop-vw(36px);
+      transform: translateY(20%);
+
+      @include mobile {
+        display: flex;
+        padding: mobile-vw(20px) 0;
+        justify-content: center;
+        transform: translateY(10%);
+      }
+
+      .imgC {
+        @include dims(desktop-vw(75px));
+        margin-left: desktop-vw(-16px);
+        transform-origin: center;
+
+        @include mobile {
+          @include dims(mobile-vw(75px));
+          margin-left: mobile-vw(-16px);
+        }
+      }
+    }
+
+    .colored {
+      color: var(--theme-primary);
+    }
   }
 }

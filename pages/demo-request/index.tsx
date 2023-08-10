@@ -1,4 +1,4 @@
-import s from './request-a-demo.module.scss'
+import s from './demo-request.module.scss'
 
 import ContactForm from '@/components/contact-form'
 import { FormType } from '@/components/contact-form/types'

@@ -73,7 +73,7 @@ const Detail = ({ pageData, pageType }: Props) => {
         <div className={cn(s.row, s.redirect)}>
           <div className={s.text}>
             <h4>{pageData.detail.d2.desc}</h4>
-            <Button text="Request a Demo" path="/request-a-demo" />
+            <Button text="Request a Demo" path="/demo-request" />
           </div>
           <div className={s.mediaC}>
             <Image

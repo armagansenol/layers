@@ -22,7 +22,7 @@ const HomeSlider = () => {
       },
       btn: {
         text: 'Request a Demo',
-        path: '/request-a-demo',
+        path: '/demo-request',
       },
     },
     {
@@ -34,7 +34,7 @@ const HomeSlider = () => {
       },
       btn: {
         text: 'Request a Demo',
-        path: '/request-a-demo',
+        path: '/demo-request',
       },
     },
     {
@@ -46,7 +46,7 @@ const HomeSlider = () => {
       },
       btn: {
         text: 'Request a Demo',
-        path: '/request-a-demo',
+        path: '/demo-request',
       },
     },
     {
@@ -58,7 +58,7 @@ const HomeSlider = () => {
       },
       btn: {
         text: 'Request a Demo',
-        path: '/request-a-demo',
+        path: '/demo-request',
       },
     },
   ]
