@@ -123,12 +123,17 @@ const Header = () => {
         <div className={s.btn}>
           <LanguageSelect />
         </div>
-        <button className={s.btn}>
+        <Link
+          href="https://app.layersup.com/tr/login"
+          target="_blank"
+          rel="noreferrer noopener"
+          className={s.btn}
+        >
           Login{' '}
           <div className={s.iconC}>
             <IconArrowDropdown />
           </div>
-        </button>
+        </Link>
       </div>
     </header>
   )
