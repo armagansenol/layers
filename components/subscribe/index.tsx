@@ -13,6 +13,7 @@ import IconLinkedin from '@/components/icons/icon-linkedin'
 import IconMail from '@/components/icons/icon-mail'
 import IconShare from '@/components/icons/icon-share'
 import IconTwitter from '@/components/icons/icon-twitter'
+import Link from 'next/link'
 
 interface ISubscribeFormData {
   email: string
@@ -95,21 +96,46 @@ const Subscribe = () => {
   return (
     <section className={s.subscribeC}>
       <div className={s.social}>
-        <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
+        <Link
+          href="https://www.instagram.com/layers.hrtech"
+          target="blank"
+          rel="noreferrer noopener"
+          className={cn(s.iconC, 'cursor-pointer')}
+        >
           <IconInstagram fill="var(--black)" />
-        </a>
-        <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
+        </Link>
+        <Link
+          href="https://www.youtube.com/@layers.hrtech"
+          target="blank"
+          rel="noreferrer noopener"
+          className={cn(s.iconC, 'cursor-pointer')}
+        >
           <IconShare fill="var(--black)" />
-        </a>
-        <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
+        </Link>
+        <Link
+          href="https://www.facebook.com/layers.hrtech"
+          target="blank"
+          rel="noreferrer noopener"
+          className={cn(s.iconC, 'cursor-pointer')}
+        >
           <IconMail fill="var(--black)" />
-        </a>
-        <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
+        </Link>
+        <Link
+          href="https://www.linkedin.com/company/layers-hrtech"
+          target="blank"
+          rel="noreferrer noopener"
+          className={cn(s.iconC, 'cursor-pointer')}
+        >
           <IconLinkedin fill="var(--black)" />
-        </a>
-        <a href="" target="blank" rel="noreferrer noopener" className={s.iconC}>
+        </Link>
+        <Link
+          href="https://twitter.com/layers_hrtech"
+          target="blank"
+          rel="noreferrer noopener"
+          className={cn(s.iconC, 'cursor-pointer')}
+        >
           <IconTwitter fill="var(--black)" />
-        </a>
+        </Link>
       </div>
       <form
         className={s.subscribe}

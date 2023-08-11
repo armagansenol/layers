@@ -8,6 +8,7 @@ import {
   contactFormModel,
 } from '../form-model/client-info-form'
 import { FormType } from '../types'
+import Link from 'next/link'
 
 type Props = {
   formik?: FormikProps<ClientInfoForm>
@@ -242,15 +243,15 @@ const ClientInfo = ({ formType, formik }: Props) => {
         <div className={s.legalText}>
           <small className={s.small}>
             I’ve read and accepted the{' '}
-            <a
+            <Link
+              href="/pdf/personal-data-protection-and-processing-policy.pdf"
               target="_blank"
               rel="noreferrer noopener"
-              href={'/'}
               className={s.link}
               onClick={(e) => e.stopPropagation()}
             >
               Personal Data Protection and Processing Policy.
-            </a>
+            </Link>
           </small>
         </div>
       </div>

@@ -1,4 +1,6 @@
 .navigation {
+  --t-color-primary: #{#000};
+  --t-color-secondary: #{#000};
   align-items: center;
   background: var(--leukocyte-white);
   border-radius: desktop-vw(11px);
@@ -8,9 +10,6 @@
   justify-content: center;
   padding: 0 desktop-vw(4px);
   z-index: z-index('navigation');
-
-  --t-color-primary: #{#000};
-  --t-color-secondary: #{#000};
 
   &.features {
     --t-color-primary: #{var(--water-squirt)};
@@ -72,6 +71,10 @@
       }
     }
 
+    &.active {
+      background: var(--t-color-primary);
+    }
+
     & > p {
       font-family: var(--font-inter);
       font-size: desktop-vw(15px);
@@ -104,12 +107,12 @@
     padding: desktop-vw(15px);
     transform-origin: top center;
 
-    .content {
+    .links {
       @include dims(100%);
+      column-gap: desktop-vw(40px);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(4, 1fr);
-      column-gap: desktop-vw(40px);
       row-gap: desktop-vw(10px);
 
       .menuItem {
@@ -132,31 +135,31 @@
             }
           }
         }
-      }
 
-      .menuItem > .iconC {
-        @include dims(desktop-vw(45px));
-        flex-shrink: 0;
-      }
-
-      .menuItem > .text > h5 {
-        font-family: var(--font-wt-gothic);
-        font-size: desktop-vw(13px);
-        font-weight: 700;
-        margin-bottom: desktop-vw(12px);
-
-        &:last-child {
-          margin-bottom: 0;
+        & > .iconC {
+          @include dims(desktop-vw(45px));
+          flex-shrink: 0;
         }
-      }
 
-      .menuItem > .text > p {
-        color: var(--brushed-nickel);
-        font-family: var(--font-inter);
-        font-size: desktop-vw(10px);
-        font-weight: 400;
-        line-height: 2;
-        transition: 300ms all ease;
+        & > .text > h5 {
+          font-family: var(--font-wt-gothic);
+          font-size: desktop-vw(13px);
+          font-weight: 700;
+          margin-bottom: desktop-vw(12px);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        & > .text > p {
+          color: var(--brushed-nickel);
+          font-family: var(--font-inter);
+          font-size: desktop-vw(10px);
+          font-weight: 400;
+          line-height: 2;
+          transition: 300ms all ease;
+        }
       }
     }
   }

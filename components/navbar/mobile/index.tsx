@@ -1,13 +1,14 @@
 import { useRef, useState } from 'react'
 import s from './navbar-mobile.module.scss'
 
+import cn from 'clsx'
+import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+import { useLockBodyScroll } from 'react-use'
+
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
-import cn from 'clsx'
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 import Link from 'next/link'
-import { useLockBodyScroll } from 'react-use'
 
 const ease = cubicBezier(0.16, 1, 0.3, 1)
 
@@ -101,7 +102,7 @@ export function NavbarMobile() {
                             },
                           }}
                         >
-                          <div className={cn(s.content)}>
+                          <div className={cn(s.links)}>
                             {routes[currentRoute].children &&
                               Object.values(routes[currentRoute].children).map(
                                 (item, i) => {

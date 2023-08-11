@@ -123,32 +123,31 @@ const HomeSlider = () => {
 
   return (
     <div className={s.slider}>
-      <div className={s.text}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`${currentSlide}_text`}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={animationVariants}
-          >
-            <motion.h2 variants={item}>{slides[currentSlide].title}</motion.h2>
-            <motion.p variants={item}>{slides[currentSlide].desc}</motion.p>
-            <motion.div variants={item} className={s.btnC}>
-              <Button
-                text={slides[currentSlide].btn.text}
-                path={slides[currentSlide].btn.path}
-              />
-            </motion.div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          className={s.text}
+          key={`${currentSlide}-text`}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={animationVariants}
+        >
+          <motion.h2 variants={item}>{slides[currentSlide].title}</motion.h2>
+          <motion.p variants={item}>{slides[currentSlide].desc}</motion.p>
+          <motion.div variants={item}>
+            <Button
+              text={slides[currentSlide].btn.text}
+              path={slides[currentSlide].btn.path}
+            />
           </motion.div>
-        </AnimatePresence>
-      </div>
+        </motion.div>
+      </AnimatePresence>
 
       <div className={cn(s.media, 'hidden-overflow')}>
         <AnimatePresence mode="popLayout">
           <motion.div
             className={s.imgC}
-            key={`${currentSlide}_img`}
+            key={`${currentSlide}-img`}
             initial="closed"
             animate="open"
             exit="closed"

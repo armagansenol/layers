@@ -115,7 +115,12 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="/privacy-policy">
+                  <Link
+                    href="/pdf/personal-data-protection-and-processing-policy.pdf"
+                    target="blank"
+                    rel="noreferrer noopener"
+                    className={s.link}
+                  >
                     Privacy Policy
                   </Link>
                 </li>

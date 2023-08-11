@@ -157,7 +157,7 @@
   margin-top: desktop-vw(70px);
 
   @include mobile {
-    margin-top: mobile-vw(70px);
+    margin: 0;
   }
 }
 

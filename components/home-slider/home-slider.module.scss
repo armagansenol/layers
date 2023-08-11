@@ -14,6 +14,10 @@
   }
 
   .text {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: desktop-vw(450px);
 
     @include mobile {
@@ -21,8 +25,7 @@
       display: flex;
       flex-direction: column;
       margin-bottom: mobile-vw(50px);
-      padding: 0 mobile-vw(24px);
-      width: 100%;
+      width: 90%;
     }
 
     h2 {

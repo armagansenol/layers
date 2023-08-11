@@ -3,10 +3,11 @@ import s from './navbar-desktop.module.scss'
 
 import cn from 'clsx'
 import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { useMenuStore } from '@/lib/menuStore'
 import { MainRoute, routes } from '@/global'
-import { Image } from '../../image'
+import { Image } from '@/components/image'
 import Link from 'next/link'
 
 const ease = cubicBezier(0.16, 1, 0.3, 1)
@@ -38,7 +39,9 @@ export function NavbarDesktop() {
       {Object.values(routes).map((value, i) => {
         return (
           <div
-            className={cn(s.navItemC, 'cursor-pointer', [s[value.type]])}
+            className={cn(s.navItemC, 'cursor-pointer', [s[value.type]], {
+              [s.active]: value.type === currentRoute && isOpen,
+            })}
             key={i}
             onMouseEnter={() => handleMenu(value.type)}
           >
@@ -83,11 +86,11 @@ export function NavbarDesktop() {
               <AnimatePresence>
                 {currentRoute && (
                   <motion.div
-                    className={cn(s.content)}
-                    key={`${currentRoute}-content`}
-                    initial="closed"
+                    className={cn(s.links)}
                     animate="open"
                     exit="closed"
+                    initial="closed"
+                    key={`${currentRoute}-content`}
                     variants={{
                       open: {
                         opacity: 1,

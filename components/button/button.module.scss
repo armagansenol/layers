@@ -4,23 +4,30 @@
   border: 1px solid var(--hydrargyrum);
   border-radius: desktop-vw(11px);
   display: inline-flex;
-  padding: desktop-vw(2px);
+  padding: desktop-vw(3px) desktop-vw(3px) desktop-vw(3px) 0;
+  transition: 400ms border var(--ease-out-expo);
 
   @include mobile {
     border-radius: mobile-vw(11px);
     padding: mobile-vw(2px);
   }
 
-  .text {
-    flex: 1;
-    font-family: var(--font-inter);
-    font-size: desktop-vw(15px);
-    font-weight: 500;
-    margin-left: desktop-vw(20px);
+  @include hover {
+    &:hover {
+      border: 1px solid var(--aria);
 
-    @include mobile {
-      font-size: mobile-vw(15px);
-      margin-left: mobile-vw(20px);
+      .iconC {
+        background: var(--theme-secondary);
+        transform: scale(0.8);
+
+        .transformC {
+          transform: translateX(100%);
+
+          &.tuple {
+            transform: translate(0, -50%);
+          }
+        }
+      }
     }
   }
 
@@ -36,10 +43,12 @@
     @include dims(desktop-vw(240px), desktop-vw(47px));
 
     .text {
-      font-size: desktop-vw(15px);
+      span {
+        font-size: desktop-vw(15px);
 
-      @include mobile {
-        font-size: mobile-vw(15px);
+        @include mobile {
+          font-size: mobile-vw(15px);
+        }
       }
     }
 
@@ -52,10 +61,12 @@
     @include dims(desktop-vw(350px), desktop-vw(68px));
 
     .text {
-      font-size: desktop-vw(21px);
+      span {
+        font-size: desktop-vw(21px);
 
-      @include mobile {
-        font-size: mobile-vw(15px);
+        @include mobile {
+          font-size: mobile-vw(15px);
+        }
       }
     }
 
@@ -72,16 +83,50 @@
     }
   }
 
+  .text {
+    flex: 1;
+
+    overflow: hidden;
+
+    span {
+      font-family: var(--font-inter);
+      font-size: desktop-vw(15px);
+      font-weight: 500;
+      margin-left: desktop-vw(20px);
+      margin-right: desktop-vw(40px);
+    }
+
+    @include mobile {
+      font-size: mobile-vw(15px);
+      margin-left: mobile-vw(20px);
+    }
+  }
+
   .iconC {
     @include dims(20%, 100%);
     align-items: center;
-    background: var(--innocent-snowdrop);
+    background: var(--theme-primary);
     border-radius: desktop-vw(8px);
     display: flex;
+    flex-shrink: 0;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: 300ms all ease;
 
     @include mobile {
       border-radius: mobile-vw(8px);
+    }
+
+    .transformC {
+      @include dims(100%);
+      transition: 800ms all var(--ease-out-expo);
+      will-change: transform;
+
+      &.tuple {
+        @include position(absolute, 50%, auto, 0, 0);
+        transform: translate(-100%, -50%);
+      }
     }
 
     .icon {
