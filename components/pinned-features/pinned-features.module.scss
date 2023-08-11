@@ -1,83 +1,83 @@
 .pinnedFeatures {
   @include dims(100%, 100vh);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   padding: 0 desktop-vw(100px);
   position: relative;
 
   @include mobile {
+    @include dims(auto);
     display: flex;
     flex-direction: column;
     grid-template-columns: unset;
     padding: 0 mobile-vw(16px);
-    @include dims(auto);
   }
 }
 
-.features {
-  overflow: hidden;
+.item {
+  @include dims(100%, 100vh);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
-  .box {
-    @include dims(100%, 100vh);
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.text {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mobile {
+    @include dims(auto);
+    align-items: center;
+    margin-bottom: mobile-vw(50px);
+    text-align: center;
+  }
+
+  & > h3 {
+    font-family: var(--font-wt-gothic);
+    font-size: desktop-vw(35px);
+    font-weight: 700;
+    margin-bottom: desktop-vw(36px);
+    position: relative;
 
     @include mobile {
-      @include dims(auto);
-      align-items: center;
-      margin-bottom: mobile-vw(50px);
-      text-align: center;
+      font-size: mobile-vw(30px);
+      margin-bottom: mobile-vw(25px);
     }
 
-    h3 {
-      font-family: var(--font-wt-gothic);
-      font-size: desktop-vw(35px);
-      font-weight: 700;
-      margin-bottom: desktop-vw(36px);
-      position: relative;
+    &::after {
+      content: '';
+      @include position(absolute, 130%, auto, auto, 0);
+      @include dims(130%, 1px);
+      background: var(--innocent-snowdrop);
 
       @include mobile {
-        font-size: mobile-vw(30px);
-        margin-bottom: mobile-vw(25px);
-      }
-
-      &::after {
-        content: '';
-        @include position(absolute, 130%, auto, auto, 0);
-        @include dims(130%, 1px);
-        background: var(--innocent-snowdrop);
-
-        @include mobile {
-          display: none;
-        }
+        display: none;
       }
     }
+  }
 
-    p {
-      font-family: var(--font-inter);
-      font-size: desktop-vw(15px);
-      font-weight: 400;
-      margin-bottom: desktop-vw(30px);
-      width: desktop-vw(383px);
+  & > p {
+    font-family: var(--font-inter);
+    font-size: desktop-vw(15px);
+    font-weight: 400;
+    margin-bottom: desktop-vw(30px);
+    width: desktop-vw(385px);
 
-      @include mobile {
-        font-size: mobile-vw(15px);
-        margin-bottom: mobile-vw(15px);
-        line-height: 1.5;
-        width: 100%;
-      }
+    @include mobile {
+      font-size: mobile-vw(15px);
+      line-height: 1.5;
+      margin-bottom: mobile-vw(15px);
+      width: 100%;
     }
   }
 }
 
-.media {
-  .videoC {
-    @include dims(100%, auto);
+.videoC {
+  @include dims(100%, auto);
 
-    .video {
-      @include dims(100%, auto);
-    }
+  .video {
+    @include dims(100%, auto);
   }
 }
