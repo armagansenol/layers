@@ -1,24 +1,26 @@
 import s from './references-marquee.module.scss'
 
+import { Image } from '@/components/image'
 import { Marquee } from '@/components/marquee'
-import Image from 'next/image'
 
 type Props = {
   items: { logo: string }[]
 }
 
-const MarqueeReferences = ({ items = [{ logo: '' }] }: Props) => {
+const MarqueeReferences = (props: Props) => {
   return (
     <div className={s.referencesMarquee}>
       <Marquee duration={30} repeat={3}>
         <>
-          {items.map((item, i) => {
+          {props.items.map((item, i) => {
             return (
               <div className={s.iconC} key={i}>
                 <Image
                   alt="Layers Logo"
                   height={150}
+                  loading="lazy"
                   src={item.logo}
+                  style={{ objectFit: 'contain' }}
                   width={150}
                 />
               </div>
