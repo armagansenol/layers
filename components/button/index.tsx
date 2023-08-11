@@ -2,7 +2,7 @@ import { useState } from 'react'
 import s from './button.module.scss'
 
 import cn from 'clsx'
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
 import IconArrow from '@/components/icons/icon-arrow'
