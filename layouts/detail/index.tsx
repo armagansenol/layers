@@ -4,11 +4,11 @@ import cn from 'clsx'
 import Link from 'next/link'
 
 import Button from '@/components/button'
+import FeatureList from '@/components/feature-list'
 import { Image } from '@/components/image'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { DynamicPageContent } from '@/global'
-import FeatureList from '@/components/feature-list'
 
 type Props = {
   pageType: string
@@ -94,7 +94,8 @@ const Detail = ({ pageData, pageType }: Props) => {
             t1: pageData.nextPage.text.t1,
             t2: pageData.nextPage.text.t2,
           }}
-          url={pageData.nextPage.url}
+          mediaSrc={`/img/detail/${pageType}/next-cursor.png`}
+          // path={pageData.nextPage.url}
         />
       </Link>
 

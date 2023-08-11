@@ -1,6 +1,8 @@
 import { memo, useCallback, useLayoutEffect, useRef } from 'react'
 import s from './custom-cursor.module.scss'
 
+import { useCursorStore } from '@/lib/cursorStore'
+import cn from 'clsx'
 import { gsap } from 'gsap'
 
 function useTicker(callback: () => void, paused: boolean) {
@@ -102,11 +104,24 @@ const CustomCursor = () => {
 
   useTicker(loop, false)
 
+  const { cursorType, mediaSrc } = useCursorStore()
+
   return (
-    <div ref={jellyRef} id={'jelly-id'} className={s.jellyBlob}>
-      {/* <div ref={textRef} id={'text-id'} className={s.insideText}>
-        #
-      </div> */}
+    <div
+      ref={jellyRef}
+      className={cn(s.jellyBlob, mediaSrc && [s[cursorType]])}
+    >
+      {/* {cursorType === CursorType.marqueeLink && (
+        <div className={s.imgC}>
+          <Image
+            alt="6 hours"
+            height={300}
+            style={{ objectFit: 'contain' }}
+            src={mediaSrc}
+            width={300}
+          />
+        </div>
+      )} */}
     </div>
   )
 }
