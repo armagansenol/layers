@@ -18,6 +18,9 @@
   }
 
   .cardC {
+    --card-bg: var(--white);
+    --header-font-opacity: 0.2;
+    --header-font-weight: 100;
     @include dims(inherit);
     @include position(absolute, 0, 0, 0, 0);
     transition: 3s all cubic-bezier(0.16, 1, 0.3, 1);
@@ -40,8 +43,8 @@
     }
 
     &.second {
-      margin-top: desktop-vw(60px);
-      transform: translateY(0) scale(0.9);
+      // margin-top: desktop-vw(60px);
+      transform: translateY(desktop-vw(60px)) scale(0.9);
       z-index: 2;
 
       @include mobile {
@@ -56,8 +59,8 @@
     }
 
     &.third {
-      margin-top: desktop-vw(120px);
-      transform: translateY(0) scale(0.95);
+      // margin-top: desktop-vw(120px);
+      transform: translateY(desktop-vw(120px)) scale(0.95);
       z-index: 3;
 
       @include mobile {
@@ -72,21 +75,15 @@
     }
 
     &.fourth {
-      margin-top: desktop-vw(180px);
+      // margin-top: desktop-vw(180px);
       opacity: 1;
-      transform: translateY(0) scale(1);
-      z-index: 40;
+      transform: translateY(desktop-vw(180px)) scale(1);
+      z-index: 4;
 
       @include mobile {
         margin-top: mobile-vw(180px);
       }
-    }
 
-    --card-bg: var(--white);
-    --header-font-opacity: 0.2;
-    --header-font-weight: 100;
-
-    &.fourth {
       .cardHeader {
         --card-bg: var(--placebo-purple);
         --header-font-opacity: 1;
@@ -115,10 +112,10 @@
       border: 1px solid var(--white);
       display: flex;
       justify-content: center;
+      padding: desktop-vw(40px);
       transform: translateX(30%) scale(0);
       transition: 1s all cubic-bezier(0.87, 0, 0.13, 1);
       transform-origin: center center;
-      padding: desktop-vw(40px);
 
       @include mobile {
         @include position(absolute, 100%, auto, auto, 50%);

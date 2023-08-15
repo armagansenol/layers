@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import s from './card-stack.module.scss'
 
 import cn from 'clsx'
@@ -8,6 +8,7 @@ import { Image } from '@/components/image'
 import { routes } from '@/global'
 
 const CardStack = () => {
+  const ref = useRef<HTMLDivElement>(null)
   const [activeItem, setActiveItem] = useState<number | null>(null)
 
   const cards = [
@@ -54,21 +55,18 @@ const CardStack = () => {
   }
 
   function handleStack(e: any) {
-    const clickedEl = e.target
+    if (!ref.current) return
+    const clickedCard = e.target.closest('.cardC')
 
-    const cardEls = Array.from(document.querySelectorAll('.cardC'))
-    const cardsEl = document.querySelector('.cardsC')
+    const cards = Array.from(ref.current.querySelectorAll('.cardC'))
 
-    if (!cardsEl) return
+    const se = findEl(cards, s.second)
+    const th = findEl(cards, s.third)
+    const fo = findEl(cards, s.fourth)
 
-    const fi = findEl(cardEls, s.first)
-    const se = findEl(cardEls, s.second)
-    const th = findEl(cardEls, s.third)
-    const fo = findEl(cardEls, s.fourth)
-
-    if (clickedEl.classList.contains(s.first)) {
-      clickedEl.classList.remove(s.first)
-      clickedEl.classList.add(s.fourth)
+    if (clickedCard.classList.contains(s.first)) {
+      clickedCard.classList.remove(s.first)
+      clickedCard.classList.add(s.fourth)
 
       se?.classList.remove(s.second)
       se?.classList.add(s.first)
@@ -80,9 +78,9 @@ const CardStack = () => {
       fo?.classList.add(s.third)
     }
 
-    if (clickedEl.classList.contains(s.second)) {
-      clickedEl.classList.remove(s.second)
-      clickedEl.classList.add(s.fourth)
+    if (clickedCard.classList.contains(s.second)) {
+      clickedCard.classList.remove(s.second)
+      clickedCard.classList.add(s.fourth)
 
       th?.classList.remove(s.third)
       th?.classList.add(s.second)
@@ -91,9 +89,9 @@ const CardStack = () => {
       fo?.classList.add(s.third)
     }
 
-    if (clickedEl.classList.contains(s.third)) {
-      clickedEl.classList.remove(s.third)
-      clickedEl.classList.add(s.fourth)
+    if (clickedCard.classList.contains(s.third)) {
+      clickedCard.classList.remove(s.third)
+      clickedCard.classList.add(s.fourth)
 
       fo?.classList.remove(s.fourth)
       fo?.classList.add(s.third)
@@ -101,7 +99,7 @@ const CardStack = () => {
   }
 
   return (
-    <div className={s.cardStack}>
+    <div className={s.cardStack} ref={ref}>
       <div className={cn(s.cardsC, 'cardsC')}>
         {cards.map((card, i) => {
           return (
@@ -134,8 +132,8 @@ const CardStack = () => {
                       <p>{card.desc}</p>
                       <small>{card.small}</small>
                       <Button
-                        text="Find Out More"
                         path={`/features/${card.path}`}
+                        text="Find Out More"
                       />
                     </div>
                   </div>
