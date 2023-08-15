@@ -1,16 +1,15 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import s from './navbar-desktop.module.scss'
 
 import cn from 'clsx'
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
-
-import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
-import { useMenuStore } from '@/lib/menuStore'
-import { MainRoute, routes } from '@/global'
-import { Image } from '@/components/image'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 
-const ease = cubicBezier(0.16, 1, 0.3, 1)
+import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
+import { Image } from '@/components/image'
+import { MainRoute, routes } from '@/global'
+import { useMenuStore } from '@/lib/menuStore'
+import { ease } from '@/utils'
 
 export function NavbarDesktop() {
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
@@ -90,7 +89,7 @@ export function NavbarDesktop() {
                     animate="open"
                     exit="closed"
                     initial="closed"
-                    key={`${currentRoute}-content`}
+                    key={`${currentRoute}-links`}
                     variants={{
                       open: {
                         opacity: 1,
