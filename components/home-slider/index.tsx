@@ -1,64 +1,65 @@
 import { useEffect, useState } from 'react'
 import s from './home-slider.module.scss'
 
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
 import cn from 'clsx'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useTranslation } from 'next-i18next'
 
 import Button from '@/components/button'
 import { Image } from '@/components/image'
-
-const ease = cubicBezier(0.16, 1, 0.3, 1)
+import { customEase1 } from '@/utils'
 
 const HomeSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const { t } = useTranslation('home')
 
   const slides = [
     {
-      title: 'Let Layers manage your time.',
-      desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
+      title: t('slider.s1.title'),
+      desc: t('slider.s1.desc'),
       img: {
         src: '/img/downtown.jpg',
         alt: 'Slide Image',
       },
       btn: {
-        text: 'Request a Demo',
-        path: '/demo-request',
+        text: t('slider.s1.btn.text'),
+        path: t('slider.s1.btn.path'),
       },
     },
     {
-      title: 'Let Layers manage your time.',
-      desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
+      title: t('slider.s2.title'),
+      desc: t('slider.s2.desc'),
       img: {
-        src: '/img/bike.jpg',
+        src: '/img/downtown.jpg',
         alt: 'Slide Image',
       },
       btn: {
-        text: 'Request a Demo',
-        path: '/demo-request',
+        text: t('slider.s2.btn.text'),
+        path: t('slider.s2.btn.path'),
       },
     },
     {
-      title: 'Let Layers manage your time.',
-      desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
+      title: t('slider.s3.title'),
+      desc: t('slider.s3.desc'),
       img: {
-        src: '/img/basketball.jpg',
+        src: '/img/downtown.jpg',
         alt: 'Slide Image',
       },
       btn: {
-        text: 'Request a Demo',
-        path: '/demo-request',
+        text: t('slider.s3.btn.text'),
+        path: t('slider.s3.btn.path'),
       },
     },
     {
-      title: 'Let Layers manage your time.',
-      desc: 'Simple, straightforward, reportable, and centralized HR data on a single platform.',
+      title: t('slider.s4.title'),
+      desc: t('slider.s4.desc'),
       img: {
-        src: '/img/conversation.jpg',
+        src: '/img/downtown.jpg',
         alt: 'Slide Image',
       },
       btn: {
-        text: 'Request a Demo',
-        path: '/demo-request',
+        text: t('slider.s4.btn.text'),
+        path: t('slider.s4.btn.path'),
       },
     },
   ]
@@ -72,7 +73,7 @@ const HomeSlider = () => {
       transition: {
         duration: 0.6,
         staggerChildren: 0.05,
-        ease,
+        customEase1,
       },
     },
     exit: {
@@ -80,7 +81,7 @@ const HomeSlider = () => {
       transition: {
         duration: 0.6,
         staggerChildren: 0.05,
-        ease,
+        customEase1,
       },
     },
   }
@@ -90,19 +91,19 @@ const HomeSlider = () => {
       opacity: 0,
       x: -50,
       duration: 6,
-      ease,
+      customEase1,
     },
     animate: {
       opacity: 1,
       x: 0,
       duration: 6,
-      ease,
+      customEase1,
     },
     exit: {
       opacity: 0,
       x: 50,
       duration: 6,
-      ease,
+      customEase1,
     },
   }
 

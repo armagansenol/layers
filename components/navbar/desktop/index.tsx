@@ -9,7 +9,7 @@ import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { Image } from '@/components/image'
 import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
-import { ease } from '@/utils'
+import { customEase1 } from '@/utils'
 
 export function NavbarDesktop() {
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
@@ -72,13 +72,13 @@ export function NavbarDesktop() {
                   opacity: 1,
                   scale: 1,
                   y: 0,
-                  transition: { duration: 0.5, ease },
+                  transition: { duration: 0.5, ease: customEase1 },
                 },
                 closed: {
                   opacity: 0,
                   scale: 0.75,
                   y: -50,
-                  transition: { duration: 0.2, ease },
+                  transition: { duration: 0.2, ease: customEase1 },
                 },
               }}
             >

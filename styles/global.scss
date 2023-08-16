@@ -23,7 +23,7 @@
   @include mobile {
     --header-height: #{mobile-vw(80px)};
     --upcoming-accordion-height: #{mobile-vw(30px)};
-    --nav-height: #{mobile-vw(20px)};
+    --nav-height: #{mobile-vw(30px)};
   }
 }
 

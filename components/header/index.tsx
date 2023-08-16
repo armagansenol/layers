@@ -23,6 +23,7 @@ const Header = () => {
   const [isMounted, toggle] = useReducer((p) => !p, true)
   const [elementRect, setElementRect] = useState<any>()
   const showAnim = useRef<any>(null)
+  const loginUrl = 'https://app.layersup.com/tr/login'
 
   const handleRect = useCallback((node: HTMLDivElement) => {
     navbarRef.current = node
@@ -92,50 +93,55 @@ const Header = () => {
   }, [isOpen])
 
   return (
-    <header
-      className={cn(s.header, [
-        s[currentRoute ? routes[currentRoute].type : 'null'],
-      ])}
-    >
-      <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
-        <Image
-          src="/img/layers-logo.svg"
-          alt="Layers Logo"
-          width={206}
-          height={193}
-          style={{ objectFit: 'contain' }}
-          priority="high"
-        />
-      </Link>
-
-      <ClientOnly>
-        {isMounted && (
-          <div
-            className={cn(s.navbarC, { [s.absolute]: isAbsolute })}
-            ref={handleRect}
-          >
-            {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
-          </div>
-        )}
-      </ClientOnly>
-
-      <div className={s.actions}>
-        <div className={s.btn}>
-          <LanguageSelect />
-        </div>
-        <Link
-          href="https://app.layersup.com/tr/login"
-          target="_blank"
-          rel="noreferrer noopener"
-          className={s.btn}
-        >
-          Login{' '}
-          <div className={s.iconC}>
-            <IconArrowDropdown />
-          </div>
+    <>
+      <header
+        className={cn(s.header, [
+          s[currentRoute ? routes[currentRoute].type : 'null'],
+        ])}
+      >
+        <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
+          <Image
+            src="/img/layers-logo.svg"
+            alt="Layers Logo"
+            width={206}
+            height={193}
+            style={{ objectFit: 'contain' }}
+            priority="high"
+          />
         </Link>
-      </div>
-    </header>
+
+        <ClientOnly>
+          {isMounted && (
+            <div
+              className={cn(s.navbarC, { [s.absolute]: isAbsolute })}
+              ref={handleRect}
+            >
+              {!isMobile && <NavbarDesktop />}
+              {isMobile && <NavbarMobile loginUrl={loginUrl} />}
+            </div>
+          )}
+        </ClientOnly>
+
+        <div className={s.actions}>
+          <div className={s.btn}>
+            <ClientOnly>
+              <LanguageSelect />
+            </ClientOnly>
+          </div>
+          <Link
+            href="https://app.layersup.com/tr/login"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={s.btn}
+          >
+            Login{' '}
+            <div className={s.iconC}>
+              <IconArrowDropdown />
+            </div>
+          </Link>
+        </div>
+      </header>
+    </>
   )
 }
 

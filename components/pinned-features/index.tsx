@@ -1,7 +1,6 @@
 import { memo, useEffect, useRef } from 'react'
 import s from './pinned-features.module.scss'
 
-import cn from 'clsx'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 

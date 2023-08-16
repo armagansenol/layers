@@ -2,65 +2,69 @@ import { useRef, useState } from 'react'
 import s from './navbar-mobile.module.scss'
 
 import cn from 'clsx'
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
 import { useLockBodyScroll } from 'react-use'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
-import Link from 'next/link'
+import { customEase1 } from '@/utils'
 
-const ease = cubicBezier(0.16, 1, 0.3, 1)
+type Props = {
+  loginUrl: string
+}
 
-export function NavbarMobile() {
+export function NavbarMobile(props: Props) {
+  const menuRef = useRef<HTMLElement>(null)
   const [hamburger, setHamburger] = useState(false)
   const { currentRoute, setCurrentRoute, setIsOpen } = useMenuStore()
-  const menuRef = useRef<HTMLElement>(null)
   useLockBodyScroll(hamburger)
 
   function handleMenu(type: MainRoute) {
     if (currentRoute) {
-      setIsOpen(false)
-      setCurrentRoute(null)
+      closeMenu()
+      currentRoute === type ? setCurrentRoute(null) : setCurrentRoute(type)
       return
     }
 
-    if (type) {
-      setCurrentRoute(type)
-    }
-
+    setCurrentRoute(type)
     setIsOpen(true)
+  }
+
+  function closeMenu() {
+    setIsOpen(false)
   }
 
   return (
     <>
       <div
         onClick={() => setHamburger((prev) => !prev)}
-        className={s.hamburger}
+        className={cn(s.hamburger, 'flex-center', { [s.open]: hamburger })}
       >
-        menu
+        {hamburger ? 'close' : 'menu'}
       </div>
+
       <AnimatePresence mode="wait">
         {hamburger && (
           <motion.nav
-            key={`${hamburger}-m`}
             initial="closed"
-            animate="open"
+            animate={hamburger ? 'open' : 'closed'}
             exit="closed"
             variants={{
               open: {
                 opacity: 1,
-                transition: { duration: 1, ease },
+                transition: { duration: 0.2 },
               },
               closed: {
                 opacity: 0,
-                transition: { duration: 1, ease },
+                transition: { duration: 0.2 },
               },
             }}
-            ref={menuRef}
-            className={cn(s.navigation, s.fixed, 'hidden-overflow', [
+            className={cn(s.navigation, [
               s[currentRoute ? routes[currentRoute].type : 'null'],
             ])}
+            ref={menuRef}
           >
             {Object.values(routes).map((value, i) => {
               return (
@@ -82,53 +86,46 @@ export function NavbarMobile() {
                   </div>
                   <AnimatePresence mode="wait">
                     {currentRoute === value.type && (
-                      <div className={cn(s.menuC, 'hidden-overflow')}>
-                        <motion.div
-                          className={cn(s.menu, 'flex-center')}
-                          key={`${currentRoute}-menu`}
-                          initial="closed"
-                          animate="open"
-                          exit="closed"
-                          variants={{
-                            open: {
-                              height: 'auto',
-                              opacity: 1,
-                              transition: { duration: 1, ease },
-                            },
-                            closed: {
-                              height: 0,
-                              opacity: 0,
-                              transition: { duration: 1, ease },
-                            },
-                          }}
-                        >
-                          <div className={cn(s.links)}>
-                            {routes[currentRoute].children &&
-                              Object.values(routes[currentRoute].children).map(
-                                (item, i) => {
-                                  return (
-                                    <Link
-                                      className={cn(
-                                        s.menuItem,
-                                        'cursor-pointer'
-                                      )}
-                                      href={`/${
-                                        routes[currentRoute].path
-                                          ? routes[currentRoute].path + '/'
-                                          : ''
-                                      }${item.path}`}
-                                      key={i}
-                                    >
-                                      <div className={s.text}>
-                                        {item.ui && <h5>{item.ui}</h5>}
-                                      </div>
-                                    </Link>
-                                  )
-                                }
-                              )}
-                          </div>
-                        </motion.div>
-                      </div>
+                      <motion.div
+                        className={cn(s.submenu, 'hidden-overflow')}
+                        initial="closed"
+                        animate={hamburger ? 'open' : 'closed'}
+                        exit="closed"
+                        variants={{
+                          open: {
+                            height: 'auto',
+                            opacity: 1,
+                            transition: { duration: 0.8, ease: customEase1 },
+                          },
+                          closed: {
+                            height: 0,
+                            opacity: 0,
+                            transition: { duration: 0.6, ease: customEase1 },
+                          },
+                        }}
+                      >
+                        <div className={s.links}>
+                          {routes[currentRoute].children &&
+                            Object.values(routes[currentRoute].children).map(
+                              (item, i) => {
+                                return (
+                                  <Link
+                                    className={cn(s.menuItem, 'cursor-pointer')}
+                                    href={`/${
+                                      routes[currentRoute].path
+                                        ? routes[currentRoute].path + '/'
+                                        : ''
+                                    }${item.path}`}
+                                    key={i}
+                                    onClick={closeMenu}
+                                  >
+                                    {item.ui && <h5>{item.ui}</h5>}
+                                  </Link>
+                                )
+                              }
+                            )}
+                        </div>
+                      </motion.div>
                     )}
                   </AnimatePresence>
                 </>
@@ -137,16 +134,18 @@ export function NavbarMobile() {
 
             <Link
               href="/demo-request"
-              className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
-              onClick={() => setIsOpen(false)}
+              className={s.navItemC}
+              onClick={closeMenu}
             >
               <p>Request A Demo</p>
             </Link>
 
             <Link
-              href="/demo-request"
-              className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
-              onClick={() => setIsOpen(false)}
+              href={props.loginUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={s.navItemC}
+              onClick={closeMenu}
             >
               <p>Login</p>
             </Link>

@@ -1,44 +1,38 @@
 .hamburger {
-  // position: fixed;
-  // top: calc(
-  //   var(--upcoming-accordion-height) +
-  //     ((var(--header-height) - var(--nav-height)) / 2)
-  // );
-  // left: 50%;
-  // transform: translateX(-50%);
+  @include dims(mobile-vw(80px), 100%);
   background: var(--leukocyte-white);
-  border-radius: mobile-vw(64px);
-  padding: 0 mobile-vw(12px);
+  border-radius: mobile-vw(16px);
   font-size: mobile-vw(16px);
   font-family: var(--font-wt-gothic);
+  padding-bottom: mobile-vw(2px);
+  position: relative;
+  transition: 200ms background ease;
+  z-index: z-index('hamburger');
+
+  &.open {
+    background: var(--theme-primary);
+  }
 }
 
 .navigation {
-  @include dims(90vw, auto);
+  --t-color-primary: #{transparent};
+  --t-color-secondary: #{transparent};
+  @include position(
+    absolute,
+    calc(0% - 1px - ((var(--header-height) - var(--nav-height)) / 2)),
+    mobile-vw(-15px),
+    auto,
+    auto
+  );
+  @include dims(100vw, calc(100vh - var(--upcoming-accordion-height)));
   background: var(--leukocyte-white);
-  border-radius: mobile-vw(11px);
+  border-top-left-radius: mobile-vw(20px);
+  border-top-right-radius: mobile-vw(20px);
   column-gap: mobile-vw(4px);
   display: flex;
   flex-direction: column;
-  z-index: z-index('navigation');
-
-  &.fixed {
-    position: fixed;
-    top: calc(
-      var(--upcoming-accordion-height) +
-        ((var(--header-height) - var(--nav-height)))
-    );
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  // position: absolute;
-  // top: calc(((var(--header-height) - var(--nav-height)) / 2));
-  // left: 50%;
-  // transform: translateX(-50%);
-
-  --t-color-primary: #{transparent};
-  --t-color-secondary: #{transparent};
+  padding-top: var(--header-height);
+  z-index: z-index('navigation-mobile');
 
   &.features {
     --t-color-primary: #{var(--water-squirt)};
@@ -90,18 +84,19 @@
   }
 }
 
-.menu {
+.submenu {
   background: var(--t-color-primary);
   transform-origin: top center;
   transition: 400ms background ease;
 
-  .content {
-    border: 1px solid red;
+  overflow: scroll;
+  position: relative;
+  height: 350px;
+
+  .links {
     position: relative;
-    max-height: 110px;
-    overflow: scroll;
     width: 100%;
-    position: relative;
+    height: 550px;
 
     .menuItem {
       align-items: flex-start;
@@ -109,13 +104,10 @@
       column-gap: mobile-vw(20px);
       display: flex;
       justify-content: flex-start;
-      padding: mobile-vw(13px) mobile-vw(28px);
-    }
-
-    .menuItem > .text > h5 {
       font-family: var(--font-wt-gothic);
       font-size: mobile-vw(13px);
       font-weight: 500;
+      padding: mobile-vw(13px) mobile-vw(28px);
     }
   }
 }

@@ -1,0 +1,36 @@
+{
+    "slider": {
+        "s1": {
+            "title": "Let layers manage your time.",
+            "desc": "Simple straightforward...",
+            "btn": {
+                "text": "Request a Demo",
+                "path": "demo-request"
+            }
+        },
+        "s2": {
+            "title": "Let layers manage your time. - 2",
+            "desc": "Simple straightforward...",
+            "btn": {
+                "text": "Request a Demo",
+                "path": "demo-request"
+            }
+        },
+        "s3": {
+            "title": "Let layers manage your time. - 3",
+            "desc": "Simple straightforward...",
+            "btn": {
+                "text": "Request a Demo",
+                "path": "demo-request"
+            }
+        },
+        "s4": {
+            "title": "Let layers manage your time. - 4",
+            "desc": "Simple straightforward...",
+            "btn": {
+                "text": "Request a Demo",
+                "path": "demo-request"
+            }
+        }
+    }
+}

@@ -2,23 +2,36 @@ import s from './home.module.scss'
 
 import cn from 'clsx'
 
+import type { GetServerSideProps } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
 import HomeSlider from '@/components/home-slider'
 import { Image } from '@/components/image'
+import { Link } from '@/components/link'
 import MarqueeLink from '@/components/marquee-link'
-import PinnedFeatures from '@/components/pinned-features'
 import MarqueeReferences from '@/components/marquee-references'
+import PinnedFeatures from '@/components/pinned-features'
 import RequestDemo from '@/components/request-demo'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
-import { Link } from '@/components/link'
+import { useRouter } from 'next/router'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
+  // const { t } = useTranslation('common')
+
+  // console.log(t('home'))
+
+  const router = useRouter()
+
+  const { t } = useTranslation('')
+  console.log(t('home'))
 
   const references = [
     { logo: '/img/wired.svg' },
@@ -206,5 +219,12 @@ const Home = () => {
     </Layout>
   )
 }
+
+// or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+  },
+})
 
 export default Home

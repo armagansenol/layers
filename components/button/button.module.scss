@@ -22,8 +22,10 @@
 
         .transformC {
           transform: translateX(100%);
+          opacity: 0;
 
           &.tuple {
+            opacity: 1;
             transform: translate(0, -50%);
           }
         }
@@ -125,6 +127,7 @@
 
       &.tuple {
         @include position(absolute, 50%, auto, 0, 0);
+        opacity: 0;
         transform: translate(-150%, -50%);
       }
     }

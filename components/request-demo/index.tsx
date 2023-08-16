@@ -6,9 +6,11 @@ import { Back, gsap } from 'gsap'
 
 import Button from '@/components/button'
 import { Image } from '@/components/image'
+import { useMedia } from 'react-use'
 
 const RequestDemo = () => {
   const ref = useRef(null)
+  const isMobile = useMedia('(max-width: 800px)', true)
 
   useEffect(() => {
     const q = gsap.utils.selector(ref)
@@ -22,8 +24,8 @@ const RequestDemo = () => {
       })
 
       gsap.set(q('[data-animation-pop-trigger'), {
-        height: 0,
-        width: 0,
+        height: isMobile ? 0 : 'auto',
+        width: isMobile ? 'auto' : 0,
       })
 
       gsap.to(q('[data-animation-pop]'), {
@@ -56,7 +58,7 @@ const RequestDemo = () => {
     })
 
     return () => ctx.revert()
-  }, [])
+  }, [isMobile])
 
   return (
     <div className={s.requestDemo} ref={ref}>
@@ -65,7 +67,7 @@ const RequestDemo = () => {
         <span className={s.imgs} data-animation-pop-trigger>
           <div className={cn(s.imgC, 'hidden-overflow')} data-animation-pop>
             <Image
-              alt="Smiling Person"
+              alt="Staff"
               className={s.img}
               height={200}
               loading="lazy"
@@ -76,7 +78,7 @@ const RequestDemo = () => {
           </div>
           <div className={cn(s.imgC, 'hidden-overflow')} data-animation-pop>
             <Image
-              alt="Smiling Person"
+              alt="Staff"
               className={s.img}
               height={200}
               loading="lazy"
@@ -87,7 +89,7 @@ const RequestDemo = () => {
           </div>
           <div className={cn(s.imgC, 'hidden-overflow')} data-animation-pop>
             <Image
-              alt="Smiling Person"
+              alt="Staff"
               className={s.img}
               height={200}
               loading="lazy"

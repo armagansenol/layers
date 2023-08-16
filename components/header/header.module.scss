@@ -10,6 +10,10 @@
   position: relative;
   z-index: z-index('header');
 
+  @include mobile {
+    padding: 0 mobile-vw(16px);
+  }
+
   &.features {
     --t-color-primary: #{var(--water-squirt)};
     --t-color-secondary: #{var(--sparkling-snow)};
@@ -26,7 +30,7 @@
   }
 
   .logoC {
-    @include dims(desktop-vw(111px), auto);
+    @include dims(desktop-vw(110px), auto);
 
     @include mobile {
       @include dims(mobile-vw(90px), auto);
@@ -74,13 +78,19 @@
 
     @include mobile {
       left: auto;
-      right: mobile-vw(20px);
+      right: mobile-vw(15px);
       transform: none;
     }
 
     &.absolute {
       position: absolute;
       top: calc(((var(--header-height) - var(--nav-height)) / 2));
+
+      @include mobile {
+        left: auto;
+        right: mobile-vw(15px);
+        transform: none;
+      }
     }
   }
 }

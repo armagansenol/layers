@@ -1,22 +1,21 @@
-import { RealViewport } from '@/components/real-viewport'
+import type { AppProps } from 'next/app'
+import 'styles/global.scss'
+
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import type { AppProps } from 'next/app'
-
+import { appWithTranslation } from 'next-i18next'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { RealViewport } from '@/components/real-viewport'
+import nextI18nextConfig from '@/next-i18next.config'
+
 const queryClient = new QueryClient()
-import 'styles/global.scss'
 
 function App({ Component, pageProps }: AppProps) {
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
     // ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
   }
-
-  // const onExitComplete = () => {
-  //   window.scrollTo({ top: 0 })
-  // }
 
   return (
     <>
@@ -28,4 +27,4 @@ function App({ Component, pageProps }: AppProps) {
   )
 }
 
-export default App
+export default appWithTranslation(App, nextI18nextConfig)
