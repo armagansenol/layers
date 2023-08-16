@@ -4,7 +4,6 @@ import s from './navbar-mobile.module.scss'
 import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import { useLockBodyScroll } from 'react-use'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { MainRoute, routes } from '@/global'
@@ -19,7 +18,7 @@ export function NavbarMobile(props: Props) {
   const menuRef = useRef<HTMLElement>(null)
   const [hamburger, setHamburger] = useState(false)
   const { currentRoute, setCurrentRoute, setIsOpen } = useMenuStore()
-  useLockBodyScroll(hamburger)
+  // useLockBodyScroll(hamburger)
 
   function handleMenu(type: MainRoute) {
     if (currentRoute) {
@@ -84,10 +83,11 @@ export function NavbarMobile(props: Props) {
                       <IconArrowDropdown />
                     </div>
                   </div>
+
                   <AnimatePresence mode="wait">
                     {currentRoute === value.type && (
                       <motion.div
-                        className={cn(s.submenu, 'hidden-overflow')}
+                        className={s.submenu}
                         initial="closed"
                         animate={hamburger ? 'open' : 'closed'}
                         exit="closed"

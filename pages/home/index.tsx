@@ -20,15 +20,9 @@ import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/menuStore'
-import { useRouter } from 'next/router'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
-  // const { t } = useTranslation('common')
-
-  // console.log(t('home'))
-
-  const router = useRouter()
 
   const { t } = useTranslation('')
   console.log(t('home'))

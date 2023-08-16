@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import s from './upcoming-accordion.module.scss'
 
 import cn from 'clsx'
-import { useLockBodyScroll } from 'react-use'
+import { useLockBodyScroll, useMedia } from 'react-use'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import IconCalendar from '@/components/icons/icon-calendar'
@@ -13,9 +13,10 @@ import { EventAccordion } from './event-accordion'
 
 const UpcomingAccordion = () => {
   const wrapperRef = useRef<HTMLDivElement>(null)
+  const isMobile = useMedia('(max-width: 800px)', true)
   const [isOpen, setIsOpen] = useState(false)
   const { setPosition } = useMenuStore()
-  useLockBodyScroll(isOpen)
+  useLockBodyScroll(isOpen && !isMobile)
 
   const accItems = [
     {
@@ -177,21 +178,6 @@ const UpcomingAccordion = () => {
   ]
 
   useEffect(() => {
-    // const showAnim = gsap
-    //   .from(wrapperRef.current, {
-    //     ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
-    //     height: 0,
-    //     onStart: () => {
-    //       setPosition(true)
-    //       console.log('start')
-    //     },
-    //     onComplete: () => {
-    //       setPosition(false)
-    //       console.log('end')
-    //     },
-    //   })
-    //   .progress(1)
-    // isOpen ? showAnim.play() : showAnim.reverse()
     if (isOpen) {
       gsap.to(wrapperRef.current, {
         ease: 'cubic-bezier(0.16, 1, 0.3, 1)',

@@ -84,6 +84,7 @@
   height: calc(90vh - var(--margin-top));
   margin-top: var(--margin-top);
   overflow: scroll;
+  overscroll-behavior: contain;
   padding-bottom: desktop-vw(100px);
 
   @include mobile {
