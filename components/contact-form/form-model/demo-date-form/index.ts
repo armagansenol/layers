@@ -59,8 +59,8 @@ export const initialValues: DemoDateForm = {
   demoUserCalendarDto: {
     demoUserId: null,
     devDemoUserId: null,
-    timezone: 'test',
+    timezone: process.env.NODE_ENV === 'development' ? 'test' : '',
     date: moment().format(),
-    time: 'test',
+    time: process.env.NODE_ENV === 'development' ? 'test' : '',
   },
 }

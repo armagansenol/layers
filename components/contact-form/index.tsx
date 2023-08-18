@@ -3,16 +3,18 @@ import s from './contact-form.module.scss'
 
 import cn from 'clsx'
 import { useFormik } from 'formik'
-import { AnimatePresence, cubicBezier, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import moment from 'moment'
-import * as Yup from 'yup'
 import { useMutation } from 'react-query'
+import * as Yup from 'yup'
 
 import Button from '@/components/button'
 import ClientInfo from '@/components/contact-form/client-info'
 import ClientDate from '@/components/contact-form/date'
 import ClientSuccess from '@/components/contact-form/success'
 
+import api from '@/api-client'
+import { customEase1 } from '@/utils'
 import {
   ClientInfoForm,
   initialValues as clientInfoInitialValues,
@@ -22,20 +24,8 @@ import {
   initialValues as demoDateInitialValues,
 } from './form-model/demo-date-form'
 import { FormData, FormType } from './types'
-import api from '@/api-client'
-
-const ease = cubicBezier(0.16, 1, 0.3, 1)
-
-const animationVariants = {
-  open: {
-    opacity: 1,
-    transition: { duration: 1, ease },
-  },
-  closed: {
-    opacity: 0,
-    transition: { duration: 1, ease },
-  },
-}
+import { AxiosError } from 'axios'
+import { useErrorStore } from '@/lib/errorStore'
 
 type Props = {
   formType: FormType
@@ -45,6 +35,7 @@ const ContactForm = (props: Props) => {
   const [formPhase, setFormPhase] = useState(0)
   const [response, setResponse] = useState<any>(null)
   const [loading, setLoading] = useState(false)
+  const errorStore = useErrorStore()
 
   const clientInfoFormSchema = Yup.object().shape({
     acceptFromSendingLayers: Yup.boolean().required(),
@@ -60,7 +51,7 @@ const ContactForm = (props: Props) => {
     surname: Yup.string().required(),
     title: Yup.string().required(),
     ...(props.formType === 'demo' && {
-      numberOfEmployees: Yup.number().required(),
+      numberOfEmployees: Yup.string().required(),
     }),
     usedHrProduct: Yup.string().required(),
   })
@@ -133,30 +124,29 @@ const ContactForm = (props: Props) => {
   function handleSubmit(values: any) {
     if (formPhase === screens.length - 1) {
       console.log('submit to server')
-      mutation.mutateAsync(values)
+      mutation.mutate(values)
     }
   }
 
-  const submitForm = async (values: FormData) => {
+  async function submitForm(values: FormData) {
     const res = await api.post<any>('DemoUser/Create', { ...values })
     return res.data
   }
 
   const mutation = useMutation(submitForm, {
     onMutate: (variables) => {
-      // A mutation is about to happen!
-      // Optionally return a context containing data to use when for example rolling back
+      console.log('variables', variables)
       setLoading(true)
     },
-    onError: (error, variables, context) => {
-      // An error happened!
-      console.log(`rolling back optimistic update with id `)
+    onError: ({ response, message }) => {
+      console.log(`error`, response.data.messages.Error)
+      errorStore.setMessages(response.data.messages.Error)
     },
-    onSuccess: (data, variables, context) => {
+    onSuccess: (data) => {
       setResponse(data)
+      // errorStore.setMessage(data.message)
     },
-    onSettled: (data, error, variables, context) => {
-      // Error or success... doesn't matter!
+    onSettled: () => {
       setLoading(false)
     },
   })
@@ -177,16 +167,36 @@ const ContactForm = (props: Props) => {
         initial="closed"
         animate="open"
         exit="closed"
-        variants={animationVariants}
+        variants={{
+          open: {
+            opacity: 1,
+            transition: { duration: 1, ease: customEase1 },
+          },
+          closed: {
+            opacity: 0,
+            transition: { duration: 1, ease: customEase1 },
+          },
+        }}
       >
         {loading ? (
-          <>{response ? <div>LOADING</div> : <ClientSuccess {...response} />}</>
+          <>
+            {response ? (
+              <ClientSuccess {...response} />
+            ) : (
+              <div className={cn(s.loading, 'flex-center')}>LOADING</div>
+            )}
+          </>
         ) : (
           <>
             <div className={s.screensC}>{screens[formPhase]}</div>
             <div className={s.btns}>
               <div className={cn(s.prevC, { [s.visible]: formPhase !== 0 })}>
-                <Button text="Preivous" path="/" callback={handlePrev} />
+                <Button
+                  text="Preivous"
+                  path="/"
+                  callback={handlePrev}
+                  inverted
+                />
               </div>
               <div className={s.nextC}>
                 <Button text="Next" path="/" callback={handleNext} />

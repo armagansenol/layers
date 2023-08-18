@@ -86,11 +86,7 @@
     }
 
     & > .iconC {
-      align-items: center;
-      display: flex;
-      height: desktop-vw(4px);
-      justify-content: center;
-      width: desktop-vw(12px);
+      @include dims(desktop-vw(10px));
     }
   }
 

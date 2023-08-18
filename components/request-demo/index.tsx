@@ -5,7 +5,7 @@ import cn from 'clsx'
 import { Back, gsap } from 'gsap'
 
 import Button from '@/components/button'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import { useMedia } from 'react-use'
 
 const RequestDemo = () => {
@@ -70,7 +70,6 @@ const RequestDemo = () => {
               alt="Staff"
               className={s.img}
               height={200}
-              loading="lazy"
               src="/img/pop-3.png"
               style={{ objectFit: 'contain' }}
               width={200}
@@ -81,7 +80,6 @@ const RequestDemo = () => {
               alt="Staff"
               className={s.img}
               height={200}
-              loading="lazy"
               src="/img/pop-1.png"
               style={{ objectFit: 'contain' }}
               width={200}
@@ -92,7 +90,6 @@ const RequestDemo = () => {
               alt="Staff"
               className={s.img}
               height={200}
-              loading="lazy"
               src="/img/pop-2.png"
               style={{ objectFit: 'contain' }}
               width={200}

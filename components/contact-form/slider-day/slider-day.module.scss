@@ -1,0 +1,11 @@
+.prevBtn,
+.nextBtn {
+  @include dims(40px, 30px);
+  background: var(--innocent-snowdrop);
+  border-radius: desktop-vw(6px);
+  padding: 25%;
+
+  .transformC {
+    transform: rotate(180deg);
+  }
+}

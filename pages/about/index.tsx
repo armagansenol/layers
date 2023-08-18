@@ -4,7 +4,7 @@ import cn from 'clsx'
 import { EmblaOptionsType } from 'embla-carousel-react'
 
 import EmblaCarousel from '@/components/embla-carousel'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import RequestDemo from '@/components/request-demo'

@@ -9,6 +9,7 @@ import {
 } from '../form-model/client-info-form'
 import { FormType } from '../types'
 import Link from 'next/link'
+import Select from '@/components/select'
 
 type Props = {
   formik?: FormikProps<ClientInfoForm>
@@ -16,6 +17,17 @@ type Props = {
 }
 
 const ClientInfo = ({ formType, formik }: Props) => {
+  const numberOfEmployeeesOptions = [
+    { ui: '1-10', value: '1-10' },
+    { ui: '11 - 50', value: '11 - 50' },
+    { ui: '51 - 100', value: '51 - 100' },
+    { ui: '101 - 250', value: '101 - 250' },
+    { ui: '250+', value: '250+' },
+  ]
+  function handleNumberOfEmployees(val: string) {
+    formik?.setFieldValue(contactFormModel.numberOfEmployees.name, val)
+  }
+
   return (
     <div className={s.contactForm}>
       <div className={s.row}>
@@ -104,7 +116,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
                   formik?.touched.numberOfEmployees,
               })}
             >
-              <input
+              {/* <input
                 placeholder={contactFormModel.numberOfEmployees.placeholder}
                 className={s.input}
                 type="text"
@@ -112,6 +124,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
                 name={contactFormModel.numberOfEmployees.name}
                 onChange={formik?.handleChange}
                 value={formik?.values.numberOfEmployees}
+              /> */}
+              <Select
+                callback={handleNumberOfEmployees}
+                label="Number of Employees"
+                options={numberOfEmployeeesOptions}
               />
             </div>
           </div>

@@ -1,9 +1,10 @@
 import { memo, useCallback, useLayoutEffect, useRef } from 'react'
 import s from './custom-cursor.module.scss'
 
-import { useCursorStore } from '@/lib/cursorStore'
+import { CursorType, useCursorStore } from '@/lib/cursorStore'
 import cn from 'clsx'
 import { gsap } from 'gsap'
+import Image from '@/components/image'
 
 function useTicker(callback: () => void, paused: boolean) {
   useLayoutEffect(() => {
@@ -26,16 +27,16 @@ function useInstance(value = {}) {
   return ref.current
 }
 
-// Function for Mouse Move Scale Change
-function getScale(diffX: number, diffY: number) {
-  const distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2))
-  return Math.min(distance / 800, 0.25)
-}
+// // Function for Mouse Move Scale Change
+// function getScale(diffX: number, diffY: number) {
+//   const distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2))
+//   return Math.min(distance / 800, 0.25)
+// }
 
-// Function For Mouse Movement Angle in Degrees
-function getAngle(diffX: number, diffY: number) {
-  return (Math.atan2(diffY, diffX) * 180) / Math.PI
-}
+// // Function For Mouse Movement Angle in Degrees
+// function getAngle(diffX: number, diffY: number) {
+//   return (Math.atan2(diffY, diffX) * 180) / Math.PI
+// }
 
 // Jelly Blob Function
 const CustomCursor = () => {
@@ -50,24 +51,24 @@ const CustomCursor = () => {
   useLayoutEffect(() => {
     set.x = gsap.quickSetter(jellyRef.current, 'x', 'px')
     set.y = gsap.quickSetter(jellyRef.current, 'y', 'px')
-    set.r = gsap.quickSetter(jellyRef.current, 'rotate', 'deg')
-    set.sx = gsap.quickSetter(jellyRef.current, 'scaleX')
-    set.sy = gsap.quickSetter(jellyRef.current, 'scaleY')
-    set.rt = gsap.quickSetter(textRef.current, 'rotate', 'deg')
+    // set.r = gsap.quickSetter(jellyRef.current, 'rotate', 'deg')
+    // set.sx = gsap.quickSetter(jellyRef.current, 'scaleX')
+    // set.sy = gsap.quickSetter(jellyRef.current, 'scaleY')
+    // set.rt = gsap.quickSetter(textRef.current, 'rotate', 'deg')
   }, [])
 
   // Start Animation loop
   const loop = useCallback(() => {
     // Calculate angle and scale based on velocity
-    var rotation = getAngle(vel.x, vel.y)
-    var scale = getScale(vel.x, vel.y)
+    // var rotation = getAngle(vel.x, vel.y)
+    // var scale = getScale(vel.x, vel.y)
 
     set.x(pos.x)
     set.y(pos.y)
-    set.r(rotation)
-    set.sx(1 + scale)
-    set.sy(1 - scale)
-    set.rt(-rotation)
+    // set.r(rotation)
+    // set.sx(1 + scale)
+    // set.sy(1 - scale)
+    // set.rt(-rotation)
   }, [])
 
   // Run on Mouse Move
@@ -79,7 +80,7 @@ const CustomCursor = () => {
       const y = e.clientY
       const mx = e.movementX
       const my = e.movementY
-      const speed = 0.1
+      const speed = 0
 
       // Animate Pos Object and calculate Vel Object Velocity
       gsap.to(pos, {
@@ -111,17 +112,17 @@ const CustomCursor = () => {
       ref={jellyRef}
       className={cn(s.jellyBlob, mediaSrc && [s[cursorType]])}
     >
-      {/* {cursorType === CursorType.marqueeLink && (
+      {cursorType === CursorType.marqueeLink && (
         <div className={s.imgC}>
           <Image
-            alt="6 hours"
+            alt="Icon"
             height={300}
             style={{ objectFit: 'contain' }}
             src={mediaSrc}
             width={300}
           />
         </div>
-      )} */}
+      )}
     </div>
   )
 }

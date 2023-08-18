@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import Button from '@/components/button'
 import FeatureList from '@/components/feature-list'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { DynamicPageContent } from '@/global'

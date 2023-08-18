@@ -2,7 +2,7 @@ import s from './contact.module.scss'
 
 import ContactForm from '@/components/contact-form'
 import { FormType } from '@/components/contact-form/types'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import { Link } from '@/components/link'
 import { Marquee } from '@/components/marquee'
 import MarqueeLink from '@/components/marquee-link'

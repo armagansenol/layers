@@ -3,11 +3,15 @@ import s from './footer.module.scss'
 
 import cn from 'clsx'
 
-import { Image } from '../image'
+import LanguageSelect from '@/components/language-select'
 import { Link } from '@/components/link'
+import Image from '@/components/image'
 import { routes } from '@/global'
+import { useMedia } from 'react-use'
 
 const Footer = () => {
+  const isMobile = useMedia('(max-width: 800px)', true)
+
   return (
     <footer>
       <div className={s.main}>
@@ -187,6 +191,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {!isMobile && (
+          <div className={s.lngBtn}>
+            <LanguageSelect />
+          </div>
+        )}
       </div>
 
       <div className={s.copyright}>

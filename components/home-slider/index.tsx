@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 
 import Button from '@/components/button'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import { customEase1 } from '@/utils'
 
 const HomeSlider = () => {

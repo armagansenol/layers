@@ -3,7 +3,7 @@ import React from 'react'
 
 import cn from 'clsx'
 
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import IconClock from '@/components/icons/icon-clock'
 import IconCalendar from '@/components/icons/icon-calendar'
 

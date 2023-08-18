@@ -6,8 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useMedia } from 'react-use'
 
-import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import { ClientOnly } from '@/components/isomorphic'
 import LanguageSelect from '@/components/language-select'
 import { Link } from '@/components/link'
@@ -134,10 +133,7 @@ const Header = () => {
             rel="noreferrer noopener"
             className={s.btn}
           >
-            Login{' '}
-            <div className={s.iconC}>
-              <IconArrowDropdown />
-            </div>
+            Login
           </Link>
         </div>
       </header>

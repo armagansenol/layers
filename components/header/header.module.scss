@@ -49,19 +49,19 @@
       align-items: center;
       border: 1px solid var(--lavender-syrup);
       border-radius: desktop-vw(6px);
-      column-gap: desktop-vw(8px);
+      column-gap: desktop-vw(4px);
       display: flex;
       font-family: var(--font-inter);
       font-size: desktop-vw(15px);
       font-weight: 500;
-      padding: desktop-vw(3px) desktop-vw(15px);
+      padding: desktop-vw(3px) desktop-vw(8px);
 
-      .iconC {
-        @include dims(desktop-vw(12px), desktop-vw(4px));
-        align-items: center;
-        display: flex;
-        justify-content: center;
-      }
+      // .iconC {
+      //   @include dims(desktop-vw(12px), desktop-vw(4px));
+      //   align-items: center;
+      //   display: flex;
+      //   justify-content: center;
+      // }
     }
   }
 

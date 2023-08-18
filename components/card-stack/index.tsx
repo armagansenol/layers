@@ -4,7 +4,7 @@ import s from './card-stack.module.scss'
 import cn from 'clsx'
 
 import Button from '@/components/button'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import { routes } from '@/global'
 
 const CardStack = () => {

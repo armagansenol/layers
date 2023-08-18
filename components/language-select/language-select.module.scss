@@ -1,0 +1,18 @@
+.lngSelect {
+  align-items: center;
+  column-gap: desktop-vw(4px);
+  display: flex;
+  text-transform: uppercase;
+
+  @include mobile {
+    column-gap: mobile-vw(4px);
+  }
+
+  .iconC {
+    @include dims(desktop-vw(12px), desktop-vw(4px));
+
+    @include mobile {
+      @include dims(mobile-vw(10px));
+    }
+  }
+}

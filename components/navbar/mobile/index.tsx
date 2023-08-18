@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
+import LanguageSelect from '@/components/language-select'
 import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
 import { customEase1 } from '@/utils'
@@ -69,7 +70,7 @@ export function NavbarMobile(props: Props) {
               return (
                 <>
                   <div
-                    className={cn(s.navItemC, 'cursor-pointer', [
+                    className={cn(s.navItemC, [
                       s[value.type],
                       {
                         [s.active]: value.type === currentRoute,
@@ -83,13 +84,16 @@ export function NavbarMobile(props: Props) {
                       <IconArrowDropdown />
                     </div>
                   </div>
-
                   <AnimatePresence mode="wait">
-                    {currentRoute === value.type && (
+                    {currentRoute && (
                       <motion.div
+                        layout
+                        key={`${value.type}-submenu`}
                         className={s.submenu}
                         initial="closed"
-                        animate={hamburger ? 'open' : 'closed'}
+                        animate={
+                          currentRoute === value.type ? 'open' : 'closed'
+                        }
                         exit="closed"
                         variants={{
                           open: {
@@ -110,7 +114,7 @@ export function NavbarMobile(props: Props) {
                               (item, i) => {
                                 return (
                                   <Link
-                                    className={cn(s.menuItem, 'cursor-pointer')}
+                                    className={s.menuItem}
                                     href={`/${
                                       routes[currentRoute].path
                                         ? routes[currentRoute].path + '/'
@@ -133,22 +137,28 @@ export function NavbarMobile(props: Props) {
             })}
 
             <Link
+              className={cn(s.navItemC, s.requestADemo)}
               href="/demo-request"
-              className={s.navItemC}
               onClick={closeMenu}
             >
               <p>Request A Demo</p>
             </Link>
 
             <Link
+              className={s.navItemC}
               href={props.loginUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className={s.navItemC}
               onClick={closeMenu}
             >
               <p>Login</p>
             </Link>
+
+            <div className={cn(s.lngBtn, s.navItemC)}>
+              <p>
+                <LanguageSelect />
+              </p>
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>

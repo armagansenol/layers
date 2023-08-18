@@ -1,76 +1,70 @@
 .selectTrigger {
   @include dims(100%);
-  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0 desktop-vw(10px);
+  column-gap: desktop-vw(8px);
+  display: inline-flex;
   font-size: desktop-vw(15px);
   font-family: Inter;
   font-weight: 400;
-
-  &:hover {
-    background-color: var(--innocent-snowdrop);
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px var(--black);
-  }
+  justify-content: flex-start;
+  padding: desktop-vw(15px) desktop-vw(20px);
 
   &[data-placeholder] {
     color: var(--black);
   }
 
   .selectIcon {
-    color: Var(--black);
+    @include dims(auto, desktop-vw(4px));
+    display: flex;
+    margin-left: auto;
+    object-fit: contain;
   }
 }
 
 .selectContent {
   overflow: hidden;
   background-color: var(--white);
-  border-radius: 6px;
+  border: 1px solid var(--hydrargyrum);
+  border-radius: desktop-vw(12px);
   z-index: 99999999999;
 }
 
 .selectViewport {
-  padding: 5px;
+  padding: desktop-vw(2px);
 }
 
 .selectItem {
-  font-size: 13px;
-  line-height: 1;
-  color: var(--black);
-  border-radius: 3px;
-  display: flex;
   align-items: center;
-  height: 25px;
-  padding: 0 35px 0 25px;
+  // border-radius: desktop-vw(6px);
+  display: flex;
+  font-family: Inter;
+  font-size: desktop-vw(16px);
+  font-weight: 400;
+  height: desktop-vw(36px);
+  padding: 0 desktop-vw(35px) 0 desktop-vw(25px);
   position: relative;
   user-select: none;
 
   &[data-disabled] {
-    color: var(--mauve-8);
+    color: var(--hydrargyrum);
     pointer-events: none;
   }
 
   &[data-highlighted] {
     outline: none;
-    background-color: var(--black);
-    color: var(--violet-1);
+    background-color: var(--zhen-zhu-bai-pearl);
   }
 }
 
 .selectLabel {
-  padding: 0 25px;
-  font-size: 12px;
-  line-height: 25px;
-  color: var(--mauve-11);
+  padding: desktop-vw(25px);
+  font-size: desktop-vw(16px);
 }
 
 .selectItemIndicator {
+  @include dims(desktop-vw(12px));
   position: absolute;
   left: 0;
-  width: 25px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -84,4 +78,12 @@
   background-color: white;
   color: var(--black);
   cursor: default;
+
+  .iconC {
+    @include dims(desktop-vw(12px));
+
+    &.up {
+      transform: rotate(180deg);
+    }
+  }
 }

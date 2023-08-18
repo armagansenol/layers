@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
 import { customEase1 } from '@/utils'
@@ -58,7 +58,7 @@ export function NavbarDesktop() {
       >
         <p>Request A Demo</p>
       </Link>
-      <AnimatePresence>
+      <AnimatePresence mode="popLayout">
         {isOpen && (
           <motion.div className={s.menuC}>
             <motion.div

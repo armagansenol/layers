@@ -1,9 +1,10 @@
-.phase2 {
+.phaseDate {
   & > h3 {
     font-family: var(--font-inter);
     font-size: desktop-vw(15px);
     font-weight: 400;
     margin-bottom: desktop-vw(27px);
+    margin-left: desktop-vw(8px);
   }
 
   .days {
@@ -12,18 +13,19 @@
     border-radius: desktop-vw(11px);
     display: flex;
     justify-content: center;
-    margin-bottom: desktop-vw(20px);
+    margin-bottom: desktop-vw(30px);
     overflow: hidden;
-    padding: desktop-vw(20px) 0 desktop-vw(55px) 0;
+    padding: desktop-vw(20px) 0 desktop-vw(35px) 0;
     position: relative;
 
     &::after {
       content: '';
       @include position(absolute, 0, -10px, 0, auto);
-      @include dims(50%, 100%);
+      @include dims(25%, 100%);
       background: linear-gradient(
         90deg,
-        var(--zhen-zhu-bai-pearl-transparent) 0%,
+        var(--zhen-zhu-bai-pearl-transparent) 30%,
+        var(--zhen-zhu-bai-pearl) 55%,
         var(--zhen-zhu-bai-pearl) 100%
       );
       pointer-events: none;
@@ -33,10 +35,11 @@
     &::before {
       content: '';
       @include position(absolute, 0, auto, 0, -10px);
-      @include dims(50%, 100%);
+      @include dims(25%, 100%);
       background: linear-gradient(
         -90deg,
-        var(--zhen-zhu-bai-pearl-transparent) 0%,
+        var(--zhen-zhu-bai-pearl-transparent) 30%,
+        var(--zhen-zhu-bai-pearl) 55%,
         var(--zhen-zhu-bai-pearl) 100%
       );
       pointer-events: none;
@@ -44,16 +47,16 @@
     }
 
     .day {
-      align-items: center;
-      border-radius: desktop-vw(8px);
+      align-items: stretch;
       display: flex;
       flex-direction: column;
       font-family: var(--font-inter);
       justify-content: center;
-      padding: desktop-vw(7px) desktop-vw(15px);
 
-      &:hover {
-        background: var(--alpine-goat);
+      &.disabled {
+        opacity: 0.2;
+        pointer-events: none;
+        display: none;
       }
 
       &.selected {
@@ -61,20 +64,37 @@
       }
 
       .dayName {
+        border-bottom: 1px solid var(--aria);
         font-size: desktop-vw(15px);
         font-weight: 400;
-        margin-bottom: desktop-vw(20px);
+        margin-bottom: desktop-vw(14px);
+        padding: desktop-vw(14px);
       }
 
-      .dayNumber {
-        font-size: desktop-vw(18px);
-        font-weight: 700;
-        margin-bottom: desktop-vw(8px);
-      }
+      .bottom {
+        align-items: center;
+        border-radius: desktop-vw(8px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: desktop-vw(7px) desktop-vw(15px);
+        row-gap: desktop-vw(8px);
 
-      .dayMonth {
-        font-size: desktop-vw(18px);
-        font-weight: 400;
+        @include hover {
+          &:hover {
+            background: var(--alpine-goat);
+          }
+        }
+
+        .dayNumber {
+          font-size: desktop-vw(18px);
+          font-weight: 700;
+        }
+
+        .dayMonth {
+          font-size: desktop-vw(18px);
+          font-weight: 400;
+        }
       }
     }
   }
@@ -83,6 +103,7 @@
     @include dims(auto, desktop-vw(47px));
     background: var(--zhen-zhu-bai-pearl);
     border-radius: desktop-vw(8px);
+    overflow: hidden;
     position: relative;
   }
 

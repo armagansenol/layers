@@ -1,4 +1,7 @@
 .accordion {
+  overflow: hidden;
+  will-change: height;
+
   &.open {
     .accordionHeader {
       .close {

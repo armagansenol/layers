@@ -1,0 +1,19 @@
+.errorMessage {
+  @include position(fixed, auto, desktop-vw(20px), desktop-vw(20px), auto);
+  background: var(--white);
+  border-radius: desktop-vw(16px);
+  border: 1px solid var(--black);
+  padding: desktop-vw(16px) desktop-vw(40px);
+  z-index: z-index('error');
+
+  p {
+    font-family: Inter;
+    font-size: desktop-vw(16px);
+    font-weight: 400;
+  }
+
+  .close {
+    @include position(absolute, desktop-vw(8px), desktop-vw(8px), auto, auto);
+    @include dims(desktop-vw(14px));
+  }
+}

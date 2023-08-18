@@ -12,6 +12,7 @@ import { gsap } from 'gsap'
 import { EventAccordion } from './event-accordion'
 
 const UpcomingAccordion = () => {
+  const ref = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const isMobile = useMedia('(max-width: 800px)', true)
   const [isOpen, setIsOpen] = useState(false)
@@ -204,6 +205,7 @@ const UpcomingAccordion = () => {
       className={cn(s.accordion, {
         [s.open]: isOpen,
       })}
+      ref={ref}
     >
       <div
         className={cn(s.accordionHeader, 'cursor-pointer')}

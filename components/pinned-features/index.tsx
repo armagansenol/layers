@@ -46,7 +46,7 @@ const PinnedFeatures = () => {
 
       const scrollLength =
         items[0].getBoundingClientRect().height * (items.length - 1)
-      const multiplyBy = 2
+      const multiplyBy = 1.5
 
       gsap.to(scrollContainer, {
         ease: 'none',
@@ -57,7 +57,7 @@ const PinnedFeatures = () => {
           // markers: true,
           pin: true,
           pinSpacing: true,
-          scrub: 1,
+          scrub: true,
           trigger: ref.current,
           onUpdate: (self) => {
             updateVideo(self.progress)
@@ -66,7 +66,7 @@ const PinnedFeatures = () => {
       })
 
       const tl = gsap
-        .timeline({ paused: true })
+        .timeline({ paused: true, ease: 'none' })
         .to(items[0], { opacity: 1 })
         .to(items[0], { opacity: 0.3 })
 
@@ -78,7 +78,7 @@ const PinnedFeatures = () => {
         .to(items[2], { opacity: 1 })
 
       ScrollTrigger.create({
-        scrub: 1,
+        scrub: true,
         animation: tl,
         trigger: ref.current,
         end: `${scrollLength * multiplyBy}px top`,

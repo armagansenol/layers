@@ -103,16 +103,16 @@ export const contactFormModel: { [key: string]: InputData } = {
 }
 
 export const initialValues: ClientInfoForm = {
-  acceptKvkk: true,
-  acceptFromSendingLayers: true,
+  acceptKvkk: process.env.NODE_ENV === 'development',
+  acceptFromSendingLayers: process.env.NODE_ENV === 'development',
   companyEmail: 'test@neyasis.com',
-  companyName: 'test',
-  name: 'test',
-  surname: 'test',
-  title: 'test',
-  numberOfEmployees: 'test',
-  interestedProduct: 'test',
-  phone: 'test',
-  note: 'test',
-  usedHrProduct: 'test',
+  companyName: process.env.NODE_ENV === 'development' ? 'test' : '',
+  name: process.env.NODE_ENV === 'development' ? 'test' : '',
+  surname: process.env.NODE_ENV === 'development' ? 'test' : '',
+  title: process.env.NODE_ENV === 'development' ? 'test' : '',
+  numberOfEmployees: process.env.NODE_ENV === 'development' ? '9' : '',
+  interestedProduct: process.env.NODE_ENV === 'development' ? 'test' : '',
+  phone: process.env.NODE_ENV === 'development' ? 'test' : '',
+  note: process.env.NODE_ENV === 'development' ? 'test' : '',
+  usedHrProduct: process.env.NODE_ENV === 'development' ? 'test' : '',
 }

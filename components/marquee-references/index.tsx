@@ -1,6 +1,6 @@
 import s from './references-marquee.module.scss'
 
-import { Image } from '@/components/image'
+import Image from '@/components/image'
 import { Marquee } from '@/components/marquee'
 
 type Props = {
@@ -18,7 +18,6 @@ const MarqueeReferences = (props: Props) => {
                 <Image
                   alt="Layers Logo"
                   height={150}
-                  loading="lazy"
                   src={item.logo}
                   style={{ objectFit: 'contain' }}
                   width={150}

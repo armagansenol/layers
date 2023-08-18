@@ -3,6 +3,7 @@ import React from 'react'
 
 import cn from 'clsx'
 import * as RadixSelect from '@radix-ui/react-select'
+import IconArrowDropdown from '../icons/icon-arrow-dropdown'
 // import {
 //   CheckIcon,
 //   ChevronDownIcon,
@@ -19,7 +20,7 @@ const SelectItem: any = React.forwardRef(
       >
         <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
         <RadixSelect.ItemIndicator className={s.selectItemIndicator}>
-          {/* <CheckIcon /> */}
+          <IconArrowDropdown />
         </RadixSelect.ItemIndicator>
       </RadixSelect.Item>
     )
@@ -29,41 +30,43 @@ const SelectItem: any = React.forwardRef(
 SelectItem.displayName = 'SelectItem'
 
 type Props = {
-  options: any[]
+  label: string
+  options: { ui: string; value: string }[]
   callback: (value: string) => void
 }
 
-const Select = ({ options = [], callback }: Props) => {
+const Select = ({ options = [], callback, label = 'Select' }: Props) => {
   return (
     <RadixSelect.Root onValueChange={callback}>
       <RadixSelect.Trigger className={s.selectTrigger} aria-label="TimeZone">
-        <RadixSelect.Value placeholder="Select Timezone" />
+        <RadixSelect.Value placeholder={label} />
         <RadixSelect.Icon className={s.selectIcon}>
-          {/* <ChevronDownIcon /> */}
+          <IconArrowDropdown />
         </RadixSelect.Icon>
       </RadixSelect.Trigger>
 
       <RadixSelect.Portal>
-        <RadixSelect.Content className={s.selectContent}>
+        <RadixSelect.Content className={cn(s.selectContent, 'cursor-pointer')}>
           <RadixSelect.ScrollUpButton className={s.selectScrollButton}>
-            {/* <ChevronUpIcon /> */}
+            <div className={cn(s.iconC, s.up)}>
+              <IconArrowDropdown />
+            </div>
           </RadixSelect.ScrollUpButton>
           <RadixSelect.Viewport className={s.selectViewport}>
             <RadixSelect.Group>
-              <RadixSelect.Label className={s.selectLabel}>
-                Time Zones
-              </RadixSelect.Label>
               {options.map((option, i) => {
                 return (
-                  <SelectItem value={option} key={i}>
-                    {option}
+                  <SelectItem value={option.value} key={i}>
+                    {option.ui}
                   </SelectItem>
                 )
               })}
             </RadixSelect.Group>
           </RadixSelect.Viewport>
           <RadixSelect.ScrollDownButton className={s.selectScrollButton}>
-            {/* <ChevronDownIcon /> */}
+            <div className={s.iconC}>
+              <IconArrowDropdown />
+            </div>
           </RadixSelect.ScrollDownButton>
         </RadixSelect.Content>
       </RadixSelect.Portal>

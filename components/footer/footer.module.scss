@@ -4,6 +4,7 @@
   grid-template-columns: repeat(2, 1fr);
   margin: 0 desktop-vw(60px);
   padding: desktop-vw(50px) 0;
+  position: relative;
 
   @include mobile {
     align-items: center;
@@ -178,6 +179,21 @@
         }
       }
     }
+  }
+
+  .lngBtn {
+    @include position(absolute, 0, 0, auto, auto);
+    z-index: z-index('language-select');
+    align-items: center;
+    border: 1px solid var(--theme-secondary);
+    border-radius: desktop-vw(8px);
+    column-gap: desktop-vw(4px);
+    display: flex;
+    font-family: var(--font-inter);
+    font-size: desktop-vw(15px);
+    font-weight: 500;
+    margin-top: desktop-vw(50px);
+    padding: desktop-vw(8px) desktop-vw(6px);
   }
 }
 

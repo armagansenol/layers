@@ -21,6 +21,7 @@ type Props = {
   text: string
   path?: string
   size?: 'sm' | 'md' | 'lg' | 'xl'
+  inverted?: boolean
   callback?: (() => void) | null
 }
 
@@ -28,6 +29,7 @@ const Button: React.FC<Props> = ({
   text = 'Button Text',
   path = '/',
   size = 'md',
+  inverted = false,
   callback = null,
 }: Props) => {
   const router = useRouter()
@@ -35,7 +37,9 @@ const Button: React.FC<Props> = ({
 
   return (
     <button
-      className={cn(s.button, 'cursor-pointer', [s[size]])}
+      className={cn(s.button, 'cursor-pointer', [s[size]], {
+        [s.inverted]: inverted,
+      })}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       {...(callback

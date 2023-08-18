@@ -33,6 +33,15 @@
     }
   }
 
+  &.inverted {
+    flex-direction: row-reverse;
+    padding: desktop-vw(3px) 0 desktop-vw(3px) desktop-vw(3px);
+
+    .iconC {
+      transform: rotate(180deg);
+    }
+  }
+
   &.sm {
     @include dims(desktop-vw(240px), desktop-vw(47px));
 
@@ -87,7 +96,6 @@
 
   .text {
     flex: 1;
-
     overflow: hidden;
 
     span {

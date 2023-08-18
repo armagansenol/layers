@@ -82,7 +82,7 @@
 
     .media {
       @include dims(100%);
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
   }
