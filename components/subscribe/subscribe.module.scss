@@ -1,6 +1,6 @@
 .subscribeC {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   margin: desktop-vw(35px) desktop-vw(60px);
 
   @include mobile {
@@ -61,7 +61,7 @@
     .input {
       @include dims(100%);
       border-radius: desktop-vw(30px);
-      font-family: var(--font-wt-gothic);
+      font-family: var(--inter);
       font-size: desktop-vw(19px);
       font-weight: 100;
       padding: desktop-vw(14px) var(--padding-left);
@@ -125,7 +125,7 @@
     span {
       color: var(--caribbean-green);
       display: inline-block;
-      font-family: var(--font-wt-gothic);
+      font-family: var(--font-inter);
       font-size: desktop-vw(13px);
       font-weight: 100;
       line-height: 1.5;
@@ -147,16 +147,12 @@
     border-radius: desktop-vw(30px);
     border: 2px solid var(--kuretake-black-manga);
     color: var(--caribbean-green);
-    font-family: var(--font-wt-gothic);
+    font-family: var(--font-inter);
     font-size: desktop-vw(20px);
-    font-weight: 100;
+    font-weight: 500;
     height: calc(100% - $distance * 2);
+    padding-right: var(--padding-left);
     transition: 0.4s all ease;
-    width: desktop-vw(200px);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     &:hover {
       background: var(--caribbean-green);

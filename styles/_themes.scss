@@ -10,14 +10,17 @@ $themes: (
   'main': (
     'primary': map.get($colors, 'innocent-snowdrop'),
     'secondary': map.get($colors, 'wistful'),
+    'tertiary': map.get($colors, 'connecticut-lilac'),
   ),
   'features': (
     'primary': map.get($colors, 'cold-white'),
     'secondary': map.get($colors, 'mint-blue'),
+    'tertiary': map.get($colors, 'mint-blue'),
   ),
   'services': (
     'primary': map.get($colors, 'placebo-orange'),
     'secondary': map.get($colors, 'negroni'),
+    'tertiary': map.get($colors, 'negroni'),
   ),
 );
 

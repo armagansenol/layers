@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useMedia } from 'react-use'
 
+import IconLogin from '@/components/icons/icon-login'
 import Image from '@/components/image'
 import { ClientOnly } from '@/components/isomorphic'
 import LanguageSelect from '@/components/language-select'
@@ -134,6 +135,9 @@ const Header = () => {
             className={s.btn}
           >
             Login
+            <div className={cn(s.iconC, 'flex-center')}>
+              <IconLogin fill="var(--black)" />
+            </div>
           </Link>
         </div>
       </header>

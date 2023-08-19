@@ -19,46 +19,11 @@ const timezones = getTimezones()
 const today = moment(moment().format('YYYY-MM-DD'))
 const dayInfoArray = generateDays(today, 5)
 
-type Slide = {
-  callback?: () => void
-}
-
-function Slide(props: any) {
-  return (
-    <div
-      className={cn(s.day, {
-        [s.disabled]: !props.active,
-        [s.selected]: props.selected === props.name,
-      })}
-      onClick={props.callback}
-    >
-      <p className={cn(s.dayName, 'flex-center')}>
-        {props.name.toUpperCase().substring(0, 3)}
-      </p>
-      <div className={s.bottom}>
-        <p className={s.dayNumber}>{props.number}</p>
-        <p className={s.dayMonth}>{props.month.substring(0, 3)}</p>
-      </div>
-    </div>
-  )
-}
-
 type Props = {
   formik?: FormikProps<DemoDateForm>
 }
 
 const ClientDate = ({ formik }: Props) => {
-  const slides = dayInfoArray.map((data, i) => {
-    return (
-      <Slide
-        callback={() => handleDay(i)}
-        key={i}
-        {...data}
-        selected={formik?.values.demoUserCalendarDto.date}
-      />
-    )
-  })
-
   function handleDay(index: number) {
     console.log(
       dayInfoArray[index].yearMonthDate,
@@ -113,7 +78,11 @@ const ClientDate = ({ formik }: Props) => {
             formik?.touched.demoUserCalendarDto?.date,
         })}
       >
-        <SliderDay slides={slides} />
+        <SliderDay
+          selected={formik?.values.demoUserCalendarDto.date}
+          callback={handleDay}
+          slideData={dayInfoArray}
+        />
       </div>
 
       <h3>Select Time</h3>

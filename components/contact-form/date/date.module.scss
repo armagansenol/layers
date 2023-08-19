@@ -45,58 +45,6 @@
       pointer-events: none;
       z-index: 100;
     }
-
-    .day {
-      align-items: stretch;
-      display: flex;
-      flex-direction: column;
-      font-family: var(--font-inter);
-      justify-content: center;
-
-      &.disabled {
-        opacity: 0.2;
-        pointer-events: none;
-        display: none;
-      }
-
-      &.selected {
-        background: var(--innocent-snowdrop);
-      }
-
-      .dayName {
-        border-bottom: 1px solid var(--aria);
-        font-size: desktop-vw(15px);
-        font-weight: 400;
-        margin-bottom: desktop-vw(14px);
-        padding: desktop-vw(14px);
-      }
-
-      .bottom {
-        align-items: center;
-        border-radius: desktop-vw(8px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: desktop-vw(7px) desktop-vw(15px);
-        row-gap: desktop-vw(8px);
-
-        @include hover {
-          &:hover {
-            background: var(--alpine-goat);
-          }
-        }
-
-        .dayNumber {
-          font-size: desktop-vw(18px);
-          font-weight: 700;
-        }
-
-        .dayMonth {
-          font-size: desktop-vw(18px);
-          font-weight: 400;
-        }
-      }
-    }
   }
 
   .timeZone {

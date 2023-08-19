@@ -45,7 +45,7 @@ export function NavbarDesktop() {
             onMouseEnter={() => handleMenu(value.type)}
           >
             <p>{value.ui}</p>
-            <div className={s.iconC}>
+            <div className={cn(s.iconC, 'flex-center')}>
               <IconArrowDropdown />
             </div>
           </div>
@@ -116,7 +116,7 @@ export function NavbarDesktop() {
                               onClick={handleClose}
                             >
                               {currentRoute !== MainRoute.resources && (
-                                <div className={s.iconC}>
+                                <div className={cn(s.iconC, 'flex-center')}>
                                   <Image
                                     alt="Feature Icons"
                                     height={150}

@@ -83,22 +83,23 @@
 }
 
 .accordionBody {
+  --gradient-height: #{desktop-vw(400px)};
   --margin-top: #{desktop-vw(50px)};
   height: calc(90vh - var(--margin-top));
   margin-top: var(--margin-top);
   overflow: scroll;
   overscroll-behavior: contain;
-  padding-bottom: desktop-vw(100px);
+  padding-bottom: calc(var(--gradient-height) / 2);
 
   @include mobile {
     --margin-top: #{mobile-vw(20px)};
-    padding-bottom: mobile-vw(100px);
+    --gradient-height: #{mobile-vw(200px)};
   }
 
   &::after {
     content: '';
     @include position(absolute, auto, 0, 0, 0);
-    @include dims(100%, desktop-vw(200px));
+    @include dims(100%, var(--gradient-height));
     background: linear-gradient(
       180deg,
       var(#{--theme-primary}-transparent) 0%,
@@ -109,7 +110,7 @@
     transition: 400ms all ease;
 
     @include mobile {
-      @include dims(100%, mobile-vw(200px));
+      @include dims(100%, var(--gradient-height));
     }
   }
 }

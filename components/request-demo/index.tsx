@@ -30,6 +30,7 @@ const RequestDemo = () => {
 
       gsap.to(q('[data-animation-pop]'), {
         ease: Back.easeOut.config(1),
+        duration: 1,
         opacity: 1,
         rotate: 0,
         scale: 1,

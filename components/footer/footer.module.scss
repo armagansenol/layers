@@ -1,5 +1,5 @@
 .main {
-  border-top: 1px solid var(--theme-secondary);
+  border-top: 1px solid var(--theme-tertiary);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 desktop-vw(60px);
@@ -199,7 +199,7 @@
 
 .copyright {
   align-items: center;
-  border-top: 1px solid var(--theme-secondary);
+  border-top: 1px solid var(--theme-tertiary);
   display: flex;
   font-family: var(--font-inter);
   font-size: desktop-vw(15px);

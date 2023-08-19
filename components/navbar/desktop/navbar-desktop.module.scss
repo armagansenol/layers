@@ -57,6 +57,8 @@
 
     &.requestADemo {
       background: var(--innocent-snowdrop);
+      padding-left: desktop-vw(13px);
+      padding-right: desktop-vw(13px);
 
       @include hover {
         &:hover {

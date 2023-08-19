@@ -1,6 +1,6 @@
 import timezones from '@/public/timezones.json'
 import { cubicBezier } from 'framer-motion'
-import moment, { Moment } from 'moment'
+import moment, { ISO_8601, Moment } from 'moment'
 
 export const customEase1 = cubicBezier(0.16, 1, 0.3, 1)
 
@@ -58,6 +58,6 @@ export function getTimezones() {
 }
 
 export function getFormattedDate(date: string, time: string) {
-  const combinedDateTime = moment(`${date}T00:${time}.000Z`, moment.ISO_8601)
-  return combinedDateTime.format()
+  const combinedDateTime = `${date}T${time}:00`
+  return moment(combinedDateTime, moment.ISO_8601).format()
 }

@@ -7,13 +7,13 @@ import cn from 'clsx'
 import { useFormik } from 'formik'
 import { AnimatePresence, motion } from 'framer-motion'
 import * as Yup from 'yup'
+import Link from 'next/link'
 
 import IconInstagram from '@/components/icons/icon-instagram'
 import IconLinkedin from '@/components/icons/icon-linkedin'
 import IconMail from '@/components/icons/icon-mail'
-import IconShare from '@/components/icons/icon-share'
 import IconTwitter from '@/components/icons/icon-twitter'
-import Link from 'next/link'
+import IconYoutube from '@/components/icons/icon-youtube'
 
 interface ISubscribeFormData {
   email: string
@@ -110,7 +110,7 @@ const Subscribe = () => {
           rel="noreferrer noopener"
           className={cn(s.iconC, 'cursor-pointer')}
         >
-          <IconShare fill="var(--black)" />
+          <IconYoutube fill="var(--black)" />
         </Link>
         <Link
           href="https://www.facebook.com/layers.hrtech"
@@ -161,7 +161,10 @@ const Subscribe = () => {
               onChange={subscribeFormik.handleChange}
               value={subscribeFormik.values.email}
             />
-            <button type="submit" className={cn(s.submitBtn, 'cursor-pointer')}>
+            <button
+              type="submit"
+              className={cn(s.submitBtn, 'cursor-pointer', 'flex-center')}
+            >
               <span>Register</span>
             </button>
           </div>
