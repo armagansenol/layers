@@ -14,18 +14,17 @@ import ClientDate from '@/components/contact-form/date'
 import ClientSuccess from '@/components/contact-form/success'
 
 import api from '@/api-client'
+import { useErrorStore } from '@/lib/errorStore'
 import { customEase1 } from '@/utils'
 import {
   ClientInfoForm,
   initialValues as clientInfoInitialValues,
-} from './form-model/client-info-form'
+} from './client-info/form-model'
 import {
   DemoDateForm,
   initialValues as demoDateInitialValues,
-} from './form-model/demo-date-form'
+} from './date/form-model'
 import { FormData, FormType } from './types'
-import { AxiosError } from 'axios'
-import { useErrorStore } from '@/lib/errorStore'
 
 type Props = {
   formType: FormType
@@ -43,11 +42,11 @@ const ContactForm = (props: Props) => {
     companyEmail: Yup.string().email().required(),
     companyName: Yup.string().required(),
     ...(props.formType === 'service' && {
-      interestedProduct: Yup.string().required(),
+      interestedProduct: Yup.array().of(Yup.string()).min(1).required(),
     }),
     name: Yup.string().required(),
     note: Yup.string(),
-    phone: Yup.string().required(),
+    phone: Yup.string().max(12).required(),
     surname: Yup.string().required(),
     title: Yup.string().required(),
     ...(props.formType === 'demo' && {
@@ -85,11 +84,6 @@ const ContactForm = (props: Props) => {
     },
   })
 
-  function validate() {
-    clientInfoFormik.submitForm()
-    demoDateFormik.submitForm()
-  }
-
   function handlePrev() {
     if (formPhase < 0) return
 
@@ -99,17 +93,20 @@ const ContactForm = (props: Props) => {
   }
 
   function handleNext() {
-    validate()
-
-    if (Object.keys(clientInfoFormik.errors).length && formPhase === 0) {
-      return
+    if (formPhase === 0) {
+      clientInfoFormik.submitForm()
     }
 
-    if (Object.keys(demoDateFormik.errors).length && formPhase === 1) {
-      return
+    if (formPhase === 1) {
+      demoDateFormik.submitForm()
     }
 
-    setFormPhase((prev) => (prev + 1) % screens.length)
+    if (
+      Object.keys(clientInfoFormik.errors).length === 0 ||
+      Object.keys(demoDateFormik.errors).length === 0
+    ) {
+      setFormPhase((prev) => (prev + 1) % screens.length)
+    }
 
     const values = {
       ...clientInfoFormik.values,
@@ -190,17 +187,23 @@ const ContactForm = (props: Props) => {
           <>
             <div className={s.screensC}>{screens[formPhase]}</div>
             <div className={s.btns}>
-              <div className={cn(s.prevC, { [s.visible]: formPhase !== 0 })}>
-                <Button
-                  text="Preivous"
-                  path="/"
-                  callback={handlePrev}
-                  inverted
-                />
-              </div>
-              <div className={s.nextC}>
-                <Button text="Next" path="/" callback={handleNext} />
-              </div>
+              {formPhase !== 0 && (
+                <div className={cn(s.prevC, { [s.visible]: formPhase !== 0 })}>
+                  <Button text="Preivous" callback={handlePrev} inverted />
+                </div>
+              )}
+
+              {formPhase !== screens.length - 1 && (
+                <div className={s.nextC}>
+                  <Button text="Next" callback={handleNext} />
+                </div>
+              )}
+
+              {formPhase === screens.length - 1 && (
+                <div className={s.sendC}>
+                  <Button text="Send" callback={handleNext} />
+                </div>
+              )}
             </div>
           </>
         )}

@@ -1,4 +1,5 @@
-import timezones from '@/public/timezones.json'
+import timezones from '@/public/json/timezones.json'
+import countryCodes from '@/public/json/countryCodes.json'
 import { cubicBezier } from 'framer-motion'
 import moment, { ISO_8601, Moment } from 'moment'
 
@@ -60,4 +61,12 @@ export function getTimezones() {
 export function getFormattedDate(date: string, time: string) {
   const combinedDateTime = `${date}T${time}:00`
   return moment(combinedDateTime, moment.ISO_8601).format()
+}
+
+export function getCountryCodes() {
+  const codes = countryCodes.map((item) => {
+    return { ui: `${item.name} (${item.code})`, value: item.code }
+  })
+
+  return codes
 }

@@ -1,6 +1,8 @@
 import moment from 'moment'
 import { InputData } from '../../types'
 
+const isDev = process.env.NEXT_PUBLIC_NODE_ENV === 'development'
+
 export interface DemoDateForm {
   demoUserStatus: string | null
   demoUserCalendarDto: {
@@ -59,8 +61,8 @@ export const initialValues: DemoDateForm = {
   demoUserCalendarDto: {
     demoUserId: null,
     devDemoUserId: null,
-    timezone: process.env.NODE_ENV === 'development' ? 'test' : '',
+    timezone: isDev ? 'test' : '',
     date: moment().format(),
-    time: process.env.NODE_ENV === 'development' ? 'test' : '',
+    time: isDev ? 'test' : '',
   },
 }

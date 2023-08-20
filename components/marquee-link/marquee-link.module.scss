@@ -36,12 +36,30 @@
       @include dims(100%, mobile-vw(60px));
     }
 
+    @include hover {
+      &:hover {
+        .iconC {
+          background: var(--theme-secondary);
+
+          .transformC {
+            transform: translateX(100%);
+            opacity: 0;
+
+            &.tuple {
+              opacity: 1;
+              transform: translate(0, -50%);
+            }
+          }
+        }
+      }
+    }
+
     .marqueeText {
       font-family: var(--font-wt-gothic);
 
-      .text {
+      & > span {
         font-size: desktop-vw(60px);
-        margin-right: desktop-vw(60px);
+        margin-right: desktop-vw(150px);
 
         @include mobile {
           font-size: mobile-vw(30px);
@@ -65,16 +83,30 @@
 
     .iconC {
       @include dims(desktop-vw(155px), 100%);
-      align-items: center;
       background: var(--theme-primary);
       border-radius: desktop-vw(27px);
-      display: flex;
       flex-shrink: 0;
-      justify-content: center;
-      padding: desktop-vw(45px);
+      position: relative;
+      transition: 300ms all ease;
 
       @include mobile {
-        @include dims(mobile-vw(55px), 100%);
+        border-radius: mobile-vw(8px);
+      }
+
+      .transformC {
+        @include dims(100%);
+        transition: 800ms all var(--ease-out-expo);
+        will-change: transform;
+
+        &.tuple {
+          @include position(absolute, 50%, auto, 0, 0);
+          opacity: 0;
+          transform: translate(-150%, -50%);
+        }
+      }
+
+      .icon {
+        @include dims(40%);
       }
     }
   }

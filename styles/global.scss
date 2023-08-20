@@ -175,6 +175,11 @@ sup {
 
 .input-required {
   // box-shadow: var(--error) 0px 0px 0px 1px;
-  color: var(--error);
+  color: var(--error) !important;
   transition: 400ms all ease;
+
+  * {
+    color: var(--error) !important;
+    transition: 400ms all ease;
+  }
 }

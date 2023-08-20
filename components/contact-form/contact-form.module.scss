@@ -8,10 +8,16 @@
   justify-content: space-between;
 
   .prevC {
+    margin-right: auto;
     visibility: hidden;
 
     &.visible {
       visibility: visible;
     }
+  }
+
+  .nextC,
+  .sendC {
+    margin-left: auto;
   }
 }

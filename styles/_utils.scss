@@ -64,8 +64,15 @@
 }
 
 .flex-center {
-  display: flex;
   align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.flex-center-y {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 

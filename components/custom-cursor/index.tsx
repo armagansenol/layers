@@ -1,10 +1,12 @@
 import { memo, useCallback, useLayoutEffect, useRef } from 'react'
 import s from './custom-cursor.module.scss'
 
-import { CursorType, useCursorStore } from '@/lib/cursorStore'
 import cn from 'clsx'
 import { gsap } from 'gsap'
 import Image from '@/components/image'
+import { AnimatePresence, motion, useAnimationFrame } from 'framer-motion'
+
+import { CursorType, useCursorStore } from '@/lib/cursorStore'
 
 function useTicker(callback: () => void, paused: boolean) {
   useLayoutEffect(() => {
@@ -107,22 +109,54 @@ const CustomCursor = () => {
 
   const { cursorType, mediaSrc } = useCursorStore()
 
+  const imgRef = useRef<HTMLDivElement | null>(null)
+
+  useAnimationFrame((time, delta) => {
+    if (!imgRef.current) return
+    const y = (1 + Math.sin(time / 1000)) * -10
+    const rotate = (1 + Math.sin(time / 1000)) * -5
+
+    imgRef.current.style.transform = `translateY(${y}px) rotate(${rotate}deg)`
+  })
+
   return (
-    <div
-      ref={jellyRef}
-      className={cn(s.jellyBlob, mediaSrc && [s[cursorType]])}
-    >
-      {cursorType === CursorType.marqueeLink && (
-        <div className={s.imgC}>
-          <Image
-            alt="Icon"
-            height={300}
-            style={{ objectFit: 'contain' }}
-            src={mediaSrc}
-            width={300}
-          />
-        </div>
-      )}
+    <div ref={jellyRef} className={cn(s.cursor, mediaSrc && [s[cursorType]])}>
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={`${cursorType}-cursor`}
+          initial="open"
+          animate="open"
+          exit="closed"
+          variants={{
+            open: {
+              scale: 1,
+              opacity: 1,
+              transition: { duration: 0.2 },
+            },
+            closed: {
+              scale: 0,
+              opacity: 0,
+              transition: { duration: 0.2 },
+            },
+          }}
+        >
+          {cursorType === CursorType.marqueeLink ? (
+            <div className={s.imgC}>
+              <div className={s.transformC} ref={imgRef}>
+                <Image
+                  alt="Icon"
+                  height={300}
+                  style={{ objectFit: 'contain' }}
+                  src={mediaSrc}
+                  width={300}
+                />
+              </div>
+            </div>
+          ) : (
+            <div className={s.default}></div>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   )
 }

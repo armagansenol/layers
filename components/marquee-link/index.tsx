@@ -44,12 +44,23 @@ const MarqueeLink = ({
       >
         <Marquee repeat={2} duration={20} inverted={!isMobile}>
           <h5 className={s.marqueeText}>
-            <span className={s.text}>{text.t1}</span>
-            <span className={s.text}>{text.t2}</span>
+            <span>{text.t1}</span>
+            <span>{text.t2}</span>
           </h5>
         </Marquee>
-        <div className={s.iconC}>
-          <IconArrow />
+
+        <div className={cn(s.iconC, 'flex-center', 'hidden-overflow')}>
+          <div className={cn(s.transformC, s.tuple, 'flex-center')}>
+            <div className={cn(s.icon, 'flex-center')}>
+              <IconArrow />
+            </div>
+          </div>
+
+          <div className={cn(s.transformC, 'flex-center')}>
+            <div className={cn(s.icon, 'flex-center')}>
+              <IconArrow />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,34 +2,103 @@ import s from './client-info.module.scss'
 
 import cn from 'clsx'
 import { FormikProps } from 'formik'
-
-import {
-  ClientInfoForm,
-  contactFormModel,
-} from '../form-model/client-info-form'
-import { FormType } from '../types'
 import Link from 'next/link'
+
+import { ClientInfoForm, clientInfoFormModel } from './form-model'
+import { FormType } from '../types'
 import Select from '@/components/select'
+import { routes } from '@/global'
+import { getCountryCodes } from '@/utils'
 
 type Props = {
   formik?: FormikProps<ClientInfoForm>
   formType: FormType
 }
 
+const countryCodeOptions = getCountryCodes()
+
+const numberOfEmployeeesOptions = [
+  { ui: '1-10', value: '1-10' },
+  { ui: '11 - 50', value: '11 - 50' },
+  { ui: '51 - 100', value: '51 - 100' },
+  { ui: '101 - 250', value: '101 - 250' },
+  { ui: '250+', value: '250+' },
+]
+
+const interestedProduct = Object.values(routes.services.children).map(
+  (service) => {
+    return service.ui
+  }
+)
+
 const ClientInfo = ({ formType, formik }: Props) => {
-  const numberOfEmployeeesOptions = [
-    { ui: '1-10', value: '1-10' },
-    { ui: '11 - 50', value: '11 - 50' },
-    { ui: '51 - 100', value: '51 - 100' },
-    { ui: '101 - 250', value: '101 - 250' },
-    { ui: '250+', value: '250+' },
-  ]
   function handleNumberOfEmployees(val: string) {
-    formik?.setFieldValue(contactFormModel.numberOfEmployees.name, val)
+    formik?.setFieldValue(clientInfoFormModel.numberOfEmployees.name, val)
+  }
+
+  function handleInterestedProduct(val: string) {
+    if (formik?.values.interestedProduct.includes(val)) {
+      const filtered = formik?.values.interestedProduct.filter((item) => {
+        return item !== val
+      })
+
+      formik?.setFieldValue(
+        clientInfoFormModel.interestedProduct.name,
+        filtered
+      )
+
+      return
+    }
+
+    formik?.setFieldValue(clientInfoFormModel.interestedProduct.name, [
+      ...formik.values.interestedProduct,
+      val,
+    ])
+  }
+
+  function handleCountryCode(val: string) {
+    formik?.setFieldValue(clientInfoFormModel.phone.name, '')
+
+    formik?.setFieldValue(
+      clientInfoFormModel.phone.name,
+      `${val}${formik.values.phone}`
+    )
   }
 
   return (
     <div className={s.contactForm}>
+      {formType === 'service' && (
+        <div className={cn(s.row, s.interestedProduct)}>
+          <div className="flex-center-y">
+            <small>
+              I’m interested in <span>(you may choose more than once)</span>
+            </small>
+            <div className={cn(s.checks, 'flex-center')}>
+              {interestedProduct.map((p, i) => {
+                return (
+                  <div
+                    className={cn(s.check, 'flex-center', {
+                      [s.selected]:
+                        formik?.values.interestedProduct.includes(p),
+                      ['input-required']:
+                        formik?.errors.interestedProduct &&
+                        formik?.touched.interestedProduct,
+                    })}
+                    key={i}
+                    onClick={() => handleInterestedProduct(p)}
+                  >
+                    <div className={s.checkbox}>
+                      <div className={s.fill}></div>
+                    </div>
+                    <p>{p}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className={s.row}>
         <div className={s.field}>
           <div
@@ -38,11 +107,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={contactFormModel.name.placeholder}
+              placeholder={clientInfoFormModel.name.placeholder}
               className={s.input}
               type="text"
-              id={contactFormModel.name.name}
-              name={contactFormModel.name.name}
+              id={clientInfoFormModel.name.name}
+              name={clientInfoFormModel.name.name}
               onChange={formik?.handleChange}
               value={formik?.values.name}
             />
@@ -56,11 +125,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={contactFormModel.surname.placeholder}
+              placeholder={clientInfoFormModel.surname.placeholder}
               className={s.input}
               type="text"
-              id={contactFormModel.surname.name}
-              name={contactFormModel.surname.name}
+              id={clientInfoFormModel.surname.name}
+              name={clientInfoFormModel.surname.name}
               onChange={formik?.handleChange}
               value={formik?.values.surname}
             />
@@ -77,11 +146,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={contactFormModel.companyName.placeholder}
+              placeholder={clientInfoFormModel.companyName.placeholder}
               className={s.input}
               type="text"
-              id={contactFormModel.companyName.name}
-              name={contactFormModel.companyName.name}
+              id={clientInfoFormModel.companyName.name}
+              name={clientInfoFormModel.companyName.name}
               onChange={formik?.handleChange}
               value={formik?.values.companyName}
             />
@@ -94,11 +163,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={contactFormModel.title.placeholder}
+              placeholder={clientInfoFormModel.title.placeholder}
               className={s.input}
               type="text"
-              id={contactFormModel.title.name}
-              name={contactFormModel.title.name}
+              id={clientInfoFormModel.title.name}
+              name={clientInfoFormModel.title.name}
               onChange={formik?.handleChange}
               value={formik?.values.title}
             />
@@ -117,11 +186,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
               })}
             >
               {/* <input
-                placeholder={contactFormModel.numberOfEmployees.placeholder}
+                placeholder={clientInfoFormModel.numberOfEmployees.placeholder}
                 className={s.input}
                 type="text"
-                id={contactFormModel.numberOfEmployees.name}
-                name={contactFormModel.numberOfEmployees.name}
+                id={clientInfoFormModel.numberOfEmployees.name}
+                name={clientInfoFormModel.numberOfEmployees.name}
                 onChange={formik?.handleChange}
                 value={formik?.values.numberOfEmployees}
               /> */}
@@ -135,43 +204,32 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       )}
 
-      {formType === 'service' && (
-        <div className={s.row}>
-          <div className={s.field}>
-            <div
-              className={cn(s.inputC, {
-                ['input-required']:
-                  formik?.errors.interestedProduct &&
-                  formik?.touched.interestedProduct,
-              })}
-            >
-              <input
-                placeholder={contactFormModel.interestedProduct.placeholder}
-                className={s.input}
-                type="text"
-                id={contactFormModel.interestedProduct.name}
-                name={contactFormModel.interestedProduct.name}
-                onChange={formik?.handleChange}
-                value={formik?.values.interestedProduct}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className={s.row}>
         <div className={s.field}>
+          <div className={cn(s.inputC, s.countryCode)}>
+            <Select
+              options={countryCodeOptions}
+              label="+90"
+              callback={handleCountryCode}
+            />
+          </div>
           <div
             className={cn(s.inputC, {
               ['input-required']: formik?.errors.phone && formik?.touched.phone,
             })}
           >
             <input
-              placeholder={contactFormModel.phone.placeholder}
+              placeholder={clientInfoFormModel.phone.placeholder}
+              onInput={(e: any) =>
+                (e.target.value = e.target.value
+                  .replace(/[^0-9.]/g, '')
+                  .replace(/(\..*?)\..*/g, '$1'))
+              }
+              maxLength={12}
               className={s.input}
-              type="text"
-              id={contactFormModel.phone.name}
-              name={contactFormModel.phone.name}
+              type="tel"
+              id={clientInfoFormModel.phone.name}
+              name={clientInfoFormModel.phone.name}
               onChange={formik?.handleChange}
               value={formik?.values.phone}
             />
@@ -186,11 +244,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={contactFormModel.companyEmail.placeholder}
+              placeholder={clientInfoFormModel.companyEmail.placeholder}
               className={s.input}
               type="text"
-              id={contactFormModel.companyEmail.name}
-              name={contactFormModel.companyEmail.name}
+              id={clientInfoFormModel.companyEmail.name}
+              name={clientInfoFormModel.companyEmail.name}
               onChange={formik?.handleChange}
               value={formik?.values.companyEmail}
             />
@@ -207,11 +265,11 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={contactFormModel.usedHrProduct.placeholder}
+              placeholder={clientInfoFormModel.usedHrProduct.placeholder}
               className={s.input}
               type="text"
-              id={contactFormModel.usedHrProduct.name}
-              name={contactFormModel.usedHrProduct.name}
+              id={clientInfoFormModel.usedHrProduct.name}
+              name={clientInfoFormModel.usedHrProduct.name}
               onChange={formik?.handleChange}
               value={formik?.values.usedHrProduct}
             />
@@ -227,10 +285,10 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <textarea
-              placeholder={contactFormModel.note.placeholder}
+              placeholder={clientInfoFormModel.note.placeholder}
               className={s.input}
-              id={contactFormModel.note.name}
-              name={contactFormModel.note.name}
+              id={clientInfoFormModel.note.name}
+              name={clientInfoFormModel.note.name}
               onChange={formik?.handleChange}
               value={formik?.values.note}
             />
@@ -245,7 +303,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         })}
         onClick={() => {
           formik?.setFieldValue(
-            contactFormModel.acceptKvkk.name,
+            clientInfoFormModel.acceptKvkk.name,
             !formik?.values.acceptKvkk
           )
         }}
@@ -283,7 +341,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
           console.log('2')
 
           formik?.setFieldValue(
-            contactFormModel.acceptFromSendingLayers.name,
+            clientInfoFormModel.acceptFromSendingLayers.name,
             !formik?.values.acceptFromSendingLayers
           )
         }}

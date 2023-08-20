@@ -12,7 +12,7 @@ import {
   getFormattedDate,
   getTimezones,
 } from '@/utils'
-import { DemoDateForm, demoDateFormModel } from '../form-model/demo-date-form'
+import { DemoDateForm, demoDateFormModel } from './form-model'
 
 const hours = generateHours()
 const timezones = getTimezones()

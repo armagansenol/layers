@@ -133,9 +133,31 @@ const HomeSlider = () => {
           exit="exit"
           variants={animationVariants}
         >
-          <motion.h2 variants={item}>{slides[currentSlide].title}</motion.h2>
-          <motion.p variants={item}>{slides[currentSlide].desc}</motion.p>
-          <motion.div variants={item}>
+          <motion.h2
+            key={`${currentSlide}-text`}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={item}
+          >
+            {slides[currentSlide].title}
+          </motion.h2>
+          <motion.p
+            key={`${currentSlide}-text`}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={item}
+          >
+            {slides[currentSlide].desc}
+          </motion.p>
+          <motion.div
+            key={`${currentSlide}-text`}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={item}
+          >
             <Button
               text={slides[currentSlide].btn.text}
               path={slides[currentSlide].btn.path}

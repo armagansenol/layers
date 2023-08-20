@@ -27,7 +27,7 @@ export interface FormData {
     time: string
   }
   formType: FormType
-  interestedProduct: string
+  interestedProduct: string[]
   name: string
   note: string
   numberOfEmployees: string

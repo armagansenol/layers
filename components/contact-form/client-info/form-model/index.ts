@@ -1,11 +1,28 @@
 import { InputData } from '../../types'
 
+const isDev = process.env.NEXT_PUBLIC_NODE_ENV === 'development'
+
+enum ClientInfoFormKeys {
+  acceptKvkk = 'acceptKvkk',
+  acceptFromSendingLayers = 'acceptFromSendingLayers',
+  companyName = 'companyName',
+  companyEmail = 'companyEmail',
+  interestedProduct = 'interestedProduct',
+  name = 'name',
+  note = 'note',
+  numberOfEmployees = 'numberOfEmployees',
+  phone = 'phone',
+  surname = 'surname',
+  title = 'title',
+  usedHrProduct = 'usedHrProduct',
+}
+
 export interface ClientInfoForm {
   acceptKvkk: boolean | null
   acceptFromSendingLayers: boolean | null
   companyName: string
   companyEmail: string
-  interestedProduct: string
+  interestedProduct: string[]
   name: string
   note: string
   numberOfEmployees: string
@@ -15,7 +32,7 @@ export interface ClientInfoForm {
   usedHrProduct: string
 }
 
-export const contactFormModel: { [key: string]: InputData } = {
+export const clientInfoFormModel: { [key in ClientInfoFormKeys]: InputData } = {
   acceptFromSendingLayers: {
     placeholder: 'Accept From Sending Layers',
     name: 'acceptFromSendingLayers',
@@ -94,7 +111,7 @@ export const contactFormModel: { [key: string]: InputData } = {
     type: 'text',
   },
   usedHrProduct: {
-    placeholder: 'Hr Products Used',
+    placeholder: 'If there any HR software that you use',
     name: 'usedHrProduct',
     default: '',
     required: true,
@@ -103,16 +120,16 @@ export const contactFormModel: { [key: string]: InputData } = {
 }
 
 export const initialValues: ClientInfoForm = {
-  acceptKvkk: process.env.NODE_ENV === 'development',
-  acceptFromSendingLayers: process.env.NODE_ENV === 'development',
-  companyEmail: 'test@neyasis.com',
-  companyName: process.env.NODE_ENV === 'development' ? 'test' : '',
-  name: process.env.NODE_ENV === 'development' ? 'test' : '',
-  surname: process.env.NODE_ENV === 'development' ? 'test' : '',
-  title: process.env.NODE_ENV === 'development' ? 'test' : '',
-  numberOfEmployees: process.env.NODE_ENV === 'development' ? '9' : '',
-  interestedProduct: process.env.NODE_ENV === 'development' ? 'test' : '',
-  phone: process.env.NODE_ENV === 'development' ? 'test' : '',
-  note: process.env.NODE_ENV === 'development' ? 'test' : '',
-  usedHrProduct: process.env.NODE_ENV === 'development' ? 'test' : '',
+  acceptKvkk: isDev ? true : null,
+  acceptFromSendingLayers: isDev ? true : null,
+  companyEmail: isDev ? 'test@neyasis.com' : '',
+  companyName: isDev ? 'test' : '',
+  name: isDev ? 'test' : '',
+  surname: isDev ? 'test' : '',
+  title: isDev ? 'test' : '',
+  numberOfEmployees: isDev ? '9' : '',
+  interestedProduct: isDev ? ['test'] : [],
+  phone: isDev ? 'test' : '',
+  note: isDev ? 'test' : '',
+  usedHrProduct: isDev ? 'test' : '',
 }
