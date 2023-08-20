@@ -2,9 +2,8 @@ import { memo, useCallback, useLayoutEffect, useRef } from 'react'
 import s from './custom-cursor.module.scss'
 
 import cn from 'clsx'
-import { gsap } from 'gsap'
-import CustomImage from '@/components/custom-image'
 import { AnimatePresence, motion, useAnimationFrame } from 'framer-motion'
+import { gsap } from 'gsap'
 
 import { CursorType, useCursorStore } from '@/lib/cursorStore'
 
@@ -143,13 +142,10 @@ const CustomCursor = () => {
           {cursorType === CursorType.marqueeLink ? (
             <div className={s.imgC}>
               <div className={s.transformC} ref={imgRef}>
-                <CustomImage
+                <img
                   alt="Icon"
-                  height={300}
                   style={{ objectFit: 'contain' }}
                   src={mediaSrc}
-                  width={300}
-                  loading="eager"
                 />
               </div>
             </div>
