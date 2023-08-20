@@ -140,7 +140,7 @@ const Home = () => {
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
                 <CustomImage
-                  alt="Man playing basketball"
+                  alt="Teenage playing basketball"
                   className={s.img}
                   height={1000}
                   loading="lazy"

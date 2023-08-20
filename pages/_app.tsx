@@ -20,7 +20,9 @@ function App({ Component, pageProps }: AppProps) {
 
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
-    // ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
+    ScrollTrigger.defaults({
+      markers: process.env.NEXT_PUBLIC_NODE_ENV === 'development',
+    })
   }
 
   return (
