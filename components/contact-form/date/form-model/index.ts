@@ -62,7 +62,9 @@ export const initialValues: DemoDateForm = {
     demoUserId: null,
     devDemoUserId: null,
     timezone: isDev ? 'test' : '',
-    date: moment().format(),
+    date: isDev
+      ? moment('2023-07-20', moment.ISO_8601).format()
+      : '2023-07-20T00:00:00.000Z',
     time: isDev ? 'test' : '',
   },
 }

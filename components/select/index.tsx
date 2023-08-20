@@ -1,14 +1,10 @@
+import React from 'react'
 import s from './select.module.scss'
-import React, { useState } from 'react'
 
-import cn from 'clsx'
 import * as RadixSelect from '@radix-ui/react-select'
-import IconArrowDropdown from '../icons/icon-arrow-dropdown'
-// import {
-//   CheckIcon,
-//   ChevronDownIcon,
-//   ChevronUpIcon,
-// } from '@radix-ui/react-icons'
+import cn from 'clsx'
+
+import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 
 const SelectItem: any = React.forwardRef(
   ({ children, className, ...props }: any, forwardedRef) => {
@@ -18,7 +14,6 @@ const SelectItem: any = React.forwardRef(
         {...props}
         ref={forwardedRef}
       >
-        {props.ui}
         <RadixSelect.ItemText>{children}</RadixSelect.ItemText>
       </RadixSelect.Item>
     )
@@ -31,11 +26,20 @@ type Props = {
   label: string
   options: { ui: string; value: string }[]
   callback: (value: string) => void
+  defaultVal?: string
 }
 
-const Select = ({ options = [], callback, label = 'Select' }: Props) => {
+const Select = ({
+  callback,
+  defaultVal = '',
+  label = 'Select',
+  options = [],
+}: Props) => {
   return (
-    <RadixSelect.Root onValueChange={callback}>
+    <RadixSelect.Root
+      onValueChange={callback}
+      {...(defaultVal && { defaultValue: defaultVal })}
+    >
       <RadixSelect.Trigger className={s.selectTrigger} aria-label="select">
         <RadixSelect.Value placeholder={label}></RadixSelect.Value>
         <RadixSelect.Icon className={s.selectIcon}>
@@ -54,11 +58,9 @@ const Select = ({ options = [], callback, label = 'Select' }: Props) => {
             <RadixSelect.Group>
               {options.map((option, i) => {
                 return (
-                  <>
-                    <SelectItem value={option.value} key={i} ui={option.ui}>
-                      {option.value}
-                    </SelectItem>
-                  </>
+                  <SelectItem value={option.value} key={i}>
+                    {option.value}
+                  </SelectItem>
                 )
               })}
             </RadixSelect.Group>

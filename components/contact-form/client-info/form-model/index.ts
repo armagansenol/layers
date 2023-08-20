@@ -7,6 +7,7 @@ enum ClientInfoFormKeys {
   acceptFromSendingLayers = 'acceptFromSendingLayers',
   companyName = 'companyName',
   companyEmail = 'companyEmail',
+  countryCode = 'countryCode',
   interestedProduct = 'interestedProduct',
   name = 'name',
   note = 'note',
@@ -22,6 +23,7 @@ export interface ClientInfoForm {
   acceptFromSendingLayers: boolean | null
   companyName: string
   companyEmail: string
+  countryCode?: string
   interestedProduct: string[]
   name: string
   note: string
@@ -64,6 +66,13 @@ export const clientInfoFormModel: { [key in ClientInfoFormKeys]: InputData } = {
   companyName: {
     placeholder: 'Company Name*',
     name: 'companyName',
+    default: '',
+    required: true,
+    type: 'text',
+  },
+  countryCode: {
+    placeholder: 'C code',
+    name: 'countryCode',
     default: '',
     required: true,
     type: 'text',
@@ -124,6 +133,7 @@ export const initialValues: ClientInfoForm = {
   acceptFromSendingLayers: isDev ? true : null,
   companyEmail: isDev ? 'test@neyasis.com' : '',
   companyName: isDev ? 'test' : '',
+  countryCode: isDev ? 'test' : '+90',
   name: isDev ? 'test' : '',
   surname: isDev ? 'test' : '',
   title: isDev ? 'test' : '',

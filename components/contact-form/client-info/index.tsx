@@ -57,12 +57,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
   }
 
   function handleCountryCode(val: string) {
-    formik?.setFieldValue(clientInfoFormModel.phone.name, '')
-
-    formik?.setFieldValue(
-      clientInfoFormModel.phone.name,
-      `${val}${formik.values.phone}`
-    )
+    formik?.setFieldValue(clientInfoFormModel.countryCode.name, val)
   }
 
   return (
@@ -179,21 +174,12 @@ const ClientInfo = ({ formType, formik }: Props) => {
         <div className={s.row}>
           <div className={s.field}>
             <div
-              className={cn(s.inputC, {
+              className={cn(s.inputC, s.numberOfEmployees, {
                 ['input-required']:
                   formik?.errors.numberOfEmployees &&
                   formik?.touched.numberOfEmployees,
               })}
             >
-              {/* <input
-                placeholder={clientInfoFormModel.numberOfEmployees.placeholder}
-                className={s.input}
-                type="text"
-                id={clientInfoFormModel.numberOfEmployees.name}
-                name={clientInfoFormModel.numberOfEmployees.name}
-                onChange={formik?.handleChange}
-                value={formik?.values.numberOfEmployees}
-              /> */}
               <Select
                 callback={handleNumberOfEmployees}
                 label="Number of Employees"
@@ -206,11 +192,17 @@ const ClientInfo = ({ formType, formik }: Props) => {
 
       <div className={s.row}>
         <div className={s.field}>
-          <div className={cn(s.inputC, s.countryCode)}>
+          <div
+            className={cn(s.inputC, s.countryCode, {
+              ['input-required']:
+                formik?.errors.countryCode && formik?.touched.countryCode,
+            })}
+          >
             <Select
               options={countryCodeOptions}
-              label="+90"
+              label={formik?.values.countryCode ?? '+90'}
               callback={handleCountryCode}
+              defaultVal={formik?.values.countryCode}
             />
           </div>
           <div

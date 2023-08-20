@@ -935,7 +935,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
   return {
     paths, // indicates that no page needs be created at build time
-    fallback: true, // indicates the type of fallback
+    fallback: false, // indicates the type of fallback
   }
 }
 
@@ -952,7 +952,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     return page[0]
   }
 
-  const data = getData()
+  const data = getData() ?? null
 
   return {
     props: {

@@ -48,10 +48,11 @@
   }
 
   .timeZone {
-    @include dims(auto, desktop-vw(47px));
+    @include dims(auto, desktop-vw(48px));
     background: var(--zhen-zhu-bai-pearl);
     border-radius: desktop-vw(8px);
     overflow: hidden;
+    padding: desktop-vw(16px) desktop-vw(20px);
     position: relative;
   }
 

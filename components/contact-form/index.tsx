@@ -41,6 +41,7 @@ const ContactForm = (props: Props) => {
     acceptKvkk: Yup.boolean().required(),
     companyEmail: Yup.string().email().required(),
     companyName: Yup.string().required(),
+    countryCode: Yup.string().required(),
     ...(props.formType === 'service' && {
       interestedProduct: Yup.array().of(Yup.string()).min(1).required(),
     }),
@@ -111,16 +112,27 @@ const ContactForm = (props: Props) => {
     const values = {
       ...clientInfoFormik.values,
       ...demoDateFormik.values,
-      formType: props.formType,
-      createdDate: moment().format(),
     }
 
-    handleSubmit(values)
+    const vals = {
+      ...values,
+      formType: props.formType,
+      createdDate: '2023-07-20T00:00:00.000Z',
+      phone: `${values.countryCode}${values.phone}`,
+      interestedProduct: values.interestedProduct?.length
+        ? values.interestedProduct.join(',')
+        : null,
+    }
+
+    delete vals.countryCode
+
+    console.log('vals', vals)
+
+    handleSubmit(vals)
   }
 
   function handleSubmit(values: any) {
     if (formPhase === screens.length - 1) {
-      console.log('submit to server')
       mutation.mutate(values)
     }
   }
@@ -132,7 +144,8 @@ const ContactForm = (props: Props) => {
 
   const mutation = useMutation(submitForm, {
     onMutate: (variables) => {
-      console.log('variables', variables)
+      console.log(variables)
+
       setLoading(true)
     },
     onError: ({ response, message }) => {

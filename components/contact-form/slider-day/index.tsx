@@ -6,12 +6,22 @@ import cn from 'clsx'
 import EmblaCarousel from '@/components/embla-carousel'
 import IconArrow from '@/components/icons/icon-arrow'
 
-function Slide(props: any) {
+type Slide = {
+  callback: () => void
+  active: boolean
+  yearMonthDate: string
+  name: string
+  number: string
+  month: string
+  selected: string
+}
+
+function Slide(props: Slide) {
   return (
     <div
       className={cn(s.day, {
         [s.disabled]: !props.active,
-        [s.selected]: props.selected === props.name,
+        [s.selected]: props.selected === props.yearMonthDate,
       })}
       onClick={props.callback}
     >

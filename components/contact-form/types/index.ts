@@ -18,6 +18,7 @@ export interface FormData {
   companyEmail: string
   companyName: string
   createdDate: string
+  countryCode?: string
   demoUserStatus: null
   demoUserCalendarDto: {
     demoUserId: null

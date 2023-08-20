@@ -1,7 +1,7 @@
-import timezones from '@/public/json/timezones.json'
 import countryCodes from '@/public/json/countryCodes.json'
+import timezones from '@/public/json/timezones.json'
 import { cubicBezier } from 'framer-motion'
-import moment, { ISO_8601, Moment } from 'moment'
+import moment, { Moment } from 'moment'
 
 export const customEase1 = cubicBezier(0.16, 1, 0.3, 1)
 
@@ -59,13 +59,14 @@ export function getTimezones() {
 }
 
 export function getFormattedDate(date: string, time: string) {
-  const combinedDateTime = `${date}T${time}:00`
-  return moment(combinedDateTime, moment.ISO_8601).format()
+  const combinedDateTime = `${date}T${time}:000Z`
+  return combinedDateTime
+  // return moment(combinedDateTime, moment.ISO_8601).format()
 }
 
 export function getCountryCodes() {
   const codes = countryCodes.map((item) => {
-    return { ui: `${item.name} (${item.code})`, value: item.code }
+    return { ui: `${item.name} (${item.dial_code})`, value: item.dial_code }
   })
 
   return codes
