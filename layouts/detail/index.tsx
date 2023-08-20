@@ -16,6 +16,9 @@ type Props = {
 }
 
 const Detail = ({ pageData, pageType }: Props) => {
+  //preload cursor icon
+  new Image().src = `/img/detail/${pageType}/next-cursor.png`
+
   return (
     <>
       <section className="content-box-sm">
@@ -96,7 +99,6 @@ const Detail = ({ pageData, pageType }: Props) => {
             t2: pageData.nextPage.text.t2,
           }}
           mediaSrc={`/img/detail/${pageType}/next-cursor.png`}
-          // path={pageData.nextPage.url}
         />
       </Link>
 
