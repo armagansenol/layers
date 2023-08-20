@@ -24,23 +24,20 @@ type Props = {
 }
 
 const ClientDate = ({ formik }: Props) => {
-  function handleDay(index: number) {
-    console.log(
-      dayInfoArray[index].yearMonthDate,
-      formik?.values.demoUserCalendarDto.time
-    )
-
+  function handleDay(val: string) {
     const date = getFormattedDate(
-      dayInfoArray[index].yearMonthDate,
+      val,
       formik?.values.demoUserCalendarDto.time ?? '00:00'
     )
-
-    console.log('formattedDate', date)
 
     formik?.setFieldValue(
       `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.date.name}`,
       date
     )
+
+    console.log('formik', formik?.values.demoUserCalendarDto.date)
+    console.log('arg', val)
+    console.log('formattedDate', date)
   }
 
   function handleTimezone(value: string) {
@@ -79,7 +76,7 @@ const ClientDate = ({ formik }: Props) => {
         })}
       >
         <SliderDay
-          selected={formik?.values.demoUserCalendarDto.date}
+          formik={formik}
           callback={handleDay}
           slideData={dayInfoArray}
         />

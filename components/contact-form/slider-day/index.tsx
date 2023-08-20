@@ -1,29 +1,25 @@
-import React from 'react'
 import s from './slider-day.module.scss'
 
 import cn from 'clsx'
 
 import EmblaCarousel from '@/components/embla-carousel'
 import IconArrow from '@/components/icons/icon-arrow'
-
-type Slide = {
-  callback: () => void
-  active: boolean
-  yearMonthDate: string
-  name: string
-  number: string
-  month: string
-  selected: string
-}
+import { FormikProps } from 'formik'
+import { DemoDateForm } from '../date/form-model'
+import { Slide } from '../types'
 
 function Slide(props: Slide) {
   return (
     <div
       className={cn(s.day, {
         [s.disabled]: !props.active,
-        [s.selected]: props.selected === props.yearMonthDate,
+        [s.selected]: props.formik?.values.demoUserCalendarDto.date.includes(
+          props.yearMonthDate
+        ),
       })}
-      onClick={props.callback}
+      {...(props.callback && {
+        onClick: () => props.callback && props.callback(props.yearMonthDate),
+      })}
     >
       <p className={cn(s.dayName, 'flex-center')}>
         {props.name.toUpperCase().substring(0, 3)}
@@ -55,20 +51,14 @@ function NextBtn() {
 }
 
 type Props = {
-  selected: any
-  callback?: (index: number) => void
+  formik?: FormikProps<DemoDateForm>
+  callback?: (val: string) => void
   slideData: any[]
 }
 
 const SliderDay = (props: Props) => {
-  function handleCallback(i: any) {
-    if (!props.callback) return
-
-    props.callback(i)
-  }
-
   const slides = props.slideData.map((data, i) => {
-    return <Slide callback={() => handleCallback(i)} key={i} {...data} />
+    return <Slide callback={props.callback} {...data} key={i} />
   })
 
   return (

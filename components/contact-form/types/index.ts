@@ -1,3 +1,6 @@
+import { FormikProps } from 'formik'
+import { DemoDateForm } from '../date/form-model'
+
 export enum FormType {
   contact = 'contact',
   demo = 'demo',
@@ -47,3 +50,13 @@ export interface FormData {
 //   time: string
 //   title: string
 // }
+
+export type Slide = {
+  callback?: (val: string) => void
+  active: boolean
+  yearMonthDate: string
+  name: string
+  number: string
+  month: string
+  formik: FormikProps<DemoDateForm>
+}
