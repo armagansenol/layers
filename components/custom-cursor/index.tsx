@@ -43,7 +43,7 @@ function useInstance(value = {}) {
 // Jelly Blob Function
 const CustomCursor = () => {
   const jellyRef = useRef(null)
-  const textRef = useRef(null)
+  // const textRef = useRef(null)
 
   // Save pos and velocity Objects
   const pos: any = useInstance(() => ({ x: 0, y: 0 }))
@@ -80,8 +80,8 @@ const CustomCursor = () => {
       // Mouse X and Y
       const x = e.clientX
       const y = e.clientY
-      const mx = e.movementX
-      const my = e.movementY
+      // const mx = e.movementX
+      // const my = e.movementY
       const speed = 0
 
       // Animate Pos Object and calculate Vel Object Velocity
@@ -149,6 +149,7 @@ const CustomCursor = () => {
                   style={{ objectFit: 'contain' }}
                   src={mediaSrc}
                   width={300}
+                  loading="eager"
                 />
               </div>
             </div>
