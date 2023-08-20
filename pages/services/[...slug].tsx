@@ -2,6 +2,14 @@ import { routes } from '@/global'
 import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ParsedUrlQuery } from 'querystring'
+import { useTranslation } from 'react-i18next'
+
+interface IParams extends ParsedUrlQuery {
+  slug: string
+  locale: string
+}
 
 const services = {
   executiveSearchAndRecruitment: {
@@ -453,6 +461,8 @@ const services = {
 }
 
 const Services = ({ data }: any) => {
+  const { t } = useTranslation('services')
+
   return (
     <Layout theme="services">
       <Detail pageData={data.data} pageType={data.type} />
@@ -460,12 +470,18 @@ const Services = ({ data }: any) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths<any> = async () => {
-  let paths: { params: { slug: string[] } }[] = []
+export const getStaticPaths: GetStaticPaths = () => {
+  let paths: { params: { slug: string[] }; locale: string }[] = []
 
   Object.values(routes.services.children).map((value) => {
-    paths = [...paths, { params: { slug: [value.path] } }]
+    paths = [...paths, { params: { slug: [value.path] }, locale: 'en' }]
   })
+
+  Object.values(routes.services.children).map((value) => {
+    paths = [...paths, { params: { slug: [value.path] }, locale: 'tr' }]
+  })
+
+  console.log(paths)
 
   return {
     paths, // indicates that no page needs be created at build time
@@ -473,8 +489,8 @@ export const getStaticPaths: GetStaticPaths<any> = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = (context: any) => {
-  const { slug } = context.params
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const { slug } = params as IParams
 
   function getData() {
     const page = Object.values(services).filter((value) => {
@@ -489,6 +505,7 @@ export const getStaticProps: GetStaticProps = (context: any) => {
   return {
     props: {
       data,
+      ...(await serverSideTranslations(locale ?? 'en', ['features'])),
     },
   }
 }

@@ -930,6 +930,8 @@ export const getStaticPaths: GetStaticPaths = () => {
     paths = [...paths, { params: { slug: [value.path] }, locale: 'tr' }]
   })
 
+  console.log(paths)
+
   return {
     paths, // indicates that no page needs be created at build time
     fallback: true, // indicates the type of fallback
@@ -951,8 +953,8 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['home'])),
       data,
+      ...(await serverSideTranslations(locale ?? 'en', ['features'])),
     },
   }
 }
