@@ -68,6 +68,11 @@ const Preloader = () => {
     <div className={cn(s.preloader, 'flex-center')} ref={ref}>
       <div
         className={s.bg}
+        style={{ background: 'var(--negroni)' }}
+        data-preloader-panel
+      ></div>
+      <div
+        className={s.bg}
         style={{ background: 'var(--innocent-snowdrop)' }}
         data-preloader-panel
       ></div>

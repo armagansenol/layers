@@ -3,3 +3,5 @@
 [ ] - Button komponenti useRouter refactor
 [ ] - Link componenti refactor
 [ ] - Home ayrı component olunca i18n error
+[ ] - Cursor başlangıç pozisyonu
+[ ] - Page transition

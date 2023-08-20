@@ -2,6 +2,7 @@ import s from './detail.module.scss'
 
 import cn from 'clsx'
 import Link from 'next/link'
+import Head from 'next/head'
 
 import Button from '@/components/button'
 import FeatureList from '@/components/feature-list'
@@ -16,11 +17,16 @@ type Props = {
 }
 
 const Detail = ({ pageData, pageType }: Props) => {
-  //preload cursor icon
-  new Image().src = `/img/detail/${pageType}/next-cursor.png`
-
   return (
     <>
+      <Head>
+        <link
+          rel="preload"
+          href={`/img/detail/${pageType}/next-cursor.png`}
+          as="image"
+        />
+      </Head>
+
       <section className="content-box-sm">
         <div className={s.content}>
           <div className={s.text}>
@@ -51,42 +57,44 @@ const Detail = ({ pageData, pageType }: Props) => {
         </div>
       </section>
 
-      <section className={cn(s.detail, 'content-box-md')}>
-        <div className={cn(s.row, s.intro)}>
-          <div className={s.mediaC}>
-            <video
-              className={s.media}
-              src={pageData.detail.d1.media.path}
-              autoPlay
-              muted
-              loop
-              playsInline
-            ></video>
+      <section className="content-box-md">
+        <div className={s.detail}>
+          <div className={cn(s.row, s.intro)}>
+            <div className={s.mediaC}>
+              <video
+                className={s.media}
+                src={pageData.detail.d1.media.path}
+                autoPlay
+                muted
+                loop
+                playsInline
+              ></video>
+            </div>
+            <div className={s.text}>
+              <h3>{pageData.detail.d1.title}</h3>
+              <p>{pageData.detail.d1.desc}</p>
+            </div>
           </div>
-          <div className={s.text}>
-            <h3>{pageData.detail.d1.title}</h3>
-            <p>{pageData.detail.d1.desc}</p>
-          </div>
-        </div>
 
-        <div className={cn(s.row, s.listC)}>
-          <FeatureList />
-        </div>
-
-        <div className={cn(s.row, s.redirect)}>
-          <div className={s.text}>
-            <h4>{pageData.detail.d2.desc}</h4>
-            <Button text="Request a Demo" path="/demo-request" />
+          <div className={cn(s.row, s.listC)}>
+            <FeatureList />
           </div>
-          <div className={s.mediaC}>
-            <CustomImage
-              alt="Detail"
-              height={1000}
-              loading="lazy"
-              src={`/img/detail/${pageType}/masked.png`}
-              style={{ objectFit: 'contain' }}
-              width={1000}
-            />
+
+          <div className={cn(s.row, s.redirect)}>
+            <div className={s.text}>
+              <h4>{pageData.detail.d2.desc}</h4>
+              <Button text="Request a Demo" path="/demo-request" />
+            </div>
+            <div className={s.mediaC}>
+              <CustomImage
+                alt="Detail"
+                height={1000}
+                loading="lazy"
+                src={`/img/detail/${pageType}/masked.png`}
+                style={{ objectFit: 'contain' }}
+                width={1000}
+              />
+            </div>
           </div>
         </div>
       </section>
