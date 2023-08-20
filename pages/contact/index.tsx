@@ -2,7 +2,7 @@ import s from './contact.module.scss'
 
 import ContactForm from '@/components/contact-form'
 import { FormType } from '@/components/contact-form/types'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { Link } from '@/components/link'
 import { Marquee } from '@/components/marquee'
 import MarqueeLink from '@/components/marquee-link'
@@ -39,7 +39,7 @@ const Contact = () => {
             <div className={s.inner}>
               <h2 className={s.first}>Get in Touch</h2>
               <div className={s.iconC}>
-                <Image
+                <CustomImage
                   alt="Man on phone call"
                   height={300}
                   loading="lazy"
@@ -49,7 +49,7 @@ const Contact = () => {
               </div>
               <h2 className={s.second}>Say Hello !</h2>
               <div className={s.iconC}>
-                <Image
+                <CustomImage
                   alt="Man on phone call"
                   height={300}
                   loading="lazy"

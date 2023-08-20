@@ -5,7 +5,7 @@ import cn from 'clsx'
 import { Back, gsap } from 'gsap'
 
 import Button from '@/components/button'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { useMedia } from 'react-use'
 
 const RequestDemo = () => {
@@ -67,7 +67,7 @@ const RequestDemo = () => {
         World’s first
         <span className={s.imgs} data-animation-pop-trigger>
           <div className={cn(s.imgC, 'hidden-overflow')} data-animation-pop>
-            <Image
+            <CustomImage
               alt="Staff"
               className={s.img}
               height={200}
@@ -77,7 +77,7 @@ const RequestDemo = () => {
             />
           </div>
           <div className={cn(s.imgC, 'hidden-overflow')} data-animation-pop>
-            <Image
+            <CustomImage
               alt="Staff"
               className={s.img}
               height={200}
@@ -87,7 +87,7 @@ const RequestDemo = () => {
             />
           </div>
           <div className={cn(s.imgC, 'hidden-overflow')} data-animation-pop>
-            <Image
+            <CustomImage
               alt="Staff"
               className={s.img}
               height={200}

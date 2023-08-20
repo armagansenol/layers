@@ -5,7 +5,7 @@ import cn from 'clsx'
 
 import LanguageSelect from '@/components/language-select'
 import { Link } from '@/components/link'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { routes } from '@/global'
 import { useMedia } from 'react-use'
 
@@ -18,7 +18,7 @@ const Footer = () => {
         <div className={s.gridY}>
           <div className={s.layers}>
             <Link href="/" className={s.logoC}>
-              <Image
+              <CustomImage
                 src="/img/layers-logo-hr-technologies.svg"
                 alt="Layers Logo"
                 loading="lazy"
@@ -37,7 +37,7 @@ const Footer = () => {
                     target="blank"
                     rel="noreferrer noopener"
                   >
-                    <Image
+                    <CustomImage
                       src="/img/apple-appstore.svg"
                       alt="Apple Appstore Logo"
                       width="300"
@@ -54,7 +54,7 @@ const Footer = () => {
                     target="blank"
                     rel="noreferrer noopener"
                   >
-                    <Image
+                    <CustomImage
                       src="/img/google-play.svg"
                       alt="Google Playstore Logo"
                       width="300"
@@ -71,7 +71,7 @@ const Footer = () => {
                     target="blank"
                     rel="noreferrer noopener"
                   >
-                    <Image
+                    <CustomImage
                       src="/img/huawei-app-gallery.svg"
                       alt="Huawei Appgallery Logo"
                       width="300"
@@ -217,7 +217,7 @@ const Footer = () => {
 
       <div className={s.iskur}>
         <div className={s.imgC}>
-          <Image
+          <CustomImage
             src="/img/iskur-logo.svg"
             alt="Iskur Logo"
             width="300"

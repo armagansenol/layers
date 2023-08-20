@@ -4,7 +4,7 @@ import cn from 'clsx'
 import { EmblaOptionsType } from 'embla-carousel-react'
 
 import EmblaCarousel from '@/components/embla-carousel'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import RequestDemo from '@/components/request-demo'
@@ -32,7 +32,7 @@ function Slide(props: Slide) {
       <div className={s.slide}>
         <div className={s.info}>
           <div className={s.imgC}>
-            <Image
+            <CustomImage
               src={props.img}
               alt="Your alt text"
               width={1500}
@@ -97,7 +97,7 @@ const About = () => {
           <div className={s.intro}>
             <RequestDemo />
             <div className={cn(s.imgC, s.gurl)}>
-              <Image
+              <CustomImage
                 alt="Feature Icons"
                 height={1080}
                 src={`/img/cloud.png`}
@@ -106,7 +106,7 @@ const About = () => {
               />
             </div>
             <div className={cn(s.imgC, s.allInOne)}>
-              <Image
+              <CustomImage
                 alt="Feature Icons"
                 height={1080}
                 src={`/img/all-in-one.png`}
@@ -125,7 +125,7 @@ const About = () => {
           <div className={s.peopleFirst}>
             <div className={s.imgs}>
               <div className={s.imgC}>
-                <Image
+                <CustomImage
                   alt="Feature Icons"
                   height={1080}
                   src={`/img/conversation.jpg`}
@@ -133,7 +133,7 @@ const About = () => {
                 />
               </div>
               <div className={s.imgC}>
-                <Image
+                <CustomImage
                   alt="Feature Icons"
                   height={1080}
                   style={{ objectFit: 'contain' }}
@@ -164,7 +164,7 @@ const About = () => {
             <div className={s.grid}>
               <div className={s.gridItem}>
                 <div className={s.iconC}>
-                  <Image
+                  <CustomImage
                     alt="Service Icons"
                     height={500}
                     src={`/img/dart.png`}
@@ -181,7 +181,7 @@ const About = () => {
               </div>
               <div className={s.gridItem}>
                 <div className={s.iconC}>
-                  <Image
+                  <CustomImage
                     alt="Service Icons"
                     height={500}
                     src={`/img/megaphone.png`}
@@ -198,7 +198,7 @@ const About = () => {
               </div>
               <div className={s.gridItem}>
                 <div className={s.iconC}>
-                  <Image
+                  <CustomImage
                     alt="Service Icons"
                     height={500}
                     src={`/img/bell.png`}

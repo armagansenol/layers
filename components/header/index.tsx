@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useMedia } from 'react-use'
 
 import IconLogin from '@/components/icons/icon-login'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { ClientOnly } from '@/components/isomorphic'
 import LanguageSelect from '@/components/language-select'
 import { Link } from '@/components/link'
@@ -100,7 +100,7 @@ const Header = () => {
         ])}
       >
         <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
-          <Image
+          <CustomImage
             src="/img/layers-logo.svg"
             alt="Layers Logo"
             width={206}

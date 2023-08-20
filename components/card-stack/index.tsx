@@ -4,7 +4,7 @@ import s from './card-stack.module.scss'
 import cn from 'clsx'
 
 import Button from '@/components/button'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { routes } from '@/global'
 
 const CardStack = () => {
@@ -119,7 +119,7 @@ const CardStack = () => {
                   </div>
                   <div className={s.cardBody}>
                     <div className={s.mediaC}>
-                      <Image
+                      <CustomImage
                         alt="Feature App Visual"
                         height={1000}
                         loading="lazy"
@@ -139,7 +139,7 @@ const CardStack = () => {
                   </div>
                 </div>
                 <div className={cn(s.iconC, 'hidden-overflow')}>
-                  <Image
+                  <CustomImage
                     alt="Feature Icon"
                     height={300}
                     loading="lazy"

@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 
 import Button from '@/components/button'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { customEase1 } from '@/utils'
 
 const HomeSlider = () => {
@@ -187,7 +187,7 @@ const HomeSlider = () => {
               },
             }}
           >
-            <Image
+            <CustomImage
               alt={slides[currentSlide].img.alt}
               className={s.img}
               height={1000}

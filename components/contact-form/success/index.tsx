@@ -3,7 +3,7 @@ import React from 'react'
 
 import cn from 'clsx'
 
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import IconClock from '@/components/icons/icon-clock'
 import IconCalendar from '@/components/icons/icon-calendar'
 
@@ -41,7 +41,7 @@ const ClientSuccess = (props: Props) => {
         <p>The person who will get in touch with you</p>
         <div className={s.info}>
           <div className={cn(s.imgC, 'hidden-overflow')}>
-            <Image
+            <CustomImage
               alt="Your alt text"
               height={300}
               src="/img/pinned-1.jpg"

@@ -4,7 +4,7 @@ import s from './why-layers.module.scss'
 import cn from 'clsx'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import Image from 'next/image'
+import CustomImage from 'next/image'
 
 const WhyLayers = () => {
   const ref = useRef(null)
@@ -76,7 +76,7 @@ const WhyLayers = () => {
           return (
             <div key={i} className={s.imgC}>
               <div className={s.transformC} data-img>
-                <Image
+                <CustomImage
                   className={s.img}
                   src={`/img/pinned-${i + 1}.jpg`}
                   alt="People Using App"

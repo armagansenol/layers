@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import Button from '@/components/button'
 import FeatureList from '@/components/feature-list'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { DynamicPageContent } from '@/global'
@@ -27,7 +27,7 @@ const Detail = ({ pageData, pageType }: Props) => {
           </div>
           <div className={s.mediaC}>
             {pageData.intro.media.type === 'image' ? (
-              <Image
+              <CustomImage
                 src={`/img/detail/${pageType}/intro.png`}
                 alt="Detail"
                 width={1000}
@@ -76,7 +76,7 @@ const Detail = ({ pageData, pageType }: Props) => {
             <Button text="Request a Demo" path="/demo-request" />
           </div>
           <div className={s.mediaC}>
-            <Image
+            <CustomImage
               alt="Detail"
               height={1000}
               loading="lazy"

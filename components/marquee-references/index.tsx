@@ -2,7 +2,7 @@ import s from './references-marquee.module.scss'
 
 import cn from 'clsx'
 
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { Marquee } from '@/components/marquee'
 
 type Props = {
@@ -17,7 +17,7 @@ const MarqueeReferences = (props: Props) => {
           {props.items.map((item, i) => {
             return (
               <div className={cn(s.iconC, 'flex-center')} key={i}>
-                <Image
+                <CustomImage
                   alt="Layers Logo"
                   height={150}
                   src={item.logo}

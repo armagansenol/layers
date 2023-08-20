@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 
 import IconArrow from '@/components/icons/icon-arrow'
 import { Marquee } from '@/components/marquee'
+import { useMedia } from 'react-use'
 
 const animationVariants = {
   open: {
@@ -32,6 +33,7 @@ const Button: React.FC<Props> = ({
   inverted = false,
   callback = null,
 }: Props) => {
+  const isMobile = useMedia('(max-width: 800px)', true)
   const router = useRouter()
   const [hovered, setHovered] = useState(false)
 
@@ -53,7 +55,7 @@ const Button: React.FC<Props> = ({
           animate={hovered ? 'open' : 'close'}
           variants={animationVariants}
         >
-          {hovered ? (
+          {hovered && !isMobile ? (
             <Marquee repeat={3} duration={3}>
               <span>{text}</span>
             </Marquee>

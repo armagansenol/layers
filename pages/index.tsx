@@ -9,7 +9,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
 import HomeSlider from '@/components/home-slider'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { Link } from '@/components/link'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
@@ -87,7 +87,7 @@ const Home = () => {
             </div>
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
-                <Image
+                <CustomImage
                   alt="Man on phone call"
                   height={1000}
                   loading="lazy"
@@ -97,7 +97,7 @@ const Home = () => {
               </div>
 
               <div className={cn(s.imgC, 'hidden-overflow')}>
-                <Image
+                <CustomImage
                   alt="Lady studying with a cat"
                   height={1000}
                   loading="lazy"
@@ -120,7 +120,7 @@ const Home = () => {
                 <span>
                   flexible{' '}
                   <span className={s.underline}>
-                    <Image
+                    <CustomImage
                       alt="Underline"
                       height={137}
                       style={{ objectFit: 'contain' }}
@@ -139,7 +139,7 @@ const Home = () => {
             </div>
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
-                <Image
+                <CustomImage
                   alt="Man playing basketball"
                   className={s.img}
                   height={1000}
@@ -149,7 +149,7 @@ const Home = () => {
                 />
               </div>
               <div className={cn(s.sticker, s.hours)}>
-                <Image
+                <CustomImage
                   alt="6 hours"
                   loading="lazy"
                   style={{ objectFit: 'contain' }}
@@ -159,7 +159,7 @@ const Home = () => {
                 />
               </div>
               <div className={cn(s.sticker, s.laptop)}>
-                <Image
+                <CustomImage
                   alt="Laptop"
                   height={300}
                   loading="lazy"
@@ -169,7 +169,7 @@ const Home = () => {
                 />
               </div>
               <div className={cn(s.sticker, s.hybrid)}>
-                <Image
+                <CustomImage
                   alt="Hybrid Digital Solutions"
                   height={300}
                   loading="lazy"
@@ -179,7 +179,7 @@ const Home = () => {
                 />
               </div>
               <div className={cn(s.sticker, s.swoosh)}>
-                <Image
+                <CustomImage
                   alt="Swoosh"
                   height={300}
                   loading="lazy"
@@ -189,7 +189,7 @@ const Home = () => {
                 />
               </div>
               <div className={cn(s.sticker, s.pin)}>
-                <Image
+                <CustomImage
                   alt="Pin"
                   height={300}
                   loading="lazy"

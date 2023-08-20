@@ -1,0 +1,25 @@
+.preloader {
+  @include position(fixed, 0, 0, 0, 0);
+  @include dims(100vw, 100vh);
+  overflow: hidden;
+  z-index: z-index('preloader');
+
+  .bg {
+    @include position(absolute, 0, 0, 0, 0);
+    @include dims(100%);
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .transformC {
+    @include position(absolute, 0, auto, auto, 0);
+    @include dims(100vw, 100vh);
+
+    .imgC {
+      @include position(absolute, 50%, auto, auto, 50%);
+      transform: translate(-50%, -50%);
+      width: desktop-vw(200px);
+      z-index: 20;
+    }
+  }
+}

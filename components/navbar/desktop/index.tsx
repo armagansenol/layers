@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
 import { customEase1 } from '@/utils'
@@ -117,7 +117,7 @@ export function NavbarDesktop() {
                             >
                               {currentRoute !== MainRoute.resources && (
                                 <div className={cn(s.iconC, 'flex-center')}>
-                                  <Image
+                                  <CustomImage
                                     alt="Feature Icons"
                                     height={150}
                                     src={`/img/detail/${item.path}/menu-icon.png`}

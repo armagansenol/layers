@@ -11,6 +11,7 @@ import CustomCursor from '@/components/custom-cursor'
 import { ClientOnly } from '@/components/isomorphic'
 import { RealViewport } from '@/components/real-viewport'
 import nextI18nextConfig from '@/next-i18next.config'
+import Preloader from '@/components/preloader'
 
 const queryClient = new QueryClient()
 
@@ -27,7 +28,7 @@ function App({ Component, pageProps }: AppProps) {
       <RealViewport />
       <QueryClientProvider client={queryClient}>
         <ClientOnly>{!isMobile && <CustomCursor />}</ClientOnly>
-
+        <Preloader />
         <Component {...pageProps} />
       </QueryClientProvider>
     </>

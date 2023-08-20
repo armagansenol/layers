@@ -3,7 +3,7 @@ import s from './custom-cursor.module.scss'
 
 import cn from 'clsx'
 import { gsap } from 'gsap'
-import Image from '@/components/image'
+import CustomImage from '@/components/custom-image'
 import { AnimatePresence, motion, useAnimationFrame } from 'framer-motion'
 
 import { CursorType, useCursorStore } from '@/lib/cursorStore'
@@ -143,7 +143,7 @@ const CustomCursor = () => {
           {cursorType === CursorType.marqueeLink ? (
             <div className={s.imgC}>
               <div className={s.transformC} ref={imgRef}>
-                <Image
+                <CustomImage
                   alt="Icon"
                   height={300}
                   style={{ objectFit: 'contain' }}

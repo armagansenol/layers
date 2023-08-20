@@ -14,7 +14,7 @@ type Props = {
   [x: string]: any
 }
 
-const Image = ({
+const CustomImage = ({
   src = '',
   className,
   style,
@@ -42,4 +42,4 @@ const Image = ({
   )
 }
 
-export default Image
+export default CustomImage
