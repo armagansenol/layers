@@ -142,11 +142,7 @@ const CustomCursor = () => {
           {cursorType === CursorType.marqueeLink ? (
             <div className={s.imgC}>
               <div className={s.transformC} ref={imgRef}>
-                <img
-                  alt="Icon"
-                  style={{ objectFit: 'contain' }}
-                  src={mediaSrc}
-                />
+                <img className={s.img} alt="Next Page Icon" src={mediaSrc} />
               </div>
             </div>
           ) : (
