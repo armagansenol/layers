@@ -23,7 +23,8 @@ const Image = ({
   alt = '',
   ...props
 }: Props) => {
-  const [loaded, setLoaded] = useState(loading !== 'lazy')
+  // const [loaded, setLoaded] = useState(loading !== 'lazy')
+  const [loaded, setLoaded] = useState(false)
 
   return (
     <NextImage
