@@ -32,6 +32,10 @@ const MarqueeLink = ({
     setMediaSrc(src)
   }
 
+  function handleMouseLeave() {
+    setType(CursorType.default)
+  }
+
   return (
     <div className={cn(s.nextItem, 'cursor-pointer')}>
       {title && <small className={s.title}>{title}</small>}
@@ -39,7 +43,7 @@ const MarqueeLink = ({
         className={s.marqueeC}
         {...(mediaSrc && {
           onMouseEnter: () => handleMouseEnter(mediaSrc),
-          onMouseLeave: () => setType(CursorType.default),
+          onMouseLeave: () => handleMouseLeave(),
         })}
       >
         <Marquee repeat={2} duration={20} inverted={!isMobile}>
