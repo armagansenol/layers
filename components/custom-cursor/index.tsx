@@ -47,7 +47,7 @@ const CustomCursor = () => {
 
   // Save pos and velocity Objects
   const pos: any = useInstance(() => ({ x: 0, y: 0 }))
-  const vel: any = useInstance(() => ({ x: 0, y: 0 }))
+  // const vel: any = useInstance(() => ({ x: 0, y: 0 }))
   const set: any = useInstance()
 
   useLayoutEffect(() => {
@@ -89,10 +89,10 @@ const CustomCursor = () => {
         x: x,
         y: y,
         duration: speed,
-        onUpdate: () => {
-          vel.x = x - pos.x
-          vel.y = y - pos.y
-        },
+        // onUpdate: () => {
+        //   vel.x = x - pos.x
+        //   vel.y = y - pos.y
+        // },
       })
 
       loop()

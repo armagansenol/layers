@@ -20,8 +20,8 @@ const Preloader = () => {
         setLocked(false)
         q('[data-preloader-panel]').forEach((panel, i) => {
           gsap.to(panel, {
-            height: 0,
-            opacity: i * 0.3,
+            width: 0,
+            opacity: Math.max(1 - i * 0.3, 0),
             duration: 2,
             delay: i * -0.1,
             ease: Expo.easeInOut,
@@ -89,7 +89,7 @@ const Preloader = () => {
         <div className={s.transformC}>
           <div className={cn(s.imgC, 'flex-center')} data-preloader-img>
             <CustomImage
-              src="/img/layers-logo.svg"
+              src="/img/layers-logo-hr-technologies.svg"
               alt="Layers Logo"
               width={206}
               height={193}

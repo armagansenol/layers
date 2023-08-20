@@ -6,23 +6,9 @@ import cn from 'clsx'
 import { CustomHead } from '@/components/custom-head'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import UpcomingAccordion from '@/components/upcoming-accordion'
-import { useMedia } from 'react-use'
 import ErrorMessage from '@/components/error-message'
+import UpcomingAccordion from '@/components/upcoming-accordion'
 import { useErrorStore } from '@/lib/errorStore'
-
-// const Header = dynamic(
-//   () => import('components/header').then(({ Header }) => Header),
-//   {
-//     ssr: false,
-//   }
-// )
-// const Footer = dynamic(
-//   () => import('components/footer').then(({ Footer }) => Footer),
-//   {
-//     ssr: false,
-//   }
-// )
 
 type Props = {
   seo?: any
@@ -34,8 +20,8 @@ type Props = {
 export function Layout({
   seo = {
     title: 'Layers',
-    description: '',
-    image: { url: '' },
+    description: 'Hr Super App',
+    image: { url: '/img/layers-logo-svg' },
     keywords: [
       'layers',
       'hr',
@@ -45,6 +31,7 @@ export function Layout({
       'app',
       'employee',
       'employer',
+      'career',
     ],
   },
   children,
@@ -56,7 +43,6 @@ export function Layout({
   return (
     <>
       <CustomHead {...seo} />
-
       <div className={cn(s.layout, className, `theme-${theme}`)}>
         <ErrorMessage messages={errorStore.messages} />
         <UpcomingAccordion />
