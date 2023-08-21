@@ -1,19 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 import s from './preloader.module.scss'
 
+import cn from 'clsx'
 import { Expo, gsap } from 'gsap'
 import { useLockBodyScroll } from 'react-use'
-import cn from 'clsx'
 
 import CustomImage from '@/components/custom-image'
 
 const Preloader = () => {
   const ref = useRef(null)
-  const q = gsap.utils.selector(ref)
   const [locked, setLocked] = useState(true)
   useLockBodyScroll(locked)
 
   function up() {
+    const q = gsap.utils.selector(ref)
+
     gsap.to(q('[data-preloader-img]'), {
       duration: 0,
       onComplete: () => {
@@ -53,7 +54,7 @@ const Preloader = () => {
     }
 
     const counter = () => {
-      for (var i = 0; i < tot; i++) {
+      for (let i = 0; i < tot; i++) {
         let tImg = new Image()
         tImg.onload = imgLoaded
         tImg.onerror = imgLoaded

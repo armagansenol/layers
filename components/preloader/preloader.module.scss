@@ -21,6 +21,10 @@
       transform: translate(-50%, -50%);
       width: desktop-vw(200px);
       z-index: 20;
+
+      @include mobile {
+        width: mobile-vw(160px);
+      }
     }
   }
 }
