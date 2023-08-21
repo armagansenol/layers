@@ -4,6 +4,7 @@ import s from './pinned-features.module.scss'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
+import { Trans, useTranslation } from 'next-i18next'
 import { useMedia } from 'react-use'
 
 // const mediaSrc =
@@ -15,6 +16,7 @@ const PinnedFeatures = () => {
   const ref = useRef(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const isMobile = useMedia('(max-width: 800px)', true)
+  const { t, i18n } = useTranslation('home')
 
   const media = (
     <video
@@ -87,7 +89,7 @@ const PinnedFeatures = () => {
     })
 
     return () => ctx.revert()
-  }, [isMobile])
+  }, [isMobile, i18n.language])
 
   return (
     <div className={s.pinnedFeatures} ref={ref}>
@@ -95,44 +97,37 @@ const PinnedFeatures = () => {
         <div className={s.transformC} data-animation-scroll-container>
           <div className={s.item} data-animation-scroll-item>
             <div className={s.text}>
-              <h3>All-in-one Software</h3>
-              <p>
-                Layers defines the employee experience by placing people at the
-                heart of all people operations systems and processes.
-              </p>
-              <p>
-                By leveraging self-service functionality and seamless approvals,
-                Layers ensures that employees can effortlessly access the
-                resources they need without unnecessary hurdles.
-              </p>
+              <h3>{t('whyLayers.items.i1.title')}</h3>
+              <Trans
+                i18nKey="whyLayers.items.i1.desc"
+                components={{ p: <p /> }}
+              >
+                {t('whyLayers.items.i1.desc')}
+              </Trans>
             </div>
           </div>
+
           <div className={s.item} data-animation-scroll-item>
             <div className={s.text}>
-              <h3>All-in-one Software</h3>
-              <p>
-                Layers defines the employee experience by placing people at the
-                heart of all people operations systems and processes.
-              </p>
-              <p>
-                By leveraging self-service functionality and seamless approvals,
-                Layers ensures that employees can effortlessly access the
-                resources they need without unnecessary hurdles.
-              </p>
+              <h3>{t('whyLayers.items.i2.title')}</h3>
+              <Trans
+                i18nKey="whyLayers.items.i2.desc"
+                components={{ p: <p /> }}
+              >
+                {t('whyLayers.items.i2.desc')}
+              </Trans>
             </div>
           </div>
+
           <div className={s.item} data-animation-scroll-item>
             <div className={s.text}>
-              <h3>All-in-one Software</h3>
-              <p>
-                Layers defines the employee experience by placing people at the
-                heart of all people operations systems and processes.
-              </p>
-              <p>
-                By leveraging self-service functionality and seamless approvals,
-                Layers ensures that employees can effortlessly access the
-                resources they need without unnecessary hurdles.
-              </p>
+              <h3>{t('whyLayers.items.i3.title')}</h3>
+              <Trans
+                i18nKey="whyLayers.items.i3.desc"
+                components={{ p: <p /> }}
+              >
+                {t('whyLayers.items.i3.desc')}
+              </Trans>
             </div>
           </div>
         </div>

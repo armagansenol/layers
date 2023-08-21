@@ -1,0 +1,19 @@
+{
+    "box1": {
+        "title": {
+            "p1": "We Put",
+            "p2": "People First"
+        },
+        "desc": "<p>We believe that the heart of any successful business lies in its people. Layers is built on the foundation of enhancing employee experiences, fostering engagement, and driving productivity.</p><p>With our innovative features and user-friendly interface, we aim to revolutionize the way you manage your HR functions, allowing you to focus on what truly matters – your employees.</p>",
+        "services": {
+            "title": "Our Value-added Services.",
+            "s1": "We understand that managing human resources involves more than just basic functions, which is why we have developed a range of specialized services tailored to meet the unique needs of your organization.",
+            "s2": "We understand that managing human resources involves more than just basic functions, which is why we have developed a range of specialized services tailored to meet the unique needs of your organization.",
+            "s3": "We understand that managing human resources involves more than just basic functions, which is why we have developed a range of specialized services tailored to meet the unique needs of your organization."
+        }
+    },
+    "trial": {
+        "p1": "30 Days Free Trial",
+        "p2": "Started Now"
+    }
+}

@@ -120,13 +120,13 @@
   }
 
   .text {
-    width: desktop-vw(460px);
+    width: desktop-vw(480px);
 
     @include mobile {
       width: 100%;
     }
 
-    .title {
+    & > h3 {
       font-family: var(--font-wt-gothic);
       font-size: desktop-vw(45px);
       font-weight: 700;
@@ -139,7 +139,7 @@
       }
     }
 
-    .par {
+    & > p {
       font-family: var(--font-inter);
       font-size: desktop-vw(18px);
       font-weight: 400;
@@ -203,7 +203,7 @@
         margin-bottom: mobile-vw(70px);
       }
 
-      .iconC {
+      & > .iconC {
         @include dims(desktop-vw(45px));
         margin-bottom: desktop-vw(30px);
 
@@ -214,7 +214,7 @@
         }
       }
 
-      .par {
+      & > p {
         font-family: var(--font-inter);
         font-size: desktop-vw(18px);
         font-weight: 400;

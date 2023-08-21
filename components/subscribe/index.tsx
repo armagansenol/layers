@@ -1,49 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import s from './subscribe.module.scss'
 
 import api from '@/api-client'
-import axios from 'axios'
 import cn from 'clsx'
 import { useFormik } from 'formik'
 import { AnimatePresence, motion } from 'framer-motion'
-import * as Yup from 'yup'
 import Link from 'next/link'
+import { useMutation } from 'react-query'
+import * as Yup from 'yup'
+import moment from 'moment'
+import { useTranslation } from 'next-i18next'
 
 import IconInstagram from '@/components/icons/icon-instagram'
 import IconLinkedin from '@/components/icons/icon-linkedin'
 import IconMail from '@/components/icons/icon-mail'
 import IconTwitter from '@/components/icons/icon-twitter'
 import IconYoutube from '@/components/icons/icon-youtube'
+import { useErrorStore } from '@/lib/errorStore'
 
 interface ISubscribeFormData {
   email: string
+  date: string
 }
 
 const Subscribe = () => {
   const [responseMessage, setResponseMessage] = useState(null)
   const [success, setSuccess] = useState(false)
+  const errorStore = useErrorStore()
+  const { t } = useTranslation('common')
 
-  const submitForm = async (values: any) => {
-    try {
-      // 👇️ const data: CreateUserResponse
-      const { data } = await api.post<any>('subscribe.php', values, {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-      })
-
-      return data
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log('error message: ', error.message)
-        // 👇️ error: AxiosError<any, any>
-        return error.message
-      } else {
-        console.log('unexpected error: ', error)
-        return 'An unexpected error occurred'
-      }
-    }
+  const submitForm = async (values: { email: string; date: string }) => {
+    const res = await api.post<any>('EmailSubscribe', { ...values })
+    return res.data
   }
 
   const subscribeSchema = Yup.object().shape({
@@ -52,21 +40,13 @@ const Subscribe = () => {
       .required('Please enter your email'),
   })
 
-  const subscribeValues: ISubscribeFormData = { email: '' }
+  const subscribeValues: ISubscribeFormData = {
+    email: '',
+    date: moment().format(),
+  }
 
-  const handleSubmit = async (values: ISubscribeFormData) => {
-    console.log(values)
-    submitForm(values)
-      .then((res) => {
-        // console.log("res", res)
-        setResponseMessage(res.message)
-        if (res.success) {
-          setSuccess(true)
-        }
-      })
-      .catch((err) => {
-        console.log('err', err)
-      })
+  const handleSubmit = (values: ISubscribeFormData) => {
+    mutation.mutate(values)
   }
 
   const subscribeFormik = useFormik({
@@ -77,21 +57,36 @@ const Subscribe = () => {
     validateOnBlur: false,
   })
 
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>
-
-    if (success) {
+  const mutation = useMutation(submitForm, {
+    onMutate: (variables) => {
+      console.log(variables)
+    },
+    onError: ({ response, message }) => {
+      console.log(`error`, response.data.messages.Error)
+      errorStore.setMessages(response.data.messages.Error)
+    },
+    onSuccess: (data) => {
+      setResponseMessage(data.messageCode)
       subscribeFormik.resetForm()
-      timer = setTimeout(() => {
-        setResponseMessage(null)
-        setSuccess(false)
-      }, 8000)
-    }
+    },
+    onSettled: () => {},
+  })
 
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [success])
+  // useEffect(() => {
+  //   let timer: ReturnType<typeof setTimeout>
+
+  //   if (success) {
+  //     subscribeFormik.resetForm()
+  //     timer = setTimeout(() => {
+  //       setResponseMessage(null)
+  //       setSuccess(false)
+  //     }, 8000)
+  //   }
+
+  //   return () => {
+  //     clearTimeout(timer)
+  //   }
+  // }, [success])
 
   return (
     <section className={s.subscribeC}>
@@ -144,7 +139,7 @@ const Subscribe = () => {
       >
         <div className={s.field}>
           <small className={s.smallTop}>
-            <span>Layers evolves constantly, stay up to date..!</span>
+            <span>{t('subscribe.top')}</span>
           </small>
           <div
             className={cn(s.inputC, {
@@ -153,7 +148,7 @@ const Subscribe = () => {
             })}
           >
             <input
-              placeholder="Your email address"
+              placeholder={t('subscribe.email')}
               className={s.input}
               type="email"
               id="email"
@@ -165,13 +160,11 @@ const Subscribe = () => {
               type="submit"
               className={cn(s.submitBtn, 'cursor-pointer', 'flex-center')}
             >
-              <span>Register</span>
+              <span>{t('subscribe.send')}</span>
             </button>
           </div>
           <small className={s.smallBottom}>
-            <span>
-              By subscribing, you’ll receive news, updates and much more.
-            </span>
+            <span>{t('subscribe.bottom')} </span>
           </small>
         </div>
 

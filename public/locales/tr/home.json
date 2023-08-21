@@ -1,36 +1,68 @@
 {
     "slider": {
         "s1": {
-            "title": "Layers zamanınızı yönetsin.",
-            "desc": "Simple straightforward...",
+            "title": "Bırakın zamanınızı Layers yönetsin.",
+            "desc": "Basit, anlaşılır, raporlanabilir ve merkezi insan kaynakları verileri tek bir platformda.",
             "btn": {
-                "text": "Request a Demo",
+                "text": "Demo Talep Edin",
                 "path": "demo-request"
             }
         },
         "s2": {
-            "title": "Let layers manage your time. - 2",
-            "desc": "Simple straightforward...",
+            "title": "GITEX AFRICA, Morocco",
+            "desc": "Kıtadaki en kapsamlı teknoloji etkinliği olan GITEX AFRICA, teknoloji devlerini, hükümetleri, KOBİ'leri, girişimleri, kodlayıcıları, yatırımcıları ve akademiyi bir araya getirerek yeni girişimleri hızlandırmak, işbirliği yapmak ve keşfetmek amacıyla bir araya getirecek.",
             "btn": {
-                "text": "Request a Demo",
-                "path": "demo-request"
-            }
-        },
-        "s3": {
-            "title": "Let layers manage your time. - 3",
-            "desc": "Simple straightforward...",
-            "btn": {
-                "text": "Request a Demo",
-                "path": "demo-request"
-            }
-        },
-        "s4": {
-            "title": "Let layers manage your time. - 4",
-            "desc": "Simple straightforward...",
-            "btn": {
-                "text": "Request a Demo",
-                "path": "demo-request"
+                "text": "Etkinliği İnceleyin",
+                "path": "https://www.gitexafrica.com/"
             }
         }
+    },
+    "whyLayers": {
+        "title": {
+            "p1": "Neden",
+            "p2": "Layers?"
+        },
+        "items": {
+            "i1": {
+                "title": "All-in-one Yazılım",
+                "desc": "<p>Layers, insanları tüm insan kaynakları sistemleri ve süreçlerinin merkezine yerleştirerek çalışan deneyimini tanımlar.</p><p>Kendi hizmet işlevselliğini ve sorunsuz onayları kullanarak, Layers çalışanların gereksiz engeller olmadan ihtiyaç duydukları kaynaklara kolayca erişebilmelerini sağlar.</p>"
+            },
+            "i2": {
+                "title": "Esnek & Hızlı",
+                "desc": "<p>Esnek, hızlı ve dönüştürücü. Layers ile, değişen İK dünyasına adapte olun ve evrilmeyi deneyimleyin. Kolayca özelleştirin, düzenlemelere uyum sağlayın, talepleri yönetin ve kolaylıkla gezinin.</p><p>Layers ile İK yönetiminde yeni bir çağı kucaklayın - esneklik ve hız, insan kaynaklarını yeniden tanımı.</p>"
+            },
+            "i3": {
+                "title": "İK’nın Geleceği",
+                "desc": "<p>Layers, öncü İK uygulaması, İK'nın Geleceğini temsil ediyor. Sorunsuz adaptasyon ve hızla, modern iş gücü yönetiminde öncü bir rol üstleniyor.</p><p>Teknolojiyi kucaklayan ve çalışan-odaklı bir yaklaşımı benimseyen Layers, İK'yı öncü, stratejik ve dönüştürücü bir hale getiriyor. Layers ile İK'nın geleceğine hoş geldiniz.</p>"
+            }
+        }
+    },
+    "features": {
+        "title": "<strong>All-in-one</strong> yazılımımızla, çalışan yönetiminin tüm <strong>katmanlarında</strong> başarılı olun.",
+        "marqueeLink": {
+            "p1": "Tüm özellikleri inceleyin",
+            "p2": "İnsan Kaynakları Servisleri"
+        }
+    },
+    "hrServices": {
+        "title": "İnsan Kaynakları Servisleri",
+        "desc": "Tüm iş ihtiyaçlarınız için özelleştirilmiş insan kaynakları çözümleri sunuyoruz, profesyonel ekibimiz ve gelişmiş teknolojilerimizle hizmetinizdeyiz.",
+        "btn": {
+            "text": "Servisleri inceleyin"
+        }
+    },
+    "flexible": {
+        "title": {
+            "p1": "esnek",
+            "p2": "İK yönetim stratejileri!"
+        },
+        "desc": {
+            "p1": "Nerede olursanız olun, önemli değil!",
+            "p2": "Dünyanın öbür ucunda olsanız bile, hibrit dijital çözümlerimizle şirketinizi yönetebilirsiniz."
+        }
+    },
+    "trial": {
+        "p1": "30 Gün Ücretsiz Deneme",
+        "p2": "Hemen Başlayın"
     }
 }

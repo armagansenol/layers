@@ -2,35 +2,68 @@
     "slider": {
         "s1": {
             "title": "Let layers manage your time.",
-            "desc": "Simple straightforward...",
+            "desc": "Simple, straightforward, reportable, and centralized HR data on a single platform.",
             "btn": {
                 "text": "Request a Demo",
                 "path": "demo-request"
             }
         },
         "s2": {
-            "title": "Let layers manage your time. - 2",
-            "desc": "Simple straightforward...",
+            "title": "GITEX AFRICA, Morocco",
+            "desc": "GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures.",
             "btn": {
-                "text": "Request a Demo",
-                "path": "demo-request"
-            }
-        },
-        "s3": {
-            "title": "Let layers manage your time. - 3",
-            "desc": "Simple straightforward...",
-            "btn": {
-                "text": "Request a Demo",
-                "path": "demo-request"
-            }
-        },
-        "s4": {
-            "title": "Let layers manage your time. - 4",
-            "desc": "Simple straightforward...",
-            "btn": {
-                "text": "Request a Demo",
+                "text": "Review Event",
                 "path": "demo-request"
             }
         }
+    },
+ 
+    "whyLayers": {
+        "title": {
+            "p1": "Why",
+            "p2": "Layers?"
+        },
+        "items": {
+            "i1": {
+                "title": "All-in-one Software",
+                "desc": "<p>Layers defines the employee experience by placing people at the heart of all people operations systems and processes.</p><p>By leveraging self-service functionality and seamless approvals, Layers ensures that employees can effortlessly access the resources they need without unnecessary hurdles.</p>"
+            },
+            "i2": {
+                "title": "Flexible & Fast",
+                "desc": "<p>Flexible, fast, and transformative. With Layers, adapt and evolve in a changing HR landscape.</p><p>Customize effortlessly, accommodate regulations, handle requests, and navigate with ease. Embrace a new era of HR management with Layers—where flexibility and speed redefine human resources.</p>"
+            },
+            "i3": {
+                "title": "Future of HR",
+                "desc": "<p>Layers, the cutting-edge HR app, embodies the Future of HR. With seamless adaptability and speed, it leads the way in modern workforce management.</p><p>Embracing technology and an employee-centric approach, Layers redefines HR as proactive, strategic, and transformative. Welcome to the future of HR with Layers.</p>"
+            }
+        }
+    },
+    "features": {
+        "title": "Succeed in all <strong>Layers</strong> of employee management with our <strong>all-in-one </strong> software.",
+        "marqueeLink": {
+            "p1": "See all features",
+            "p2": "Human Resources Services"
+        }
+    },
+    "hrServices": {
+        "title": "İnsan Kaynakları Servisleri",
+        "desc": "We provide customized human resources solutions for all of your business needs, utilizing our team of professionals and advanced technologies.",
+        "btn": {
+            "text": "See all services"
+        }
+    },
+    "flexible": {
+        "title": {
+            "p1": "flexible",
+            "p2": "HR Management strategies"
+        },
+        "desc": {
+            "p1": "Whenever you are doesn’t matter!",
+            "p2": "Even if you are on the other side of the world, you can still manage your company with our hybrid digital solutions."
+        }
+    },
+    "trial": {
+        "p1": "30 Days Free Trial",
+        "p2": "Started Now"
     }
 }

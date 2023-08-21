@@ -1,16 +1,19 @@
-import React, { useEffect, useRef, memo } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import s from './why-layers.module.scss'
 
 import cn from 'clsx'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useTranslation } from 'next-i18next'
 import CustomImage from 'next/image'
 
 const WhyLayers = () => {
   const ref = useRef(null)
-  const q = gsap.utils.selector(ref)
+  const { t, i18n } = useTranslation('home')
 
   useEffect(() => {
+    const q = gsap.utils.selector(ref)
+
     const ctx = gsap.context(() => {
       const why = q('[data-text-why]')
       const layers = q('[data-text-layers]')
@@ -67,7 +70,7 @@ const WhyLayers = () => {
     })
 
     return () => ctx.revert()
-  }, [q])
+  }, [i18n.language])
 
   return (
     <div className={cn(s.whyLayers, 'flex-center')} ref={ref}>
@@ -82,7 +85,6 @@ const WhyLayers = () => {
                   alt="People Using App"
                   height={1000}
                   width={1000}
-                  loading="lazy"
                 />
               </div>
             </div>
@@ -91,8 +93,8 @@ const WhyLayers = () => {
       </div>
 
       <h2 className={s.textC}>
-        <span data-text-why>Why</span>
-        <span data-text-layers>Layers?</span>
+        <span data-text-why>{t('whyLayers.title.p1')}</span>
+        <span data-text-layers>{t('whyLayers.title.p2')}</span>
       </h2>
     </div>
   )

@@ -3,66 +3,26 @@ import s from './home-slider.module.scss'
 
 import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useTranslation } from 'next-i18next'
 
 import Button from '@/components/button'
 import CustomImage from '@/components/custom-image'
 import { customEase1 } from '@/utils'
+import { useTranslation } from 'react-i18next'
 
-const HomeSlider = () => {
+type Props = {
+  slides: {
+    title: string
+    desc: string
+    img: {
+      src: string
+      alt: string
+    }
+    btn: { text: string; path: string }
+  }[]
+}
+
+const HomeSlider = ({ slides = [] }: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const { t } = useTranslation('home')
-
-  const slides = [
-    {
-      title: t('slider.s1.title'),
-      desc: t('slider.s1.desc'),
-      img: {
-        src: '/img/downtown.jpg',
-        alt: 'Slide Image',
-      },
-      btn: {
-        text: t('slider.s1.btn.text'),
-        path: t('slider.s1.btn.path'),
-      },
-    },
-    {
-      title: t('slider.s2.title'),
-      desc: t('slider.s2.desc'),
-      img: {
-        src: '/img/downtown.jpg',
-        alt: 'Slide Image',
-      },
-      btn: {
-        text: t('slider.s2.btn.text'),
-        path: t('slider.s2.btn.path'),
-      },
-    },
-    {
-      title: t('slider.s3.title'),
-      desc: t('slider.s3.desc'),
-      img: {
-        src: '/img/downtown.jpg',
-        alt: 'Slide Image',
-      },
-      btn: {
-        text: t('slider.s3.btn.text'),
-        path: t('slider.s3.btn.path'),
-      },
-    },
-    {
-      title: t('slider.s4.title'),
-      desc: t('slider.s4.desc'),
-      img: {
-        src: '/img/downtown.jpg',
-        alt: 'Slide Image',
-      },
-      btn: {
-        text: t('slider.s4.btn.text'),
-        path: t('slider.s4.btn.path'),
-      },
-    },
-  ]
 
   const animationVariants = {
     initial: {
@@ -109,13 +69,13 @@ const HomeSlider = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
+      setCurrentSlide((prev) => (prev + 1) % slides?.length)
     }, 5000)
 
     return () => {
       clearTimeout(timeout)
     }
-  }, [currentSlide, slides.length])
+  }, [currentSlide, slides?.length])
 
   function handleNavClick(index: number) {
     if (index === currentSlide) return
@@ -140,7 +100,7 @@ const HomeSlider = () => {
             exit="exit"
             variants={item}
           >
-            {slides[currentSlide].title}
+            {slides[currentSlide]?.title}
           </motion.h2>
           <motion.p
             key={`${currentSlide}-p`}
@@ -149,7 +109,7 @@ const HomeSlider = () => {
             exit="exit"
             variants={item}
           >
-            {slides[currentSlide].desc}
+            {slides[currentSlide]?.desc}
           </motion.p>
           <motion.div
             key={`${currentSlide}-btn`}
@@ -159,8 +119,8 @@ const HomeSlider = () => {
             variants={item}
           >
             <Button
-              text={slides[currentSlide].btn.text}
-              path={slides[currentSlide].btn.path}
+              text={slides[currentSlide]?.btn.text}
+              path={slides[currentSlide]?.btn.path}
             />
           </motion.div>
         </motion.div>
@@ -188,12 +148,12 @@ const HomeSlider = () => {
             }}
           >
             <CustomImage
-              alt={slides[currentSlide].img.alt}
+              alt={slides[currentSlide]?.img.alt}
               className={s.img}
               height={1000}
               loading={currentSlide === 0 ? 'eager' : 'lazy'}
               priority={currentSlide === 0}
-              src={slides[currentSlide].img.src}
+              src={slides[currentSlide]?.img.src}
               width={1000}
             />
           </motion.div>

@@ -1,3 +1,50 @@
 {
-    "home": "title"
+    "routes": {
+        "employeeDatabase": "Employee Database",
+        "employeeCenterAndHrPortal": "Employee Center And HrPortal",
+        "reportingAndHrAnalytics": "Reporting And HrAnalytics",
+        "workflowsAndForms": "workflowsAndForms",
+        "feedbackManagement": "feedbackManagement",
+        "orientationAndLearningCenter": "orientationAndLearningCenter",
+        "examAndSurveys": "examAndSurveys",
+        "gamificationsAndAppreciations": "gamificationsAndAppreciations",
+        "recruitmentCenter": "recruitmentCenter",
+        "assessmentAndOnboarding": "assessmentAndOnboarding",
+        "compensationAndBenefits": "compensationAndBenefits",
+        "okrAndPerformanceManagement": "okrAndPerformanceManagement",
+        "executiveSearchAndRecruitment": "executiveSearchAndRecruitment",
+        "temporaryStaffingAndOutsourcing": "temporaryStaffingAndOutsourcing",
+        "itRecruitment": "itRecruitment",
+        "payroll": "payroll",
+        "massRecruitmentSolutions": "massRecruitmentSolutions",
+        "recruitmentProcessOutsourcing": "recruitmentProcessOutsourcing",
+        "assessmentAndExam": "assessmentAndExam",
+        "outplacementAndCareerCoaching": "outplacementAndCareerCoaching",
+        "hrCoachingAndTraining": "hrCoachingAndTraining",
+        "hrMapping": "hrMapping",
+        "organisationalDueDiligence": "organisationalDueDiligence",
+        "managementAuditAndBenchmarking": "managementAuditAndBenchmarking",
+        "getAnOffer": "getAnOffer",
+        "aboutLayers": "aboutLayers",
+        "contact": "contact"
+    },
+    "poppingTitle": {
+        "title": {
+            "p1": "World's first",
+            "p2": "employee-centric",
+            "p3": "HR Super app, designed to",
+            "p4": "revolutionize",
+            "p5": "how you manage your human resources."
+        },
+        "btn": {
+            "text": "Get to Know Us",
+            "path": "about"
+        }
+    },
+    "subscribe": {
+        "top": "Layers evolves constantly, stay up to date..!",
+        "email": "Your email address",
+        "send": "Register",
+        "bottom": "By subscribing, you’ll receive news, updates and much more."
+    }
 }

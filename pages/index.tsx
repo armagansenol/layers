@@ -1,20 +1,20 @@
-import s from '../pages/home/home.module.scss'
+import s from './home/home.module.scss'
 
 import cn from 'clsx'
 
 import type { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
+import { Trans, useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
-import HomeSlider from '@/components/home-slider'
 import CustomImage from '@/components/custom-image'
+import HomeSlider from '@/components/home-slider'
 import { Link } from '@/components/link'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import PinnedFeatures from '@/components/pinned-features'
-import RequestDemo from '@/components/request-demo'
+import PoppingTitle from '@/components/popping-title'
 import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
@@ -24,6 +24,33 @@ import { useMenuStore } from '@/lib/menuStore'
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()
   const { t } = useTranslation('home')
+
+  const slides = [
+    {
+      title: t('slider.s1.title'),
+      desc: t('slider.s1.desc'),
+      img: {
+        src: '/img/downtown.jpg',
+        alt: 'Lady',
+      },
+      btn: {
+        text: t('slider.s1.btn.text'),
+        path: t('slider.s1.btn.path'),
+      },
+    },
+    {
+      title: t('slider.s2.title'),
+      desc: t('slider.s2.desc'),
+      img: {
+        src: '/img/conference.jpg',
+        alt: 'Conference',
+      },
+      btn: {
+        text: t('slider.s2.btn.text'),
+        path: t('slider.s2.btn.path'),
+      },
+    },
+  ]
 
   const references = [
     { logo: '/img/wired.svg' },
@@ -47,12 +74,12 @@ const Home = () => {
     <Layout theme="main">
       <>
         <section className="content-box-sm">
-          <HomeSlider />
+          <HomeSlider slides={slides} />
         </section>
 
         <section className="content-box-md">
           <div className={s.whyLayersC}>
-            <RequestDemo />
+            <PoppingTitle />
             <WhyLayers />
             <PinnedFeatures />
           </div>
@@ -60,16 +87,19 @@ const Home = () => {
 
         <section className={cn(s.features)}>
           <h2>
-            Succeed in all <strong>Layers</strong> of employee management with
-            our <strong>all-in-one </strong>
-            software.
+            <Trans i18nKey="features.title" components={{ strong: <strong /> }}>
+              {t('features.title')}
+            </Trans>
           </h2>
           <div className={cn(s.cards)}>
             <CardStack />
           </div>
           <div className={s.callToAction} onClick={toFeatures}>
             <MarqueeLink
-              text={{ t1: 'See All Features', t2: 'See All Features' }}
+              text={{
+                t1: t('features.marqueeLink.p1'),
+                t2: t('features.marqueeLink.p2'),
+              }}
             />
           </div>
         </section>
@@ -77,13 +107,13 @@ const Home = () => {
         <section className="content-box-md">
           <div className={s.hrServices}>
             <div className={s.text}>
-              <h2 className={s.title}>Human Resources Services</h2>
-              <p>
-                We provide customized human resources solutions for all of your
-                business needs, utilizing our team of professionals and advanced
-                technologies.
-              </p>
-              <Button text="See All Services" size="md" callback={toServices} />
+              <h2 className={s.title}>{t('hrServices.title')}</h2>
+              <p>{t('hrServices.desc')}</p>
+              <Button
+                text={t('hrServices.btn.text')}
+                size="md"
+                callback={toServices}
+              />
             </div>
             <div className={s.imgs}>
               <div className={cn(s.imgC, 'hidden-overflow')}>
@@ -118,7 +148,7 @@ const Home = () => {
             <div className={s.text}>
               <h2 className={s.title}>
                 <span>
-                  flexible{' '}
+                  {t('flexible.title.p1')}{' '}
                   <span className={s.underline}>
                     <CustomImage
                       alt="Underline"
@@ -129,12 +159,10 @@ const Home = () => {
                     />
                   </span>{' '}
                 </span>{' '}
-                HR Management strategies!
+                {t('flexible.title.p2')}
               </h2>
               <p>
-                Whenever you are doesn’t matter! <br /> Even if you are on the
-                other side of the world, you can still manage your company with
-                our hybrid digital solutions.
+                {t('flexible.desc.p1')} <br /> {t('flexible.desc.p2')}
               </p>
             </div>
             <div className={s.imgs}>
@@ -203,7 +231,7 @@ const Home = () => {
         </section>
 
         <Link href="/demo-request" className="trial-c">
-          <MarqueeLink text={{ t1: 'Started Now', t2: '30 Day Free Trial' }} />
+          <MarqueeLink text={{ t1: t('trial.p1'), t2: t('trial.p2') }} />
         </Link>
 
         <Subscribe />
@@ -215,7 +243,7 @@ const Home = () => {
 // or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['home'])),
+    ...(await serverSideTranslations(locale ?? 'en', ['home', 'common'])),
   },
 })
 

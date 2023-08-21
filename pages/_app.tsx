@@ -9,9 +9,9 @@ import { useMedia } from 'react-use'
 
 import CustomCursor from '@/components/custom-cursor'
 import { ClientOnly } from '@/components/isomorphic'
+import Preloader from '@/components/preloader'
 import { RealViewport } from '@/components/real-viewport'
 import nextI18nextConfig from '@/next-i18next.config'
-import Preloader from '@/components/preloader'
 
 const queryClient = new QueryClient()
 
@@ -20,9 +20,9 @@ function App({ Component, pageProps }: AppProps) {
 
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)
-    ScrollTrigger.defaults({
-      markers: process.env.NEXT_PUBLIC_NODE_ENV === 'development',
-    })
+    // ScrollTrigger.defaults({
+    //   markers: process.env.NEXT_PUBLIC_NODE_ENV === 'development',
+    // })
   }
 
   return (

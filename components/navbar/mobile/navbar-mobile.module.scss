@@ -77,8 +77,6 @@
 
     &.requestADemo {
       & > p {
-        font-weight: 700;
-
         &::after {
           content: '';
           @include position(absolute, 50%, auto, auto, 50%);

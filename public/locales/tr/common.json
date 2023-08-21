@@ -1,4 +1,21 @@
 {
-    "home": "başlık"
- 
+    "poppingTitle": {
+        "title": {
+            "p1": "Dünyanın ilk",
+            "p2": "çalışan odaklı",
+            "p3": "İK Süper uygulaması, insan kaynaklarınızı nasıl yönettiğinizi",
+            "p4": "devrimleştirmek",
+            "p5": "amacıyla tasarlandı."
+        },
+        "btn": {
+            "text": "Bizi tanıyın",
+            "path": "about"
+        }
+    },
+    "subscribe": {
+        "top": "Layers sürekli olarak evrim geçiriyor, güncel kalın..!",
+        "email": "Email adresiniz",
+        "send": "Gönder",
+        "bottom": "Abone olarak güncellemelerden ve çok daha fazlasından haberdar olabilirsiniz."
+    }
 }

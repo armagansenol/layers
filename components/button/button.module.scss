@@ -3,7 +3,8 @@
   align-items: center;
   border: 1px solid var(--hydrargyrum);
   border-radius: desktop-vw(11px);
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-start;
   padding: desktop-vw(3px) desktop-vw(3px) desktop-vw(3px) 0;
   transition: 400ms border var(--ease-out-expo);
 
@@ -97,6 +98,7 @@
   .text {
     flex: 1;
     overflow: hidden;
+    white-space: nowrap;
 
     span {
       font-family: var(--font-inter);

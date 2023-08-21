@@ -36,7 +36,7 @@ const CustomImage = ({
       style={{ ...style }}
       loading={loading}
       quality={quality}
-      onLoad={() => setLoaded(true)}
+      onLoadingComplete={() => setLoaded(true)}
       {...props}
     />
   )

@@ -1,0 +1,19 @@
+{
+    "box1": {
+        "title": {
+            "p1": "İnsanları",
+            "p2": "İlk Sırada Tutuyoruz"
+        },
+        "desc": "<p>Her başarılı işin temelinin insanlarda yattığına inanıyoruz. Layers, çalışan deneyimini geliştirmek, bağlılığı artırmak ve üretkenliği desteklemek amacıyla inşa edilmiştir.</p><p>Yenilikçi özelliklerimiz ve kullanıcı dostu arayüzümüzle, İK işlevlerinizi yönetme şeklinizi devrimleştirmeyi hedefliyoruz, böylece gerçekten önemli olan şeye odaklanmanıza olanak tanırız: çalışanlarınız.</p>",
+        "services": {
+            "title": "Katma Değerli Hizmetlerimiz.",
+            "s1": "İnsan kaynaklarını yönetmenin yalnızca temel işlevlerden daha fazlasını içerdiğini anlıyoruz, bu nedenle organizasyonunuzun benzersiz ihtiyaçlarını karşılamak için özel olarak tasarlanmış bir dizi uzmanlaşmış hizmet geliştirdik.",
+            "s2": "İnsan kaynaklarını yönetmenin yalnızca temel işlevlerden daha fazlasını içerdiğini anlıyoruz, bu nedenle organizasyonunuzun benzersiz ihtiyaçlarını karşılamak için özel olarak tasarlanmış bir dizi uzmanlaşmış hizmet geliştirdik.",
+            "s3": "İnsan kaynaklarını yönetmenin yalnızca temel işlevlerden daha fazlasını içerdiğini anlıyoruz, bu nedenle organizasyonunuzun benzersiz ihtiyaçlarını karşılamak için özel olarak tasarlanmış bir dizi uzmanlaşmış hizmet geliştirdik."
+        }
+    },
+    "trial": {
+        "p1": "30 Gün Ücretsiz Deneme",
+        "p2": "Hemen Başlayın"
+    }
+}

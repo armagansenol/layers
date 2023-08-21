@@ -15,13 +15,13 @@ const Preloader = () => {
 
   function up() {
     gsap.to(q('[data-preloader-img]'), {
-      delay: 1,
+      duration: 0,
       onComplete: () => {
         setLocked(false)
         q('[data-preloader-panel]').forEach((panel, i) => {
           gsap.to(panel, {
             width: 0,
-            opacity: Math.max(1 - i * 0.3, 0),
+            opacity: i > 0 ? i * 0.3 : 1,
             duration: 2,
             delay: i * -0.1,
             ease: Expo.easeInOut,
@@ -66,11 +66,11 @@ const Preloader = () => {
 
   return (
     <div className={cn(s.preloader, 'flex-center')} ref={ref}>
-      <div
+      {/* <div
         className={s.bg}
         style={{ background: 'var(--negroni)' }}
         data-preloader-panel
-      ></div>
+      ></div> */}
       <div
         className={s.bg}
         style={{ background: 'var(--innocent-snowdrop)' }}
@@ -78,12 +78,12 @@ const Preloader = () => {
       ></div>
       <div
         className={s.bg}
-        style={{ background: 'var(--placebo-orange)' }}
+        style={{ background: 'var(--negroni)' }}
         data-preloader-panel
       ></div>
       <div
         className={s.bg}
-        style={{ background: 'var(--cold-white)' }}
+        style={{ background: 'var(--mint-blue)' }}
         data-preloader-panel
       ></div>
       <div
