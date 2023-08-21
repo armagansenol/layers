@@ -9,15 +9,6 @@ import IconArrow from '@/components/icons/icon-arrow'
 import { Marquee } from '@/components/marquee'
 import { useMedia } from 'react-use'
 
-const animationVariants = {
-  open: {
-    opacity: 1,
-  },
-  closed: {
-    opacity: 0,
-  },
-}
-
 type Props = {
   text: string
   path?: string
@@ -53,7 +44,14 @@ const Button: React.FC<Props> = ({
           className={s.text}
           key={`${hovered}`}
           animate={hovered ? 'open' : 'close'}
-          variants={animationVariants}
+          variants={{
+            open: {
+              opacity: 1,
+            },
+            closed: {
+              opacity: 0,
+            },
+          }}
         >
           {hovered && !isMobile ? (
             <Marquee repeat={3} duration={3}>

@@ -4,13 +4,26 @@ import cn from 'clsx'
 import { i18n } from 'next-i18next'
 import { useRouter } from 'next/router'
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
+import { gsap } from 'gsap'
 
 export default function LanguageSelect() {
   const router = useRouter()
 
   const onToggleLanguageClick = (newLocale: string) => {
     const { pathname, asPath, query } = router
-    router.push({ pathname, query }, asPath, { locale: newLocale })
+
+    gsap.to('body', {
+      opacity: 0,
+      duration: 0.3,
+      onComplete: () => {
+        router.push({ pathname, query }, asPath, { locale: newLocale })
+        gsap.to('body', {
+          opacity: 1,
+          delay: 0.4,
+          duration: 0.3,
+        })
+      },
+    })
   }
 
   // const clientSideLanguageChange = (newLocale: string) => {
