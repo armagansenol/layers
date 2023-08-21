@@ -6,40 +6,54 @@ import cn from 'clsx'
 import Button from '@/components/button'
 import CustomImage from '@/components/custom-image'
 import { routes } from '@/global'
+import { useTranslation } from 'next-i18next'
 
 const CardStack = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [activeItem, setActiveItem] = useState<number | null>(null)
+  const { i18n } = useTranslation()
 
   const cards = [
     {
       order: 'first',
-      path: routes.features.children.employeeDatabase?.path,
-      title: routes.features.children.employeeDatabase?.ui,
+      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+        .employeeDatabase?.path,
+      title:
+        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+          .employeeDatabase?.ui,
       desc: 'You can access your personal database with just a click.',
       small:
         'You can easily manage, monitor and report your organizational chart, personnel personal information, documents and personal information.',
     },
     {
       order: 'second',
-      path: routes.features.children.employeeCenterAndHrPortal?.path,
-      title: routes.features.children.employeeCenterAndHrPortal?.ui,
+      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+        .employeeCenterAndHrPortal?.path,
+      title:
+        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+          .employeeCenterAndHrPortal?.ui,
       desc: 'Simplify employee needs with a centralized web/mobile center for leave, expenses, and more.',
       small:
         'Simplify employee needs with a centralized web/mobile center for leave, expenses, and more.',
     },
     {
       order: 'third',
-      path: routes.features.children.reportingAndHrAnalytics?.path,
-      title: routes.features.children.reportingAndHrAnalytics?.ui,
+      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+        .reportingAndHrAnalytics?.path,
+      title:
+        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+          .reportingAndHrAnalytics?.ui,
       desc: 'Effortlessly track your workforce with 50+ reports and AI-powered analytics.',
       small:
         'Effortlessly track your workforce with 50+ reports and AI-powered analytics.',
     },
     {
       order: 'fourth',
-      path: routes.features.children.workflowsAndForms?.path,
-      title: routes.features.children.workflowsAndForms?.ui,
+      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+        .workflowsAndForms?.path,
+      title:
+        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+          .workflowsAndForms?.ui,
       desc: 'Effortlessly manage 10+ processes and tasks.',
       small:
         'Automate processes, eliminate manual tasks, and enhance collaboration, all in one comprehensive solution.',

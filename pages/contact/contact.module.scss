@@ -157,7 +157,7 @@
 .contactFormC {
   margin: 0 auto desktop-vw(50px) auto;
   padding: desktop-vw(80px) desktop-vw(170px);
-  min-height: desktop-vw(880px);
+  min-height: 100vh;
   width: desktop-vw(1080px);
 
   @include mobile {

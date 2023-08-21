@@ -14,7 +14,7 @@ interface IParams extends ParsedUrlQuery {
 const services = {
   en: {
     executiveSearchAndRecruitment: {
-      type: routes.services.children.executiveSearchAndRecruitment?.path,
+      type: routes.en.services.children.executiveSearchAndRecruitment?.path,
       data: {
         intro: {
           title: 'Executive Search & Recruitment',
@@ -37,7 +37,7 @@ const services = {
           d2: {
             desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
             media: {
-              path: `/img/detail-${routes.services.children.executiveSearchAndRecruitment?.path}.png`,
+              path: `/img/detail-${routes.en.services.children.executiveSearchAndRecruitment?.path}.png`,
             },
           },
         },
@@ -45,14 +45,15 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.temporaryStaffingAndOutsourcing?.ui,
+            t2: routes.en.services.children.temporaryStaffingAndOutsourcing?.ui,
           },
-          url: routes.services.children.temporaryStaffingAndOutsourcing?.path,
+          url: routes.en.services.children.temporaryStaffingAndOutsourcing
+            ?.path,
         },
       },
     },
     temporaryStaffingAndOutsourcing: {
-      type: routes.services.children.temporaryStaffingAndOutsourcing?.path,
+      type: routes.en.services.children.temporaryStaffingAndOutsourcing?.path,
       data: {
         intro: {
           title: 'Temporary Staffing | Outsourcing',
@@ -82,14 +83,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.itRecruitment?.ui,
+            t2: routes.en.services.children.itRecruitment?.ui,
           },
-          url: routes.services.children.itRecruitment?.path,
+          url: routes.en.services.children.itRecruitment?.path,
         },
       },
     },
     itRecruitment: {
-      type: routes.services.children.itRecruitment?.path,
+      type: routes.en.services.children.itRecruitment?.path,
       data: {
         intro: {
           title: 'IT Recruitment',
@@ -119,14 +120,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.payroll?.ui,
+            t2: routes.en.services.children.payroll?.ui,
           },
-          url: routes.services.children.payroll?.path,
+          url: routes.en.services.children.payroll?.path,
         },
       },
     },
     payroll: {
-      type: routes.services.children.payroll?.path,
+      type: routes.en.services.children.payroll?.path,
       data: {
         intro: {
           title: 'Payroll',
@@ -156,14 +157,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.massRecruitmentSolutions?.ui,
+            t2: routes.en.services.children.massRecruitmentSolutions?.ui,
           },
-          url: routes.services.children.massRecruitmentSolutions?.path,
+          url: routes.en.services.children.massRecruitmentSolutions?.path,
         },
       },
     },
     massRecruitmentSolutions: {
-      type: routes.services.children.massRecruitmentSolutions?.path,
+      type: routes.en.services.children.massRecruitmentSolutions?.path,
       data: {
         intro: {
           title: 'Mass Recruitment Solutions',
@@ -194,14 +195,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.recruitmentProcessOutsourcing?.ui,
+            t2: routes.en.services.children.recruitmentProcessOutsourcing?.ui,
           },
-          url: routes.services.children.recruitmentProcessOutsourcing?.path,
+          url: routes.en.services.children.recruitmentProcessOutsourcing?.path,
         },
       },
     },
     recruitmentProcessOutsourcing: {
-      type: routes.services.children.recruitmentProcessOutsourcing?.path,
+      type: routes.en.services.children.recruitmentProcessOutsourcing?.path,
       data: {
         intro: {
           title: 'Recruitment Process Outsourcing',
@@ -231,14 +232,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.assessmentAndExam?.ui,
+            t2: routes.en.services.children.assessmentAndExam?.ui,
           },
-          url: routes.services.children.assessmentAndExam?.path,
+          url: routes.en.services.children.assessmentAndExam?.path,
         },
       },
     },
     assessmentAndExam: {
-      type: routes.services.children.assessmentAndExam?.path,
+      type: routes.en.services.children.assessmentAndExam?.path,
       data: {
         intro: {
           title: 'Assessment & Exam',
@@ -268,14 +269,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.outplacementAndCareerCoaching?.ui,
+            t2: routes.en.services.children.outplacementAndCareerCoaching?.ui,
           },
-          url: routes.services.children.outplacementAndCareerCoaching?.path,
+          url: routes.en.services.children.outplacementAndCareerCoaching?.path,
         },
       },
     },
     outplacementAndCareerCoaching: {
-      type: routes.services.children.outplacementAndCareerCoaching?.path,
+      type: routes.en.services.children.outplacementAndCareerCoaching?.path,
       data: {
         intro: {
           title: 'Outplacement & Career Coaching',
@@ -305,14 +306,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.hrCoachingAndTraining?.ui,
+            t2: routes.en.services.children.hrCoachingAndTraining?.ui,
           },
-          url: routes.services.children.hrCoachingAndTraining?.path,
+          url: routes.en.services.children.hrCoachingAndTraining?.path,
         },
       },
     },
     hrCoachingAndTraining: {
-      type: routes.services.children.hrCoachingAndTraining?.path,
+      type: routes.en.services.children.hrCoachingAndTraining?.path,
       data: {
         intro: {
           title: 'HR Coaching & Training',
@@ -342,14 +343,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.hrMapping?.ui,
+            t2: routes.en.services.children.hrMapping?.ui,
           },
-          url: routes.services.children.hrMapping?.path,
+          url: routes.en.services.children.hrMapping?.path,
         },
       },
     },
     hrMapping: {
-      type: routes.services.children.hrMapping?.path,
+      type: routes.en.services.children.hrMapping?.path,
       data: {
         intro: {
           title: 'HR Mapping',
@@ -379,14 +380,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.organisationalDueDiligence?.ui,
+            t2: routes.en.services.children.organisationalDueDiligence?.ui,
           },
-          url: routes.services.children.organisationalDueDiligence?.path,
+          url: routes.en.services.children.organisationalDueDiligence?.path,
         },
       },
     },
     organisationalDueDiligence: {
-      type: routes.services.children.organisationalDueDiligence?.path,
+      type: routes.en.services.children.organisationalDueDiligence?.path,
       data: {
         intro: {
           title: 'Organisational Due Diligence',
@@ -416,14 +417,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.managementAuditAndBenchmarking?.ui,
+            t2: routes.en.services.children.managementAuditAndBenchmarking?.ui,
           },
-          url: routes.services.children.managementAuditAndBenchmarking?.path,
+          url: routes.en.services.children.managementAuditAndBenchmarking?.path,
         },
       },
     },
     managementAuditAndBenchmarking: {
-      type: routes.services.children.managementAuditAndBenchmarking?.path,
+      type: routes.en.services.children.managementAuditAndBenchmarking?.path,
       data: {
         intro: {
           title: 'Management Audit & Benchmarking',
@@ -453,16 +454,16 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.executiveSearchAndRecruitment?.ui,
+            t2: routes.en.services.children.executiveSearchAndRecruitment?.ui,
           },
-          url: routes.services.children.executiveSearchAndRecruitment?.path,
+          url: routes.en.services.children.executiveSearchAndRecruitment?.path,
         },
       },
     },
   },
   tr: {
     executiveSearchAndRecruitment: {
-      type: routes.services.children.executiveSearchAndRecruitment?.path,
+      type: routes.tr.services.children.executiveSearchAndRecruitment?.path,
       data: {
         intro: {
           title: 'Executive Search & Recruitment',
@@ -485,7 +486,7 @@ const services = {
           d2: {
             desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
             media: {
-              path: `/img/detail-${routes.services.children.executiveSearchAndRecruitment?.path}.png`,
+              path: `/img/detail-${routes.tr.services.children.executiveSearchAndRecruitment?.path}.png`,
             },
           },
         },
@@ -493,14 +494,15 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.temporaryStaffingAndOutsourcing?.ui,
+            t2: routes.tr.services.children.temporaryStaffingAndOutsourcing?.ui,
           },
-          url: routes.services.children.temporaryStaffingAndOutsourcing?.path,
+          url: routes.tr.services.children.temporaryStaffingAndOutsourcing
+            ?.path,
         },
       },
     },
     temporaryStaffingAndOutsourcing: {
-      type: routes.services.children.temporaryStaffingAndOutsourcing?.path,
+      type: routes.tr.services.children.temporaryStaffingAndOutsourcing?.path,
       data: {
         intro: {
           title: 'Temporary Staffing | Outsourcing',
@@ -530,14 +532,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.itRecruitment?.ui,
+            t2: routes.tr.services.children.itRecruitment?.ui,
           },
-          url: routes.services.children.itRecruitment?.path,
+          url: routes.tr.services.children.itRecruitment?.path,
         },
       },
     },
     itRecruitment: {
-      type: routes.services.children.itRecruitment?.path,
+      type: routes.tr.services.children.itRecruitment?.path,
       data: {
         intro: {
           title: 'IT Recruitment',
@@ -567,14 +569,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.payroll?.ui,
+            t2: routes.tr.services.children.payroll?.ui,
           },
-          url: routes.services.children.payroll?.path,
+          url: routes.tr.services.children.payroll?.path,
         },
       },
     },
     payroll: {
-      type: routes.services.children.payroll?.path,
+      type: routes.tr.services.children.payroll?.path,
       data: {
         intro: {
           title: 'Payroll',
@@ -604,14 +606,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.massRecruitmentSolutions?.ui,
+            t2: routes.tr.services.children.massRecruitmentSolutions?.ui,
           },
-          url: routes.services.children.massRecruitmentSolutions?.path,
+          url: routes.tr.services.children.massRecruitmentSolutions?.path,
         },
       },
     },
     massRecruitmentSolutions: {
-      type: routes.services.children.massRecruitmentSolutions?.path,
+      type: routes.tr.services.children.massRecruitmentSolutions?.path,
       data: {
         intro: {
           title: 'Mass Recruitment Solutions',
@@ -642,14 +644,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.recruitmentProcessOutsourcing?.ui,
+            t2: routes.tr.services.children.recruitmentProcessOutsourcing?.ui,
           },
-          url: routes.services.children.recruitmentProcessOutsourcing?.path,
+          url: routes.tr.services.children.recruitmentProcessOutsourcing?.path,
         },
       },
     },
     recruitmentProcessOutsourcing: {
-      type: routes.services.children.recruitmentProcessOutsourcing?.path,
+      type: routes.tr.services.children.recruitmentProcessOutsourcing?.path,
       data: {
         intro: {
           title: 'Recruitment Process Outsourcing',
@@ -679,14 +681,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.assessmentAndExam?.ui,
+            t2: routes.tr.services.children.assessmentAndExam?.ui,
           },
-          url: routes.services.children.assessmentAndExam?.path,
+          url: routes.tr.services.children.assessmentAndExam?.path,
         },
       },
     },
     assessmentAndExam: {
-      type: routes.services.children.assessmentAndExam?.path,
+      type: routes.tr.services.children.assessmentAndExam?.path,
       data: {
         intro: {
           title: 'Assessment & Exam',
@@ -716,14 +718,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.outplacementAndCareerCoaching?.ui,
+            t2: routes.tr.services.children.outplacementAndCareerCoaching?.ui,
           },
-          url: routes.services.children.outplacementAndCareerCoaching?.path,
+          url: routes.tr.services.children.outplacementAndCareerCoaching?.path,
         },
       },
     },
     outplacementAndCareerCoaching: {
-      type: routes.services.children.outplacementAndCareerCoaching?.path,
+      type: routes.tr.services.children.outplacementAndCareerCoaching?.path,
       data: {
         intro: {
           title: 'Outplacement & Career Coaching',
@@ -753,14 +755,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.hrCoachingAndTraining?.ui,
+            t2: routes.tr.services.children.hrCoachingAndTraining?.ui,
           },
-          url: routes.services.children.hrCoachingAndTraining?.path,
+          url: routes.tr.services.children.hrCoachingAndTraining?.path,
         },
       },
     },
     hrCoachingAndTraining: {
-      type: routes.services.children.hrCoachingAndTraining?.path,
+      type: routes.tr.services.children.hrCoachingAndTraining?.path,
       data: {
         intro: {
           title: 'HR Coaching & Training',
@@ -790,14 +792,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.hrMapping?.ui,
+            t2: routes.tr.services.children.hrMapping?.ui,
           },
-          url: routes.services.children.hrMapping?.path,
+          url: routes.tr.services.children.hrMapping?.path,
         },
       },
     },
     hrMapping: {
-      type: routes.services.children.hrMapping?.path,
+      type: routes.tr.services.children.hrMapping?.path,
       data: {
         intro: {
           title: 'HR Mapping',
@@ -827,14 +829,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.organisationalDueDiligence?.ui,
+            t2: routes.tr.services.children.organisationalDueDiligence?.ui,
           },
-          url: routes.services.children.organisationalDueDiligence?.path,
+          url: routes.tr.services.children.organisationalDueDiligence?.path,
         },
       },
     },
     organisationalDueDiligence: {
-      type: routes.services.children.organisationalDueDiligence?.path,
+      type: routes.tr.services.children.organisationalDueDiligence?.path,
       data: {
         intro: {
           title: 'Organisational Due Diligence',
@@ -864,14 +866,14 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.managementAuditAndBenchmarking?.ui,
+            t2: routes.tr.services.children.managementAuditAndBenchmarking?.ui,
           },
-          url: routes.services.children.managementAuditAndBenchmarking?.path,
+          url: routes.tr.services.children.managementAuditAndBenchmarking?.path,
         },
       },
     },
     managementAuditAndBenchmarking: {
-      type: routes.services.children.managementAuditAndBenchmarking?.path,
+      type: routes.tr.services.children.managementAuditAndBenchmarking?.path,
       data: {
         intro: {
           title: 'Management Audit & Benchmarking',
@@ -901,9 +903,9 @@ const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.services.children.executiveSearchAndRecruitment?.ui,
+            t2: routes.tr.services.children.executiveSearchAndRecruitment?.ui,
           },
-          url: routes.services.children.executiveSearchAndRecruitment?.path,
+          url: routes.tr.services.children.executiveSearchAndRecruitment?.path,
         },
       },
     },
@@ -923,11 +925,11 @@ const Services = ({ data }: any) => {
 export const getStaticPaths: GetStaticPaths = () => {
   let paths: { params: { slug: string[] }; locale: string }[] = []
 
-  Object.values(routes.services.children).map((value) => {
+  Object.values(routes.en.services.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] }, locale: 'en' }]
   })
 
-  Object.values(routes.services.children).map((value) => {
+  Object.values(routes.tr.services.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] }, locale: 'tr' }]
   })
 

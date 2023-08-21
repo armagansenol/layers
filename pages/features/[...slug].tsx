@@ -14,7 +14,7 @@ interface IParams extends ParsedUrlQuery {
 const features = {
   en: {
     employeeDatabase: {
-      type: routes.features.children.employeeDatabase?.path,
+      type: routes.en.features.children.employeeDatabase?.path,
       data: {
         intro: {
           title: 'Employee Database',
@@ -37,7 +37,7 @@ const features = {
           d2: {
             desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
             media: {
-              path: `/img/detail-${routes.features.children.employeeDatabase?.path}.png`,
+              path: `/img/detail-${routes.en.features.children.employeeDatabase?.path}.png`,
             },
           },
         },
@@ -45,14 +45,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.employeeCenterAndHrPortal?.ui,
+            t2: routes.en.features.children.employeeCenterAndHrPortal?.ui,
           },
-          url: routes.features.children.employeeCenterAndHrPortal?.path,
+          url: routes.en.features.children.employeeCenterAndHrPortal?.path,
         },
       },
     },
     employeeCenterAndHrPortal: {
-      type: routes.features.children.employeeCenterAndHrPortal?.path,
+      type: routes.en.features.children.employeeCenterAndHrPortal?.path,
       data: {
         intro: {
           title: 'Employee Center & HR Portal',
@@ -82,14 +82,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.reportingAndHrAnalytics?.ui,
+            t2: routes.en.features.children.reportingAndHrAnalytics?.ui,
           },
-          url: routes.features.children.reportingAndHrAnalytics?.path,
+          url: routes.en.features.children.reportingAndHrAnalytics?.path,
         },
       },
     },
     reportingAndHrAnalytics: {
-      type: routes.features.children.reportingAndHrAnalytics?.path,
+      type: routes.en.features.children.reportingAndHrAnalytics?.path,
       data: {
         intro: {
           title: 'Reporting & HR Analytics',
@@ -119,14 +119,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.workflowsAndForms?.ui,
+            t2: routes.en.features.children.workflowsAndForms?.ui,
           },
-          url: routes.features.children.workflowsAndForms?.path,
+          url: routes.en.features.children.workflowsAndForms?.path,
         },
       },
     },
     workflowsAndForms: {
-      type: routes.features.children.workflowsAndForms?.path,
+      type: routes.en.features.children.workflowsAndForms?.path,
       data: {
         intro: {
           title: 'Workflows & Forms',
@@ -157,14 +157,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.feedbackManagement?.ui,
+            t2: routes.en.features.children.feedbackManagement?.ui,
           },
-          url: routes.features.children.feedbackManagement?.path,
+          url: routes.en.features.children.feedbackManagement?.path,
         },
       },
     },
     feedbackManagement: {
-      type: routes.features.children.feedbackManagement?.path,
+      type: routes.en.features.children.feedbackManagement?.path,
       data: {
         intro: {
           title: 'Feedback Management',
@@ -194,14 +194,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.orientationAndLearningCenter?.ui,
+            t2: routes.en.features.children.orientationAndLearningCenter?.ui,
           },
-          url: routes.features.children.orientationAndLearningCenter?.path,
+          url: routes.en.features.children.orientationAndLearningCenter?.path,
         },
       },
     },
     orientationAndLearningCenter: {
-      type: routes.features.children.orientationAndLearningCenter?.path,
+      type: routes.en.features.children.orientationAndLearningCenter?.path,
       data: {
         intro: {
           title: 'Orientation & Learning Center',
@@ -231,14 +231,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.examAndSurveys?.ui,
+            t2: routes.en.features.children.examAndSurveys?.ui,
           },
-          url: routes.features.children.examAndSurveys?.path,
+          url: routes.en.features.children.examAndSurveys?.path,
         },
       },
     },
     examAndSurveys: {
-      type: routes.features.children.examAndSurveys?.path,
+      type: routes.en.features.children.examAndSurveys?.path,
       data: {
         intro: {
           title: 'Exam & Surveys',
@@ -269,14 +269,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.gamificationsAndAppreciations?.ui,
+            t2: routes.en.features.children.gamificationsAndAppreciations?.ui,
           },
-          url: routes.features.children.gamificationsAndAppreciations?.path,
+          url: routes.en.features.children.gamificationsAndAppreciations?.path,
         },
       },
     },
     gamificationsAndAppreciations: {
-      type: routes.features.children.gamificationsAndAppreciations?.path,
+      type: routes.en.features.children.gamificationsAndAppreciations?.path,
       data: {
         intro: {
           title: 'Gamifications & Appreciations',
@@ -306,14 +306,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.recruitmentCenter?.ui,
+            t2: routes.en.features.children.recruitmentCenter?.ui,
           },
-          url: routes.features.children.recruitmentCenter?.path,
+          url: routes.en.features.children.recruitmentCenter?.path,
         },
       },
     },
     recruitmentCenter: {
-      type: routes.features.children.recruitmentCenter?.path,
+      type: routes.en.features.children.recruitmentCenter?.path,
       data: {
         intro: {
           title: 'Recruitment Center',
@@ -343,14 +343,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.assessmentAndOnboarding?.ui,
+            t2: routes.en.features.children.assessmentAndOnboarding?.ui,
           },
-          url: routes.features.children.assessmentAndOnboarding?.path,
+          url: routes.en.features.children.assessmentAndOnboarding?.path,
         },
       },
     },
     assessmentAndOnboarding: {
-      type: routes.features.children.assessmentAndOnboarding?.path,
+      type: routes.en.features.children.assessmentAndOnboarding?.path,
       data: {
         intro: {
           title: 'Assessment & Onboarding',
@@ -380,14 +380,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.compensationAndBenefits?.ui,
+            t2: routes.en.features.children.compensationAndBenefits?.ui,
           },
-          url: routes.features.children.compensationAndBenefits?.path,
+          url: routes.en.features.children.compensationAndBenefits?.path,
         },
       },
     },
     compensationAndBenefits: {
-      type: routes.features.children.compensationAndBenefits?.path,
+      type: routes.en.features.children.compensationAndBenefits?.path,
       data: {
         intro: {
           title: 'Compensation & Benefits',
@@ -417,14 +417,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.okrAndPerformanceManagement?.ui,
+            t2: routes.en.features.children.okrAndPerformanceManagement?.ui,
           },
-          url: routes.features.children.okrAndPerformanceManagement?.path,
+          url: routes.en.features.children.okrAndPerformanceManagement?.path,
         },
       },
     },
     okrAndPerformanceManagement: {
-      type: routes.features.children.okrAndPerformanceManagement?.path,
+      type: routes.en.features.children.okrAndPerformanceManagement?.path,
       data: {
         intro: {
           title: 'OKR & Performance Management',
@@ -453,16 +453,16 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.employeeDatabase?.ui,
+            t2: routes.en.features.children.employeeDatabase?.ui,
           },
-          url: routes.features.children.employeeDatabase?.path,
+          url: routes.en.features.children.employeeDatabase?.path,
         },
       },
     },
   },
   tr: {
     employeeDatabase: {
-      type: routes.features.children.employeeDatabase?.path,
+      type: routes.tr.features.children.employeeDatabase?.path,
       data: {
         intro: {
           title: 'Çalışan Veritabanı',
@@ -485,7 +485,7 @@ const features = {
           d2: {
             desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
             media: {
-              path: `/img/detail-${routes.features.children.employeeDatabase?.path}.png`,
+              path: `/img/detail-${routes.tr.features.children.employeeDatabase?.path}.png`,
             },
           },
         },
@@ -493,14 +493,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.employeeCenterAndHrPortal?.ui,
+            t2: routes.tr.features.children.employeeCenterAndHrPortal?.ui,
           },
-          url: routes.features.children.employeeCenterAndHrPortal?.path,
+          url: routes.tr.features.children.employeeCenterAndHrPortal?.path,
         },
       },
     },
     employeeCenterAndHrPortal: {
-      type: routes.features.children.employeeCenterAndHrPortal?.path,
+      type: routes.tr.features.children.employeeCenterAndHrPortal?.path,
       data: {
         intro: {
           title: 'Employee Center & HR Portal',
@@ -530,14 +530,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.reportingAndHrAnalytics?.ui,
+            t2: routes.tr.features.children.reportingAndHrAnalytics?.ui,
           },
-          url: routes.features.children.reportingAndHrAnalytics?.path,
+          url: routes.tr.features.children.reportingAndHrAnalytics?.path,
         },
       },
     },
     reportingAndHrAnalytics: {
-      type: routes.features.children.reportingAndHrAnalytics?.path,
+      type: routes.tr.features.children.reportingAndHrAnalytics?.path,
       data: {
         intro: {
           title: 'Reporting & HR Analytics',
@@ -567,14 +567,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.workflowsAndForms?.ui,
+            t2: routes.tr.features.children.workflowsAndForms?.ui,
           },
-          url: routes.features.children.workflowsAndForms?.path,
+          url: routes.tr.features.children.workflowsAndForms?.path,
         },
       },
     },
     workflowsAndForms: {
-      type: routes.features.children.workflowsAndForms?.path,
+      type: routes.tr.features.children.workflowsAndForms?.path,
       data: {
         intro: {
           title: 'Workflows & Forms',
@@ -605,14 +605,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.feedbackManagement?.ui,
+            t2: routes.tr.features.children.feedbackManagement?.ui,
           },
-          url: routes.features.children.feedbackManagement?.path,
+          url: routes.tr.features.children.feedbackManagement?.path,
         },
       },
     },
     feedbackManagement: {
-      type: routes.features.children.feedbackManagement?.path,
+      type: routes.tr.features.children.feedbackManagement?.path,
       data: {
         intro: {
           title: 'Feedback Management',
@@ -642,14 +642,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.orientationAndLearningCenter?.ui,
+            t2: routes.tr.features.children.orientationAndLearningCenter?.ui,
           },
-          url: routes.features.children.orientationAndLearningCenter?.path,
+          url: routes.tr.features.children.orientationAndLearningCenter?.path,
         },
       },
     },
     orientationAndLearningCenter: {
-      type: routes.features.children.orientationAndLearningCenter?.path,
+      type: routes.tr.features.children.orientationAndLearningCenter?.path,
       data: {
         intro: {
           title: 'Orientation & Learning Center',
@@ -679,14 +679,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.examAndSurveys?.ui,
+            t2: routes.tr.features.children.examAndSurveys?.ui,
           },
-          url: routes.features.children.examAndSurveys?.path,
+          url: routes.tr.features.children.examAndSurveys?.path,
         },
       },
     },
     examAndSurveys: {
-      type: routes.features.children.examAndSurveys?.path,
+      type: routes.tr.features.children.examAndSurveys?.path,
       data: {
         intro: {
           title: 'Exam & Surveys',
@@ -717,14 +717,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.gamificationsAndAppreciations?.ui,
+            t2: routes.tr.features.children.gamificationsAndAppreciations?.ui,
           },
-          url: routes.features.children.gamificationsAndAppreciations?.path,
+          url: routes.tr.features.children.gamificationsAndAppreciations?.path,
         },
       },
     },
     gamificationsAndAppreciations: {
-      type: routes.features.children.gamificationsAndAppreciations?.path,
+      type: routes.tr.features.children.gamificationsAndAppreciations?.path,
       data: {
         intro: {
           title: 'Gamifications & Appreciations',
@@ -754,14 +754,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.recruitmentCenter?.ui,
+            t2: routes.tr.features.children.recruitmentCenter?.ui,
           },
-          url: routes.features.children.recruitmentCenter?.path,
+          url: routes.tr.features.children.recruitmentCenter?.path,
         },
       },
     },
     recruitmentCenter: {
-      type: routes.features.children.recruitmentCenter?.path,
+      type: routes.tr.features.children.recruitmentCenter?.path,
       data: {
         intro: {
           title: 'Recruitment Center',
@@ -791,14 +791,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.assessmentAndOnboarding?.ui,
+            t2: routes.tr.features.children.assessmentAndOnboarding?.ui,
           },
-          url: routes.features.children.assessmentAndOnboarding?.path,
+          url: routes.tr.features.children.assessmentAndOnboarding?.path,
         },
       },
     },
     assessmentAndOnboarding: {
-      type: routes.features.children.assessmentAndOnboarding?.path,
+      type: routes.tr.features.children.assessmentAndOnboarding?.path,
       data: {
         intro: {
           title: 'Assessment & Onboarding',
@@ -828,14 +828,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.compensationAndBenefits?.ui,
+            t2: routes.tr.features.children.compensationAndBenefits?.ui,
           },
-          url: routes.features.children.compensationAndBenefits?.path,
+          url: routes.tr.features.children.compensationAndBenefits?.path,
         },
       },
     },
     compensationAndBenefits: {
-      type: routes.features.children.compensationAndBenefits?.path,
+      type: routes.tr.features.children.compensationAndBenefits?.path,
       data: {
         intro: {
           title: 'Compensation & Benefits',
@@ -865,14 +865,14 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.okrAndPerformanceManagement?.ui,
+            t2: routes.tr.features.children.okrAndPerformanceManagement?.ui,
           },
-          url: routes.features.children.okrAndPerformanceManagement?.path,
+          url: routes.tr.features.children.okrAndPerformanceManagement?.path,
         },
       },
     },
     okrAndPerformanceManagement: {
-      type: routes.features.children.okrAndPerformanceManagement?.path,
+      type: routes.tr.features.children.okrAndPerformanceManagement?.path,
       data: {
         intro: {
           title: 'OKR & Performance Management',
@@ -901,9 +901,9 @@ const features = {
           title: 'Next Feature',
           text: {
             t1: 'Next Feature',
-            t2: routes.features.children.employeeDatabase?.ui,
+            t2: routes.tr.features.children.employeeDatabase?.ui,
           },
-          url: routes.features.children.employeeDatabase?.path,
+          url: routes.tr.features.children.employeeDatabase?.path,
         },
       },
     },
@@ -923,11 +923,11 @@ const Features = ({ data }: any) => {
 export const getStaticPaths: GetStaticPaths = () => {
   let paths: { params: { slug: string[] }; locale: string }[] = []
 
-  Object.values(routes.features.children).map((value) => {
+  Object.values(routes.en.features.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] }, locale: 'en' }]
   })
 
-  Object.values(routes.features.children).map((value) => {
+  Object.values(routes.tr.features.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] }, locale: 'tr' }]
   })
 

@@ -15,6 +15,7 @@ import { NavbarDesktop } from '@/components/navbar/desktop'
 import { NavbarMobile } from '@/components/navbar/mobile'
 import { routes } from '@/global'
 import { useMenuStore } from '@/lib/menuStore'
+import { useTranslation } from 'next-i18next'
 
 const Header = () => {
   const navbarRef = useRef<any>(null)
@@ -24,6 +25,7 @@ const Header = () => {
   const [elementRect, setElementRect] = useState<any>()
   const showAnim = useRef<any>(null)
   const loginUrl = 'https://app.layersup.com/tr/login'
+  const { i18n } = useTranslation()
 
   const handleRect = useCallback((node: HTMLDivElement) => {
     navbarRef.current = node
@@ -96,7 +98,11 @@ const Header = () => {
     <>
       <header
         className={cn(s.header, [
-          s[currentRoute ? routes[currentRoute].type : 'null'],
+          s[
+            currentRoute
+              ? routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute].type
+              : 'null'
+          ],
         ])}
       >
         <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>

@@ -2,14 +2,16 @@ import React from 'react'
 import s from './footer.module.scss'
 
 import cn from 'clsx'
-
-import LanguageSelect from '@/components/language-select'
-import { Link } from '@/components/link'
-import CustomImage from '@/components/custom-image'
-import { routes } from '@/global'
+import { useTranslation } from 'next-i18next'
 import { useMedia } from 'react-use'
 
+import CustomImage from '@/components/custom-image'
+import LanguageSelect from '@/components/language-select'
+import { Link } from '@/components/link'
+import { routes } from '@/global'
+
 const Footer = () => {
+  const { i18n } = useTranslation()
   const isMobile = useMedia('(max-width: 800px)', true)
 
   return (
@@ -142,17 +144,25 @@ const Footer = () => {
                 style={
                   {
                     '--column-count': Math.ceil(
-                      Object.keys(routes.features.children).length / 6
+                      Object.keys(
+                        routes[i18n.language === 'en' ? 'en' : 'tr'].features
+                          .children
+                      ).length / 6
                     ),
                   } as React.CSSProperties
                 }
               >
-                {Object.values(routes.features.children).map((route, i) => {
+                {Object.values(
+                  routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+                ).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
                       <Link
                         className={s.link}
-                        href={`/${routes.features.path}/${route.path}`}
+                        href={`/${
+                          routes[i18n.language === 'en' ? 'en' : 'tr'].features
+                            .path
+                        }/${route.path}`}
                       >
                         {route.ui}
                       </Link>
@@ -170,17 +180,25 @@ const Footer = () => {
                 style={
                   {
                     '--column-count': Math.ceil(
-                      Object.keys(routes.features.children).length / 6
+                      Object.keys(
+                        routes[i18n.language === 'en' ? 'en' : 'tr'].features
+                          .children
+                      ).length / 6
                     ),
                   } as React.CSSProperties
                 }
               >
-                {Object.values(routes.services.children).map((route, i) => {
+                {Object.values(
+                  routes[i18n.language === 'en' ? 'en' : 'tr'].services.children
+                ).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
                       <Link
                         className={s.link}
-                        href={`/${routes.services.path}/${route.path}`}
+                        href={`/${
+                          routes[i18n.language === 'en' ? 'en' : 'tr'].services
+                            .path
+                        }/${route.path}`}
                       >
                         {route.ui}
                       </Link>

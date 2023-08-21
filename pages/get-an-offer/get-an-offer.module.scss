@@ -45,7 +45,7 @@
   margin: 0 auto desktop-vw(50px) auto;
   padding: desktop-vw(80px) desktop-vw(170px);
   width: desktop-vw(1080px);
-  min-height: desktop-vw(880px);
+  min-height: 100vh;
 
   @include mobile {
     min-height: unset;

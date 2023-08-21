@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Button from '@/components/button'
 import CustomImage from '@/components/custom-image'
 import { customEase1 } from '@/utils'
-import { useTranslation } from 'react-i18next'
 
 type Props = {
   slides: {
@@ -137,12 +136,10 @@ const HomeSlider = ({ slides = [] }: Props) => {
             variants={{
               open: {
                 opacity: 1,
-                filter: 'grayscale(0)',
                 transition: { duration: 0.3, ease: 'easeInOut' },
               },
               closed: {
                 opacity: 0,
-                filter: 'grayscale(1)',
                 transition: { duration: 0.3, ease: 'easeInOut' },
               },
             }}
@@ -151,8 +148,8 @@ const HomeSlider = ({ slides = [] }: Props) => {
               alt={slides[currentSlide]?.img.alt}
               className={s.img}
               height={1000}
-              loading={currentSlide === 0 ? 'eager' : 'lazy'}
-              priority={currentSlide === 0}
+              loading={'eager'}
+              priority
               src={slides[currentSlide]?.img.src}
               width={1000}
             />

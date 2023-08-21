@@ -4,6 +4,7 @@ import s from './navbar-desktop.module.scss'
 import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import CustomImage from '@/components/custom-image'
@@ -14,6 +15,7 @@ import { customEase1 } from '@/utils'
 export function NavbarDesktop() {
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
   const menuRef = useRef<HTMLElement>(null)
+  const { i18n } = useTranslation()
 
   function handleMenu(type: MainRoute) {
     if (type) {
@@ -31,26 +33,32 @@ export function NavbarDesktop() {
     <nav
       ref={menuRef}
       className={cn(s.navigation, s.fixed, [
-        s[currentRoute ? routes[currentRoute].type : 'null'],
+        s[
+          currentRoute
+            ? routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute].type
+            : 'null'
+        ],
       ])}
       onMouseLeave={handleClose}
     >
-      {Object.values(routes).map((value, i) => {
-        return (
-          <div
-            className={cn(s.navItemC, 'cursor-pointer', [s[value.type]], {
-              [s.active]: value.type === currentRoute && isOpen,
-            })}
-            key={i}
-            onMouseEnter={() => handleMenu(value.type)}
-          >
-            <p>{value.ui}</p>
-            <div className={cn(s.iconC, 'flex-center')}>
-              <IconArrowDropdown />
+      {Object.values(routes[i18n.language === 'en' ? 'en' : 'tr']).map(
+        (value, i) => {
+          return (
+            <div
+              className={cn(s.navItemC, 'cursor-pointer', [s[value.type]], {
+                [s.active]: value.type === currentRoute && isOpen,
+              })}
+              key={i}
+              onMouseEnter={() => handleMenu(value.type)}
+            >
+              <p>{value.ui}</p>
+              <div className={cn(s.iconC, 'flex-center')}>
+                <IconArrowDropdown />
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        }
+      )}
       <Link
         href="/demo-request"
         className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
@@ -101,39 +109,46 @@ export function NavbarDesktop() {
                       },
                     }}
                   >
-                    {routes[currentRoute].children &&
-                      Object.values(routes[currentRoute].children).map(
-                        (item, i) => {
-                          return (
-                            <Link
-                              className={cn(s.menuItem, 'cursor-pointer')}
-                              href={`/${
-                                routes[currentRoute].path
-                                  ? routes[currentRoute].path + '/'
-                                  : ''
-                              }${item.path}`}
-                              key={i}
-                              onClick={handleClose}
-                            >
-                              {currentRoute !== MainRoute.resources && (
-                                <div className={cn(s.iconC, 'flex-center')}>
-                                  <CustomImage
-                                    alt="Feature Icons"
-                                    height={150}
-                                    src={`/img/detail/${item.path}/menu-icon.png`}
-                                    style={{ objectFit: 'contain' }}
-                                    width={150}
-                                  />
-                                </div>
-                              )}
-                              <div className={s.text}>
-                                {item.ui && <h5>{item.ui}</h5>}
-                                {item.desc && <p>{item.desc}</p>}
+                    {routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute]
+                      .children &&
+                      Object.values(
+                        routes[i18n.language === 'en' ? 'en' : 'tr'][
+                          currentRoute
+                        ].children
+                      ).map((item, i) => {
+                        return (
+                          <Link
+                            className={cn(s.menuItem, 'cursor-pointer')}
+                            href={`/${
+                              routes[i18n.language === 'en' ? 'en' : 'tr'][
+                                currentRoute
+                              ].path
+                                ? routes[i18n.language === 'en' ? 'en' : 'tr'][
+                                    currentRoute
+                                  ].path + '/'
+                                : ''
+                            }${item.path}`}
+                            key={i}
+                            onClick={handleClose}
+                          >
+                            {currentRoute !== MainRoute.resources && (
+                              <div className={cn(s.iconC, 'flex-center')}>
+                                <CustomImage
+                                  alt="Feature Icons"
+                                  height={150}
+                                  src={`/img/detail/${item.path}/menu-icon.png`}
+                                  style={{ objectFit: 'contain' }}
+                                  width={150}
+                                />
                               </div>
-                            </Link>
-                          )
-                        }
-                      )}
+                            )}
+                            <div className={s.text}>
+                              {item.ui && <h5>{item.ui}</h5>}
+                              {item.desc && <p>{item.desc}</p>}
+                            </div>
+                          </Link>
+                        )
+                      })}
                   </motion.div>
                 )}
               </AnimatePresence>
