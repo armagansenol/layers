@@ -5,7 +5,7 @@ import cn from 'clsx'
 import { AnimatePresence, motion, useAnimationFrame } from 'framer-motion'
 import { gsap } from 'gsap'
 
-import { CursorType, useCursorStore } from '@/lib/cursorStore'
+import { CursorType, useCursorStore } from '@/lib/store/cursorStore'
 
 function useTicker(callback: () => void, paused: boolean) {
   useLayoutEffect(() => {
