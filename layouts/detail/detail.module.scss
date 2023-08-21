@@ -2,7 +2,7 @@
   align-items: center;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: desktop-vw(80px);
+  // margin-top: desktop-vw(80px);
 
   @include mobile {
     display: flex;
@@ -89,7 +89,7 @@
 }
 
 .detail {
-  margin-bottom: desktop-vw(100px);
+  // margin-bottom: desktop-vw(30px);
 
   & > .row {
     // column-gap: desktop-vw(100px);

@@ -5,7 +5,7 @@ import { useMedia } from 'react-use'
 
 import IconArrow from '@/components/icons/icon-arrow'
 import { Marquee } from '@/components/marquee'
-import { CursorType, useCursorStore } from '@/lib/cursorStore'
+import { CursorType, useCursorStore } from '@/lib/store/cursor'
 
 type Props = {
   title?: string

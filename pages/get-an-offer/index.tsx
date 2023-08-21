@@ -4,7 +4,7 @@ import ContactForm from '@/components/contact-form'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import { Link } from '@/components/custom-link'
+import { CustomLink } from '@/components/custom-link'
 import { FormType } from '@/components/contact-form/types'
 
 const GetAnOffer = () => {
@@ -24,9 +24,9 @@ const GetAnOffer = () => {
           </div>
         </section>
 
-        <Link href="/demo-request" className="trial-c">
+        <CustomLink href="/demo-request" className="trial-c">
           <MarqueeLink text={{ t1: 'Started Now', t2: '30 Day Free Trial' }} />
-        </Link>
+        </CustomLink>
 
         <Subscribe />
       </>

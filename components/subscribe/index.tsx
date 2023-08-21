@@ -16,7 +16,7 @@ import IconLinkedin from '@/components/icons/icon-linkedin'
 import IconMail from '@/components/icons/icon-mail'
 import IconTwitter from '@/components/icons/icon-twitter'
 import IconYoutube from '@/components/icons/icon-youtube'
-import { useErrorStore } from '@/lib/errorStore'
+import { useErrorStore } from '@/lib/store/error'
 
 interface ISubscribeFormData {
   email: string

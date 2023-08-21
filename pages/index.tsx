@@ -10,7 +10,7 @@ import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
 import CustomImage from '@/components/custom-image'
 import HomeSlider from '@/components/home-slider'
-import { Link } from '@/components/custom-link'
+import { CustomLink } from '@/components/custom-link'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import PinnedFeatures from '@/components/pinned-features'
@@ -230,9 +230,9 @@ const Home = () => {
           </div>
         </section>
 
-        <Link href="/demo-request" className="trial-c">
+        <CustomLink href="/demo-request" className="trial-c">
           <MarqueeLink text={{ t1: t('trial.p1'), t2: t('trial.p2') }} />
-        </Link>
+        </CustomLink>
 
         <Subscribe />
       </>

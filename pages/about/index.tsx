@@ -8,7 +8,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import CustomImage from '@/components/custom-image'
 import EmblaCarousel from '@/components/embla-carousel'
-import { Link } from '@/components/custom-link'
+import { CustomLink } from '@/components/custom-link'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import RequestDemo from '@/components/popping-title'
@@ -217,9 +217,9 @@ const About = () => {
           />
         </section>
 
-        <Link href="/demo-request" className="trial-c">
+        <CustomLink href="/demo-request" className="trial-c">
           <MarqueeLink text={{ t1: t('trial.p1'), t2: t('trial.p2') }} />
-        </Link>
+        </CustomLink>
 
         <Subscribe />
       </>

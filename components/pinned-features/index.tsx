@@ -2,7 +2,6 @@ import { memo, useEffect, useRef } from 'react'
 import s from './pinned-features.module.scss'
 
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 import { Trans, useTranslation } from 'next-i18next'
 import { useMedia } from 'react-use'
@@ -67,25 +66,25 @@ const PinnedFeatures = () => {
         },
       })
 
-      const tl = gsap
-        .timeline({ paused: true, ease: 'none' })
-        .to(items[0], { opacity: 1 })
-        .to(items[0], { opacity: 0.3 })
+      // const tl = gsap
+      //   .timeline({ paused: true, ease: 'none' })
+      //   .to(items[0], { opacity: 1 })
+      //   .to(items[0], { opacity: 0.3 })
 
-        .to(items[1], { opacity: 0.3 })
-        .to(items[1], { opacity: 1 })
-        .to(items[1], { opacity: 0.3 })
+      //   .to(items[1], { opacity: 0.3 })
+      //   .to(items[1], { opacity: 1 })
+      //   .to(items[1], { opacity: 0.3 })
 
-        .to(items[2], { opacity: 0.3 })
-        .to(items[2], { opacity: 1 })
+      //   .to(items[2], { opacity: 0.3 })
+      //   .to(items[2], { opacity: 1 })
 
-      ScrollTrigger.create({
-        scrub: true,
-        animation: tl,
-        trigger: ref.current,
-        end: `${scrollLength * multiplyBy}px top`,
-        // markers: true,
-      })
+      // ScrollTrigger.create({
+      //   scrub: true,
+      //   animation: tl,
+      //   trigger: ref.current,
+      //   end: `${scrollLength * multiplyBy}px top`,
+      //   // markers: true,
+      // })
     })
 
     return () => ctx.revert()
@@ -95,6 +94,8 @@ const PinnedFeatures = () => {
     <div className={s.pinnedFeatures} ref={ref}>
       <div className="hidden-overflow">
         <div className={s.transformC} data-animation-scroll-container>
+          <div className={s.item} data-animation-scroll-item></div>
+
           <div className={s.item} data-animation-scroll-item>
             <div className={s.text}>
               <h3>{t('whyLayers.items.i1.title')}</h3>

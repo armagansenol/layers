@@ -10,7 +10,7 @@ import IconLogin from '@/components/icons/icon-login'
 import CustomImage from '@/components/custom-image'
 import { ClientOnly } from '@/hocs/isomorphic'
 import LanguageSelect from '@/components/language-select'
-import { Link } from '@/components/custom-link'
+import { CustomLink } from '@/components/custom-link'
 import { NavbarDesktop } from '@/components/navbar/desktop'
 import { NavbarMobile } from '@/components/navbar/mobile'
 import { routes } from '@/global'
@@ -105,7 +105,7 @@ const Header = () => {
           ],
         ])}
       >
-        <Link href="/" className={cn(s.logoC, 'cursor-pointer')}>
+        <CustomLink href="/" className={cn(s.logoC, 'cursor-pointer')}>
           <CustomImage
             src="/img/layers-logo.svg"
             alt="Layers Logo"
@@ -114,7 +114,7 @@ const Header = () => {
             style={{ objectFit: 'contain' }}
             priority="high"
           />
-        </Link>
+        </CustomLink>
 
         <ClientOnly>
           {isMounted && (
@@ -134,7 +134,7 @@ const Header = () => {
               <LanguageSelect />
             </ClientOnly>
           </div>
-          <Link
+          <CustomLink
             href="https://app.layersup.com/tr/login"
             target="_blank"
             rel="noreferrer noopener"
@@ -144,7 +144,7 @@ const Header = () => {
             <div className={cn(s.iconC, 'flex-center')}>
               <IconLogin fill="var(--black)" />
             </div>
-          </Link>
+          </CustomLink>
         </div>
       </header>
     </>
