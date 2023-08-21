@@ -14,7 +14,7 @@ import ClientDate from '@/components/contact-form/date'
 import ClientSuccess from '@/components/contact-form/success'
 
 import api from '@/api-client'
-import { useErrorStore } from '@/lib/errorStore'
+import { useErrorStore } from '@/lib/store/errorStore'
 import { customEase1 } from '@/utils'
 import {
   ClientInfoForm,

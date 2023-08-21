@@ -8,7 +8,7 @@ import Footer from '@/components/footer'
 import Header from '@/components/header'
 import ErrorMessage from '@/components/error-message'
 import UpcomingAccordion from '@/components/upcoming-accordion'
-import { useErrorStore } from '@/lib/errorStore'
+import { useErrorStore } from '@/lib/store/errorStore'
 
 type Props = {
   seo?: any
