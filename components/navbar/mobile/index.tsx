@@ -4,6 +4,7 @@ import s from './navbar-mobile.module.scss'
 import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import LanguageSelect from '@/components/language-select'
@@ -19,6 +20,7 @@ export function NavbarMobile(props: Props) {
   const menuRef = useRef<HTMLElement>(null)
   const [hamburger, setHamburger] = useState(false)
   const { currentRoute, setCurrentRoute, setIsOpen } = useMenuStore()
+  const { i18n } = useTranslation()
   // useLockBodyScroll(hamburger)
 
   function handleMenu(type: MainRoute) {
@@ -62,62 +64,77 @@ export function NavbarMobile(props: Props) {
               },
             }}
             className={cn(s.navigation, [
-              s[currentRoute ? routes[currentRoute].type : 'null'],
+              s[
+                currentRoute
+                  ? routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute]
+                      .type
+                  : 'null'
+              ],
             ])}
             ref={menuRef}
           >
-            {Object.values(routes).map((value, i) => {
-              return (
-                <>
-                  <div
-                    className={cn(s.navItemC, [
-                      s[value.type],
-                      {
-                        [s.active]: value.type === currentRoute,
-                      },
-                    ])}
-                    key={i}
-                    onClick={() => handleMenu(value.type)}
-                  >
-                    <p>{value.ui}</p>
-                    <div className={s.iconC}>
-                      <IconArrowDropdown />
+            {Object.values(routes[i18n.language === 'en' ? 'en' : 'tr']).map(
+              (value, i) => {
+                return (
+                  <>
+                    <div
+                      className={cn(s.navItemC, [
+                        s[value.type],
+                        {
+                          [s.active]: value.type === currentRoute,
+                        },
+                      ])}
+                      key={i}
+                      onClick={() => handleMenu(value.type)}
+                    >
+                      <p>{value.ui}</p>
+                      <div className={s.iconC}>
+                        <IconArrowDropdown />
+                      </div>
                     </div>
-                  </div>
-                  <AnimatePresence mode="wait">
-                    {currentRoute && (
-                      <motion.div
-                        layout
-                        key={`${value.type}-submenu`}
-                        className={s.submenu}
-                        initial="closed"
-                        animate={
-                          currentRoute === value.type ? 'open' : 'closed'
-                        }
-                        exit="closed"
-                        variants={{
-                          open: {
-                            height: 'auto',
-                            opacity: 1,
-                            transition: { duration: 0.8, ease: customEase1 },
-                          },
-                          closed: {
-                            height: 0,
-                            opacity: 0,
-                            transition: { duration: 0.6, ease: customEase1 },
-                          },
-                        }}
-                      >
-                        <div className={s.links}>
-                          {routes[currentRoute].children &&
-                            Object.values(routes[currentRoute].children).map(
-                              (item, i) => {
+                    <AnimatePresence mode="wait">
+                      {currentRoute && (
+                        <motion.div
+                          layout
+                          key={`${value.type}-submenu`}
+                          className={s.submenu}
+                          initial="closed"
+                          animate={
+                            currentRoute === value.type ? 'open' : 'closed'
+                          }
+                          exit="closed"
+                          variants={{
+                            open: {
+                              height: 'auto',
+                              opacity: 1,
+                              transition: { duration: 0.8, ease: customEase1 },
+                            },
+                            closed: {
+                              height: 0,
+                              opacity: 0,
+                              transition: { duration: 0.6, ease: customEase1 },
+                            },
+                          }}
+                        >
+                          <div className={s.links}>
+                            {routes[i18n.language === 'en' ? 'en' : 'tr'][
+                              currentRoute
+                            ].children &&
+                              Object.values(
+                                routes[i18n.language === 'en' ? 'en' : 'tr'][
+                                  currentRoute
+                                ].children
+                              ).map((item, i) => {
                                 return (
                                   <Link
                                     className={s.menuItem}
                                     href={`/${
-                                      routes[currentRoute].path
-                                        ? routes[currentRoute].path + '/'
+                                      routes[
+                                        i18n.language === 'en' ? 'en' : 'tr'
+                                      ][currentRoute].path
+                                        ? routes[
+                                            i18n.language === 'en' ? 'en' : 'tr'
+                                          ][currentRoute].path + '/'
                                         : ''
                                     }${item.path}`}
                                     key={i}
@@ -126,15 +143,15 @@ export function NavbarMobile(props: Props) {
                                     {item.ui && <h5>{item.ui}</h5>}
                                   </Link>
                                 )
-                              }
-                            )}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </>
-              )
-            })}
+                              })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                )
+              }
+            )}
 
             <Link
               className={cn(s.navItemC, s.requestADemo)}
