@@ -7,7 +7,7 @@ import { useLockBodyScroll, useMedia } from 'react-use'
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import IconCalendar from '@/components/icons/icon-calendar'
 import IconX from '@/components/icons/icon-x'
-import { useMenuStore } from '@/lib/menuStore'
+import { useMenuStore } from '@/lib/store/menuStore'
 import { gsap } from 'gsap'
 import { EventAccordion } from './event-accordion'
 

@@ -8,11 +8,6 @@
 @import './_themes.scss';
 @import './_scroll.scss';
 
-// * {
-//   outline: 1px solid red;
-//   outline-offset: -1px;
-// }
-
 :root {
   --header-height: #{desktop-vw(90px)};
   --upcoming-accordion-height: #{desktop-vw(30px)};
@@ -24,20 +19,6 @@
     --header-height: #{mobile-vw(80px)};
     --upcoming-accordion-height: #{mobile-vw(30px)};
     --nav-height: #{mobile-vw(30px)};
-  }
-}
-
-.noSelect {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  &:focus {
-    outline: none !important;
   }
 }
 
@@ -82,10 +63,6 @@ main {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: default;
-}
-
-.italic {
-  font-style: italic;
 }
 
 sup {

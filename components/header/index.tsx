@@ -8,13 +8,13 @@ import { useMedia } from 'react-use'
 
 import IconLogin from '@/components/icons/icon-login'
 import CustomImage from '@/components/custom-image'
-import { ClientOnly } from '@/components/isomorphic'
+import { ClientOnly } from '@/hocs/isomorphic'
 import LanguageSelect from '@/components/language-select'
-import { Link } from '@/components/link'
+import { Link } from '@/components/custom-link'
 import { NavbarDesktop } from '@/components/navbar/desktop'
 import { NavbarMobile } from '@/components/navbar/mobile'
 import { routes } from '@/global'
-import { useMenuStore } from '@/lib/menuStore'
+import { useMenuStore } from '@/lib/store/menuStore'
 import { useTranslation } from 'next-i18next'
 
 const Header = () => {

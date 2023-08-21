@@ -10,7 +10,7 @@ import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
 import CustomImage from '@/components/custom-image'
 import HomeSlider from '@/components/home-slider'
-import { Link } from '@/components/link'
+import { Link } from '@/components/custom-link'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import PinnedFeatures from '@/components/pinned-features'
@@ -19,7 +19,7 @@ import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
-import { useMenuStore } from '@/lib/menuStore'
+import { useMenuStore } from '@/lib/store/menuStore'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()

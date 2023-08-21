@@ -7,7 +7,7 @@ import { useMedia } from 'react-use'
 
 import CustomImage from '@/components/custom-image'
 import LanguageSelect from '@/components/language-select'
-import { Link } from '@/components/link'
+import { Link } from '@/components/custom-link'
 import { routes } from '@/global'
 
 const Footer = () => {

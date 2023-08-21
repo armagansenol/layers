@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { useMedia } from 'react-use'
 
 import CustomCursor from '@/components/custom-cursor'
-import { ClientOnly } from '@/components/isomorphic'
+import { ClientOnly } from '@/hocs/isomorphic'
 import Preloader from '@/components/preloader'
 import { RealViewport } from '@/components/real-viewport'
 import nextI18nextConfig from '@/next-i18next.config'

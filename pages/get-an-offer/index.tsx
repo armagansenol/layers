@@ -4,7 +4,7 @@ import ContactForm from '@/components/contact-form'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import { Link } from '@/components/link'
+import { Link } from '@/components/custom-link'
 import { FormType } from '@/components/contact-form/types'
 
 const GetAnOffer = () => {

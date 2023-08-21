@@ -8,7 +8,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import CustomImage from '@/components/custom-image'
 import EmblaCarousel from '@/components/embla-carousel'
-import { Link } from '@/components/link'
+import { Link } from '@/components/custom-link'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import RequestDemo from '@/components/popping-title'

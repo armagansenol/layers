@@ -4,10 +4,10 @@ import s from './button.module.scss'
 import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
+import { useMedia } from 'react-use'
 
 import IconArrow from '@/components/icons/icon-arrow'
 import { Marquee } from '@/components/marquee'
-import { useMedia } from 'react-use'
 
 type Props = {
   text: string

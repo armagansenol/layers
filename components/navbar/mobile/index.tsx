@@ -9,7 +9,7 @@ import { useTranslation } from 'next-i18next'
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import LanguageSelect from '@/components/language-select'
 import { MainRoute, routes } from '@/global'
-import { useMenuStore } from '@/lib/menuStore'
+import { useMenuStore } from '@/lib/store/menuStore'
 import { customEase1 } from '@/utils'
 
 type Props = {
