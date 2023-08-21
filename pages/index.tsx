@@ -19,7 +19,7 @@ import Subscribe from '@/components/subscribe'
 import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
-import { useMenuStore } from '@/lib/store/menuStore'
+import { useMenuStore } from '@/lib/store/menu'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute } = useMenuStore()

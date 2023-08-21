@@ -4,7 +4,7 @@ import s from './error-message.module.scss'
 import { AnimatePresence, motion } from 'framer-motion'
 import cn from 'clsx'
 import IconX from '@/components/icons/icon-x'
-import { useErrorStore } from '@/lib/errorStore'
+import { useErrorStore } from '@/lib/store/error'
 
 type Props = {
   messages: string[]

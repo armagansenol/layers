@@ -14,7 +14,7 @@ import { Link } from '@/components/custom-link'
 import { NavbarDesktop } from '@/components/navbar/desktop'
 import { NavbarMobile } from '@/components/navbar/mobile'
 import { routes } from '@/global'
-import { useMenuStore } from '@/lib/store/menuStore'
+import { useMenuStore } from '@/lib/store/menu'
 import { useTranslation } from 'next-i18next'
 
 const Header = () => {
