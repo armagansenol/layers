@@ -7,7 +7,7 @@ import { useMedia } from 'react-use'
 
 import CustomImage from '@/components/custom-image'
 import LanguageSelect from '@/components/language-select'
-import { Link } from '@/components/custom-link'
+import { CustomLink } from '@/components/custom-link'
 import { routes } from '@/global'
 
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
       <div className={s.main}>
         <div className={s.gridY}>
           <div className={s.layers}>
-            <Link href="/" className={s.logoC}>
+            <CustomLink href="/" className={s.logoC}>
               <CustomImage
                 src="/img/layers-logo-hr-technologies.svg"
                 alt="Layers Logo"
@@ -28,12 +28,12 @@ const Footer = () => {
                 height="193"
                 style={{ objectFit: 'contain' }}
               />
-            </Link>
+            </CustomLink>
             <div className={cn(s.linksC, s.download)}>
               <h6>DOWNLOAD</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link
+                  <CustomLink
                     className={s.imgC}
                     href="https://apps.apple.com/tr/app/layers-portal"
                     target="blank"
@@ -47,10 +47,10 @@ const Footer = () => {
                       style={{ objectFit: 'contain' }}
                       loading="lazy"
                     />
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li className={s.linkC}>
-                  <Link
+                  <CustomLink
                     className={s.imgC}
                     href="https://play.google.com/store/apps/details?id=com.neyasis.neyasis_mobile_portal"
                     target="blank"
@@ -64,10 +64,10 @@ const Footer = () => {
                       style={{ objectFit: 'contain' }}
                       loading="lazy"
                     />
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li className={s.linkC}>
-                  <Link
+                  <CustomLink
                     className={s.imgC}
                     href="#"
                     target="blank"
@@ -81,7 +81,7 @@ const Footer = () => {
                       style={{ objectFit: 'contain' }}
                       loading="lazy"
                     />
-                  </Link>
+                  </CustomLink>
                 </li>
               </ul>
             </div>
@@ -91,14 +91,14 @@ const Footer = () => {
               <h6>COMPANY</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="/about">
+                  <CustomLink className={s.link} href="/about">
                     About
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="/contact">
+                  <CustomLink className={s.link} href="/contact">
                     Contact
-                  </Link>
+                  </CustomLink>
                 </li>
               </ul>
             </div>
@@ -106,29 +106,29 @@ const Footer = () => {
               <h6>SUPPORT</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="/get-an-offer">
+                  <CustomLink className={s.link} href="/get-an-offer">
                     Get an Offer
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="/demo-request">
+                  <CustomLink className={s.link} href="/demo-request">
                     Request a Demo
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li className={s.linkC}>
-                  <Link className={s.link} href="/terms-of-use">
+                  <CustomLink className={s.link} href="/terms-of-use">
                     Terms of Use
-                  </Link>
+                  </CustomLink>
                 </li>
                 <li className={s.linkC}>
-                  <Link
+                  <CustomLink
                     href="/pdf/personal-data-protection-and-processing-policy.pdf"
                     target="blank"
                     rel="noreferrer noopener"
                     className={s.link}
                   >
                     Privacy Policy
-                  </Link>
+                  </CustomLink>
                 </li>
               </ul>
             </div>
@@ -157,7 +157,7 @@ const Footer = () => {
                 ).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
-                      <Link
+                      <CustomLink
                         className={s.link}
                         href={`/${
                           routes[i18n.language === 'en' ? 'en' : 'tr'].features
@@ -165,7 +165,7 @@ const Footer = () => {
                         }/${route.path}`}
                       >
                         {route.ui}
-                      </Link>
+                      </CustomLink>
                     </li>
                   )
                 })}
@@ -193,7 +193,7 @@ const Footer = () => {
                 ).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
-                      <Link
+                      <CustomLink
                         className={s.link}
                         href={`/${
                           routes[i18n.language === 'en' ? 'en' : 'tr'].services
@@ -201,7 +201,7 @@ const Footer = () => {
                         }/${route.path}`}
                       >
                         {route.ui}
-                      </Link>
+                      </CustomLink>
                     </li>
                   )
                 })}
