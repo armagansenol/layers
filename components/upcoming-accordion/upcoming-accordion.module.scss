@@ -83,7 +83,7 @@
 }
 
 .accordionBody {
-  --gradient-height: #{desktop-vw(400px)};
+  --gradient-height: #{desktop-vw(200px)};
   --margin-top: #{desktop-vw(50px)};
   height: calc(90vh - var(--margin-top));
   margin-top: var(--margin-top);

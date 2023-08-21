@@ -8,7 +8,7 @@ import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import IconCalendar from '@/components/icons/icon-calendar'
 import IconX from '@/components/icons/icon-x'
 import { useMenuStore } from '@/lib/store/menu'
-import { gsap } from 'gsap'
+import { Expo, gsap } from 'gsap'
 import { EventAccordion } from './event-accordion'
 
 const UpcomingAccordion = () => {
@@ -181,7 +181,8 @@ const UpcomingAccordion = () => {
   useEffect(() => {
     if (isOpen) {
       gsap.to(wrapperRef.current, {
-        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        ease: Expo.easeInOut,
+        duration: 1,
         height: 'auto',
         onStart: () => {
           setPosition(true)
@@ -190,7 +191,8 @@ const UpcomingAccordion = () => {
       })
     } else {
       gsap.to(wrapperRef.current, {
-        ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        ease: Expo.easeInOut,
+        duration: 0.8,
         height: 0,
         onComplete: () => {
           setPosition(false)
