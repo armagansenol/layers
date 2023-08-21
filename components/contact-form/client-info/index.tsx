@@ -3,6 +3,7 @@ import s from './client-info.module.scss'
 import cn from 'clsx'
 import { FormikProps } from 'formik'
 import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
 import { ClientInfoForm, clientInfoFormModel } from './form-model'
 import { FormType } from '../types'
@@ -25,13 +26,15 @@ const numberOfEmployeeesOptions = [
   { ui: '250+', value: '250+' },
 ]
 
-const interestedProduct = Object.values(routes.services.children).map(
-  (service) => {
-    return service.ui
-  }
-)
-
 const ClientInfo = ({ formType, formik }: Props) => {
+  const { i18n } = useTranslation()
+
+  const interestedProduct = Object.values(
+    routes[i18n.language === 'en' ? 'en' : 'tr'].services.children
+  ).map((service) => {
+    return service.ui
+  })
+
   function handleNumberOfEmployees(val: string) {
     formik?.setFieldValue(clientInfoFormModel.numberOfEmployees.name, val)
   }
