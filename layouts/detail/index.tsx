@@ -31,7 +31,7 @@ const Detail = ({ pageData, pageType }: Props) => {
       </Head>
 
       <section className="content-box-sm">
-        <div className={s.content}>
+        <div className={s.intro}>
           <div className={s.text}>
             <h1>{pageData.intro.title}</h1>
             <p>{pageData.intro.desc}</p>
@@ -61,29 +61,27 @@ const Detail = ({ pageData, pageType }: Props) => {
       </section>
 
       <section className="content-box-md">
-        <div className={s.detail}>
-          <div className={cn(s.row, s.intro)}>
-            <div className={s.mediaC}>
-              <video
-                className={s.media}
-                src={pageData.detail.d1.media.path}
-                autoPlay
-                muted
-                loop
-                playsInline
-              ></video>
-            </div>
-            <div className={s.text}>
-              <h3>{pageData.detail.d1.title}</h3>
-              <p>
-                <Trans
-                  i18nKey={pageData.detail.d1.desc}
-                  components={{ span: <span /> }}
-                >
-                  {pageData.detail.d1.desc}
-                </Trans>
-              </p>
-            </div>
+        <div className={cn(s.row, s.desc)}>
+          <div className={s.mediaC}>
+            <video
+              className={s.media}
+              src={pageData.detail.d1.media.path}
+              autoPlay
+              muted
+              loop
+              playsInline
+            ></video>
+          </div>
+          <div className={s.text}>
+            <h3>{pageData.detail.d1.title}</h3>
+            <p>
+              <Trans
+                i18nKey={pageData.detail.d1.desc}
+                components={{ span: <span /> }}
+              >
+                {pageData.detail.d1.desc}
+              </Trans>
+            </p>
           </div>
 
           <div className={cn(s.row, s.listC)}>

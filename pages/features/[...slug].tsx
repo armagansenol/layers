@@ -1,9 +1,10 @@
-import { features, routes } from '@/global'
-import { Layout } from '@/layouts/default'
-import Detail from '@/layouts/detail'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ParsedUrlQuery } from 'querystring'
+
+import { features, routes } from '@/global'
+import { Layout } from '@/layouts/default'
+import Detail from '@/layouts/detail'
 
 interface IParams extends ParsedUrlQuery {
   slug: string

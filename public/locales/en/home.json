@@ -17,7 +17,6 @@
             }
         }
     },
- 
     "whyLayers": {
         "title": {
             "p1": "Why",
@@ -42,11 +41,11 @@
         "title": "Succeed in all <strong>Layers</strong> of employee management with our <strong>all-in-one </strong> software.",
         "marqueeLink": {
             "p1": "See all features",
-            "p2": "Human Resources Services"
+            "p2": "See all features"
         }
     },
     "hrServices": {
-        "title": "İnsan Kaynakları Servisleri",
+        "title": "Human Resources Services",
         "desc": "We provide customized human resources solutions for all of your business needs, utilizing our team of professionals and advanced technologies.",
         "btn": {
             "text": "See all services"
@@ -55,7 +54,7 @@
     "flexible": {
         "title": {
             "p1": "flexible",
-            "p2": "HR Management strategies"
+            "p2": "HR management strategies"
         },
         "desc": {
             "p1": "Whenever you are doesn’t matter!",

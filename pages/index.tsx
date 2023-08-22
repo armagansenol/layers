@@ -5,6 +5,7 @@ import cn from 'clsx'
 import type { GetServerSideProps } from 'next'
 import { Trans, useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Head from 'next/head'
 
 import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
@@ -73,6 +74,11 @@ const Home = () => {
   return (
     <Layout theme="main">
       <>
+        <Head>
+          <link rel="preload" href="/img/downtown.jpg" as="image" />
+          <link rel="preload" href="/img/conference.jpg" as="image" />
+        </Head>
+
         <section className="content-box-sm">
           <HomeSlider slides={slides} />
         </section>

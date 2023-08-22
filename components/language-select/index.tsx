@@ -14,12 +14,12 @@ export default function LanguageSelect() {
 
     gsap.to('body', {
       opacity: 0,
-      duration: 0.3,
+      duration: 0.2,
       onComplete: () => {
         router.push({ pathname, query }, asPath, { locale: newLocale })
         gsap.to('body', {
           opacity: 1,
-          delay: 0.4,
+          delay: 0.6,
           duration: 0.3,
         })
       },

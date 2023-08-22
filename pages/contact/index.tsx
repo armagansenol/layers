@@ -1,4 +1,5 @@
 import s from './contact.module.scss'
+import { useRef } from 'react'
 
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -14,7 +15,12 @@ import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 
 const Contact = () => {
+  const contactFormRef = useRef<HTMLDivElement>(null)
   const { t } = useTranslation('contact')
+
+  function handleScroll() {
+    contactFormRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <Layout theme="main">
@@ -23,7 +29,7 @@ const Contact = () => {
           <div className={s.text}>
             <h1>{t('title')}</h1>
             <p>{t('desc')}</p>
-            <small>
+            <small className="flex-center" onClick={handleScroll}>
               <Trans i18nKey="desc" components={{ span: <span /> }}>
                 {t('small')}
               </Trans>
@@ -77,7 +83,7 @@ const Contact = () => {
         </section>
 
         <section className="content-box-lg">
-          <div className={s.contactFormC}>
+          <div className={s.contactFormC} ref={contactFormRef}>
             <ContactForm formType={FormType.contact} />
           </div>
         </section>

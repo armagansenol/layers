@@ -1,16 +1,15 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import s from './card-stack.module.scss'
 
 import cn from 'clsx'
+import { useTranslation } from 'next-i18next'
 
 import Button from '@/components/button'
 import CustomImage from '@/components/custom-image'
-import { routes } from '@/global'
-import { useTranslation } from 'next-i18next'
+import { features, routes } from '@/global'
 
 const CardStack = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const [activeItem, setActiveItem] = useState<number | null>(null)
   const { i18n } = useTranslation()
 
   const cards = [
@@ -21,9 +20,11 @@ const CardStack = () => {
       title:
         routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
           .employeeDatabase?.ui,
-      desc: 'You can access your personal database with just a click.',
+      desc: features[i18n.language === 'en' ? 'en' : 'tr'].employeeDatabase
+        ?.data.intro.desc,
       small:
-        'You can easily manage, monitor and report your organizational chart, personnel personal information, documents and personal information.',
+        features[i18n.language === 'en' ? 'en' : 'tr'].employeeDatabase?.data
+          .intro.small,
     },
     {
       order: 'second',
@@ -32,9 +33,11 @@ const CardStack = () => {
       title:
         routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
           .employeeCenterAndHrPortal?.ui,
-      desc: 'Simplify employee needs with a centralized web/mobile center for leave, expenses, and more.',
+      desc: features[i18n.language === 'en' ? 'en' : 'tr']
+        .employeeCenterAndHrPortal?.data.intro.desc,
       small:
-        'Simplify employee needs with a centralized web/mobile center for leave, expenses, and more.',
+        features[i18n.language === 'en' ? 'en' : 'tr'].employeeCenterAndHrPortal
+          ?.data.intro.small,
     },
     {
       order: 'third',
@@ -43,9 +46,11 @@ const CardStack = () => {
       title:
         routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
           .reportingAndHrAnalytics?.ui,
-      desc: 'Effortlessly track your workforce with 50+ reports and AI-powered analytics.',
+      desc: features[i18n.language === 'en' ? 'en' : 'tr']
+        .reportingAndHrAnalytics?.data.intro.desc,
       small:
-        'Effortlessly track your workforce with 50+ reports and AI-powered analytics.',
+        features[i18n.language === 'en' ? 'en' : 'tr'].reportingAndHrAnalytics
+          ?.data.intro.small,
     },
     {
       order: 'fourth',
@@ -54,9 +59,11 @@ const CardStack = () => {
       title:
         routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
           .workflowsAndForms?.ui,
-      desc: 'Effortlessly manage 10+ processes and tasks.',
+      desc: features[i18n.language === 'en' ? 'en' : 'tr'].workflowsAndForms
+        ?.data.intro.desc,
       small:
-        'Automate processes, eliminate manual tasks, and enhance collaboration, all in one comprehensive solution.',
+        features[i18n.language === 'en' ? 'en' : 'tr'].workflowsAndForms?.data
+          .intro.small,
     },
   ]
 
@@ -68,11 +75,12 @@ const CardStack = () => {
     return filtered[0]
   }
 
+  //TODO: Refactor
   function handleStack(e: any) {
     if (!ref.current) return
-    const clickedCard = e.target.closest('.cardC')
+    const clickedCard = e.target.closest('[data-card]')
 
-    const cards = Array.from(ref.current.querySelectorAll('.cardC'))
+    const cards = Array.from(ref.current.querySelectorAll('[data-card]'))
 
     const se = findEl(cards, s.second)
     const th = findEl(cards, s.third)
@@ -114,17 +122,14 @@ const CardStack = () => {
 
   return (
     <div className={s.cardStack} ref={ref}>
-      <div className={cn(s.cardsC, 'cardsC')}>
+      <div className={s.cardsC}>
         {cards.map((card, i) => {
           return (
             <div
-              className={cn(s.cardC, 'cardC', [s[card.order]], {
-                [s.active]: i === activeItem,
-              })}
+              className={cn(s.cardC, [s[card.order]])}
               key={i}
               onClick={(e) => handleStack(e)}
-              // onMouseEnter={() => setActiveItem(i)}
-              // onMouseLeave={() => setActiveItem(null)}
+              data-card
             >
               <div className={cn(s.transformC, [s[card.order]])}>
                 <div className={cn(s.card, [s[card.order]])}>
