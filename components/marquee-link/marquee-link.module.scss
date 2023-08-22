@@ -90,6 +90,7 @@
       transition: 300ms all ease;
 
       @include mobile {
+        @include dims(mobile-vw(60px), 100%);
         border-radius: mobile-vw(8px);
       }
 

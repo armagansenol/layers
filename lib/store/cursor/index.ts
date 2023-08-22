@@ -3,6 +3,7 @@ import { create } from 'zustand'
 export enum CursorType {
   default = 'default',
   marqueeLink = 'marqueeLink',
+  drag = 'drag',
 }
 
 interface State {

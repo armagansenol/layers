@@ -11,7 +11,7 @@
   z-index: z-index('header');
 
   @include mobile {
-    padding: 0 mobile-vw(16px);
+    padding: 0 var(--mobile-padding-x);
   }
 
   &.features {

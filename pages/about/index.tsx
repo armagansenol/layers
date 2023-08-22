@@ -7,13 +7,14 @@ import { Trans, useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import CustomImage from '@/components/custom-image'
-import EmblaCarousel from '@/components/embla-carousel'
 import { CustomLink } from '@/components/custom-link'
+import EmblaCarousel from '@/components/embla-carousel'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import RequestDemo from '@/components/popping-title'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
+import { CursorType, useCursorStore } from '@/lib/store/cursor'
 
 const carouselOptions: EmblaOptionsType = {
   slidesToScroll: 1,
@@ -55,6 +56,7 @@ function Slide(props: Slide) {
 }
 
 const About = () => {
+  const { setType } = useCursorStore()
   const { t } = useTranslation('about')
 
   const slides = [
@@ -91,6 +93,14 @@ const About = () => {
     { logo: '/img/uber.svg' },
     { logo: '/img/walmart.svg' },
   ]
+
+  function handleMouseEnter() {
+    setType(CursorType.drag)
+  }
+
+  function handleMouseLeave() {
+    setType(CursorType.default)
+  }
 
   return (
     <Layout theme="main">
@@ -204,13 +214,19 @@ const About = () => {
 
         <section className={s.testimonials}>
           <h4>{t('testimonials.title')}</h4>
-          <EmblaCarousel
-            options={carouselOptions}
-            slides={slides.map((data, i) => {
-              return <Slide key={i} {...data} />
-            })}
-            slideSpacing={30}
-          />
+          <div
+            className="cursor-hidden"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <EmblaCarousel
+              options={carouselOptions}
+              slides={slides.map((data, i) => {
+                return <Slide key={i} {...data} />
+              })}
+              slideSpacing={30}
+            />
+          </div>
         </section>
 
         <CustomLink href="/demo-request" className="trial-c">

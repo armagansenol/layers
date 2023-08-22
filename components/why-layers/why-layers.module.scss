@@ -2,6 +2,10 @@
   @include dims(100%, 90vh);
   position: relative;
 
+  @include mobile {
+    @include dims(100%, 100vh);
+  }
+
   .imgs {
     @include position(absolute, 50%, auto, auto, 50%);
     @include dims(desktop-vw(400px), desktop-vw(540px));

@@ -6,6 +6,7 @@
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%);
   z-index: z-index('cursor');
+  will-change: transform;
 
   .default {
     @include dims(16px);
@@ -14,11 +15,8 @@
     border: 1px solid var(--black);
   }
 
-  .imgC {
-    @include position(absolute, 50%, auto, auto, 50%);
+  .icon {
     @include dims(150px);
-    transform: translate(-50%, -50%);
-    will-change: transform;
 
     .transformC {
       @include dims(100%);
@@ -28,6 +26,19 @@
         display: block;
         object-fit: contain;
       }
+    }
+  }
+
+  .drag {
+    @include dims(desktop-vw(100px));
+    background: var(--black);
+    border-radius: 50%;
+
+    span {
+      color: var(--white);
+      font-size: desktop-vw(25px);
+      font-family: var(--font-wt-gothic);
+      margin-bottom: desktop-vw(4px);
     }
   }
 }

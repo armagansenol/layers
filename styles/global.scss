@@ -19,6 +19,7 @@
     --header-height: #{mobile-vw(80px)};
     --upcoming-accordion-height: #{mobile-vw(30px)};
     --nav-height: #{mobile-vw(30px)};
+    --mobile-padding-x: #{mobile-vw(20px)};
   }
 }
 
@@ -132,7 +133,7 @@ sup {
 
   @include mobile {
     margin: 0;
-    padding: 0 mobile-vw(16px);
+    padding: 0 mobile-vw(6px);
   }
 }
 
@@ -141,7 +142,7 @@ sup {
   padding: 0 desktop-vw(60px);
 
   @include mobile {
-    padding: 0 mobile-vw(10px);
+    padding: 0 mobile-vw(6px);
   }
 }
 

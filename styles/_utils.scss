@@ -63,6 +63,14 @@
   }
 }
 
+.cursor-hidden {
+  cursor: none;
+
+  * {
+    cursor: none;
+  }
+}
+
 .flex-center {
   align-items: center;
   display: flex;
@@ -104,4 +112,9 @@ html.has-scroll-smooth {
 
 .italic {
   font-style: italic;
+}
+
+.absolute-center {
+  @include position(absolute, 50%, auto, auto, 50%);
+  transform: translate(-50%, -50%);
 }

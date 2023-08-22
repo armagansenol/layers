@@ -34,7 +34,7 @@
 
   @include mobile {
     column-gap: mobile-vw(8px);
-    padding: 0 mobile-vw(16px);
+    padding: 0 var(--mobile-padding-x);
   }
 
   & > * {

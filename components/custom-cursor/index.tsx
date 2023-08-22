@@ -5,7 +5,7 @@ import cn from 'clsx'
 import { AnimatePresence, motion, useAnimationFrame } from 'framer-motion'
 import { gsap } from 'gsap'
 
-import { CursorType, useCursorStore } from '@/lib/store/cursor'
+import { useCursorStore } from '@/lib/store/cursor'
 
 function useTicker(callback: () => void, paused: boolean) {
   useLayoutEffect(() => {
@@ -43,6 +43,8 @@ function useInstance(value = {}) {
 const CustomCursor = () => {
   const jellyRef = useRef(null)
   // const textRef = useRef(null)
+  const imgRef = useRef<HTMLDivElement | null>(null)
+  const { cursorType, mediaSrc } = useCursorStore()
 
   // Save pos and velocity Objects
   const pos: any = useInstance(() => ({ x: 0, y: 0 }))
@@ -106,10 +108,6 @@ const CustomCursor = () => {
 
   useTicker(loop, false)
 
-  const { cursorType, mediaSrc } = useCursorStore()
-
-  const imgRef = useRef<HTMLDivElement | null>(null)
-
   useAnimationFrame((time, delta) => {
     if (!imgRef.current) return
     const y = (1 + Math.sin(time / 1000)) * -10
@@ -117,6 +115,26 @@ const CustomCursor = () => {
 
     imgRef.current.style.transform = `translateY(${y}px) rotate(${rotate}deg)`
   })
+
+  const cursor = {
+    default: <div className={s.default}></div>,
+    marqueeLink: (
+      <div className="absolute-center">
+        <div className={s.icon}>
+          <div className={s.transformC} ref={imgRef}>
+            <img className={s.img} alt="Next Page Icon" src={mediaSrc} />
+          </div>
+        </div>
+      </div>
+    ),
+    drag: (
+      <div className="absolute-center">
+        <div className={cn(s.drag, 'flex-center')}>
+          <span>Drag</span>
+        </div>
+      </div>
+    ),
+  }
 
   return (
     <div ref={jellyRef} className={cn(s.cursor, mediaSrc && [s[cursorType]])}>
@@ -139,15 +157,7 @@ const CustomCursor = () => {
             },
           }}
         >
-          {cursorType === CursorType.marqueeLink ? (
-            <div className={s.imgC}>
-              <div className={s.transformC} ref={imgRef}>
-                <img className={s.img} alt="Next Page Icon" src={mediaSrc} />
-              </div>
-            </div>
-          ) : (
-            <div className={s.default}></div>
-          )}
+          {cursor[cursorType]}
         </motion.div>
       </AnimatePresence>
     </div>

@@ -33,8 +33,8 @@ const Button: React.FC<Props> = ({
       className={cn(s.button, 'cursor-pointer', [s[size]], {
         [s.inverted]: inverted,
       })}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      {...(!isMobile && { onMouseEnter: () => setHovered(true) })}
+      {...(!isMobile && { onMouseLeave: () => setHovered(false) })}
       {...(callback
         ? { onClick: callback }
         : { onClick: () => router.push(path) })}

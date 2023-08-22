@@ -83,26 +83,26 @@ const Detail = ({ pageData, pageType }: Props) => {
               </Trans>
             </p>
           </div>
+        </div>
 
-          <div className={cn(s.row, s.listC)}>
-            <FeatureList />
+        <div className={cn(s.row, s.listC)}>
+          <FeatureList />
+        </div>
+
+        <div className={cn(s.row, s.redirect)}>
+          <div className={s.text}>
+            <h4>{pageData.detail.d2.desc}</h4>
+            <Button text={t('btn.btnText')} path={t('btn.path')} />
           </div>
-
-          <div className={cn(s.row, s.redirect)}>
-            <div className={s.text}>
-              <h4>{pageData.detail.d2.desc}</h4>
-              <Button text={t('btn.btnText')} path={t('btn.path')} />
-            </div>
-            <div className={s.mediaC}>
-              <CustomImage
-                alt="Detail"
-                height={1000}
-                loading="lazy"
-                src={`/img/detail/${pageType}/masked.png`}
-                style={{ objectFit: 'contain' }}
-                width={1000}
-              />
-            </div>
+          <div className={s.mediaC}>
+            <CustomImage
+              alt="Detail"
+              height={1000}
+              loading="lazy"
+              src={`/img/detail/${pageType}/masked.png`}
+              style={{ objectFit: 'contain' }}
+              width={1000}
+            />
           </div>
         </div>
       </section>
