@@ -1,22 +1,25 @@
 import s from './demo-request.module.scss'
 
+import { GetServerSideProps } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 import ContactForm from '@/components/contact-form'
 import { FormType } from '@/components/contact-form/types'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 
-const RequestADemo = () => {
+const DemoRequest = () => {
+  const { t } = useTranslation('demoRequest')
+
   return (
     <Layout theme="main">
       <>
         <section className="content-box-sm">
           <div className={s.text}>
-            <h1>Request a Demo</h1>
-            <p>See Layers in action.</p>
-            <small>
-              Step into the future of HR management and experience innovative
-              solutions. Request a demo now!
-            </small>
+            <h1>{t('title')}</h1>
+            <p>{t('desc')}</p>
+            <small>{t('small')}</small>
           </div>
           <div className={s.contactFormC}>
             <ContactForm formType={FormType.demo} />
@@ -29,4 +32,14 @@ const RequestADemo = () => {
   )
 }
 
-export default RequestADemo
+// or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', [
+      'demoRequest',
+      'common',
+    ])),
+  },
+})
+
+export default DemoRequest

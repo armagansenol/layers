@@ -1,5 +1,6 @@
 .accordion {
   .trigger {
+    border-bottom: 1px solid var(--theme-secondary);
     user-select: none;
     padding: desktop-vw(30px) desktop-vw(120px);
     width: 100%;
@@ -67,10 +68,7 @@
 
     .iconC {
       @include dims(desktop-vw(18px));
-      align-items: center;
-      display: flex;
       flex-shrink: 0;
-      justify-content: center;
       position: relative;
 
       @include mobile {
@@ -112,12 +110,11 @@
 
   &-content {
     @include dims(100%);
-    overflow: hidden;
     position: relative;
 
     .contentC {
       align-items: flex-start;
-      border-top: 1px solid var(--theme-secondary);
+      // border-top: 1px solid var(--theme-secondary);
       display: flex;
       justify-content: space-between;
       padding: desktop-vw(30px) desktop-vw(120px);
@@ -156,9 +153,6 @@
 
       .iconC {
         @include dims(desktop-vw(16px));
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
         @include mobile {
           @include dims(mobile-vw(14px));

@@ -287,7 +287,7 @@ export const routes: Routes = {
           type: MainRoute.features,
         },
         employeeCenterAndHrPortal: {
-          ui: 'Çalışan Merkezi / İK Portalı',
+          ui: 'Çalışan Merkezi | İK Portalı',
           path: 'employee-center-and-hr-portal',
           desc: 'İzinler, masraflar ve daha fazlası için merkezi bir web/mobil merkezi ile çalışan ihtiyaçlarını basitleştirin.',
           type: MainRoute.features,
@@ -482,7 +482,7 @@ export const features = {
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: `/img/detail-${routes.en.features.children.employeeDatabase?.path}.png`,
             },
@@ -950,7 +950,7 @@ export const features = {
       type: routes.tr.features.children.employeeCenterAndHrPortal?.path,
       data: {
         intro: {
-          title: 'Çalışan Merkezi / İK Portalı',
+          title: 'Çalışan Merkezi | İK Portalı',
           desc: 'İzinler, masraflar ve daha fazlası için merkezi bir web/mobil merkezi ile çalışan ihtiyaçlarını basitleştirin.',
           small:
             'Çalışan ihtiyaçlarını izinler, masraflar ve daha fazlası için merkezi bir web/mobil merkezi ile kolaylaştırın.',
@@ -1361,7 +1361,7 @@ export const features = {
 export const services = {
   en: {
     executiveSearchAndRecruitment: {
-      type: routes.en.services.children.executiveSearchAndRecruitment?.path,
+      type: routes.tr.services.children.executiveSearchAndRecruitment?.path,
       data: {
         intro: {
           title: 'Executive Search & Recruitment',
@@ -1375,8 +1375,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Streamlined service for finding top managers and professionals.',
+            title: 'Layering Excellence',
+            desc: '<span>With an extensive network and a comprehensive approach, Layers identifies, assesses, and secures exceptional executive talents who seamlessly integrate with the unique culture and objectives of our clients.</span><span>At Layers, we’re not just finding candidates; we’re sculpting the foundation of success, one layer at a time.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850063525/rendition/360p/file.mp4?loc=external&signature=874f1ad2b3b128f6323239302918f666a821caa9ff57cd6d0826ada780f3c425',
             },
@@ -1384,7 +1384,7 @@ export const services = {
           d2: {
             desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
             media: {
-              path: `/img/detail-${routes.en.services.children.executiveSearchAndRecruitment?.path}.png`,
+              path: `/img/detail-${routes.tr.services.children.executiveSearchAndRecruitment?.path}.png`,
             },
           },
         },
@@ -1392,7 +1392,7 @@ export const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.en.services.children.temporaryStaffingAndOutsourcing?.ui,
+            t2: routes.tr.services.children.temporaryStaffingAndOutsourcing?.ui,
           },
           url: routes.en.services.children.temporaryStaffingAndOutsourcing
             ?.path,
@@ -1413,8 +1413,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'From top-level legal executives to specialized attorneys and legal support staff, we have the experience and resources to deliver outstanding candidates that will help you build a dynamic and successful legal team.',
+            title: 'Empowering Modern Businesses',
+            desc: 'Our comprehensive solutions cater to the dynamic needs of modern businesses, offering a seamless infusion of temporary talents that seamlessly integrate into the existing teams.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850063828/rendition/360p/file.mp4?loc=external&signature=1e72cca8cbebbbcd9799cbe598562b5093f44753582df7399928ddf6a4c41e83',
             },
@@ -1450,8 +1450,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'With our expert staff dedicated to the technology sector, we find and measure the most suitable and common candidates for you and manage the recruitment process.',
+            title: 'Navigating IT Excellence',
+            desc: 'With a deep understanding of the intricate IT landscape, we specialize in identifying, assessing, and securing top-tier IT talents who align seamlessly with the specific technical demands and cultural dynamics of our clients.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850064877/rendition/360p/file.mp4?loc=external&signature=bd262d49dca6277e3ff4a11af32d0f9de2b663aaf25b01a7bdedd1a0efbf58cf',
             },
@@ -1480,15 +1480,15 @@ export const services = {
           title: 'Payroll',
           desc: 'Accurate and timely payroll and personal affairs management for your financial benefit.',
           small:
-            'Accurate and timely payroll and personal affairs management for your financial benefit.',
+            'Layers offers a comprehensive Payroll HR service that goes beyond the conventional to streamline and simplify payroll management for businesses of all sizes.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Comprehensive Payroll Solutions',
+            desc: 'Our dedicated team handles the multifaceted layers of payroll, from tax calculations and deductions to employee benefits and reporting.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850065305/rendition/360p/file.mp4?loc=external&signature=16cb108f826fd824f5942bc9938984c8df2c9e850e74ad4c0daefa39c96dc038',
             },
@@ -1517,7 +1517,7 @@ export const services = {
           title: 'Mass Recruitment Solutions',
           desc: 'Efficient end-to-end recruitment process for multiple roles simultaneously.',
           small:
-            'Efficient end-to-end recruitment process for multiple roles simultaneously.',
+            'Our specialized service caters to the high-volume staffing needs of diverse industries, ensuring that businesses can swiftly acquire the right talents to meet their expansion goals.',
           media: {
             type: 'video',
             path: 'https://player.vimeo.com/progressive_redirect/playback/850180986/rendition/720p/file.mp4?loc=external&signature=c9405f4dc204aa7d5ffe9681c403b4b545929b62b3f9869494c436b21719e7f5',
@@ -1525,8 +1525,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Innovative Mass Recruitment Expertise',
+            desc: '<span>With a deep understanding of the intricate recruitment landscape, we employ cutting-edge strategies and technologies to streamline the selection process without compromising on the quality of candidates.</span><span>Our experienced team is adept at managing the complex layers of mass recruitment, from initial sourcing and rigorous assessments to seamless onboarding.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850065653/rendition/360p/file.mp4?loc=external&signature=85607e5b308e1c0706412ef598cc7bf8aabb07b6ede60a84bd795e8618c5633a',
             },
@@ -1555,15 +1555,15 @@ export const services = {
           title: 'Recruitment Process Outsourcing',
           desc: 'Outsource your recruitment processes.',
           small:
-            'Perform some or all of your recruitment processes such as candidate search, interview, selection and placement for you.',
+            'Our specialized RPO solution offers a comprehensive approach to recruiting, handling every layer of the process from job posting and candidate sourcing to assessments, interviews, and onboarding.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Elevating Talent Acquisition',
+            desc: '<span>With a deep understanding of diverse industries and a commitment to delivering exceptional candidates, our skilled team becomes an extension of your company, seamlessly integrating with your culture and objectives.</span><span>By outsourcing your recruitment process to Layers HR, you can focus on your core business operations while we navigate the complexities of finding, assessing, and securing top-tier talents.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850066247/rendition/360p/file.mp4?loc=external&signature=69ba10ea9b3f8dee577d9eae3965106421989c673c4c724764fe05c3f895ccd2',
             },
@@ -1592,15 +1592,15 @@ export const services = {
           title: 'Assessment & Exam',
           desc: 'Comprehensive reporting on recruitment, promotion, and loss evaluations.',
           small:
-            'In your recruitment, promotion or loss, review your observations and benefit from the exams, we will report in the format you want.',
+            'Our specialized offering encompasses a comprehensive range of assessment tools and exams tailored to various roles and industries.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Beyond Tradition for Success',
+            desc: "<span>With a profound understanding of the qualities that drive success in different positions, our skilled team crafts customized evaluation strategies that go beyond traditional methods.</span><span>From cognitive and skills assessments to situational judgment tests, we meticulously design our assessments to identify candidates who align seamlessly with your company's objectives and culture.</span>",
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850066552/rendition/360p/file.mp4?loc=external&signature=ed5c227825936020448c59346eb017c245459d73a4b3341b8451fcc7f18c91a3',
             },
@@ -1629,15 +1629,15 @@ export const services = {
           title: 'Outplacement & Career Coaching',
           desc: 'Need-based relocation and career coaching for employees.',
           small:
-            'We offer your employees from the company of a professional to this need-based relocation and career coaching service.',
+            'Our specialized offering is designed to provide comprehensive support to employees facing career changes, ensuring a smooth and positive journey towards their next opportunity.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Guiding Confident Career Transitions',
+            desc: '<span>With a deep understanding of the emotional and professional challenges that come with such transitions, our skilled team offers personalized career coaching, resume building, interview preparation, and guidance on job searching strategies.</span><span>We believe in nurturing resilience and fostering growth through tailored support, helping individuals navigate career shifts with confidence.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850067034/rendition/360p/file.mp4?loc=external&signature=a871341d745f150e064cd97be2495dc83be372f3c6cd592ce7348f2ca32a6342',
             },
@@ -1673,8 +1673,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Tailored HR Coaching & Training',
+            desc: 'Our specialized offering is meticulously crafted to cultivate a culture of continuous learning and growth. With a profound understanding of the ever-evolving HR landscape, our skilled team delivers tailored coaching and training programs that address the unique needs of each client.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850067428/rendition/360p/file.mp4?loc=external&signature=c6c2805eb5e3ec706eb6b101d368e87ff8b0d89189b99ddb59f577a60ca912f9',
             },
@@ -1710,8 +1710,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Comprehensive Mapping',
+            desc: 'Our specialized offering involves intricate analysis and assessment of roles, responsibilities, skills, and competencies across the company. With a keen eye on organizational goals and industry trends, our skilled team maps out the existing HR structure, identifying strengths, gaps, and areas for enhancement.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850068422/rendition/360p/file.mp4?loc=external&signature=2522f249fa2d50d13d2a56d0368d54eee29e4c3603f59b153a7c70ed39a7079c',
             },
@@ -1747,8 +1747,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Strategic Insights',
+            desc: 'With meticulous attention to detail, our skilled team identifies strengths, vulnerabilities, and opportunities that impact business decisions. We delve deep into the layers of an organization, assessing factors such as employee engagement, leadership effectiveness, and alignment with strategic goals.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850068865/rendition/360p/file.mp4?loc=external&signature=4271f0069201adef017d36f8cd464f8866ee12a8feb6348f7d4ce1eb57865d3a',
             },
@@ -1784,8 +1784,8 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Enhancing Management Excellence',
+            desc: "We delve into the layers of an organization's management structure, evaluating leadership styles, decision-making processes, and alignment with strategic goals. With Layers, businesses can position themselves for success, align with industry trends, and cultivate leadership excellence, layer by layer.",
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850069672/rendition/360p/file.mp4?loc=external&signature=69be39c1fb62b07fc1a1b0230a9f11a13cb3b4667627d787674396a7c6988eb3',
             },
@@ -1813,8 +1813,8 @@ export const services = {
       type: routes.tr.services.children.executiveSearchAndRecruitment?.path,
       data: {
         intro: {
-          title: 'Executive Search & Recruitment',
-          desc: 'Streamlined service for finding top managers and professionals.',
+          title: 'Üst Düzey Yönetici Arama ve İşe Alım',
+          desc: 'En üst düzey yönetici ve profesyonelleri bulma için optimize edilmiş hizmet.',
           small:
             'We provide end-to-end services for quickly and effectively finding, assessing and hiring top executives and professionals.',
           media: {
@@ -1824,23 +1824,23 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Streamlined service for finding top managers and professionals.',
+            title: 'Adım Adım Başarı',
+            desc: '<span>Geniş bir ağ ve kapsamlı bir yaklaşımla, Layers özel yetenekli yöneticileri tespit eder, değerlendirir ve güvence altına alır; bu yetenekler müşterilerimizin özgün kültürü ve hedefleriyle sorunsuz bir şekilde bütünleşir.</span><span>Layers olarak, sadece adaylar bulmuyoruz; başarının temelini adım adım şekillendiriyoruz.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850063525/rendition/360p/file.mp4?loc=external&signature=874f1ad2b3b128f6323239302918f666a821caa9ff57cd6d0826ada780f3c425',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: `/img/detail-${routes.tr.services.children.executiveSearchAndRecruitment?.path}.png`,
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.temporaryStaffingAndOutsourcing?.ui,
           },
           url: routes.tr.services.children.temporaryStaffingAndOutsourcing
@@ -1852,33 +1852,32 @@ export const services = {
       type: routes.tr.services.children.temporaryStaffingAndOutsourcing?.path,
       data: {
         intro: {
-          title: 'Temporary Staffing | Outsourcing',
-          desc: 'Flexible office solutions with recruitment and payroll management.',
-          small:
-            'Flexible office solutions with recruitment and payroll management.',
+          title: 'Geçici Personel Temini | Dış Kaynak Kullanımı',
+          desc: 'İşe alım ve maaş yönetimi ile esnek ofis çözümleri.',
+          small: 'İşe alım ve maaş yönetimi ile esnek ofis çözümleri.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'From top-level legal executives to specialized attorneys and legal support staff, we have the experience and resources to deliver outstanding candidates that will help you build a dynamic and successful legal team.',
+            title: 'Modern İşletmelere Güç Katmak',
+            desc: 'Kapsamlı çözümlerimiz, modern işletmelerin dinamik ihtiyaçlarına hitap eder; mevcut ekiplere sorunsuz bir şekilde entegre olan geçici yeteneklerin akıcı bir şekilde sunulmasını sağlar.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850063828/rendition/360p/file.mp4?loc=external&signature=1e72cca8cbebbbcd9799cbe598562b5093f44753582df7399928ddf6a4c41e83',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.itRecruitment?.ui,
           },
           url: routes.tr.services.children.itRecruitment?.path,
@@ -1889,33 +1888,33 @@ export const services = {
       type: routes.tr.services.children.itRecruitment?.path,
       data: {
         intro: {
-          title: 'IT Recruitment',
-          desc: 'Tech-focused experts for tailored candidate selection and recruitment.',
+          title: 'IT İşe Alımı',
+          desc: 'Özelleştirilmiş aday seçimi ve işe alım için teknoloji odaklı uzmanlar.',
           small:
-            'Tech-focused experts for tailored candidate selection and recruitment.',
+            'Özelleştirilmiş aday seçimi ve işe alım için teknoloji odaklı uzmanlar.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'With our expert staff dedicated to the technology sector, we find and measure the most suitable and common candidates for you and manage the recruitment process.',
+            title: 'Mükemmel IT yönetimi',
+            desc: 'Karmaşık IT peyzajını derinlemesine anlayışla donatılmış olarak, özellikle müşterilerimizin özel teknik gereksinimleri ve kültürel dinamikleriyle sorunsuz bir uyum içinde olan üst düzey IT yeteneklerini tespit etmekte, değerlendirmekte ve güvence altına almada uzmanız.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850064877/rendition/360p/file.mp4?loc=external&signature=bd262d49dca6277e3ff4a11af32d0f9de2b663aaf25b01a7bdedd1a0efbf58cf',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.payroll?.ui,
           },
           url: routes.tr.services.children.payroll?.path,
@@ -1926,33 +1925,33 @@ export const services = {
       type: routes.tr.services.children.payroll?.path,
       data: {
         intro: {
-          title: 'Payroll',
-          desc: 'Accurate and timely payroll and personal affairs management for your financial benefit.',
+          title: 'Bordro Hesaplamaları',
+          desc: 'Finansal faydanız için doğru ve zamanında maaş ve kişisel işler yönetimi.',
           small:
-            'Accurate and timely payroll and personal affairs management for your financial benefit.',
+            'Layers, işletmelerin her ölçekteki ihtiyaçlarına yönelik olarak geleneksel sınırları aşan kapsamlı bir Maaş Bordrosu İK hizmeti sunar.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Kapsamlı Maaş Bordrosu Çözümlerimiz',
+            desc: 'Özverili ekibimiz, vergi hesaplamaları ve kesintilerden çalışan avantajlarına ve raporlamaya kadar maaş bordrosunun çok yönlü katmanlarını ele alır.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850065305/rendition/360p/file.mp4?loc=external&signature=16cb108f826fd824f5942bc9938984c8df2c9e850e74ad4c0daefa39c96dc038',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.massRecruitmentSolutions?.ui,
           },
           url: routes.tr.services.children.massRecruitmentSolutions?.path,
@@ -1963,10 +1962,10 @@ export const services = {
       type: routes.tr.services.children.massRecruitmentSolutions?.path,
       data: {
         intro: {
-          title: 'Mass Recruitment Solutions',
-          desc: 'Efficient end-to-end recruitment process for multiple roles simultaneously.',
+          title: 'Toplu İşe Alım Çözümleri',
+          desc: 'Aynı anda birden fazla rol için verimli işe alım süreci.',
           small:
-            'Efficient end-to-end recruitment process for multiple roles simultaneously.',
+            'Özel uzmanlık gerektiren bu hizmet, çeşitli endüstrilerin yüksek hacimli istihdam ihtiyaçlarına hitap ederek işletmelerin genişleme hedeflerini hızla gerçekleştirebilmelerini sağlar.',
           media: {
             type: 'video',
             path: 'https://player.vimeo.com/progressive_redirect/playback/850180986/rendition/720p/file.mp4?loc=external&signature=c9405f4dc204aa7d5ffe9681c403b4b545929b62b3f9869494c436b21719e7f5',
@@ -1974,23 +1973,23 @@ export const services = {
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Yenilikçi Kitle İşe Alım Uzmanlığı',
+            desc: '<span>Karmaşık işe alım peyzajının derinlemesine anlayışıyla, aday seçim sürecini kaliteyi riske atmadan akıllıca hızlandırmak için son teknoloji stratejileri ve teknolojilerini kullanıyoruz.</span><span>Tecrübeli ekibimiz, başlangıçta aday kaynağı ve titiz değerlendirmelerden sorunsuz onay süreçlerine kadar kitle işe alımının karmaşık katmanlarını yönetme konusunda yeteneklidir.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850065653/rendition/360p/file.mp4?loc=external&signature=85607e5b308e1c0706412ef598cc7bf8aabb07b6ede60a84bd795e8618c5633a',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.recruitmentProcessOutsourcing?.ui,
           },
           url: routes.tr.services.children.recruitmentProcessOutsourcing?.path,
@@ -2001,33 +2000,33 @@ export const services = {
       type: routes.tr.services.children.recruitmentProcessOutsourcing?.path,
       data: {
         intro: {
-          title: 'Recruitment Process Outsourcing',
-          desc: 'Outsource your recruitment processes.',
+          title: 'İşe Alım Süreç Dış Kaynak Kullanımı',
+          desc: 'İşe alım süreçlerinizi dış kaynak kullanımı ile optimize edin.',
           small:
-            'Perform some or all of your recruitment processes such as candidate search, interview, selection and placement for you.',
+            'Uzmanlaşmış RPO çözümümüz, işe alım sürecinin her aşamasını kapsayan kapsamlı bir yaklaşım sunar; iş ilanı ve aday kaynağından değerlendirmelere, mülakatlara ve işe alım süreçlerine kadar her katmanı ele alır.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Yetenek Kazanımını Yükseltmek',
+            desc: '<span>Çeşitli endüstrileri derinlemesine anlamamız ve olağanüstü adaylar sunma taahhüdümüz ile yeteneklerimizle ekibinizin bir uzantısı olur, kültürünüze ve hedeflerinize sorunsuz bir şekilde entegre oluruz.</span><span>İşe Alım Sürecinizi Layers’a dış kaynak olarak aktararak, çekirdek iş operasyonlarınıza odaklanabilir, üst düzey yetenekleri bulma, değerlendirme ve güvence altına alma karmaşıklıklarını biz yönetebiliriz.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850066247/rendition/360p/file.mp4?loc=external&signature=69ba10ea9b3f8dee577d9eae3965106421989c673c4c724764fe05c3f895ccd2',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.assessmentAndExam?.ui,
           },
           url: routes.tr.services.children.assessmentAndExam?.path,
@@ -2038,33 +2037,33 @@ export const services = {
       type: routes.tr.services.children.assessmentAndExam?.path,
       data: {
         intro: {
-          title: 'Assessment & Exam',
-          desc: 'Comprehensive reporting on recruitment, promotion, and loss evaluations.',
+          title: 'Değerlendirme & Sınav',
+          desc: 'İşe alım, terfi ve kayıp değerlendirmeleri için kapsamlı raporlama.',
           small:
-            'In your recruitment, promotion or loss, review your observations and benefit from the exams, we will report in the format you want.',
+            'Uzmanlaştığımız bu hizmet, çeşitli roller ve endüstrilere özel olarak tasarlanmış kapsamlı bir değerlendirme araçları ve sınavlar yelpazesini içerir.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Başarı İçin Gelenekleri Aşmak',
+            desc: '<span>Farklı pozisyonlarda başarıyı tetikleyen nitelikleri derinlemesine anlayışla donatılmış yetenekli ekibimiz, geleneksel yöntemleri aşan özelleştirilmiş değerlendirme stratejileri oluşturur.</span><span>Bilişsel ve beceri değerlendirmelerinden durumsal değerlendirme testlerine kadar, değerlendirmelerimizi, şirketinizin hedefleri ve kültürü ile sorunsuz bir uyum içinde olan adayları tanımlamak için titizlikle tasarlarız.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850066552/rendition/360p/file.mp4?loc=external&signature=ed5c227825936020448c59346eb017c245459d73a4b3341b8451fcc7f18c91a3',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.outplacementAndCareerCoaching?.ui,
           },
           url: routes.tr.services.children.outplacementAndCareerCoaching?.path,
@@ -2075,33 +2074,33 @@ export const services = {
       type: routes.tr.services.children.outplacementAndCareerCoaching?.path,
       data: {
         intro: {
-          title: 'Outplacement & Career Coaching',
-          desc: 'Need-based relocation and career coaching for employees.',
+          title: 'Yeniden İşe Yerleştirme ve Kariyer Koçluğu',
+          desc: 'Çalışanlar için ihtiyaca yönelik yer değiştirme ve kariyer koçluğu.',
           small:
-            'We offer your employees from the company of a professional to this need-based relocation and career coaching service.',
+            'Uzmanlaştığımız bu hizmet, kariyer değişiklikleriyle karşı karşıya kalan çalışanlara kapsamlı destek sağlamayı amaçlayarak, bir sonraki fırsata doğru sorunsuz ve olumlu bir yolculuk sağlar.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Özgüvenli Kariyer Geçişleri Rehberliği',
+            desc: '<span>Bu tür geçişlerle birlikte gelen duygusal ve profesyonel zorlukların derinlemesine anlayışını taşıyan yetenekli ekibimiz, kişiselleştirilmiş kariyer koçluğu, özgeçmiş oluşturma, mülakat hazırlığı ve iş arama stratejileri konusunda rehberlik gibi destekler sunar.</span><span>Özelleştirilmiş destek aracılığıyla dayanıklılığı beslemeye ve büyümeyi teşvik etmeye inanıyoruz, böylece bireylerin kariyer değişimlerini özgüvenle yönlendirmelerine yardımcı oluyoruz.</span>',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850067034/rendition/360p/file.mp4?loc=external&signature=a871341d745f150e064cd97be2495dc83be372f3c6cd592ce7348f2ca32a6342',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.hrCoachingAndTraining?.ui,
           },
           url: routes.tr.services.children.hrCoachingAndTraining?.path,
@@ -2112,33 +2111,33 @@ export const services = {
       type: routes.tr.services.children.hrCoachingAndTraining?.path,
       data: {
         intro: {
-          title: 'HR Coaching & Training',
-          desc: 'Effective coaching and training for improved management skills.',
+          title: 'İK Koçluğu & Eğitim',
+          desc: 'Geliştirilmiş yönetim becerileri için etkili koçluk ve eğitim.',
           small:
-            'Leadership, communication, teamwork, performance, etc. We provide coaching and training that will enable you to manage issues more effectively.',
+            'Liderlik, iletişim, takım çalışması, performans vb. Konularda daha etkili bir şekilde yönetmenizi sağlayacak koçluk ve eğitim sunuyoruz.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Özelleştirilmiş İK Koçluğu ve Eğitimi',
+            desc: 'Özel uzmanlıkla hazırlanan hizmetimiz, sürekli öğrenme ve büyüme kültürünü geliştirmek için özenle şekillendirilmiştir. Sürekli değişen İK alanının derinlemesine anlayışına sahip olan yetenekli ekibimiz, her müşterinin benzersiz ihtiyaçlarına hitap eden özelleştirilmiş koçluk ve eğitim programları sunar.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850067428/rendition/360p/file.mp4?loc=external&signature=c6c2805eb5e3ec706eb6b101d368e87ff8b0d89189b99ddb59f577a60ca912f9',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.hrMapping?.ui,
           },
           url: routes.tr.services.children.hrMapping?.path,
@@ -2149,33 +2148,33 @@ export const services = {
       type: routes.tr.services.children.hrMapping?.path,
       data: {
         intro: {
-          title: 'HR Mapping',
-          desc: 'Data analysis and reporting on job-related skills, experience, and education.',
+          title: 'İK Haritalama',
+          desc: 'İşle ilgili beceriler, deneyim ve eğitim konularında veri analizi ve raporlama.',
           small:
-            'We analyze and report the data related to the current job by analyzing the equipment such as skills, experience and education level of the enterprises.',
+            'Şirketlerin becerileri, deneyimi ve eğitim seviyeleri gibi ekipmanları analiz ederek mevcut işle ilgili verileri analiz ediyor ve raporluyoruz.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Kapsamlı Haritalama',
+            desc: 'Özel uzmanlık gerektiren hizmetimiz, şirket içinde rollerin, sorumlulukların, becerilerin ve yeteneklerin detaylı analiz ve değerlendirmesini içerir. Organizasyonel hedeflere ve endüstri trendlerine dikkatle odaklanan yetenekli ekibimiz, mevcut İK yapısını haritalandırarak güçlü yönleri, eksiklikleri ve geliştirme alanlarını belirler.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850068422/rendition/360p/file.mp4?loc=external&signature=2522f249fa2d50d13d2a56d0368d54eee29e4c3603f59b153a7c70ed39a7079c',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.organisationalDueDiligence?.ui,
           },
           url: routes.tr.services.children.organisationalDueDiligence?.path,
@@ -2186,33 +2185,33 @@ export const services = {
       type: routes.tr.services.children.organisationalDueDiligence?.path,
       data: {
         intro: {
-          title: 'Organisational Due Diligence',
-          desc: 'Analysis of HR policy, management requirements, and workforce dynamics.',
+          title: 'Kurumsal İnceleme',
+          desc: 'İK politikaları, yönetim gereksinimleri ve iş gücü dinamiklerinin analizi.',
           small:
-            "We analyze the human resources policy and management's requirements, ethical values and workforce traffic.",
+            'İnsan kaynakları politikasını ve yönetimin gereksinimlerini, etik değerleri ve iş gücü trafiğini analiz ediyoruz.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Stratejik Öngürü',
+            desc: 'Titiz detaylara özen göstererek, uzman ekibimiz iş kararlarını etkileyen güçlü yönleri, zayıf noktaları ve fırsatları belirler. Bir organizasyonun katmanlarına derinlemesine iner, çalışan bağlılığı, liderlik etkinliği ve stratejik hedeflere uyum gibi faktörleri değerlendiririz.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850068865/rendition/360p/file.mp4?loc=external&signature=4271f0069201adef017d36f8cd464f8866ee12a8feb6348f7d4ce1eb57865d3a',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.managementAuditAndBenchmarking?.ui,
           },
           url: routes.tr.services.children.managementAuditAndBenchmarking?.path,
@@ -2223,33 +2222,33 @@ export const services = {
       type: routes.tr.services.children.managementAuditAndBenchmarking?.path,
       data: {
         intro: {
-          title: 'Management Audit & Benchmarking',
-          desc: 'Comprehensive analysis and benchmarking of HR management and workforce.',
+          title: 'Yönetim Denetimi & Karşılaştırmalı Analiz',
+          desc: 'İK yönetimi ve iş gücünün kapsamlı analizi ve karşılaştırmalı analizi.',
           small:
-            'We analyze the human resources management and workforce of your business, compare them with similar businesses and report them.',
+            'İşletmenizin insan kaynakları yönetimini ve iş gücünü analiz ediyor, benzer işletmelerle karşılaştırıyor ve raporluyoruz.',
           media: {
             type: 'image',
           },
         },
         detail: {
           d1: {
-            title: 'All your people data in one place.',
-            desc: 'Evaluate your payroll and all your personal affairs accurately and on time, so you can spend and benefit and save.',
+            title: 'Yönetim Mükemmelliğini Artırma',
+            desc: 'Bir organizasyonun yönetim yapısının katmanlarına iner, liderlik tarzlarını, karar alma süreçlerini ve stratejik hedeflere uyumu değerlendiririz. Layers ile işletmeler, başarı için konumlanabilir, endüstri trendleri ile uyum sağlayabilir ve katman katman liderlik mükemmelliği geliştirebilir.',
             media: {
               path: 'https://player.vimeo.com/progressive_redirect/playback/850069672/rendition/360p/file.mp4?loc=external&signature=69be39c1fb62b07fc1a1b0230a9f11a13cb3b4667627d787674396a7c6988eb3',
             },
           },
           d2: {
-            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
+            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
             media: {
               path: '/',
             },
           },
         },
         nextPage: {
-          title: 'Next Service',
+          title: 'Sıradaki Servis',
           text: {
-            t1: 'Next Service',
+            t1: 'Sıradaki Servis',
             t2: routes.tr.services.children.executiveSearchAndRecruitment?.ui,
           },
           url: routes.tr.services.children.executiveSearchAndRecruitment?.path,

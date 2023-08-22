@@ -1,0 +1,13 @@
+{
+    "title": "Contact Us",
+    "desc": "Let’s have a conversation about your HR needs.",
+    "small": "Drop us a line or use <span>the contact form</span> below to get in touch.",
+    "marquee": {
+        "p1": "Get in Touch",
+        "p2": "Say Hello!"
+    },
+    "info": {
+        "email": "Email",
+        "address": "Address"
+    }
+}

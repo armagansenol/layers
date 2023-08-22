@@ -3,12 +3,13 @@ import s from './upcoming-accordion.module.scss'
 
 import cn from 'clsx'
 import { useLockBodyScroll, useMedia } from 'react-use'
+import { useTranslation } from 'next-i18next'
+import { Expo, gsap } from 'gsap'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import IconCalendar from '@/components/icons/icon-calendar'
 import IconX from '@/components/icons/icon-x'
 import { useMenuStore } from '@/lib/store/menu'
-import { Expo, gsap } from 'gsap'
 import { EventAccordion } from './event-accordion'
 
 const UpcomingAccordion = () => {
@@ -18,162 +19,19 @@ const UpcomingAccordion = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { setPosition } = useMenuStore()
   useLockBodyScroll(isOpen && !isMobile)
+  const { t } = useTranslation('common')
 
   const accItems = [
     {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
+      name: t('upcomingEvents.items.i1.title'),
+      description: t('upcomingEvents.items.i1.desc'),
       info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
+        date: t('upcomingEvents.items.i1.date'),
+        location: t('upcomingEvents.items.i1.location'),
       },
       link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco. GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco. GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco. GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco. GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
-      },
-    },
-    {
-      name: 'GITEX AFRICA, Morocco',
-      description:
-        'GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.',
-      info: {
-        date: 'May 31 - June 02 2023',
-        location: 'Istanbul, Turkey',
-      },
-      link: {
-        text: 'Review Event',
-        path: '/',
+        text: t('upcomingEvents.items.i1.btn.btnText'),
+        path: t('upcomingEvents.items.i1.btn.path'),
       },
     },
   ]
@@ -213,31 +71,31 @@ const UpcomingAccordion = () => {
         className={cn(s.accordionHeader, 'cursor-pointer')}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <div className={cn(s.close, s.dummy)}>
+        {/* <div className={cn(s.close, s.dummy)}>
           <div className={cn(s.iconC, 'flex-center')}>
             <IconX />
           </div>
           <p className={s.text}>Close</p>
-        </div>
+        </div> */}
 
         <div className={cn(s.title)}>
           <div className={s.iconC}>
             <IconCalendar />
           </div>
 
-          <p className={s.text}>Upcoming Events</p>
+          <p className={s.text}>{t('upcomingEvents.title')}</p>
 
           <div className={cn(s.iconC, s.arrow, 'flex-center')}>
             <IconArrowDropdown />
           </div>
         </div>
 
-        <div className={s.close}>
+        {/* <div className={s.close}>
           <div className={s.iconC}>
             <IconX />
           </div>
           <p className={s.text}>Close</p>
-        </div>
+        </div> */}
       </div>
 
       <div className={cn(s.overflowC, 'hidden-overflow')} ref={wrapperRef}>

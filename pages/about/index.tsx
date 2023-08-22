@@ -60,31 +60,27 @@ const About = () => {
   const slides = [
     {
       img: '/img/pinned-1.jpg',
-      name: 'Ford Prefect',
-      role: 'Future Mobility Specialist of Herman Group',
-      comment:
-        'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+      name: t('testimonials.slides.s1.name'),
+      role: t('testimonials.slides.s1.role'),
+      comment: t('testimonials.slides.s1.comment'),
     },
     {
       img: '/img/pinned-2.jpg',
-      name: 'Ford Prefect',
-      role: 'Future Mobility Specialist of Herman Group',
-      comment:
-        'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+      name: t('testimonials.slides.s1.name'),
+      role: t('testimonials.slides.s1.role'),
+      comment: t('testimonials.slides.s1.comment'),
     },
     {
       img: '/img/pinned-3.jpg',
-      name: 'Ford Prefect',
-      role: 'Future Mobility Specialist of Herman Group',
-      comment:
-        'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+      name: t('testimonials.slides.s1.name'),
+      role: t('testimonials.slides.s1.role'),
+      comment: t('testimonials.slides.s1.comment'),
     },
     {
       img: '/img/pinned-4.jpg',
-      name: 'Ford Prefect',
-      role: 'Future Mobility Specialist of Herman Group',
-      comment:
-        'Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement.',
+      name: t('testimonials.slides.s1.name'),
+      role: t('testimonials.slides.s1.role'),
+      comment: t('testimonials.slides.s1.comment'),
     },
   ]
 
@@ -207,7 +203,7 @@ const About = () => {
         </section>
 
         <section className={s.testimonials}>
-          <h4>What Clients Say About Layers</h4>
+          <h4>{t('testimonials.title')}</h4>
           <EmblaCarousel
             options={carouselOptions}
             slides={slides.map((data, i) => {

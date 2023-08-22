@@ -20,7 +20,7 @@ export function NavbarMobile(props: Props) {
   const menuRef = useRef<HTMLElement>(null)
   const [hamburger, setHamburger] = useState(false)
   const { currentRoute, setCurrentRoute, setIsOpen } = useMenuStore()
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation('common')
   // useLockBodyScroll(hamburger)
 
   function handleMenu(type: MainRoute) {
@@ -158,7 +158,7 @@ export function NavbarMobile(props: Props) {
               href="/demo-request"
               onClick={closeMenu}
             >
-              <p>Request A Demo</p>
+              <p>{t('header.requestADemo')}</p>
             </Link>
 
             <Link
@@ -168,7 +168,7 @@ export function NavbarMobile(props: Props) {
               rel="noreferrer noopener"
               onClick={closeMenu}
             >
-              <p>Login</p>
+              <p>{t('header.login')}</p>
             </Link>
 
             <div className={cn(s.lngBtn, s.navItemC)}>

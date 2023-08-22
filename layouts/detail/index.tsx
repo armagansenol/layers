@@ -1,12 +1,13 @@
 import s from './detail.module.scss'
 
 import cn from 'clsx'
-import Link from 'next/link'
+import { Trans, useTranslation } from 'next-i18next'
 import Head from 'next/head'
 
 import Button from '@/components/button'
-import FeatureList from '@/components/feature-list'
 import CustomImage from '@/components/custom-image'
+import { CustomLink } from '@/components/custom-link'
+import FeatureList from '@/components/feature-list'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { DynamicPageContent } from '@/global'
@@ -17,6 +18,8 @@ type Props = {
 }
 
 const Detail = ({ pageData, pageType }: Props) => {
+  const { t } = useTranslation('detail')
+
   return (
     <>
       <Head>
@@ -72,7 +75,14 @@ const Detail = ({ pageData, pageType }: Props) => {
             </div>
             <div className={s.text}>
               <h3>{pageData.detail.d1.title}</h3>
-              <p>{pageData.detail.d1.desc}</p>
+              <p>
+                <Trans
+                  i18nKey={pageData.detail.d1.desc}
+                  components={{ span: <span /> }}
+                >
+                  {pageData.detail.d1.desc}
+                </Trans>
+              </p>
             </div>
           </div>
 
@@ -83,7 +93,7 @@ const Detail = ({ pageData, pageType }: Props) => {
           <div className={cn(s.row, s.redirect)}>
             <div className={s.text}>
               <h4>{pageData.detail.d2.desc}</h4>
-              <Button text="Request a Demo" path="/demo-request" />
+              <Button text={t('btn.btnText')} path={t('btn.path')} />
             </div>
             <div className={s.mediaC}>
               <CustomImage
@@ -99,7 +109,7 @@ const Detail = ({ pageData, pageType }: Props) => {
         </div>
       </section>
 
-      <Link href={pageData.nextPage.url} className="next-item-c">
+      <CustomLink href={pageData.nextPage.url} className="next-item-c">
         <MarqueeLink
           title={pageData.nextPage.title}
           text={{
@@ -108,7 +118,7 @@ const Detail = ({ pageData, pageType }: Props) => {
           }}
           mediaSrc={`/img/detail/${pageType}/next-cursor.png`}
         />
-      </Link>
+      </CustomLink>
 
       <Subscribe />
     </>

@@ -15,7 +15,7 @@ import { customEase1 } from '@/utils'
 export function NavbarDesktop() {
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
   const menuRef = useRef<HTMLElement>(null)
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation('common')
 
   function handleMenu(type: MainRoute) {
     if (type) {
@@ -64,7 +64,7 @@ export function NavbarDesktop() {
         className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
         onMouseEnter={handleClose}
       >
-        <p>Request A Demo</p>
+        <p>{t('header.requestADemo')}</p>
       </Link>
       <AnimatePresence mode="popLayout">
         {isOpen && (

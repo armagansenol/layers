@@ -29,7 +29,7 @@
   column-gap: desktop-vw(8px);
   display: flex;
   height: var(--upcoming-accordion-height);
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 desktop-vw(16px);
 
   @include mobile {

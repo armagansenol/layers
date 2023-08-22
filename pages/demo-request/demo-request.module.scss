@@ -1,7 +1,7 @@
 .text {
   margin: desktop-vw(75px) auto 0 auto;
   text-align: center;
-  width: desktop-vw(900px);
+  width: desktop-vw(1000px);
 
   @include mobile {
     padding: mobile-vw(30px) mobile-vw(16px);

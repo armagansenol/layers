@@ -1,0 +1,13 @@
+{
+    "title": "İletişim",
+    "desc": "İK ihtiyaçlarınız hakkında görüşelim.",
+    "small": "İletişim kanallarımızdan veya aşağıdaki <span>iletişim formundan</span> bize ulaşın.",
+    "marquee": {
+        "p1": "Bizimle İletişime Geçin",
+        "p2": "Merhaba!"
+    },
+    "info": {
+        "email": "Eposta",
+        "address": "Adres"
+    }
+}

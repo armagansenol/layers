@@ -8,6 +8,7 @@ import IconCalendar from '@/components/icons/icon-calendar'
 import IconLocation from '@/components/icons/icon-location'
 import IconMinus from '@/components/icons/icon-minus'
 import IconPlus from '@/components/icons/icon-plus'
+import { CustomLink } from '@/components/custom-link'
 
 type AccordionItem = {
   item: any
@@ -19,15 +20,10 @@ type Props = {
 }
 
 const AccordionItem = ({ item, index }: AccordionItem) => {
-  // const [active, setActive] = useState<number | boolean>(0)
-
   return (
     <Accordion.Item
       value={index.toString()}
       className={cn(s.item, 'cursor-pointer')}
-      // onClick={() => {
-      //   setActive(active === index ? false : index)
-      // }}
     >
       <Accordion.Header className={s['accordion-header']} asChild>
         <Accordion.Trigger className={s.trigger}>
@@ -38,24 +34,26 @@ const AccordionItem = ({ item, index }: AccordionItem) => {
                 ({item.info.date})
               </span>
             </p>
-            <span className={s.iconC}>
+            <span className={cn(s.iconC, 'flex-center')}>
               <span className={cn(s.icon, s.minus)}>
-                <IconMinus fill={'var(--theme-secondary)'} />
+                <IconMinus fill={'var(--black)'} />
               </span>
               <span className={cn(s.icon, s.plus)}>
-                <IconPlus />
+                <IconPlus fill={'var(--black)'} />
               </span>
             </span>
           </>
         </Accordion.Trigger>
       </Accordion.Header>
 
-      <Accordion.Content className={s['accordion-content']}>
+      <Accordion.Content
+        className={cn(s['accordion-content'], 'hidden-overflow')}
+      >
         <div className={s.contentC}>
           {item.info && (
             <ul className={cn(s.info, s.contentItem)}>
               <li className={s.date}>
-                <div className={s.iconC}>
+                <div className={cn(s.iconC, 'flex-center')}>
                   <IconCalendar />
                 </div>
                 {item.info.date}
@@ -77,7 +75,9 @@ const AccordionItem = ({ item, index }: AccordionItem) => {
 
           {item.link && (
             <div className={s.contentItem}>
-              <Button {...item.link} />
+              <CustomLink external href={item.link.path}>
+                <Button text={item.link.text} />
+              </CustomLink>
             </div>
           )}
         </div>

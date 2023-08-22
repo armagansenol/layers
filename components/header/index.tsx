@@ -25,7 +25,7 @@ const Header = () => {
   const [elementRect, setElementRect] = useState<any>()
   const showAnim = useRef<any>(null)
   const loginUrl = 'https://app.layersup.com/tr/login'
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation('common')
 
   const handleRect = useCallback((node: HTMLDivElement) => {
     navbarRef.current = node
@@ -140,7 +140,7 @@ const Header = () => {
             rel="noreferrer noopener"
             className={s.btn}
           >
-            Login
+            {t('header.login')}
             <div className={cn(s.iconC, 'flex-center')}>
               <IconLogin fill="var(--black)" />
             </div>

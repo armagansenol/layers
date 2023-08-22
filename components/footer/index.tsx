@@ -11,7 +11,7 @@ import { CustomLink } from '@/components/custom-link'
 import { routes } from '@/global'
 
 const Footer = () => {
-  const { i18n } = useTranslation()
+  const { t, i18n } = useTranslation('common')
   const isMobile = useMedia('(max-width: 800px)', true)
 
   return (
@@ -30,7 +30,7 @@ const Footer = () => {
               />
             </CustomLink>
             <div className={cn(s.linksC, s.download)}>
-              <h6>DOWNLOAD</h6>
+              <h6>{t('footer.download')}</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
                   <CustomLink
@@ -88,36 +88,36 @@ const Footer = () => {
           </div>
           <div>
             <div className={cn(s.linksC, s.company)}>
-              <h6>COMPANY</h6>
+              <h6>{t('footer.company')}</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
                   <CustomLink className={s.link} href="/about">
-                    About
+                    {t('footer.about')}
                   </CustomLink>
                 </li>
                 <li className={s.linkC}>
                   <CustomLink className={s.link} href="/contact">
-                    Contact
+                    {t('footer.contact')}
                   </CustomLink>
                 </li>
               </ul>
             </div>
             <div className={s.linksC}>
-              <h6>SUPPORT</h6>
+              <h6>{t('footer.support')}</h6>
               <ul className={s.links}>
                 <li className={s.linkC}>
                   <CustomLink className={s.link} href="/get-an-offer">
-                    Get an Offer
+                    {t('footer.getAnOffer')}
                   </CustomLink>
                 </li>
                 <li className={s.linkC}>
                   <CustomLink className={s.link} href="/demo-request">
-                    Request a Demo
+                    {t('footer.requestADemo')}
                   </CustomLink>
                 </li>
                 <li className={s.linkC}>
                   <CustomLink className={s.link} href="/terms-of-use">
-                    Terms of Use
+                    {t('footer.termsOfUse')}
                   </CustomLink>
                 </li>
                 <li className={s.linkC}>
@@ -127,7 +127,7 @@ const Footer = () => {
                     rel="noreferrer noopener"
                     className={s.link}
                   >
-                    Privacy Policy
+                    {t('footer.privacyPolicy')}
                   </CustomLink>
                 </li>
               </ul>
@@ -138,7 +138,7 @@ const Footer = () => {
         <div className={s.gridY}>
           <div>
             <div className={cn(s.linksC, s.features)}>
-              <h6>FEATURES</h6>
+              <h6>{t('footer.features')}</h6>
               <ul
                 className={s.links}
                 style={
@@ -174,7 +174,7 @@ const Footer = () => {
           </div>
           <div>
             <div className={cn(s.linksC, s.services)}>
-              <h6>SERVICES</h6>
+              <h6>{t('footer.services')}</h6>
               <ul
                 className={s.links}
                 style={
@@ -218,7 +218,7 @@ const Footer = () => {
       </div>
 
       <div className={s.copyright}>
-        <small>© 2023 Layers. All Rights Reserved.</small>
+        <small>© 2023 Layers. {t('footer.rights')}</small>
         <small className={s.signature}>
           Designed by{' '}
           <a

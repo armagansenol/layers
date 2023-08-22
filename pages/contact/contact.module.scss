@@ -54,7 +54,7 @@
 
   .contactInfo {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
 
     @include mobile {
       align-items: stretch;
@@ -92,7 +92,7 @@
         }
       }
 
-      & > p {
+      & > .link {
         font-family: var(--font-inter);
         font-size: desktop-vw(28px);
         font-weight: 400;

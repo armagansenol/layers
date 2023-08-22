@@ -15,5 +15,25 @@
     "trial": {
         "p1": "30 Days Free Trial",
         "p2": "Started Now"
+    },
+    "testimonials": {
+        "title": "What Clients Say About Layers",
+        "slides": {
+            "s1": {
+                "name": "Ford Prefect",
+                "role": "Future Mobility Specialist, Herman Group",
+                "comment": "Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement."
+            },
+            "s2": {
+                "name": "Ford Prefect",
+                "role": "Future Mobility Specialist, Herman Group",
+                "comment": "Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement."
+            },
+            "s3": {
+                "name": "Ford Prefect",
+                "role": "Future Mobility Specialist, Herman Group",
+                "comment": "Thanks to Layers, our employee onboarding experience has become seamless and efficient. The app’s features have saved us time and improved new hire engagement."
+            }
+        }
     }
 }

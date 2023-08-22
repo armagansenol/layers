@@ -3,7 +3,7 @@
         "title": {
             "p1": "Dünyanın ilk",
             "p2": "çalışan odaklı",
-            "p3": "İK Süper uygulaması, insan kaynaklarınızı nasıl yönettiğinizi",
+            "p3": "İK Süper uygulaması, insan kaynağı yönetimini",
             "p4": "devrimleştirmek",
             "p5": "amacıyla tasarlandı."
         },
@@ -17,5 +17,42 @@
         "email": "Email adresiniz",
         "send": "Gönder",
         "bottom": "Abone olarak güncellemelerden ve çok daha fazlasından haberdar olabilirsiniz."
+    },
+    "footer": {
+        "download": "İNDİR",
+        "company": "LAYERS",
+        "support": "DESTEK",
+        "features": "ÖZELLİKLER",
+        "services": "SERVİSLER",
+        "rights": "Tüm Hakları Saklıdır.",
+        "about": "Hakkımızda",
+        "contact": "İletişim",
+        "getAnOffer": "Teklif Alın",
+        "requestADemo": "Demo Talep Edin",
+        "termsOfUse": "Kullanım Koşulları",
+        "privacyPolicy": "Gizlilik Politikası"
+    },
+    "header": {
+        "requestADemo": "Demo Talep Edin",
+        "login": "Giriş Yap"
+    },
+    "trial": {
+        "p1": "30 Gün Ücretsiz Deneme",
+        "p2": "Hemen Başlayın"
+    },
+    "upcomingEvents": {
+        "title": "Yaklaşan Etkinlikler",
+        "items": {
+            "i1": {
+                "title": "GITEX AFRICA, Morocco",
+                "date": "31 Mayıs - 2 Haziran 2023",
+                "location": "İstanbul, Türkiye",
+                "desc": "Kıtanın en büyük teknoloji etkinliği olan GITEX AFRICA, teknoloji devlerini, hükümetleri, KOBİ'leri, start-up'ları, kodlayıcıları, yatırımcıları ve akademiyi bir araya getirerek yeni girişimleri keşfetmeyi, hızlandırmayı ve iş birliği yapmayı hedefliyor. Fas'ın Marakeş kentinde üç gün sürecek olan pan-Afrika forumunda fintech, e-ticaret, bulut, IoT, AI, telekom ve siber güvenlik gibi gelişmekte olan teknolojiler yoğun bir şekilde yer alacak.",
+                "btn": {
+                    "btnText": "Etkinliği İncele",
+                    "path": "https://www.gitexafrica.com/"
+                }
+            }
+        }
     }
 }

@@ -46,5 +46,42 @@
         "email": "Your email address",
         "send": "Register",
         "bottom": "By subscribing, you’ll receive news, updates and much more."
+    },
+    "footer": {
+        "download": "DOWNLOAD",
+        "company": "COMPANY",
+        "support": "SUPPORT",
+        "features": "FEATURES",
+        "services": "SERVICES",
+        "rights": "All Rights Reserved.",
+        "about": "About",
+        "contact": "Contact",
+        "getAnOffer": "Get an Offer",
+        "requestADemo": "Request a Demo",
+        "termsOfUse": "Terms of Use",
+        "privacyPolicy": "Privacy Policy"
+    },
+    "header": {
+        "requestADemo": "Request A Demo",
+        "login": "Login"
+    },
+    "trial": {
+        "p1": "30 Days Free Trial",
+        "p2": "Started Now"
+    },
+    "upcomingEvents": {
+        "title": "Upcoming Events",
+        "items": {
+            "i1": {
+                "title": "GITEX AFRICA, Morocco",
+                "date": "31 May - 2 June 2023",
+                "location": "İstanbul, Turkey",
+                "desc": "GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures. A curation of emerging technologies from fintech, e-commerce, cloud, IoT, AI, telecom to cybersecurity will be heavily featured during the three-day annual pan-African forum in Marrakech, Morocco.",
+                "btn": {
+                    "btnText": "Review Event",
+                    "path": "https://www.gitexafrica.com/"
+                }
+            }
+        }
     }
 }
