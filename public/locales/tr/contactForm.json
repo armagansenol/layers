@@ -13,9 +13,9 @@
         "interestedProduct": "İlgilendiğim ürünler <span>(birden fazla seçebilirsiniz)</span>",
         "note": "Notunuz",
         "numberOfEmployees": "Çalışan Sayısı",
-        "usedHtProduct": "Kulandığınız İK Ürünleri",
+        "usedHrProduct": "Önceden Kulandığınız İK Yazılımları",
         "phone": "Telefon",
-        "title": "Title",
+        "title": "Ünvan",
         "name": "İsim",
         "surname": "Soyisim",
         "selectDay": "Gün Seçin"

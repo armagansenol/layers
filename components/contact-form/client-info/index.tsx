@@ -219,7 +219,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={clientInfoFormModel.phone.placeholder}
+              placeholder={t('fields.phone')}
               onInput={(e: any) =>
                 (e.target.value = e.target.value
                   .replace(/[^0-9.]/g, '')
