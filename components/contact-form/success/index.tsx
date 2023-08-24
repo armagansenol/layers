@@ -8,7 +8,6 @@ import CustomImage from '@/components/custom-image'
 import { CustomLink } from '@/components/custom-link'
 import IconCalendar from '@/components/icons/icon-calendar'
 import IconClock from '@/components/icons/icon-clock'
-
 import { Locales } from '@/global'
 
 type Props = {

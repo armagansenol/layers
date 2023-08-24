@@ -15,6 +15,7 @@ import RequestDemo from '@/components/popping-title'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import { CursorType, useCursorStore } from '@/lib/store/cursor'
+import { CustomHead } from '@/components/custom-head'
 
 const carouselOptions: EmblaOptionsType = {
   slidesToScroll: 1,
@@ -103,6 +104,7 @@ const About = () => {
   return (
     <Layout theme="main">
       <>
+        <CustomHead title={`Layers | ${t('common:seo.about')}`} />
         <section className="content-box-sm">
           <div className={s.intro}>
             <RequestDemo />

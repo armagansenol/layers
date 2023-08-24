@@ -10,6 +10,7 @@ import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import { CustomLink } from '@/components/custom-link'
 import { FormType } from '@/components/contact-form/types'
+import { CustomHead } from '@/components/custom-head'
 
 const GetAnOffer = () => {
   const { t } = useTranslation('getAnOffer')
@@ -17,6 +18,7 @@ const GetAnOffer = () => {
   return (
     <Layout theme="main">
       <>
+        <CustomHead title={`Layers | ${t('common:seo.getAnOffer')}`} />
         <section className="content-box-sm">
           <div className={s.text}>
             <h1>{t('title')}</h1>

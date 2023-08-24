@@ -54,5 +54,13 @@
                 }
             }
         }
+    },
+    "seo": {
+        "about": "Hakkımızda",
+        "getAnOffer": "Teklif Alın",
+        "requestADemo": "Demo Talep Edin",
+        "contact": "İletişim",
+        "services": "Servisler",
+        "features": "Özellikler"
     }
 }

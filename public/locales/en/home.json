@@ -13,7 +13,7 @@
             "desc": "GITEX AFRICA, the continent’s largest all-inclusive tech event, will connect tech titans, governments, SMEs, start-ups, coders, investors and academia, to accelerate, collaborate and explore new ventures.",
             "btn": {
                 "text": "Review Event",
-                "path": "demo-request"
+                "path": "https://www.gitexafrica.com/"
             }
         }
     },

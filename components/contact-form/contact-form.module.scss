@@ -2,6 +2,10 @@
   margin-bottom: desktop-vw(40px);
 }
 
+.loading {
+  @include dims(100%);
+}
+
 .btns {
   display: flex;
   align-items: center;

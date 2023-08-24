@@ -10,6 +10,7 @@ import { CustomLink } from '@/components/custom-link'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { DynamicPageContent } from '@/global'
+// import { CustomHead } from '@/components/custom-head'
 
 type Props = {
   pageType: string
@@ -21,6 +22,8 @@ const Detail = ({ pageData, pageType }: Props) => {
 
   return (
     <>
+      {/* <CustomHead title={`Layers | ${pageData.intro.title}`} /> */}
+
       <Head>
         <link
           rel="preload"

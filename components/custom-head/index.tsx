@@ -3,17 +3,11 @@ import NextHead from 'next/head'
 
 type Props = {
   title: string
-  image: { url: string }
   description?: string
   keywords?: string[]
 }
 
-export function CustomHead({
-  title = '',
-  image = { url: '' },
-  description,
-  keywords,
-}: Props) {
+export function CustomHead({ title = '', description, keywords }: Props) {
   return (
     <>
       <NextHead>
@@ -47,27 +41,27 @@ export function CustomHead({
         <meta name="format-detection" content="telephone=no" />
         <meta httpEquiv="x-dns-prefetch-control" content="off" />
         <meta httpEquiv="Window-Target" content="_value" />
-        <meta name="geo.region" content="US" />
+        <meta name="geo.region" content="TR" />
 
         {/* START FAVICON */}
-        <link rel="manifest" href="/site.webmanifest" />
-        <link
+        {/* <link rel="manifest" href="/site.webmanifest" /> */}
+        {/* <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/apple-touch-icon.png"
-        />
+        /> */}
         <link
           rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
+          type="image/jpg"
+          sizes="256x256"
+          href="/img/favicon.jpg"
         />
-        <link
+        {/* <link
           rel="icon"
           type="image/png"
           sizes="16x16"
           href="/favicon-16x16.png"
-        />
+        /> */}
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00FF6A" />
         <meta name="msapplication-TileColor" content="#00FF6A" />
@@ -86,21 +80,10 @@ export function CustomHead({
           description,
           type: 'website',
           locale: 'en',
-          images: [
-            {
-              url: image.url,
-              width: 1200,
-              height: 630,
-              alt: title,
-            },
-          ],
-          defaultImageWidth: 1200,
-          defaultImageHeight: 630,
           site_name: '',
         }}
         twitter={{
-          handle: '@layers',
-          cardType: 'summary_large_image',
+          handle: '@layers_hrtech',
         }}
       />
     </>

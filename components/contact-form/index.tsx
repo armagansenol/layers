@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import s from './contact-form.module.scss'
 
 import cn from 'clsx'
@@ -6,15 +6,18 @@ import { useFormik } from 'formik'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useMutation } from 'react-query'
 import * as Yup from 'yup'
+import Lottie from 'lottie-react'
 
 import Button from '@/components/button'
 import ClientInfo from '@/components/contact-form/client-info'
 import ClientDate from '@/components/contact-form/date'
 import ClientSuccess from '@/components/contact-form/success'
+import loadingSpinner from '@/public/lottie/loading-spinner.json'
 
 import api from '@/api-client'
 import { useErrorStore } from '@/lib/store/error'
 import { customEase1, getFormattedDate } from '@/utils'
+import moment from 'moment'
 import { initialValues as clientInfoInitialValues } from './client-info/form-model'
 import { initialValues as demoDateInitialValues } from './date/form-model'
 import {
@@ -24,7 +27,6 @@ import {
   FormType,
   Response,
 } from './types'
-import moment from 'moment'
 
 type Props = {
   formType: FormType
@@ -108,21 +110,24 @@ const ContactForm = (props: Props) => {
 
   function handleNext() {
     if (formPhase === 0) {
-      clientInfoFormik.submitForm()
+      clientInfoFormik.submitForm().then(() => {
+        if (Object.keys(clientInfoFormik.errors).length === 0) {
+          setFormPhase((prev) => prev + 1)
+          scrollToForm()
+        }
+      })
     }
 
     if (formPhase === 1) {
-      demoDateFormik.submitForm()
-    }
-
-    if (
-      Object.keys(clientInfoFormik.errors).length === 0 ||
-      Object.keys(demoDateFormik.errors).length === 0
-    ) {
-      if (formPhase !== screens.length - 1) {
-        setFormPhase((prev) => prev + 1)
-        scrollToForm()
-      }
+      demoDateFormik.submitForm().then(() => {
+        if (
+          Object.keys(clientInfoFormik.errors).length === 0 &&
+          Object.keys(demoDateFormik.errors).length === 0
+        ) {
+          setFormPhase((prev) => prev + 1)
+          scrollToForm()
+        }
+      })
     }
 
     const values = {
@@ -166,30 +171,21 @@ const ContactForm = (props: Props) => {
 
   const mutation = useMutation(submitForm, {
     onMutate: (variables) => {
-      console.log('onMutate')
-
       console.log(variables)
       setLoading(true)
     },
     onError: (err) => {
-      console.log('onError')
       console.log(`error`, err)
     },
     onSuccess: (res: Response) => {
-      console.log('onSuccess')
-
       if (!res.isSuccess) {
-        // errorStore.setMessages(err)
+        errorStore.setMessages(res.messageCode)
         return
       }
-
       setResponse(res)
     },
     onSettled: (res) => {
-      console.log('onSettled')
-
       setLoading(false)
-
       scrollToForm()
     },
   })
@@ -223,7 +219,9 @@ const ContactForm = (props: Props) => {
         }}
       >
         {loading ? (
-          <div className={cn(s.loading, 'flex-center')}>LOADING</div>
+          <div className={cn(s.loading, 'flex-center')}>
+            <Lottie animationData={loadingSpinner} />
+          </div>
         ) : (
           <>
             {response && Object.keys(response.data).length ? (

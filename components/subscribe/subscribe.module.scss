@@ -69,14 +69,14 @@
 
     .input {
       @include dims(100%);
-      border-radius: desktop-vw(30px);
+      border-radius: desktop-vw(11px);
       font-family: var(--inter);
       font-size: desktop-vw(19px);
       font-weight: 100;
       padding: desktop-vw(14px) var(--padding-left);
 
       @include mobile {
-        border-radius: mobile-vw(30px);
+        border-radius: mobile-vw(11px);
         font-size: mobile-vw(14px);
       }
 
@@ -163,7 +163,7 @@
   }
 
   .resp {
-    @include position(absolute, 120%, auto, auto, auto);
+    @include position(absolute, 100%, auto, auto, auto);
     color: var(--liliac);
     display: inline-block;
     font-family: var(--font-wt-gothic);

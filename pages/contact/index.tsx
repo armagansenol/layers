@@ -13,6 +13,7 @@ import { Marquee } from '@/components/marquee'
 import MarqueeLink from '@/components/marquee-link'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
+import { CustomHead } from '@/components/custom-head'
 
 const Contact = () => {
   const contactFormRef = useRef<HTMLDivElement>(null)
@@ -25,6 +26,7 @@ const Contact = () => {
   return (
     <Layout theme="main">
       <>
+        <CustomHead title={`Layers | ${t('common:seo.contact')}`} />
         <section className="content-box-sm">
           <div className={s.text}>
             <h1>{t('title')}</h1>

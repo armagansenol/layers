@@ -1,7 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ParsedUrlQuery } from 'querystring'
 
+import { CustomHead } from '@/components/custom-head'
 import { features, routes } from '@/global'
 import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
@@ -12,9 +14,14 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Features = ({ data }: any) => {
+  const { t } = useTranslation('common')
+
   return (
     <Layout theme="features">
-      <Detail pageData={data.data} pageType={data.type} />
+      <>
+        <CustomHead title={`${t('seo.features')} | ${data.data.intro.title}`} />
+        <Detail pageData={data.data} pageType={data.type} />
+      </>
     </Layout>
   )
 }
@@ -29,8 +36,6 @@ export const getStaticPaths: GetStaticPaths = () => {
   Object.values(routes.tr.features.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] }, locale: 'tr' }]
   })
-
-  console.log(paths)
 
   return {
     paths, // indicates that no page needs be created at build time

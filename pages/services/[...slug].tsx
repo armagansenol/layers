@@ -1,7 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ParsedUrlQuery } from 'querystring'
+import { useTranslation } from 'react-i18next'
 
+import { CustomHead } from '@/components/custom-head'
 import { routes, services } from '@/global'
 import { Layout } from '@/layouts/default'
 import Detail from '@/layouts/detail'
@@ -12,9 +14,14 @@ interface IParams extends ParsedUrlQuery {
 }
 
 const Services = ({ data }: any) => {
+  const { t } = useTranslation('common')
+
   return (
     <Layout theme="services">
-      <Detail pageData={data.data} pageType={data.type} />
+      <>
+        <CustomHead title={`${t('seo.features')} | ${data.data.intro.title}`} />
+        <Detail pageData={data.data} pageType={data.type} />
+      </>
     </Layout>
   )
 }

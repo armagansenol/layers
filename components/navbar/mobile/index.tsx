@@ -4,13 +4,13 @@ import s from './navbar-mobile.module.scss'
 import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import LanguageSelect from '@/components/language-select'
 import { MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/store/menu'
 import { customEase1 } from '@/utils'
+import { CustomLink } from '@/components/custom-link'
 
 type Props = {
   loginUrl: string
@@ -126,7 +126,7 @@ export function NavbarMobile(props: Props) {
                                 ].children
                               ).map((item, i) => {
                                 return (
-                                  <Link
+                                  <CustomLink
                                     className={s.menuItem}
                                     href={`/${
                                       routes[
@@ -141,7 +141,7 @@ export function NavbarMobile(props: Props) {
                                     onClick={closeMenu}
                                   >
                                     {item.ui && <h5>{item.ui}</h5>}
-                                  </Link>
+                                  </CustomLink>
                                 )
                               })}
                           </div>
@@ -153,23 +153,22 @@ export function NavbarMobile(props: Props) {
               }
             )}
 
-            <Link
+            <CustomLink
               className={cn(s.navItemC, s.requestADemo)}
               href="/demo-request"
               onClick={closeMenu}
             >
               <p>{t('header.requestADemo')}</p>
-            </Link>
+            </CustomLink>
 
-            <Link
+            <CustomLink
               className={s.navItemC}
               href={props.loginUrl}
-              target="_blank"
-              rel="noreferrer noopener"
               onClick={closeMenu}
+              external
             >
               <p>{t('header.login')}</p>
-            </Link>
+            </CustomLink>
 
             <div className={cn(s.lngBtn, s.navItemC)}>
               <p>

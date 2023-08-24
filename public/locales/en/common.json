@@ -83,5 +83,13 @@
                 }
             }
         }
+    },
+    "seo": {
+        "about": "About Layers",
+        "getAnOffer": "Get an Offer",
+        "requestADemo": "Request a Demo",
+        "contact": "Contact",
+        "services": "Services",
+        "features": "Features"
     }
 }

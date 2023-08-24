@@ -8,6 +8,7 @@ import ContactForm from '@/components/contact-form'
 import { FormType } from '@/components/contact-form/types'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
+import { CustomHead } from '@/components/custom-head'
 
 const DemoRequest = () => {
   const { t } = useTranslation('demoRequest')
@@ -15,6 +16,7 @@ const DemoRequest = () => {
   return (
     <Layout theme="main">
       <>
+        <CustomHead title={`Layers | ${t('common:seo.requestADemo')}`} />
         <section className="content-box-sm">
           <div className={s.text}>
             <h1>{t('title')}</h1>
