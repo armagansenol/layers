@@ -41,7 +41,7 @@ export function NavbarMobile(props: Props) {
   return (
     <>
       <div
-        onClick={() => setHamburger(!hamburger)}
+        onClick={(hamburger) => setHamburger(!hamburger)}
         className={cn(s.hamburger, 'flex-center', { [s.open]: hamburger })}
       >
         {hamburger ? 'close' : 'menu'}
