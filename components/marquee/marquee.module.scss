@@ -4,7 +4,11 @@
   will-change: transform;
 
   @include reduced-motion {
-    --duration: 50s !important;
+    --duration: #{50s} !important;
+  }
+
+  @include mobile {
+    --duration: #{10s} !important;
   }
 
   .inner {
