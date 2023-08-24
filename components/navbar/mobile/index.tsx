@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import LanguageSelect from '@/components/language-select'
-import { MainRoute, routes } from '@/global'
+import { Locales, MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/store/menu'
 import { customEase1 } from '@/utils'
 import { CustomLink } from '@/components/custom-link'
@@ -66,92 +66,87 @@ export function NavbarMobile(props: Props) {
             className={cn(s.navigation, [
               s[
                 currentRoute
-                  ? routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute]
-                      .type
+                  ? routes[i18n.language as Locales][currentRoute].type
                   : 'null'
               ],
             ])}
             ref={menuRef}
           >
-            {Object.values(routes[i18n.language === 'en' ? 'en' : 'tr']).map(
-              (value, i) => {
-                return (
-                  <>
-                    <div
-                      className={cn(s.navItemC, [
-                        s[value.type],
-                        {
-                          [s.active]: value.type === currentRoute,
-                        },
-                      ])}
-                      key={i}
-                      onClick={() => handleMenu(value.type)}
-                    >
-                      <p>{value.ui}</p>
-                      <div className={s.iconC}>
-                        <IconArrowDropdown />
-                      </div>
+            {Object.values(routes[i18n.language as Locales]).map((value, i) => {
+              return (
+                <>
+                  <div
+                    className={cn(s.navItemC, [
+                      s[value.type],
+                      {
+                        [s.active]: value.type === currentRoute,
+                      },
+                    ])}
+                    key={i}
+                    onClick={() => handleMenu(value.type)}
+                  >
+                    <p>{value.ui}</p>
+                    <div className={s.iconC}>
+                      <IconArrowDropdown />
                     </div>
-                    <AnimatePresence mode="wait">
-                      {currentRoute && (
-                        <motion.div
-                          layout
-                          key={`${value.type}-submenu`}
-                          className={s.submenu}
-                          initial="closed"
-                          animate={
-                            currentRoute === value.type ? 'open' : 'closed'
-                          }
-                          exit="closed"
-                          variants={{
-                            open: {
-                              height: 'auto',
-                              opacity: 1,
-                              transition: { duration: 0.8, ease: customEase1 },
-                            },
-                            closed: {
-                              height: 0,
-                              opacity: 0,
-                              transition: { duration: 0.6, ease: customEase1 },
-                            },
-                          }}
-                        >
-                          <div className={s.links}>
-                            {routes[i18n.language === 'en' ? 'en' : 'tr'][
-                              currentRoute
-                            ].children &&
-                              Object.values(
-                                routes[i18n.language === 'en' ? 'en' : 'tr'][
-                                  currentRoute
-                                ].children
-                              ).map((item, i) => {
-                                return (
-                                  <CustomLink
-                                    className={s.menuItem}
-                                    href={`/${
-                                      routes[
-                                        i18n.language === 'en' ? 'en' : 'tr'
-                                      ][currentRoute].path
-                                        ? routes[
-                                            i18n.language === 'en' ? 'en' : 'tr'
-                                          ][currentRoute].path + '/'
-                                        : ''
-                                    }${item.path}`}
-                                    key={i}
-                                    onClick={closeMenu}
-                                  >
-                                    {item.ui && <h5>{item.ui}</h5>}
-                                  </CustomLink>
-                                )
-                              })}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </>
-                )
-              }
-            )}
+                  </div>
+                  <AnimatePresence mode="wait">
+                    {currentRoute && (
+                      <motion.div
+                        layout
+                        key={`${value.type}-submenu`}
+                        className={s.submenu}
+                        initial="closed"
+                        animate={
+                          currentRoute === value.type ? 'open' : 'closed'
+                        }
+                        exit="closed"
+                        variants={{
+                          open: {
+                            height: 'auto',
+                            opacity: 1,
+                            transition: { duration: 0.8, ease: customEase1 },
+                          },
+                          closed: {
+                            height: 0,
+                            opacity: 0,
+                            transition: { duration: 0.6, ease: customEase1 },
+                          },
+                        }}
+                      >
+                        <div className={s.links}>
+                          {routes[i18n.language as Locales][currentRoute]
+                            .children &&
+                            Object.values(
+                              routes[i18n.language as Locales][currentRoute]
+                                .children
+                            ).map((item, i) => {
+                              return (
+                                <CustomLink
+                                  className={s.menuItem}
+                                  href={`/${
+                                    routes[i18n.language as Locales][
+                                      currentRoute
+                                    ].path
+                                      ? routes[i18n.language as Locales][
+                                          currentRoute
+                                        ].path + '/'
+                                      : ''
+                                  }${item.path}`}
+                                  key={i}
+                                  onClick={closeMenu}
+                                >
+                                  {item.ui && <h5>{item.ui}</h5>}
+                                </CustomLink>
+                              )
+                            })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
+              )
+            })}
 
             <CustomLink
               className={cn(s.navItemC, s.requestADemo)}

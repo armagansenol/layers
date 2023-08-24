@@ -8,7 +8,7 @@ import { useMedia } from 'react-use'
 import CustomImage from '@/components/custom-image'
 import LanguageSelect from '@/components/language-select'
 import { CustomLink } from '@/components/custom-link'
-import { routes } from '@/global'
+import { Locales, routes } from '@/global'
 
 const Footer = () => {
   const { t, i18n } = useTranslation('common')
@@ -145,23 +145,21 @@ const Footer = () => {
                   {
                     '--column-count': Math.ceil(
                       Object.keys(
-                        routes[i18n.language === 'en' ? 'en' : 'tr'].features
-                          .children
+                        routes[i18n.language as Locales].features.children
                       ).length / 6
                     ),
                   } as React.CSSProperties
                 }
               >
                 {Object.values(
-                  routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+                  routes[i18n.language as Locales].features.children
                 ).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
                       <CustomLink
                         className={s.link}
                         href={`/${
-                          routes[i18n.language === 'en' ? 'en' : 'tr'].features
-                            .path
+                          routes[i18n.language as Locales].features.path
                         }/${route.path}`}
                       >
                         {route.ui}
@@ -181,23 +179,21 @@ const Footer = () => {
                   {
                     '--column-count': Math.ceil(
                       Object.keys(
-                        routes[i18n.language === 'en' ? 'en' : 'tr'].features
-                          .children
+                        routes[i18n.language as Locales].features.children
                       ).length / 6
                     ),
                   } as React.CSSProperties
                 }
               >
                 {Object.values(
-                  routes[i18n.language === 'en' ? 'en' : 'tr'].services.children
+                  routes[i18n.language as Locales].services.children
                 ).map((route, i) => {
                   return (
                     <li className={s.linkC} key={i}>
                       <CustomLink
                         className={s.link}
                         href={`/${
-                          routes[i18n.language === 'en' ? 'en' : 'tr'].services
-                            .path
+                          routes[i18n.language as Locales].services.path
                         }/${route.path}`}
                       >
                         {route.ui}

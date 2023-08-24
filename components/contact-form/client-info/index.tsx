@@ -8,7 +8,7 @@ import { Trans, useTranslation } from 'next-i18next'
 import { clientInfoFormModel } from './form-model'
 import { ClientInfoForm, FormType } from '../types'
 import Select from '@/components/select'
-import { routes } from '@/global'
+import { Locales, routes } from '@/global'
 import { getCountryCodes } from '@/utils'
 
 type Props = {
@@ -30,7 +30,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
   const { i18n, t } = useTranslation('contactForm')
 
   const interestedProduct = Object.values(
-    routes[i18n.language === 'en' ? 'en' : 'tr'].services.children
+    routes[i18n.language as Locales].services.children
   ).map((service) => {
     return service.ui
   })

@@ -13,7 +13,7 @@ import LanguageSelect from '@/components/language-select'
 import { CustomLink } from '@/components/custom-link'
 import { NavbarDesktop } from '@/components/navbar/desktop'
 import { NavbarMobile } from '@/components/navbar/mobile'
-import { routes } from '@/global'
+import { Locales, routes } from '@/global'
 import { useMenuStore } from '@/lib/store/menu'
 import { useTranslation } from 'next-i18next'
 
@@ -100,7 +100,7 @@ const Header = () => {
         className={cn(s.header, [
           s[
             currentRoute
-              ? routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute].type
+              ? routes[i18n.language as Locales][currentRoute].type
               : 'null'
           ],
         ])}

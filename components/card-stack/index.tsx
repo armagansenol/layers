@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next'
 
 import Button from '@/components/button'
 import CustomImage from '@/components/custom-image'
-import { features, routes } from '@/global'
+import { Locales, features, routes } from '@/global'
 
 const CardStack = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -15,55 +15,52 @@ const CardStack = () => {
   const cards = [
     {
       order: 'first',
-      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
-        .employeeDatabase?.path,
+      path: routes[i18n.language as Locales].features.children.employeeDatabase
+        ?.path,
       title:
-        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
-          .employeeDatabase?.ui,
-      desc: features[i18n.language === 'en' ? 'en' : 'tr'].employeeDatabase
-        ?.data.intro.desc,
+        routes[i18n.language as Locales].features.children.employeeDatabase?.ui,
+      desc: features[i18n.language as Locales].employeeDatabase?.data.intro
+        .desc,
       small:
-        features[i18n.language === 'en' ? 'en' : 'tr'].employeeDatabase?.data
-          .intro.small,
+        features[i18n.language as Locales].employeeDatabase?.data.intro.small,
     },
     {
       order: 'second',
-      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+      path: routes[i18n.language as Locales].features.children
         .employeeCenterAndHrPortal?.path,
       title:
-        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+        routes[i18n.language as Locales].features.children
           .employeeCenterAndHrPortal?.ui,
-      desc: features[i18n.language === 'en' ? 'en' : 'tr']
-        .employeeCenterAndHrPortal?.data.intro.desc,
+      desc: features[i18n.language as Locales].employeeCenterAndHrPortal?.data
+        .intro.desc,
       small:
-        features[i18n.language === 'en' ? 'en' : 'tr'].employeeCenterAndHrPortal
-          ?.data.intro.small,
+        features[i18n.language as Locales].employeeCenterAndHrPortal?.data.intro
+          .small,
     },
     {
       order: 'third',
-      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+      path: routes[i18n.language as Locales].features.children
         .reportingAndHrAnalytics?.path,
       title:
-        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
+        routes[i18n.language as Locales].features.children
           .reportingAndHrAnalytics?.ui,
-      desc: features[i18n.language === 'en' ? 'en' : 'tr']
-        .reportingAndHrAnalytics?.data.intro.desc,
+      desc: features[i18n.language as Locales].reportingAndHrAnalytics?.data
+        .intro.desc,
       small:
-        features[i18n.language === 'en' ? 'en' : 'tr'].reportingAndHrAnalytics
-          ?.data.intro.small,
+        features[i18n.language as Locales].reportingAndHrAnalytics?.data.intro
+          .small,
     },
     {
       order: 'fourth',
-      path: routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
-        .workflowsAndForms?.path,
+      path: routes[i18n.language as Locales].features.children.workflowsAndForms
+        ?.path,
       title:
-        routes[i18n.language === 'en' ? 'en' : 'tr'].features.children
-          .workflowsAndForms?.ui,
-      desc: features[i18n.language === 'en' ? 'en' : 'tr'].workflowsAndForms
-        ?.data.intro.desc,
+        routes[i18n.language as Locales].features.children.workflowsAndForms
+          ?.ui,
+      desc: features[i18n.language as Locales].workflowsAndForms?.data.intro
+        .desc,
       small:
-        features[i18n.language === 'en' ? 'en' : 'tr'].workflowsAndForms?.data
-          .intro.small,
+        features[i18n.language as Locales].workflowsAndForms?.data.intro.small,
     },
   ]
 

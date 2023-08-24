@@ -8,7 +8,7 @@ import { useTranslation } from 'next-i18next'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import CustomImage from '@/components/custom-image'
-import { MainRoute, routes } from '@/global'
+import { Locales, MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/store/menu'
 import { customEase1 } from '@/utils'
 
@@ -35,30 +35,28 @@ export function NavbarDesktop() {
       className={cn(s.navigation, s.fixed, [
         s[
           currentRoute
-            ? routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute].type
+            ? routes[i18n.language as Locales][currentRoute].type
             : 'null'
         ],
       ])}
       onMouseLeave={handleClose}
     >
-      {Object.values(routes[i18n.language === 'en' ? 'en' : 'tr']).map(
-        (value, i) => {
-          return (
-            <div
-              className={cn(s.navItemC, 'cursor-pointer', [s[value.type]], {
-                [s.active]: value.type === currentRoute && isOpen,
-              })}
-              key={i}
-              onMouseEnter={() => handleMenu(value.type)}
-            >
-              <p>{value.ui}</p>
-              <div className={cn(s.iconC, 'flex-center')}>
-                <IconArrowDropdown />
-              </div>
+      {Object.values(routes[i18n.language as Locales]).map((value, i) => {
+        return (
+          <div
+            className={cn(s.navItemC, 'cursor-pointer', [s[value.type]], {
+              [s.active]: value.type === currentRoute && isOpen,
+            })}
+            key={i}
+            onMouseEnter={() => handleMenu(value.type)}
+          >
+            <p>{value.ui}</p>
+            <div className={cn(s.iconC, 'flex-center')}>
+              <IconArrowDropdown />
             </div>
-          )
-        }
-      )}
+          </div>
+        )
+      })}
       <Link
         href="/demo-request"
         className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
@@ -109,23 +107,18 @@ export function NavbarDesktop() {
                       },
                     }}
                   >
-                    {routes[i18n.language === 'en' ? 'en' : 'tr'][currentRoute]
-                      .children &&
+                    {routes[i18n.language as Locales][currentRoute].children &&
                       Object.values(
-                        routes[i18n.language === 'en' ? 'en' : 'tr'][
-                          currentRoute
-                        ].children
+                        routes[i18n.language as Locales][currentRoute].children
                       ).map((item, i) => {
                         return (
                           <Link
                             className={cn(s.menuItem, 'cursor-pointer')}
                             href={`/${
-                              routes[i18n.language === 'en' ? 'en' : 'tr'][
-                                currentRoute
-                              ].path
-                                ? routes[i18n.language === 'en' ? 'en' : 'tr'][
-                                    currentRoute
-                                  ].path + '/'
+                              routes[i18n.language as Locales][currentRoute]
+                                .path
+                                ? routes[i18n.language as Locales][currentRoute]
+                                    .path + '/'
                                 : ''
                             }${item.path}`}
                             key={i}
