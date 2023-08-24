@@ -20,6 +20,7 @@ const MarqueeReferences = (props: Props) => {
                 <CustomImage
                   alt="Layers Logo"
                   height={150}
+                  loading="lazy"
                   src={item.logo}
                   style={{ objectFit: 'contain' }}
                   width={150}

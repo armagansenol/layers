@@ -1,8 +1,8 @@
 import { memo, useEffect, useRef } from 'react'
 import s from './pinned-features.module.scss'
 
+import cn from 'clsx'
 import gsap from 'gsap'
-
 import { Trans, useTranslation } from 'next-i18next'
 import { useMedia } from 'react-use'
 
@@ -94,9 +94,12 @@ const PinnedFeatures = () => {
     <div className={s.pinnedFeatures} ref={ref}>
       <div className="hidden-overflow">
         <div className={s.transformC} data-animation-scroll-container>
-          <div className={s.item} data-animation-scroll-item></div>
+          <div
+            className={cn(s.item, 'flex-center')}
+            data-animation-scroll-item
+          ></div>
 
-          <div className={s.item} data-animation-scroll-item>
+          <div className={cn(s.item, 'flex-center')} data-animation-scroll-item>
             <div className={s.text}>
               <h3>{t('whyLayers.items.i1.title')}</h3>
               <Trans
@@ -108,7 +111,7 @@ const PinnedFeatures = () => {
             </div>
           </div>
 
-          <div className={s.item} data-animation-scroll-item>
+          <div className={cn(s.item, 'flex-center')} data-animation-scroll-item>
             <div className={s.text}>
               <h3>{t('whyLayers.items.i2.title')}</h3>
               <Trans
@@ -120,7 +123,7 @@ const PinnedFeatures = () => {
             </div>
           </div>
 
-          <div className={s.item} data-animation-scroll-item>
+          <div className={cn(s.item, 'flex-center')} data-animation-scroll-item>
             <div className={s.text}>
               <h3>{t('whyLayers.items.i3.title')}</h3>
               <Trans
