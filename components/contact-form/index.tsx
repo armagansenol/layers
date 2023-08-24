@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import s from './contact-form.module.scss'
 
 import cn from 'clsx'
 import { useFormik } from 'formik'
 import { AnimatePresence, motion } from 'framer-motion'
-import moment from 'moment'
 import { useMutation } from 'react-query'
 import * as Yup from 'yup'
 
@@ -15,26 +14,40 @@ import ClientSuccess from '@/components/contact-form/success'
 
 import api from '@/api-client'
 import { useErrorStore } from '@/lib/store/error'
-import { customEase1 } from '@/utils'
+import { customEase1, getFormattedDate } from '@/utils'
+import { initialValues as clientInfoInitialValues } from './client-info/form-model'
+import { initialValues as demoDateInitialValues } from './date/form-model'
 import {
   ClientInfoForm,
-  initialValues as clientInfoInitialValues,
-} from './client-info/form-model'
-import {
   DemoDateForm,
-  initialValues as demoDateInitialValues,
-} from './date/form-model'
-import { FormData, FormType } from './types'
+  FormData,
+  FormType,
+  Response,
+} from './types'
+import moment from 'moment'
 
 type Props = {
   formType: FormType
 }
 
 const ContactForm = (props: Props) => {
+  const ref = useRef<HTMLDivElement>(null)
   const [formPhase, setFormPhase] = useState(0)
-  const [response, setResponse] = useState<any>(null)
+  const [response, setResponse] = useState<Response>()
   const [loading, setLoading] = useState(false)
   const errorStore = useErrorStore()
+
+  function scrollToForm() {
+    if (!ref.current) {
+      return
+    }
+
+    ref.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center',
+    })
+  }
 
   const clientInfoFormSchema = Yup.object().shape({
     acceptFromSendingLayers: Yup.boolean().required(),
@@ -62,7 +75,7 @@ const ContactForm = (props: Props) => {
       demoUserId: Yup.string().nullable(),
       devDemoUserId: Yup.string().nullable(),
       timezone: Yup.string().required(),
-      date: Yup.string().required(),
+      day: Yup.string().required(),
       time: Yup.string().required(),
     }),
   })
@@ -106,7 +119,10 @@ const ContactForm = (props: Props) => {
       Object.keys(clientInfoFormik.errors).length === 0 ||
       Object.keys(demoDateFormik.errors).length === 0
     ) {
-      setFormPhase((prev) => (prev + 1) % screens.length)
+      if (formPhase !== screens.length - 1) {
+        setFormPhase((prev) => prev + 1)
+        scrollToForm()
+      }
     }
 
     const values = {
@@ -114,21 +130,27 @@ const ContactForm = (props: Props) => {
       ...demoDateFormik.values,
     }
 
-    const vals = {
+    const formData = {
       ...values,
       formType: props.formType,
-      createdDate: '2023-07-20T00:00:00.000Z',
+      createdDate: moment().format(),
       phone: `${values.countryCode}${values.phone}`,
       interestedProduct: values.interestedProduct?.length
         ? values.interestedProduct.join(',')
         : null,
+      demoUserCalendarDto: {
+        ...values.demoUserCalendarDto,
+        date: getFormattedDate(
+          values.demoUserCalendarDto.day,
+          values.demoUserCalendarDto.time
+        ),
+      },
     }
 
-    delete vals.countryCode
+    delete formData.countryCode
+    delete formData.demoUserCalendarDto.day
 
-    console.log('vals', vals)
-
-    handleSubmit(vals)
+    handleSubmit(formData)
   }
 
   function handleSubmit(values: any) {
@@ -144,20 +166,31 @@ const ContactForm = (props: Props) => {
 
   const mutation = useMutation(submitForm, {
     onMutate: (variables) => {
-      console.log(variables)
+      console.log('onMutate')
 
+      console.log(variables)
       setLoading(true)
     },
-    onError: ({ response, message }) => {
-      console.log(`error`, response.data.messages.Error)
-      errorStore.setMessages(response.data.messages.Error)
+    onError: (err) => {
+      console.log('onError')
+      console.log(`error`, err)
     },
-    onSuccess: (data) => {
-      setResponse(data)
-      // errorStore.setMessage(data.message)
+    onSuccess: (res: Response) => {
+      console.log('onSuccess')
+
+      if (!res.isSuccess) {
+        // errorStore.setMessages(err)
+        return
+      }
+
+      setResponse(res)
     },
-    onSettled: () => {
+    onSettled: (res) => {
+      console.log('onSettled')
+
       setLoading(false)
+
+      scrollToForm()
     },
   })
 
@@ -173,7 +206,8 @@ const ContactForm = (props: Props) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={`${formPhase}`}
+        ref={ref}
+        key={`${formPhase || response}`}
         initial="closed"
         animate="open"
         exit="closed"
@@ -189,35 +223,37 @@ const ContactForm = (props: Props) => {
         }}
       >
         {loading ? (
-          <>
-            {response ? (
-              <ClientSuccess {...response} />
-            ) : (
-              <div className={cn(s.loading, 'flex-center')}>LOADING</div>
-            )}
-          </>
+          <div className={cn(s.loading, 'flex-center')}>LOADING</div>
         ) : (
           <>
-            <div className={s.screensC}>{screens[formPhase]}</div>
-            <div className={s.btns}>
-              {formPhase !== 0 && (
-                <div className={cn(s.prevC, { [s.visible]: formPhase !== 0 })}>
-                  <Button text="Preivous" callback={handlePrev} inverted />
-                </div>
-              )}
+            {response && Object.keys(response.data).length ? (
+              <ClientSuccess {...response.data} />
+            ) : (
+              <>
+                <div className={s.screensC}>{screens[formPhase]}</div>
+                <div className={s.btns}>
+                  {formPhase !== 0 && (
+                    <div
+                      className={cn(s.prevC, { [s.visible]: formPhase !== 0 })}
+                    >
+                      <Button text="Preivous" callback={handlePrev} inverted />
+                    </div>
+                  )}
 
-              {formPhase !== screens.length - 1 && (
-                <div className={s.nextC}>
-                  <Button text="Next" callback={handleNext} />
-                </div>
-              )}
+                  {formPhase !== screens.length - 1 && (
+                    <div className={s.nextC}>
+                      <Button text="Next" callback={handleNext} />
+                    </div>
+                  )}
 
-              {formPhase === screens.length - 1 && (
-                <div className={s.sendC}>
-                  <Button text="Send" callback={handleNext} />
+                  {formPhase === screens.length - 1 && (
+                    <div className={s.sendC}>
+                      <Button text="Send" callback={handleNext} />
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
+              </>
+            )}
           </>
         )}
       </motion.div>

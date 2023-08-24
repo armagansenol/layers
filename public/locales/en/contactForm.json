@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "acceptKvkk": {
+            "p1": "I have read and accept the",
+            "p2": "Personal Data Protection and Processing Policy."
+        },
+        "acceptFromSendingLayers": "Send me emails with news, insights and event invitations.",
+        "companyEmail": "Company Email",
+        "companyName": "Company Name",
+        "timezone": "Timezone",
+        "date": "Date",
+        "time": "Time",
+        "interestedProduct": "I’m interested in <span>(you may choose more than once)</span>",
+        "note": "Message",
+        "numberOfEmployees": "Number Of Employees",
+        "usedHtProduct": "Used HR Product",
+        "phone": "Phone",
+        "title": "Title",
+        "name": "Name",
+        "surname": "Surname",
+        "selectDay": "Select Day",
+        "selectTime": "Select Time"
+    },
+    "successScreen": {
+        "thanks": "Thank You!",
+        "representative": "The person who will get in touch with you:",
+        "email": "In the upcoming days, we will also send you the <strong>online meeting link via email.</strong>"
+    },
+    "btns": {
+        "prev": "Previous",
+        "next": "Next",
+        "send": "Send"
+    }
+}

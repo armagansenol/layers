@@ -138,9 +138,7 @@ const Subscribe = () => {
         id="subscribeForm"
       >
         <div className={s.field}>
-          <small className={s.smallTop}>
-            <span>{t('subscribe.top')}</span>
-          </small>
+          <small className={s.smallTop}>{t('subscribe.top')}</small>
           <div
             className={cn(s.inputC, {
               [s.required]: subscribeFormik.errors.email,
@@ -163,9 +161,7 @@ const Subscribe = () => {
               <span>{t('subscribe.send')}</span>
             </button>
           </div>
-          <small className={s.smallBottom}>
-            <span>{t('subscribe.bottom')} </span>
-          </small>
+          <small className={s.smallBottom}>{t('subscribe.bottom')}</small>
         </div>
 
         <AnimatePresence>

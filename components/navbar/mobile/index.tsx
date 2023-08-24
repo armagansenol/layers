@@ -1,10 +1,10 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import s from './navbar-mobile.module.scss'
 
 import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import LanguageSelect from '@/components/language-select'
@@ -18,8 +18,8 @@ type Props = {
 
 export function NavbarMobile(props: Props) {
   const menuRef = useRef<HTMLElement>(null)
-  const [hamburger, setHamburger] = useState(false)
-  const { currentRoute, setCurrentRoute, setIsOpen } = useMenuStore()
+  const { currentRoute, setCurrentRoute, setIsOpen, hamburger, setHamburger } =
+    useMenuStore()
   const { i18n, t } = useTranslation('common')
   // useLockBodyScroll(hamburger)
 
@@ -41,7 +41,7 @@ export function NavbarMobile(props: Props) {
   return (
     <>
       <div
-        onClick={() => setHamburger((prev) => !prev)}
+        onClick={() => setHamburger(!hamburger)}
         className={cn(s.hamburger, 'flex-center', { [s.open]: hamburger })}
       >
         {hamburger ? 'close' : 'menu'}

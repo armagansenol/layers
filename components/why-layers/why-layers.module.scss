@@ -41,6 +41,10 @@
     column-gap: desktop-vw(50px);
     display: flex;
 
+    @include mobile {
+      flex-direction: column;
+    }
+
     & > span {
       display: inline-block;
       font-family: var(--font-wt-gothic);
@@ -53,10 +57,20 @@
 
       &:nth-child(1) {
         margin-bottom: desktop-vw(100px);
+
+        @include mobile {
+          margin: 0;
+          margin-right: mobile-vw(150px);
+        }
       }
 
       &:nth-child(2) {
         margin-top: desktop-vw(100px);
+
+        @include mobile {
+          margin: 0;
+          margin-left: mobile-vw(150px);
+        }
       }
     }
   }

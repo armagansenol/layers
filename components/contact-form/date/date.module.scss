@@ -1,10 +1,23 @@
 .phaseDate {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   & > h3 {
     font-family: var(--font-inter);
     font-size: desktop-vw(15px);
     font-weight: 400;
     margin-bottom: desktop-vw(27px);
     margin-left: desktop-vw(8px);
+
+    @include mobile {
+      font-size: mobile-vw(15px);
+      margin: 0;
+      margin-bottom: mobile-vw(27px);
+    }
   }
 
   .days {
@@ -17,6 +30,13 @@
     overflow: hidden;
     padding: desktop-vw(20px) 0 desktop-vw(35px) 0;
     position: relative;
+
+    @include mobile {
+      border-radius: mobile-vw(11px);
+      margin-bottom: mobile-vw(30px);
+      padding: mobile-vw(20px) 0 mobile-vw(35px) 0;
+      width: 100%;
+    }
 
     &::after {
       content: '';
@@ -54,12 +74,28 @@
     overflow: hidden;
     padding: desktop-vw(16px) desktop-vw(20px);
     position: relative;
+
+    @include mobile {
+      @include dims(auto, mobile-vw(51px));
+      border-radius: mobile-vw(8px);
+      padding: mobile-vw(16px) mobile-vw(20px);
+      width: 80%;
+    }
   }
 
   .time {
     display: grid;
     grid-template-columns: desktop-vw(240px) 1fr;
     column-gap: desktop-vw(22px);
+
+    @include mobile {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: unset;
+      justify-content: center;
+      row-gap: mobile-vw(22px);
+    }
   }
 
   .hours {
@@ -73,6 +109,14 @@
     margin-bottom: desktop-vw(40px);
     padding: desktop-vw(20px) desktop-vw(22px);
 
+    @include mobile {
+      align-items: space-between;
+      border-radius: mobile-vw(11px);
+      gap: mobile-vw(10px);
+      margin-bottom: mobile-vw(40px);
+      padding: mobile-vw(20px) mobile-vw(8px);
+    }
+
     .hour {
       align-items: center;
       background: var(--white);
@@ -82,9 +126,19 @@
       padding: desktop-vw(7px) 0;
       width: desktop-vw(70px);
 
+      @include mobile {
+        border-radius: mobile-vw(8px);
+        padding: mobile-vw(7px) 0;
+        width: mobile-vw(70px);
+      }
+
       & > span {
         font-family: var(--font-inter);
         font-size: desktop-vw(16px);
+
+        @include mobile {
+          font-size: mobile-vw(16px);
+        }
       }
 
       &:hover {

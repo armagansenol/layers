@@ -44,6 +44,14 @@
     margin-bottom: mobile-vw(50px);
   }
 
+  .field {
+    @include mobile {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   .inputC {
     height: desktop-vw(60px);
     border-radius: desktop-vw(11px);
@@ -92,52 +100,40 @@
   }
 
   .smallTop {
+    color: var(--caribbean-green);
+    display: inline-block;
+    font-family: var(--font-wt-gothic);
+    font-size: desktop-vw(19px);
+    font-weight: 100;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(8px);
     padding-left: var(--padding-left);
 
     @include mobile {
+      font-size: mobile-vw(14px);
+      margin-bottom: mobile-vw(12px);
       padding-left: 0;
-    }
-
-    span {
-      color: var(--caribbean-green);
-      display: inline-block;
-      font-family: var(--font-wt-gothic);
-      font-size: desktop-vw(19px);
-      font-weight: 100;
-      line-height: 1.5;
-      margin-bottom: desktop-vw(8px);
-
-      @include mobile {
-        font-size: mobile-vw(14px);
-        margin-bottom: mobile-vw(12px);
-        text-align: center;
-        width: 100%;
-      }
+      text-align: center;
+      width: 70%;
     }
   }
 
   .smallBottom {
+    color: var(--caribbean-green);
+    display: inline-block;
+    font-family: var(--font-inter);
+    font-size: desktop-vw(13px);
+    font-weight: 100;
+    line-height: 1.5;
+    margin-bottom: desktop-vw(12px);
     padding-left: var(--padding-left);
 
     @include mobile {
+      font-size: mobile-vw(11px);
       padding-left: 0;
-    }
-
-    span {
-      color: var(--caribbean-green);
-      display: inline-block;
-      font-family: var(--font-inter);
-      font-size: desktop-vw(13px);
-      font-weight: 100;
-      line-height: 1.5;
-      margin-bottom: desktop-vw(12px);
-
-      @include mobile {
-        font-size: mobile-vw(11px);
-        text-align: center;
-        text-align: center;
-        width: 100%;
-      }
+      text-align: center;
+      text-align: center;
+      width: 90%;
     }
   }
 

@@ -21,10 +21,12 @@ import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/store/menu'
+import { useMedia } from 'react-use'
 
 const Home = () => {
-  const { setIsOpen, setCurrentRoute } = useMenuStore()
+  const { setIsOpen, setCurrentRoute, setHamburger } = useMenuStore()
   const { t } = useTranslation('home')
+  const isMobile = useMedia('(max-width: 800px)', true)
 
   const slides = [
     {
@@ -62,11 +64,13 @@ const Home = () => {
   ]
 
   function toFeatures() {
+    isMobile && setHamburger(true)
     setIsOpen(true)
     setCurrentRoute(MainRoute.features)
   }
 
   function toServices() {
+    isMobile && setHamburger(true)
     setIsOpen(true)
     setCurrentRoute(MainRoute.services)
   }

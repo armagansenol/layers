@@ -1,5 +1,5 @@
 .button {
-  --mobile-width: #{mobile-vw(240px)};
+  --mobile-width: #{mobile-vw(220px)};
   align-items: center;
   border: 1px solid var(--hydrargyrum);
   border-radius: desktop-vw(11px);
@@ -110,7 +110,7 @@
 
     @include mobile {
       font-size: mobile-vw(15px);
-      margin-left: mobile-vw(20px);
+      margin-left: mobile-vw(10px);
     }
   }
 

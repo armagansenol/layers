@@ -108,7 +108,7 @@
       }
 
       &:last-child {
-        & > p {
+        & > .link {
           margin-bottom: 0;
         }
       }
@@ -150,6 +150,11 @@
     & > .iconC {
       @include dims(desktop-vw(90px));
       margin: 0 desktop-vw(100px);
+
+      @include mobile {
+        @include dims(mobile-vw(60px));
+        margin: 0 mobile-vw(30px);
+      }
     }
   }
 }

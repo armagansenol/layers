@@ -1,18 +1,7 @@
 import moment from 'moment'
-import { InputData } from '../../types'
+import { DemoDateForm, InputData } from '../../types'
 
 const isDev = process.env.NEXT_PUBLIC_NODE_ENV === 'development'
-
-export interface DemoDateForm {
-  demoUserStatus: string | null
-  demoUserCalendarDto: {
-    demoUserId: string | null
-    devDemoUserId: string | null
-    timezone: string
-    date: string
-    time: string
-  }
-}
 
 export const demoDateFormModel: {
   demoUserCalendarDto: { [key: string]: InputData }
@@ -39,9 +28,9 @@ export const demoDateFormModel: {
       required: true,
       type: 'text',
     },
-    date: {
-      placeholder: 'Date',
-      name: 'date',
+    day: {
+      placeholder: 'Day',
+      name: 'day',
       default: '',
       required: true,
       type: 'text',
@@ -62,7 +51,7 @@ export const initialValues: DemoDateForm = {
     demoUserId: null,
     devDemoUserId: null,
     timezone: isDev ? 'test' : '',
-    date: isDev ? moment('2023-07-20', moment.ISO_8601).format() : '',
+    day: isDev ? moment().format('YYY-MM-DD') : '',
     time: isDev ? 'test' : '',
   },
 }

@@ -6,63 +6,53 @@ import moment from 'moment-timezone'
 
 import SliderDay from '@/components/contact-form/slider-day'
 import Select from '@/components/select'
-import {
-  generateDays,
-  generateHours,
-  getFormattedDate,
-  getTimezones,
-} from '@/utils'
-import { DemoDateForm, demoDateFormModel } from './form-model'
+import { generateDays, generateHours, getTimezones } from '@/utils'
+import { DemoDateForm, DemoDateFormKeys } from '../types'
+import { demoDateFormModel } from './form-model'
 
 const hours = generateHours()
 const timezones = getTimezones()
 const today = moment(moment().format('YYYY-MM-DD'))
-const dayInfoArray = generateDays(today, 5)
+const days = generateDays(today, 5)
 
 type Props = {
   formik?: FormikProps<DemoDateForm>
 }
 
 const ClientDate = ({ formik }: Props) => {
-  function handleDay(val: string) {
-    const date = getFormattedDate(
-      val,
-      formik?.values.demoUserCalendarDto.time ?? '00:00'
-    )
-
+  function updateCalendarDto(field: string, value: string) {
     formik?.setFieldValue(
-      `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.date.name}`,
-      date
-    )
-
-    console.log('formik', formik?.values.demoUserCalendarDto.date)
-    console.log('arg', val)
-    console.log('formattedDate', date)
-  }
-
-  function handleTimezone(value: string) {
-    console.log(value)
-
-    formik?.setFieldValue(
-      `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.timezone.name}`,
+      `${DemoDateFormKeys.demoUserCalendarDto}.${field}`,
       value
     )
   }
 
-  function handleTime(hour: string) {
-    if (hour === formik?.values.demoUserCalendarDto.time) {
-      console.log('same')
-      formik?.setFieldValue(
-        `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.time.name}`,
-        ''
-      )
+  function handleDay(val: string) {
+    const field = demoDateFormModel.demoUserCalendarDto.day.name
+
+    if (val === formik?.values.demoUserCalendarDto.day) {
+      updateCalendarDto(field, '')
       return
     }
 
-    formik?.setFieldValue(
-      `demoUserCalendarDto.${demoDateFormModel.demoUserCalendarDto.time.name}`,
-      hour
-    )
+    updateCalendarDto(field, val)
+  }
+
+  function handleTimezone(val: string) {
+    const field = demoDateFormModel.demoUserCalendarDto.timezone.name
+
+    updateCalendarDto(field, val)
+  }
+
+  function handleTime(val: string) {
+    const field = demoDateFormModel.demoUserCalendarDto.time.name
+
+    if (val === formik?.values.demoUserCalendarDto.time) {
+      updateCalendarDto(field, '')
+      return
+    }
+
+    updateCalendarDto(field, val)
   }
 
   return (
@@ -71,14 +61,14 @@ const ClientDate = ({ formik }: Props) => {
       <div
         className={cn(s.days, {
           ['input-required']:
-            formik?.errors.demoUserCalendarDto?.date &&
-            formik?.touched.demoUserCalendarDto?.date,
+            formik?.errors.demoUserCalendarDto?.day &&
+            formik?.touched.demoUserCalendarDto?.day,
         })}
       >
         <SliderDay
-          formik={formik}
+          selected={formik?.values.demoUserCalendarDto.day}
           callback={handleDay}
-          slideData={dayInfoArray}
+          slideData={days}
         />
       </div>
 

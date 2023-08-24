@@ -36,6 +36,7 @@ const DemoRequest = () => {
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale ?? 'en', [
+      'contactForm',
       'demoRequest',
       'common',
     ])),

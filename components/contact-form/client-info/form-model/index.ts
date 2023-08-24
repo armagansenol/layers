@@ -1,38 +1,6 @@
-import { InputData } from '../../types'
+import { ClientInfoForm, ClientInfoFormKeys, InputData } from '../../types'
 
 const isDev = process.env.NEXT_PUBLIC_NODE_ENV === 'development'
-
-enum ClientInfoFormKeys {
-  acceptKvkk = 'acceptKvkk',
-  acceptFromSendingLayers = 'acceptFromSendingLayers',
-  companyName = 'companyName',
-  companyEmail = 'companyEmail',
-  countryCode = 'countryCode',
-  interestedProduct = 'interestedProduct',
-  name = 'name',
-  note = 'note',
-  numberOfEmployees = 'numberOfEmployees',
-  phone = 'phone',
-  surname = 'surname',
-  title = 'title',
-  usedHrProduct = 'usedHrProduct',
-}
-
-export interface ClientInfoForm {
-  acceptKvkk: boolean | null
-  acceptFromSendingLayers: boolean | null
-  companyName: string
-  companyEmail: string
-  countryCode?: string
-  interestedProduct: string[]
-  name: string
-  note: string
-  numberOfEmployees: string
-  phone: string
-  surname: string
-  title: string
-  usedHrProduct: string
-}
 
 export const clientInfoFormModel: { [key in ClientInfoFormKeys]: InputData } = {
   acceptFromSendingLayers: {

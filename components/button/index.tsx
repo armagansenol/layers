@@ -37,7 +37,7 @@ const Button: React.FC<Props> = ({
       {...(!isMobile && { onMouseLeave: () => setHovered(false) })}
       {...(callback
         ? { onClick: callback }
-        : { onClick: () => router.push(path) })}
+        : { onClick: () => router.push(`/${path}`) })}
     >
       <AnimatePresence mode="popLayout">
         <motion.div

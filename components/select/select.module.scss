@@ -8,6 +8,11 @@
   font-weight: 400;
   justify-content: flex-start;
 
+  @include mobile {
+    column-gap: mobile-vw(8px);
+    font-size: mobile-vw(14px);
+  }
+
   &[data-placeholder] {
     color: var(--black);
   }
@@ -17,6 +22,10 @@
     display: flex;
     margin-left: auto;
     object-fit: contain;
+
+    @include mobile {
+      @include dims(auto, mobile-vw(4px));
+    }
   }
 
   span {
@@ -30,11 +39,19 @@
   background-color: var(--white);
   border: 1px solid var(--hydrargyrum);
   border-radius: desktop-vw(12px);
-  z-index: 99999999999;
+  z-index: z-index('cursor');
+
+  @include mobile {
+    border-radius: mobile-vw(12px);
+  }
 }
 
 .selectViewport {
   padding: desktop-vw(2px);
+
+  @include mobile {
+    padding: mobile-vw(2px);
+  }
 }
 
 .selectItem {
@@ -48,6 +65,12 @@
   padding: 0 desktop-vw(35px) 0 desktop-vw(25px);
   position: relative;
   user-select: none;
+
+  @include mobile {
+    height: mobile-vw(36px);
+    font-size: mobile-vw(16px);
+    padding: 0 mobile-vw(35px) 0 mobile-vw(16px);
+  }
 
   &[data-disabled] {
     color: var(--hydrargyrum);
@@ -72,6 +95,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  @include mobile {
+    @include dims(mobile-vw(12px));
+  }
 }
 
 .selectScrollButton {
@@ -85,6 +112,10 @@
 
   .iconC {
     @include dims(desktop-vw(12px));
+
+    @include mobile {
+      @include dims(mobile-vw(12px));
+    }
 
     &.up {
       transform: rotate(180deg);

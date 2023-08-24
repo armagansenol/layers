@@ -6,7 +6,7 @@ import moment, { Moment } from 'moment'
 export const customEase1 = cubicBezier(0.16, 1, 0.3, 1)
 
 export function generateDays(startDay: Moment, months: number) {
-  const dayInfoArray = []
+  const days = []
   const endDay = startDay.clone().add(months, 'months')
 
   while (startDay.isSameOrBefore(endDay, 'day')) {
@@ -14,7 +14,7 @@ export function generateDays(startDay: Moment, months: number) {
     const dayMonth = startDay.format('MMMM')
     const dayNumber = startDay.date()
 
-    dayInfoArray.push({
+    days.push({
       active: startDay.isoWeekday() !== 6 && startDay.isoWeekday() !== 7,
       yearMonthDate: startDay.format('YYYY-MM-DD'),
       name: dayName,
@@ -25,7 +25,7 @@ export function generateDays(startDay: Moment, months: number) {
     startDay.add(1, 'days')
   }
 
-  return dayInfoArray
+  return days
 }
 
 export function generateHours() {
@@ -58,10 +58,8 @@ export function getTimezones() {
   return tz
 }
 
-export function getFormattedDate(date: string, time: string) {
-  const combinedDateTime = `${date}T${time}:000Z`
-  return combinedDateTime
-  // return moment(combinedDateTime, moment.ISO_8601).format()
+export function getFormattedDate(date?: string, time?: string) {
+  return `${date}T${time}:00.000Z`
 }
 
 export function getCountryCodes() {

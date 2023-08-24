@@ -2,11 +2,13 @@ import { useState } from 'react'
 import s from './featureList.module.scss'
 
 import cn from 'clsx'
-import { AnimatePresence, delay, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 type Props = {}
 
 const FeatureList = (props: Props) => {
+  const [currentItem, setCurrentItem] = useState(0)
+
   const items = [
     {
       title: 'title1',
@@ -38,29 +40,6 @@ const FeatureList = (props: Props) => {
             consectetur ut quia. Ex omnis, delectus voluptatem autem ea
             necessitatibus vero!
           </span>
-          <span>
-            Porro, ipsam. Perspiciatis accusantium, hic repellat, quisquam esse
-            ad ex enim maiores neque facere eaque, ipsam est excepturi. Non
-            corporis adipisci modi voluptatem beatae reiciendis aliquid possimus
-            blanditiis cum autem, nemo provident illum quasi amet maiores
-            asperiores vel deleniti error eius a excepturi eum, repudiandae
-            numquam assumenda! Veritatis omnis id est cum similique odio
-            aperiam? Atque iusto odit architecto ab optio! Velit unde eaque enim
-            temporibus aliquam laborum eum! Ut labore ipsam consequuntur dolorem
-            iusto quisquam reiciendis quia suscipit similique, obcaecati
-            corporis distinctio sapiente aliquid voluptate, laudantium placeat
-            recusandae voluptates accusantium inventore commodi maxime? Quis
-            veniam sint, delectus doloribus perspiciatis necessitatibus nesciunt
-            maiores tempora numquam esse, omnis ipsum incidunt voluptatibus,
-            dignissimos odio iusto enim temporibus error dolorem exercitationem
-            laudantium recusandae fugit quaerat suscipit. Soluta harum excepturi
-            incidunt assumenda. Pariatur adipisci deleniti obcaecati harum,
-            magnam quia perspiciatis amet dignissimos iusto voluptates,
-            cupiditate ullam! Quo nesciunt porro beatae expedita. Hic atque rem
-            provident facere ipsum blanditiis pariatur iste quod ea nihil natus
-            aliquid culpa modi, officia impedit! Illo doloribus quasi voluptate
-            tenetur sunt?
-          </span>
         </>
       ),
     },
@@ -81,7 +60,6 @@ const FeatureList = (props: Props) => {
       ),
     },
   ]
-  const [currentItem, setCurrentItem] = useState(0)
 
   return (
     <div className={s.featureList}>
@@ -101,7 +79,7 @@ const FeatureList = (props: Props) => {
       <AnimatePresence mode="wait">
         <motion.div
           className={s.content}
-          key={currentItem}
+          key={`${currentItem}`}
           initial="closed"
           animate="open"
           exit="closed"
@@ -115,7 +93,7 @@ const FeatureList = (props: Props) => {
             closed: {
               height: 0,
               opacity: 0,
-              y: 20,
+              y: 10,
               transition: { duration: 0.2, ease: 'easeInOut' },
             },
           }}

@@ -91,6 +91,7 @@
 
       @include mobile {
         @include dims(mobile-vw(60px), 100%);
+        background: var(--theme-secondary);
         border-radius: mobile-vw(8px);
       }
 

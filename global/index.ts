@@ -482,7 +482,7 @@ export const features = {
             },
           },
           d2: {
-            desc: 'Layers ile verimlilik, doğruluk ve organizasyonunuzun insan sermayesi konusunda bütünsel bir bakış kazanırsınız.',
+            desc: 'With Layers, you gain efficiency, accuracy, and a holistic perspective on your organization’s human capital.',
             media: {
               path: `/img/detail-${routes.en.features.children.employeeDatabase?.path}.png`,
             },

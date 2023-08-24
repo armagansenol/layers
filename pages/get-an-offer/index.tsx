@@ -44,7 +44,11 @@ const GetAnOffer = () => {
 // or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['getAnOffer', 'common'])),
+    ...(await serverSideTranslations(locale ?? 'en', [
+      'contactForm',
+      'getAnOffer',
+      'common',
+    ])),
   },
 })
 

@@ -32,26 +32,24 @@ type Slide = {
 
 function Slide(props: Slide) {
   return (
-    <>
-      <div className={s.slide}>
-        <div className={s.info}>
-          <div className={s.imgC}>
-            <CustomImage
-              src={props.img}
-              alt="Client Profile Photo"
-              loading="lazy"
-              width={500}
-              height={500}
-            />
-          </div>
-          <div className={s.text}>
-            <p>{props.name}</p>
-            <small>{props.role}</small>
-          </div>
+    <div className={s.slide}>
+      <div className={s.info}>
+        <div className={s.imgC}>
+          <CustomImage
+            src={props.img}
+            alt="Client Profile Photo"
+            loading="lazy"
+            width={500}
+            height={500}
+          />
         </div>
-        <p>{props.comment}</p>
+        <div className={s.text}>
+          <p>{props.name}</p>
+          <small>{props.role}</small>
+        </div>
       </div>
-    </>
+      <p>{props.comment}</p>
+    </div>
   )
 }
 

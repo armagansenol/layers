@@ -103,7 +103,11 @@ const Contact = () => {
 // or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['contact', 'common'])),
+    ...(await serverSideTranslations(locale ?? 'en', [
+      'contactForm',
+      'contact',
+      'common',
+    ])),
   },
 })
 

@@ -1,0 +1,33 @@
+{
+    "fields": {
+        "acceptKvkk": {
+            "p1": "Kişisel Verilerin Korunması ve İşlenmesi Politikası",
+            "p2": "'nı okudum ve kabul ediyorum."
+        },
+        "acceptFromSendingLayers": "Layers tarafından yapılacak gönderimleri kabul ediyorum.",
+        "companyEmail": "Şirket Eposta Adresi",
+        "companyName": "Şirket İsmi",
+        "timezone": "Bölge",
+        "date": "Tarih",
+        "time": "Saat",
+        "interestedProduct": "İlgilendiğim ürünler <span>(birden fazla seçebilirsiniz)</span>",
+        "note": "Notunuz",
+        "numberOfEmployees": "Çalışan Sayısı",
+        "usedHtProduct": "Kulandığınız İK Ürünleri",
+        "phone": "Telefon",
+        "title": "Title",
+        "name": "İsim",
+        "surname": "Soyisim",
+        "selectDay": "Gün Seçin"
+    },
+    "successScreen": {
+        "thanks": "Teşekkürler!",
+        "representative": "Sizinle iletişime geçecek kişi:",
+        "email": "Önümüzdeki günlerde, <strong>online toplantı bağlantısını e-posta yoluyla</strong> da size göndereceğiz."
+    },
+    "btns": {
+        "prev": "Geri",
+        "next": "İleri",
+        "send": "Gönder"
+    }
+}

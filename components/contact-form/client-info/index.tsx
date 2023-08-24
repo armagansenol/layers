@@ -3,10 +3,10 @@ import s from './client-info.module.scss'
 import cn from 'clsx'
 import { FormikProps } from 'formik'
 import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
+import { Trans, useTranslation } from 'next-i18next'
 
-import { ClientInfoForm, clientInfoFormModel } from './form-model'
-import { FormType } from '../types'
+import { clientInfoFormModel } from './form-model'
+import { ClientInfoForm, FormType } from '../types'
 import Select from '@/components/select'
 import { routes } from '@/global'
 import { getCountryCodes } from '@/utils'
@@ -27,7 +27,7 @@ const numberOfEmployeeesOptions = [
 ]
 
 const ClientInfo = ({ formType, formik }: Props) => {
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation('contactForm')
 
   const interestedProduct = Object.values(
     routes[i18n.language === 'en' ? 'en' : 'tr'].services.children
@@ -69,7 +69,12 @@ const ClientInfo = ({ formType, formik }: Props) => {
         <div className={cn(s.row, s.interestedProduct)}>
           <div className="flex-center-y">
             <small>
-              I’m interested in <span>(you may choose more than once)</span>
+              <Trans
+                i18nKey="fields.interestedProduct"
+                components={{ span: <span /> }}
+              >
+                {t('fields.interestedProduct')}
+              </Trans>
             </small>
             <div className={cn(s.checks, 'flex-center')}>
               {interestedProduct.map((p, i) => {
@@ -105,7 +110,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={clientInfoFormModel.name.placeholder}
+              placeholder={t('fields.name')}
               className={s.input}
               type="text"
               id={clientInfoFormModel.name.name}
@@ -123,7 +128,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={clientInfoFormModel.surname.placeholder}
+              placeholder={t('fields.surname')}
               className={s.input}
               type="text"
               id={clientInfoFormModel.surname.name}
@@ -144,7 +149,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={clientInfoFormModel.companyName.placeholder}
+              placeholder={t('fields.companyName')}
               className={s.input}
               type="text"
               id={clientInfoFormModel.companyName.name}
@@ -161,7 +166,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={clientInfoFormModel.title.placeholder}
+              placeholder={t('fields.title')}
               className={s.input}
               type="text"
               id={clientInfoFormModel.title.name}
@@ -185,7 +190,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             >
               <Select
                 callback={handleNumberOfEmployees}
-                label="Number of Employees"
+                label={t('fields.numberOfEmployees')}
                 options={numberOfEmployeeesOptions}
               />
             </div>
@@ -239,7 +244,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={clientInfoFormModel.companyEmail.placeholder}
+              placeholder={t('fields.companyEmail')}
               className={s.input}
               type="text"
               id={clientInfoFormModel.companyEmail.name}
@@ -260,7 +265,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <input
-              placeholder={clientInfoFormModel.usedHrProduct.placeholder}
+              placeholder={t('fields.usedHrProduct')}
               className={s.input}
               type="text"
               id={clientInfoFormModel.usedHrProduct.name}
@@ -280,7 +285,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             })}
           >
             <textarea
-              placeholder={clientInfoFormModel.note.placeholder}
+              placeholder={t('fields.note')}
               className={s.input}
               id={clientInfoFormModel.note.name}
               name={clientInfoFormModel.note.name}
@@ -312,16 +317,35 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
         <div className={s.legalText}>
           <small className={s.small}>
-            I’ve read and accepted the{' '}
-            <Link
-              href="/pdf/personal-data-protection-and-processing-policy.pdf"
-              target="_blank"
-              rel="noreferrer noopener"
-              className={s.link}
-              onClick={(e) => e.stopPropagation()}
-            >
-              Personal Data Protection and Processing Policy.
-            </Link>
+            {i18n.language === 'en' ? (
+              <>
+                {t('fields.acceptKvkk.p1')}{' '}
+                <Link
+                  href="/pdf/personal-data-protection-and-processing-policy.pdf"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={s.link}
+                  onClick={(e) => e.stopPropagation()}
+                  locale={false}
+                >
+                  {t('fields.acceptKvkk.p2')}
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/pdf/personal-data-protection-and-processing-policy.pdf"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={s.link}
+                  onClick={(e) => e.stopPropagation()}
+                  locale={false}
+                >
+                  {t('fields.acceptKvkk.p1')}
+                </Link>
+                {t('fields.acceptKvkk.p2')}
+              </>
+            )}
           </small>
         </div>
       </div>
@@ -333,8 +357,6 @@ const ClientInfo = ({ formType, formik }: Props) => {
             formik?.touched.acceptFromSendingLayers,
         })}
         onClick={() => {
-          console.log('2')
-
           formik?.setFieldValue(
             clientInfoFormModel.acceptFromSendingLayers.name,
             !formik?.values.acceptFromSendingLayers
@@ -350,7 +372,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
         <div className={s.legalText}>
           <small className={s.small}>
-            Send me emails with news, insights and event invitations.
+            {t('fields.acceptFromSendingLayers')}
           </small>
         </div>
       </div>

@@ -4,7 +4,7 @@
   width: desktop-vw(900px);
 
   @include mobile {
-    padding: mobile-vw(30px) mobile-vw(16px);
+    padding: mobile-vw(30px) 0;
     width: 100%;
   }
 

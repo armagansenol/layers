@@ -1,5 +1,4 @@
 import { FormikProps } from 'formik'
-import { DemoDateForm } from '../date/form-model'
 
 export enum FormType {
   contact = 'contact',
@@ -41,17 +40,7 @@ export interface FormData {
   title: string
 }
 
-// export interface Response {
-//   date: string
-//   email: string
-//   nameSurname: string
-//   responseName: string
-//   responseSurname: string
-//   time: string
-//   title: string
-// }
-
-export type Slide = {
+export type Day = {
   callback?: (val: string) => void
   active: boolean
   yearMonthDate: string
@@ -59,4 +48,69 @@ export type Slide = {
   number: string
   month: string
   formik: FormikProps<DemoDateForm>
+  selected?: string
+}
+
+export interface ResponseData {
+  date: string
+  email: string
+  nameSurname: string
+  responseName: string
+  responseSurName: string
+  time: string
+  title: string
+}
+
+export interface Response {
+  isSuccess: boolean
+  messageCode: string
+  data: ResponseData
+}
+
+export interface DemoDateForm {
+  demoUserStatus: string | null
+  demoUserCalendarDto: {
+    demoUserId: string | null
+    devDemoUserId: string | null
+    timezone: string
+    day?: string
+    time: string
+  }
+}
+
+export enum ClientInfoFormKeys {
+  acceptKvkk = 'acceptKvkk',
+  acceptFromSendingLayers = 'acceptFromSendingLayers',
+  companyName = 'companyName',
+  companyEmail = 'companyEmail',
+  countryCode = 'countryCode',
+  interestedProduct = 'interestedProduct',
+  name = 'name',
+  note = 'note',
+  numberOfEmployees = 'numberOfEmployees',
+  phone = 'phone',
+  surname = 'surname',
+  title = 'title',
+  usedHrProduct = 'usedHrProduct',
+}
+
+export enum DemoDateFormKeys {
+  demoUserStatus = 'demoUserStatus',
+  demoUserCalendarDto = 'demoUserCalendarDto',
+}
+
+export interface ClientInfoForm {
+  acceptKvkk: boolean | null
+  acceptFromSendingLayers: boolean | null
+  companyName: string
+  companyEmail: string
+  countryCode?: string
+  interestedProduct: string[]
+  name: string
+  note: string
+  numberOfEmployees: string
+  phone: string
+  surname: string
+  title: string
+  usedHrProduct: string
 }
