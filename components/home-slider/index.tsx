@@ -148,7 +148,7 @@ const HomeSlider = ({ slides = [] }: Props) => {
               alt={slides[currentSlide]?.img.alt}
               className={s.img}
               height={1000}
-              loading={'eager'}
+              loading="eager"
               priority
               src={slides[currentSlide]?.img.src}
               width={1000}

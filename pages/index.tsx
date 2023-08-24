@@ -5,13 +5,13 @@ import cn from 'clsx'
 import type { GetServerSideProps } from 'next'
 import { Trans, useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
+import { useMedia } from 'react-use'
 
 import Button from '@/components/button'
 import CardStack from '@/components/card-stack'
 import CustomImage from '@/components/custom-image'
-import HomeSlider from '@/components/home-slider'
 import { CustomLink } from '@/components/custom-link'
+import HomeSlider from '@/components/home-slider'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import PinnedFeatures from '@/components/pinned-features'
@@ -21,7 +21,6 @@ import WhyLayers from '@/components/why-layers'
 import { MainRoute } from '@/global'
 import { Layout } from '@/layouts/default'
 import { useMenuStore } from '@/lib/store/menu'
-import { useMedia } from 'react-use'
 
 const Home = () => {
   const { setIsOpen, setCurrentRoute, setHamburger } = useMenuStore()
@@ -78,11 +77,6 @@ const Home = () => {
   return (
     <Layout theme="main">
       <>
-        <Head>
-          <link rel="preload" href="/img/downtown.jpg" as="image" />
-          <link rel="preload" href="/img/conference.jpg" as="image" />
-        </Head>
-
         <section className="content-box-sm">
           <HomeSlider slides={slides} />
         </section>
