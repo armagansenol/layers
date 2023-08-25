@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Button from '@/components/button'
 import CustomImage from '@/components/custom-image'
 import { customEase1 } from '@/utils'
+import { CustomLink } from '@/components/custom-link'
 
 type Props = {
   slides: {
@@ -31,7 +32,6 @@ const HomeSlider = ({ slides = [] }: Props) => {
       x: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.05,
         customEase1,
       },
     },
@@ -39,7 +39,6 @@ const HomeSlider = ({ slides = [] }: Props) => {
       x: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.05,
         customEase1,
       },
     },
@@ -117,10 +116,9 @@ const HomeSlider = ({ slides = [] }: Props) => {
             exit="exit"
             variants={item}
           >
-            <Button
-              text={slides[currentSlide]?.btn.text}
-              path={slides[currentSlide]?.btn.path}
-            />
+            <CustomLink href={slides[currentSlide]?.btn.path}>
+              <Button text={slides[currentSlide]?.btn.text} />
+            </CustomLink>
           </motion.div>
         </motion.div>
       </AnimatePresence>
