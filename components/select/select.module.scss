@@ -68,8 +68,8 @@
 
   @include mobile {
     height: mobile-vw(36px);
-    font-size: mobile-vw(16px);
-    padding: 0 mobile-vw(35px) 0 mobile-vw(16px);
+    font-size: mobile-vw(14px);
+    padding: 0 mobile-vw(16px);
   }
 
   &[data-disabled] {
