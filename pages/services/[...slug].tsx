@@ -19,7 +19,10 @@ const Services = ({ data }: any) => {
   return (
     <Layout theme="services">
       <>
-        <CustomHead title={`${t('seo.features')} | ${data.data.intro.title}`} />
+        <CustomHead
+          title={`${t('seo.features')} | ${data.data.intro.title}`}
+          description={data.data.intro.desc}
+        />
         <Detail pageData={data.data} pageType={data.type} />
       </>
     </Layout>
@@ -36,8 +39,6 @@ export const getStaticPaths: GetStaticPaths = () => {
   Object.values(routes.tr.services.children).map((value) => {
     paths = [...paths, { params: { slug: [value.path] }, locale: 'tr' }]
   })
-
-  console.log(paths)
 
   return {
     paths, // indicates that no page needs be created at build time

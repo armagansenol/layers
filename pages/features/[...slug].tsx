@@ -19,7 +19,10 @@ const Features = ({ data }: any) => {
   return (
     <Layout theme="features">
       <>
-        <CustomHead title={`${t('seo.features')} | ${data.data.intro.title}`} />
+        <CustomHead
+          title={`${t('seo.features')} | ${data.data.intro.title}`}
+          description={data.data.intro.desc}
+        />
         <Detail pageData={data.data} pageType={data.type} />
       </>
     </Layout>
