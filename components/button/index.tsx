@@ -12,7 +12,7 @@ import { Marquee } from '@/components/marquee'
 type Props = {
   text: string
   path?: string
-  size?: 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'contactForm'
   inverted?: boolean
   callback?: (() => void) | null
 }
@@ -29,7 +29,7 @@ const Button: React.FC<Props> = ({
   const [hovered, setHovered] = useState(false)
 
   return (
-    <button
+    <div
       className={cn(s.button, 'cursor-pointer', [s[size]], {
         [s.inverted]: inverted,
       })}
@@ -37,7 +37,7 @@ const Button: React.FC<Props> = ({
       {...(!isMobile && { onMouseLeave: () => setHovered(false) })}
       {...(callback
         ? { onClick: callback }
-        : { onClick: () => router.push(`/${path}`) })}
+        : { onClick: () => router.push(path) })}
     >
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -76,7 +76,7 @@ const Button: React.FC<Props> = ({
           </div>
         </div>
       </span>
-    </button>
+    </div>
   )
 }
 

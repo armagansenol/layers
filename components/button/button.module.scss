@@ -38,6 +38,11 @@
     flex-direction: row-reverse;
     padding: desktop-vw(3px) 0 desktop-vw(3px) desktop-vw(3px);
 
+    @include mobile {
+      border-radius: mobile-vw(11px);
+      padding: mobile-vw(3px);
+    }
+
     .iconC {
       transform: rotate(180deg);
     }
@@ -92,6 +97,28 @@
 
     @include mobile {
       @include dims(var(--mobile-width), mobile-vw(47px));
+    }
+  }
+
+  &.contactForm {
+    @include dims(desktop-vw(240px), desktop-vw(47px));
+
+    .text {
+      span {
+        font-size: desktop-vw(15px);
+
+        @include mobile {
+          font-size: mobile-vw(15px);
+        }
+      }
+    }
+
+    @include mobile {
+      @include dims(mobile-vw(130px), mobile-vw(37px));
+
+      .iconC {
+        @include dims(30%, 100%);
+      }
     }
   }
 
