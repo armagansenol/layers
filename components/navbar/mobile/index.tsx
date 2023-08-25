@@ -38,10 +38,14 @@ export function NavbarMobile(props: Props) {
     setIsOpen(false)
   }
 
+  function toggleHamburger() {
+    setHamburger()
+  }
+
   return (
     <>
       <div
-        onClick={(hamburger) => setHamburger(!hamburger)}
+        onClick={toggleHamburger}
         className={cn(s.hamburger, 'flex-center', { [s.open]: hamburger })}
       >
         {hamburger ? 'close' : 'menu'}
