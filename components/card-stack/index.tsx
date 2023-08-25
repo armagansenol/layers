@@ -147,10 +147,17 @@ const CardStack = () => {
                     <div className={s.text}>
                       <p>{card.desc}</p>
                       <small>{card.small}</small>
-                      <Button
-                        path={`/features/${card.path}`}
-                        text="Find Out More"
-                      />
+                      {i18n.language === 'en' ? (
+                        <Button
+                          path={`/features/${card.path}`}
+                          text="Find Out More"
+                        />
+                      ) : (
+                        <Button
+                          path={`/features/${card.path}`}
+                          text="İnceleyin"
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
