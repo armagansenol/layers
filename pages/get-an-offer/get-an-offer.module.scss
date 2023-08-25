@@ -47,6 +47,10 @@
   width: desktop-vw(1080px);
   min-height: 100vh;
 
+  @include tablet {
+    min-height: unset;
+  }
+
   @include mobile {
     min-height: unset;
     padding: 0 var(--mobile-padding-x);
