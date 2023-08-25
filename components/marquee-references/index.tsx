@@ -12,7 +12,7 @@ type Props = {
 const MarqueeReferences = (props: Props) => {
   return (
     <div className={s.referencesMarquee}>
-      <Marquee duration={30} repeat={3}>
+      <Marquee repeat={3} duration={40}>
         <>
           {props.items.map((item, i) => {
             return (
@@ -20,7 +20,6 @@ const MarqueeReferences = (props: Props) => {
                 <CustomImage
                   alt="Layers Logo"
                   height={150}
-                  loading="lazy"
                   src={item.logo}
                   style={{ objectFit: 'contain' }}
                   width={150}
