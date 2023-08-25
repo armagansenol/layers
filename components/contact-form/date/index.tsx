@@ -3,6 +3,7 @@ import s from './date.module.scss'
 import cn from 'clsx'
 import { FormikProps } from 'formik'
 import moment from 'moment-timezone'
+import { useTranslation } from 'next-i18next'
 
 import SliderDay from '@/components/contact-form/slider-day'
 import Select from '@/components/select'
@@ -20,6 +21,8 @@ type Props = {
 }
 
 const ClientDate = ({ formik }: Props) => {
+  const { t } = useTranslation('contactForm')
+
   function updateCalendarDto(field: string, value: string) {
     formik?.setFieldValue(
       `${DemoDateFormKeys.demoUserCalendarDto}.${field}`,
@@ -57,7 +60,7 @@ const ClientDate = ({ formik }: Props) => {
 
   return (
     <div className={s.phaseDate}>
-      <h3>Select Day</h3>
+      <h3>{t('fields.selectDay')}</h3>
       <div
         className={cn(s.days, {
           ['input-required']:
@@ -72,7 +75,7 @@ const ClientDate = ({ formik }: Props) => {
         />
       </div>
 
-      <h3>Select Time</h3>
+      <h3>{t('fields.selectTime')}</h3>
       <div className={s.time}>
         <div
           className={cn(s.timeZone, {

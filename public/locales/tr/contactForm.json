@@ -18,7 +18,8 @@
         "title": "Ünvan",
         "name": "İsim",
         "surname": "Soyisim",
-        "selectDay": "Gün Seçin"
+        "selectDay": "Gün Seçin",
+        "selectTime": "Zaman Seçin"
     },
     "successScreen": {
         "thanks": "Teşekkürler!",

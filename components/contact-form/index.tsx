@@ -8,6 +8,7 @@ import { useMutation } from 'react-query'
 import * as Yup from 'yup'
 import Lottie from 'lottie-react'
 import moment from 'moment'
+import { useTranslation } from 'next-i18next'
 
 import Button from '@/components/button'
 import ClientInfo from '@/components/contact-form/client-info'
@@ -38,6 +39,7 @@ const ContactForm = (props: Props) => {
   const [response, setResponse] = useState<Response>()
   const [loading, setLoading] = useState(false)
   const errorStore = useErrorStore()
+  const { t } = useTranslation('contactForm')
 
   function scrollToForm() {
     if (!ref.current) {
@@ -122,7 +124,7 @@ const ContactForm = (props: Props) => {
           Object.keys(clientInfoFormik.errors).length === 0 &&
           Object.keys(demoDateFormik.errors).length === 0
         ) {
-          setFormPhase((prev) => prev + 1)
+          // setFormPhase((prev) => prev + 1)
           scrollToForm()
         }
       })
@@ -233,7 +235,7 @@ const ContactForm = (props: Props) => {
                       className={cn(s.prevC, { [s.visible]: formPhase !== 0 })}
                     >
                       <Button
-                        text="Preivous"
+                        text={t('btns.prev')}
                         callback={handlePrev}
                         inverted
                         size="contactForm"
@@ -244,7 +246,7 @@ const ContactForm = (props: Props) => {
                   {formPhase !== screens.length - 1 && (
                     <div className={s.nextC}>
                       <Button
-                        text="Next"
+                        text={t('btns.next')}
                         callback={handleNext}
                         size="contactForm"
                       />
@@ -254,7 +256,7 @@ const ContactForm = (props: Props) => {
                   {formPhase === screens.length - 1 && (
                     <div className={s.sendC}>
                       <Button
-                        text="Send"
+                        text={t('btns.send')}
                         callback={handleNext}
                         size="contactForm"
                       />

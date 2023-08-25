@@ -28,6 +28,10 @@
     border-radius: 50%;
     padding: desktop-vw(11px);
 
+    @include tablet {
+      padding: desktop-vw(9px);
+    }
+
     @include mobile {
       @include dims(mobile-vw(40px));
       padding: mobile-vw(11px);
