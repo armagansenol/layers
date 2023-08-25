@@ -98,7 +98,7 @@
   // column-gap: desktop-vw(100px);
 
   &.desc {
-    align-items: end;
+    align-items: start;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: desktop-vw(50px);
@@ -163,15 +163,16 @@
     }
 
     .mediaC {
-      @include dims(desktop-vw(280px));
+      @include dims(desktop-vw(220px));
       align-items: center;
       display: flex;
       justify-content: flex-end;
       margin-left: auto;
       margin-right: desktop-vw(100px);
+      margin-top: desktop-vw(-20px);
 
       @include mobile {
-        @include dims(mobile-vw(250px));
+        @include dims(mobile-vw(220px));
         max-height: mobile-vw(250px);
         margin: auto;
         margin-bottom: mobile-vw(30px);

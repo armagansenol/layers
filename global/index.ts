@@ -1392,7 +1392,7 @@ export const services = {
           title: 'Next Service',
           text: {
             t1: 'Next Service',
-            t2: routes.tr.services.children.temporaryStaffingAndOutsourcing?.ui,
+            t2: routes.en.services.children.temporaryStaffingAndOutsourcing?.ui,
           },
           url: routes.en.services.children.temporaryStaffingAndOutsourcing
             ?.path,

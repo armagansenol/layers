@@ -10,7 +10,7 @@
         "timezone": "Timezone",
         "date": "Date",
         "time": "Time",
-        "interestedProduct": "I’m interested in <span>(you may choose more than once)</span>",
+        "interestedProduct": "I’m interested in <span>(you may choose more than one)</span>",
         "note": "Message",
         "numberOfEmployees": "Number Of Employees",
         "usedHrProduct": "HR Software You Used Before",

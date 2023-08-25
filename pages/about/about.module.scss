@@ -204,7 +204,7 @@
       }
 
       & > .iconC {
-        @include dims(desktop-vw(45px));
+        @include dims(desktop-vw(85px));
         margin-bottom: desktop-vw(30px);
 
         @include mobile {
