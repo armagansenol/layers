@@ -16,7 +16,7 @@ import nextI18nextConfig from '@/next-i18next.config'
 const queryClient = new QueryClient()
 
 function App({ Component, pageProps }: AppProps) {
-  const isMobile = useMedia('(max-width: 800px)', true)
+  const isMobile = useMedia('(max-width: 1024px)', true)
 
   if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger)

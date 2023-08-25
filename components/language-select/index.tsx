@@ -36,8 +36,8 @@ export default function LanguageSelect() {
         onChange={(e) => onToggleLanguageClick(e.target.value)}
         value={i18n?.language}
       >
-        <option value="en">en</option>
-        <option value="tr">tr</option>
+        <option value="en">EN</option>
+        <option value="tr">TR</option>
       </select>
       <div className={cn(s.iconC, 'flex-center')}>
         <IconArrowDropdown />
