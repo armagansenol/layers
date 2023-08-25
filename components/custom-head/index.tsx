@@ -4,10 +4,20 @@ import NextHead from 'next/head'
 type Props = {
   title: string
   description?: string
+  image?: {
+    url: string
+    width: number
+    height: number
+  }
   keywords?: string[]
 }
 
-export function CustomHead({ title = '', description, keywords }: Props) {
+export function CustomHead({
+  title = '',
+  description,
+  keywords,
+  image,
+}: Props) {
   return (
     <>
       <NextHead>
@@ -62,7 +72,7 @@ export function CustomHead({ title = '', description, keywords }: Props) {
           sizes="16x16"
           href="/favicon-16x16.png"
         /> */}
-        <link rel="manifest" href="/site.webmanifest" />
+        {/* <link rel="manifest" href="/site.webmanifest" /> */}
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00FF6A" />
         <meta name="msapplication-TileColor" content="#00FF6A" />
         <meta name="theme-color" content="#00FF6A" />
@@ -80,6 +90,16 @@ export function CustomHead({ title = '', description, keywords }: Props) {
           description,
           type: 'website',
           locale: 'en',
+          images: [
+            {
+              url: image ? image.url : '/img/favicon.jpg',
+              width: image?.width ?? 256,
+              height: image?.height ?? 256,
+              alt: title,
+            },
+          ],
+          defaultImageWidth: 256,
+          defaultImageHeight: 256,
           site_name: '',
         }}
         twitter={{
