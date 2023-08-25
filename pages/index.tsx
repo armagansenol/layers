@@ -63,13 +63,13 @@ const Home = () => {
   ]
 
   function toFeatures() {
-    isMobile && setHamburger(true)
+    isMobile && setHamburger()
     setIsOpen(true)
     setCurrentRoute(MainRoute.features)
   }
 
   function toServices() {
-    isMobile && setHamburger(true)
+    isMobile && setHamburger()
     setIsOpen(true)
     setCurrentRoute(MainRoute.services)
   }

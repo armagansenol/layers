@@ -11,7 +11,7 @@ interface State {
     | MainRoute.services
     | MainRoute.resources
     | null
-  setHamburger: (val: boolean) => void
+  setHamburger: () => void
   setVisibility: (val: boolean) => void
   setPosition: (val: boolean) => void
   setIsOpen: (val: boolean) => void
@@ -26,7 +26,7 @@ export const useStore = create<State>((set) => ({
   isAbsolute: false,
   isOpen: false,
   currentRoute: null,
-  setHamburger: (toggle: boolean) => set({ hamburger: toggle }),
+  setHamburger: () => set((state) => ({ hamburger: !state.hamburger })),
   setVisibility: (toggle: boolean) => set({ isVisible: toggle }),
   setPosition: (toggle: boolean) => set({ isAbsolute: toggle }),
   setIsOpen: (toggle: boolean) => set({ isOpen: toggle }),
