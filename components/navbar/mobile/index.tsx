@@ -25,7 +25,7 @@ export function NavbarMobile(props: Props) {
 
   function handleMenu(type: MainRoute) {
     if (currentRoute) {
-      closeMenu()
+      // closeMenu()
       currentRoute === type ? setCurrentRoute(null) : setCurrentRoute(type)
       return
     }
