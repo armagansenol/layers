@@ -2,19 +2,14 @@ import s from './client-info.module.scss'
 
 import cn from 'clsx'
 import { FormikProps } from 'formik'
-import Link from 'next/link'
 import { Trans, useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
-import { clientInfoFormModel } from './form-model'
-import { ClientInfoForm, FormType } from '../types'
 import Select from '@/components/select'
 import { Locales, routes } from '@/global'
 import { getCountryCodes } from '@/utils'
-
-type Props = {
-  formik?: FormikProps<ClientInfoForm>
-  formType: FormType
-}
+import { ClientInfoForm, FormType } from '../types'
+import { clientInfoFormModel } from './form-model'
 
 const countryCodeOptions = getCountryCodes()
 
@@ -26,10 +21,15 @@ const numberOfEmployeeesOptions = [
   { ui: '250+', value: '250+' },
 ]
 
+type Props = {
+  formik?: FormikProps<ClientInfoForm>
+  formType: FormType
+}
+
 const ClientInfo = ({ formType, formik }: Props) => {
   const { i18n, t } = useTranslation('contactForm')
 
-  const interestedProduct = Object.values(
+  const interestedProductOptions = Object.values(
     routes[i18n.language as Locales].services.children
   ).map((service) => {
     return service.ui
@@ -65,6 +65,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
 
   return (
     <div className={s.contactForm}>
+      {/* interested product */}
       {formType === 'service' && (
         <div className={cn(s.row, s.interestedProduct)}>
           <div className="flex-center-y">
@@ -77,7 +78,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
               </Trans>
             </small>
             <div className={cn(s.checks, 'flex-center')}>
-              {interestedProduct.map((p, i) => {
+              {interestedProductOptions.map((p, i) => {
                 return (
                   <div
                     className={cn(s.check, 'flex-center', {
@@ -102,6 +103,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       )}
 
+      {/* name - surname */}
       <div className={s.row}>
         <div className={s.field}>
           <div
@@ -140,6 +142,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       </div>
 
+      {/* companyName - title */}
       <div className={s.row}>
         <div className={s.field}>
           <div
@@ -178,6 +181,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       </div>
 
+      {/* numberOfEmployees */}
       {formType === 'demo' && (
         <div className={s.row}>
           <div className={s.field}>
@@ -198,6 +202,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       )}
 
+      {/* countryCode - phone - companyEmail */}
       <div className={s.row}>
         <div className={s.field}>
           <div
@@ -256,6 +261,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       </div>
 
+      {/* usedHrProduct */}
       <div className={s.row}>
         <div className={s.field}>
           <div
@@ -277,6 +283,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       </div>
 
+      {/* note */}
       <div className={s.row}>
         <div className={s.field}>
           <div
@@ -296,6 +303,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       </div>
 
+      {/* acceptKvkk */}
       <div
         className={cn(s.confirmation, 'cursor-pointer', {
           ['input-required']:
@@ -334,7 +342,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
             ) : (
               <>
                 <Link
-                  href="/pdf/personal-data-protection-and-processing-policy.pdf"
+                  href="/pdf/kisisel-verilerin-korunmasi-ve-islenmesi-politikasi.pdf"
                   target="_blank"
                   rel="noreferrer noopener"
                   className={s.link}
@@ -350,6 +358,7 @@ const ClientInfo = ({ formType, formik }: Props) => {
         </div>
       </div>
 
+      {/* acceptFromSendingLayers */}
       <div
         className={cn(s.confirmation, 'cursor-pointer', {
           ['input-required']:

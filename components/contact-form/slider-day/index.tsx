@@ -35,7 +35,7 @@ function Slide(props: Day) {
 function PrevBtn() {
   return (
     <div className={cn(s.prevBtn, 'flex-center')}>
-      <div className={s.transformC}>
+      <div className={cn(s.transformC, 'flex-center')}>
         <IconArrow />
       </div>
     </div>
@@ -75,8 +75,10 @@ const SliderDay = (props: Props) => {
       slides={slides}
       options={{
         slidesToScroll: 3,
+        align: 0.3,
+        containScroll: false,
         breakpoints: {
-          '(min-width: 800px)': { align: 0.1, containScroll: false },
+          '(min-width: 800px)': { align: 0.15, containScroll: false },
         },
       }}
       prevButton={PrevBtn()}

@@ -50,8 +50,8 @@ export const initialValues: DemoDateForm = {
   demoUserCalendarDto: {
     demoUserId: null,
     devDemoUserId: null,
-    timezone: isDev ? 'test' : '',
+    timezone: isDev ? '(UTC-03:00 Burenos Aires)' : '',
     day: isDev ? moment().format('YYY-MM-DD') : '',
-    time: isDev ? 'test' : '',
+    time: isDev ? '12:00' : '',
   },
 }

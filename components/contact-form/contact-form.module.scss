@@ -1,9 +1,13 @@
 .screensC {
   margin-bottom: desktop-vw(40px);
+
+  @include mobile {
+    margin-bottom: mobile-vw(50px);
+  }
 }
 
 .loading {
-  @include dims(100%);
+  @include dims(100%, 100vh);
 }
 
 .btns {

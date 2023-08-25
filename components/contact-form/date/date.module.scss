@@ -34,7 +34,7 @@
     @include mobile {
       border-radius: mobile-vw(11px);
       margin-bottom: mobile-vw(30px);
-      padding: mobile-vw(20px) 0 mobile-vw(35px) 0;
+      padding: mobile-vw(20px) 0;
       width: 100%;
     }
 
@@ -50,6 +50,10 @@
       );
       pointer-events: none;
       z-index: 100;
+
+      @include mobile {
+        @include dims(45%, 100%);
+      }
     }
 
     &::before {
@@ -64,6 +68,10 @@
       );
       pointer-events: none;
       z-index: 100;
+
+      @include mobile {
+        @include dims(45%, 100%);
+      }
     }
   }
 

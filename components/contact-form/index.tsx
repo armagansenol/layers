@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useMutation } from 'react-query'
 import * as Yup from 'yup'
 import Lottie from 'lottie-react'
+import moment from 'moment'
 
 import Button from '@/components/button'
 import ClientInfo from '@/components/contact-form/client-info'
@@ -17,7 +18,6 @@ import loadingSpinner from '@/public/lottie/loading-spinner.json'
 import api from '@/api-client'
 import { useErrorStore } from '@/lib/store/error'
 import { customEase1, getFormattedDate } from '@/utils'
-import moment from 'moment'
 import { initialValues as clientInfoInitialValues } from './client-info/form-model'
 import { initialValues as demoDateInitialValues } from './date/form-model'
 import {
@@ -46,8 +46,6 @@ const ContactForm = (props: Props) => {
 
     ref.current.scrollIntoView({
       behavior: 'smooth',
-      block: 'center',
-      inline: 'center',
     })
   }
 
@@ -234,19 +232,32 @@ const ContactForm = (props: Props) => {
                     <div
                       className={cn(s.prevC, { [s.visible]: formPhase !== 0 })}
                     >
-                      <Button text="Preivous" callback={handlePrev} inverted />
+                      <Button
+                        text="Preivous"
+                        callback={handlePrev}
+                        inverted
+                        size="contactForm"
+                      />
                     </div>
                   )}
 
                   {formPhase !== screens.length - 1 && (
                     <div className={s.nextC}>
-                      <Button text="Next" callback={handleNext} />
+                      <Button
+                        text="Next"
+                        callback={handleNext}
+                        size="contactForm"
+                      />
                     </div>
                   )}
 
                   {formPhase === screens.length - 1 && (
                     <div className={s.sendC}>
-                      <Button text="Send" callback={handleNext} />
+                      <Button
+                        text="Send"
+                        callback={handleNext}
+                        size="contactForm"
+                      />
                     </div>
                   )}
                 </div>
