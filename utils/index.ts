@@ -2,6 +2,7 @@ import countryCodes from '@/public/json/countryCodes.json'
 import timezones from '@/public/json/timezones.json'
 import { cubicBezier } from 'framer-motion'
 import moment, { Moment } from 'moment'
+import 'moment/locale/tr'
 
 export const customEase1 = cubicBezier(0.16, 1, 0.3, 1)
 

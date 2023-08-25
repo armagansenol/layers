@@ -7,21 +7,27 @@ import { useTranslation } from 'next-i18next'
 
 import SliderDay from '@/components/contact-form/slider-day'
 import Select from '@/components/select'
+import { Locales } from '@/global'
 import { generateDays, generateHours, getTimezones } from '@/utils'
 import { DemoDateForm, DemoDateFormKeys } from '../types'
 import { demoDateFormModel } from './form-model'
 
 const hours = generateHours()
 const timezones = getTimezones()
-const today = moment(moment().format('YYYY-MM-DD'))
-const days = generateDays(today, 5)
 
 type Props = {
   formik?: FormikProps<DemoDateForm>
 }
 
 const ClientDate = ({ formik }: Props) => {
-  const { t } = useTranslation('contactForm')
+  const { t, i18n } = useTranslation('contactForm')
+
+  const today = moment(
+    moment()
+      .locale(i18n?.language as Locales)
+      .format('YYYY-MM-DD')
+  )
+  const days = generateDays(today, 5)
 
   function updateCalendarDto(field: string, value: string) {
     formik?.setFieldValue(

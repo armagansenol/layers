@@ -6,8 +6,8 @@ import { useTranslation } from 'next-i18next'
 import { useMedia } from 'react-use'
 
 import CustomImage from '@/components/custom-image'
-import LanguageSelect from '@/components/language-select'
 import { CustomLink } from '@/components/custom-link'
+import LanguageSelect from '@/components/language-select'
 import { Locales, routes } from '@/global'
 
 const Footer = () => {
@@ -121,14 +121,39 @@ const Footer = () => {
                   </CustomLink>
                 </li>
                 <li className={s.linkC}>
-                  <CustomLink
+                  {/* <CustomLink
                     href="/pdf/personal-data-protection-and-processing-policy.pdf"
                     target="blank"
                     rel="noreferrer noopener"
                     className={s.link}
                   >
                     {t('footer.privacyPolicy')}
-                  </CustomLink>
+                  </CustomLink> */}
+                  {i18n.language === 'en' ? (
+                    <>
+                      <CustomLink
+                        href="/pdf/personal-data-protection-and-processing-policy.pdf"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className={s.link}
+                        locale={false}
+                      >
+                        {t('footer.privacyPolicy')}
+                      </CustomLink>
+                    </>
+                  ) : (
+                    <>
+                      <CustomLink
+                        href="/pdf/kisisel-verilerin-korunmasi-ve-islenmesi-politikasi.pdf"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className={s.link}
+                        locale={false}
+                      >
+                        {t('footer.privacyPolicy')}
+                      </CustomLink>
+                    </>
+                  )}
                 </li>
               </ul>
             </div>
