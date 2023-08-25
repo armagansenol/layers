@@ -8,6 +8,10 @@
   z-index: z-index('cursor');
   will-change: transform;
 
+  @include mobile {
+    display: none;
+  }
+
   .default {
     @include dims(16px);
     background-color: var(--lavender-syrup);

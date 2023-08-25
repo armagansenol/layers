@@ -37,8 +37,14 @@
             "p5": "how you manage your human resources."
         },
         "btn": {
-            "text": "Get to Know Us",
-            "path": "about"
+            "about": {
+                "text": "Get to Know Us",
+                "path": "about"
+            },
+            "requestADemo": {
+                "text": "Request A Demo",
+                "path": "demo-request"
+            }
         }
     },
     "subscribe": {
@@ -91,5 +97,9 @@
         "contact": "Contact",
         "services": "Services",
         "features": "Features"
+    },
+    "hamburger": {
+        "menu": "menu",
+        "close": "close"
     }
 }

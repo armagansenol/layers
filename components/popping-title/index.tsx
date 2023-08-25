@@ -9,7 +9,11 @@ import { useMedia } from 'react-use'
 import Button from '@/components/button'
 import CustomImage from '@/components/custom-image'
 
-const PoppingTitle = () => {
+type Props = {
+  type: 'about' | 'requestADemo'
+}
+
+const PoppingTitle = (props: Props) => {
   const ref = useRef(null)
   const isMobile = useMedia('(max-width: 800px)', true)
   const { t } = useTranslation('common')
@@ -104,13 +108,23 @@ const PoppingTitle = () => {
         <span className={s.colored}> {t('poppingTitle.title.p4')} </span>
         {t('poppingTitle.title.p5')}
       </h2>
-      <Button
-        {...{
-          text: t('poppingTitle.btn.text'),
-          path: t('poppingTitle.btn.path'),
-        }}
-        size="lg"
-      />
+      {props.type === 'about' ? (
+        <Button
+          {...{
+            text: t('poppingTitle.btn.about.text'),
+            path: t('poppingTitle.btn.about.path'),
+          }}
+          size="lg"
+        />
+      ) : (
+        <Button
+          {...{
+            text: t('poppingTitle.btn.requestADemo.text'),
+            path: t('poppingTitle.btn.requestADemo.path'),
+          }}
+          size="lg"
+        />
+      )}
     </div>
   )
 }

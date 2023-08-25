@@ -1,9 +1,8 @@
+import { ReactElement, useRef } from 'react'
 import s from './marquee.module.scss'
 
 import cn from 'clsx'
 import { useIntersection } from 'react-use'
-
-import { ReactElement, useRef } from 'react'
 
 type Props = {
   children: ReactElement
@@ -18,21 +17,19 @@ type Props = {
 const Marquee = ({
   children,
   repeat = 2,
-  duration = 5,
+  duration = 20,
   offset = 0,
-  inverted = true,
+  inverted = false,
   className,
   animationStart = true,
   ...props
 }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
-
   const intersection = useIntersection(ref, { threshold: 0 })
 
   return (
     <div
       ref={ref}
-      {...props}
       className={cn(
         className,
         s.marquee,
@@ -49,6 +46,7 @@ const Marquee = ({
               : 'paused',
         } as React.CSSProperties
       }
+      {...props}
     >
       {new Array(repeat).fill(children).map((_, i) => (
         <div key={i} className={s.inner}>

@@ -83,7 +83,7 @@ const Home = () => {
 
         <section className="content-box-md">
           <div className={s.whyLayersC}>
-            <PoppingTitle />
+            <PoppingTitle type="about" />
             <WhyLayers />
             <PinnedFeatures />
           </div>

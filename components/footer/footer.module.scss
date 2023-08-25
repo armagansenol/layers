@@ -113,6 +113,8 @@
           }
 
           .imgC {
+            width: desktop-vw(140px);
+
             @include mobile {
               display: block;
               width: mobile-vw(160px);

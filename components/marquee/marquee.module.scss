@@ -1,4 +1,5 @@
 .marquee {
+  --duration: 20s;
   display: flex;
   overflow: hidden;
   will-change: transform;
@@ -8,7 +9,9 @@
   }
 
   @include mobile {
-    --duration: #{10s} !important;
+    .inner {
+      animation: marquee-inverted calc(var(--duration) / 100) linear infinite;
+    }
   }
 
   .inner {

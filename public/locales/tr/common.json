@@ -8,8 +8,14 @@
             "p5": "amacıyla tasarlandı."
         },
         "btn": {
-            "text": "Bizi tanıyın",
-            "path": "about"
+            "about": {
+                "text": "Bizi tanıyın",
+                "path": "about"
+            },
+            "requestADemo": {
+                "text": "Demo Talep Edin",
+                "path": "demo-request"
+            }
         }
     },
     "subscribe": {
@@ -62,5 +68,9 @@
         "contact": "İletişim",
         "services": "Servisler",
         "features": "Özellikler"
+    },
+    "hamburger": {
+        "menu": "menu",
+        "close": "kapat"
     }
 }

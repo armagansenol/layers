@@ -95,7 +95,7 @@ const Detail = ({ pageData, pageType }: Props) => {
         <div className={cn(s.row, s.redirect)}>
           <div className={s.text}>
             <h4>{pageData.detail.d2.desc}</h4>
-            <Button text={t('btn.btnText')} path={t('btn.path')} />
+            <Button text={t('btn.btnText')} path={`/${t('btn.path')}`} />
           </div>
           <div className={s.mediaC}>
             <CustomImage

@@ -24,7 +24,6 @@ const MarqueeLink = ({
   },
   mediaSrc = null,
 }: Props) => {
-  const isMobile = useMedia('(max-width: 800px)', true)
   const { setType, setMediaSrc } = useCursorStore()
 
   function handleMouseEnter(src: string) {
@@ -46,7 +45,7 @@ const MarqueeLink = ({
           onMouseLeave: () => handleMouseLeave(),
         })}
       >
-        <Marquee repeat={2} duration={20} inverted={!isMobile}>
+        <Marquee repeat={2} inverted>
           <h5 className={s.marqueeText}>
             <span>{text.t1}</span>
             <span>{text.t2}</span>

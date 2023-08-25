@@ -1816,7 +1816,7 @@ export const services = {
           title: 'Üst Düzey Yönetici Arama ve İşe Alım',
           desc: 'En üst düzey yönetici ve profesyonelleri bulma için optimize edilmiş hizmet.',
           small:
-            'We provide end-to-end services for quickly and effectively finding, assessing and hiring top executives and professionals.',
+            'Üst düzey yöneticileri ve profesyonelleri hızlı ve etkili bir şekilde bulma, değerlendirme ve işe alma süreçlerini baştan sona sağlıyoruz.',
           media: {
             type: 'video',
             path: 'https://player.vimeo.com/progressive_redirect/playback/850180986/rendition/720p/file.mp4?loc=external&signature=c9405f4dc204aa7d5ffe9681c403b4b545929b62b3f9869494c436b21719e7f5',
@@ -1925,7 +1925,7 @@ export const services = {
       type: routes.tr.services.children.payroll?.path,
       data: {
         intro: {
-          title: 'Bordro Hesaplamaları',
+          title: 'Maaş Hesaplamaları',
           desc: 'Finansal faydanız için doğru ve zamanında maaş ve kişisel işler yönetimi.',
           small:
             'Layers, işletmelerin her ölçekteki ihtiyaçlarına yönelik olarak geleneksel sınırları aşan kapsamlı bir Maaş Bordrosu İK hizmeti sunar.',

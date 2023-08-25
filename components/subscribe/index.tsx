@@ -13,7 +13,7 @@ import { useTranslation } from 'next-i18next'
 
 import IconInstagram from '@/components/icons/icon-instagram'
 import IconLinkedin from '@/components/icons/icon-linkedin'
-import IconMail from '@/components/icons/icon-mail'
+import IconFacebook from '@/components/icons/icon-facebook'
 import IconTwitter from '@/components/icons/icon-twitter'
 import IconYoutube from '@/components/icons/icon-youtube'
 import { useErrorStore } from '@/lib/store/error'
@@ -108,20 +108,20 @@ const Subscribe = () => {
           <IconYoutube fill="var(--black)" />
         </Link>
         <Link
-          href="https://www.facebook.com/layers.hrtech"
-          target="blank"
-          rel="noreferrer noopener"
-          className={cn(s.iconC, 'cursor-pointer')}
-        >
-          <IconMail fill="var(--black)" />
-        </Link>
-        <Link
           href="https://www.linkedin.com/company/layers-hrtech"
           target="blank"
           rel="noreferrer noopener"
           className={cn(s.iconC, 'cursor-pointer')}
         >
           <IconLinkedin fill="var(--black)" />
+        </Link>
+        <Link
+          href="https://www.facebook.com/layers.hrtech"
+          target="blank"
+          rel="noreferrer noopener"
+          className={cn(s.iconC, 'cursor-pointer')}
+        >
+          <IconFacebook fill="var(--black)" />
         </Link>
         <Link
           href="https://twitter.com/layers_hrtech"

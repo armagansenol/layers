@@ -5,12 +5,12 @@ import cn from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 
+import { CustomLink } from '@/components/custom-link'
 import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import LanguageSelect from '@/components/language-select'
 import { Locales, MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/store/menu'
 import { customEase1 } from '@/utils'
-import { CustomLink } from '@/components/custom-link'
 
 type Props = {
   loginUrl: string
@@ -35,6 +35,7 @@ export function NavbarMobile(props: Props) {
   }
 
   function closeMenu() {
+    setHamburger()
     setIsOpen(false)
   }
 
@@ -48,7 +49,7 @@ export function NavbarMobile(props: Props) {
         onClick={toggleHamburger}
         className={cn(s.hamburger, 'flex-center', { [s.open]: hamburger })}
       >
-        {hamburger ? 'close' : 'menu'}
+        {hamburger ? t('hamburger.close') : t('hamburger.menu')}
       </div>
 
       <AnimatePresence mode="wait">

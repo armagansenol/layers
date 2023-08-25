@@ -11,11 +11,11 @@ import { CustomLink } from '@/components/custom-link'
 import EmblaCarousel from '@/components/embla-carousel'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
-import RequestDemo from '@/components/popping-title'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
 import { CursorType, useCursorStore } from '@/lib/store/cursor'
 import { CustomHead } from '@/components/custom-head'
+import PoppingTitle from '@/components/popping-title'
 
 const carouselOptions: EmblaOptionsType = {
   slidesToScroll: 1,
@@ -107,7 +107,7 @@ const About = () => {
         <CustomHead title={`Layers | ${t('common:seo.about')}`} />
         <section className="content-box-sm">
           <div className={s.intro}>
-            <RequestDemo />
+            <PoppingTitle type="requestADemo" />
             <div className={cn(s.imgC, s.gurl)}>
               <CustomImage
                 alt="Lady at plaza"
