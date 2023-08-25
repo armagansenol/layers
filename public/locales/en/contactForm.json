@@ -19,7 +19,8 @@
         "name": "Name",
         "surname": "Surname",
         "selectDay": "Select Day",
-        "selectTime": "Select Time"
+        "selectTime": "Select Time",
+        "selectTimezone": "Select Timezone"
     },
     "successScreen": {
         "thanks": "Thank You!",

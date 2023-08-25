@@ -19,7 +19,8 @@
         "name": "İsim",
         "surname": "Soyisim",
         "selectDay": "Gün Seçin",
-        "selectTime": "Zaman Seçin"
+        "selectTime": "Zaman Seçin",
+        "selectTimezone": "Bölge Seçin"
     },
     "successScreen": {
         "thanks": "Teşekkürler!",

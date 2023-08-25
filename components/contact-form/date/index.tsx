@@ -91,7 +91,7 @@ const ClientDate = ({ formik }: Props) => {
           })}
         >
           <Select
-            label="Select Timezones"
+            label={t('fields.selectTimezone')}
             options={timezones}
             callback={handleTimezone}
           />
