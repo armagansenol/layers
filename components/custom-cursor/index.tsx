@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useAnimationFrame } from 'framer-motion'
 import { gsap } from 'gsap'
 
 import { useCursorStore } from '@/lib/store/cursor'
+import { useTranslation } from 'react-i18next'
 
 function useTicker(callback: () => void, paused: boolean) {
   useLayoutEffect(() => {
@@ -41,6 +42,7 @@ function useInstance(value = {}) {
 
 // Jelly Blob Function
 const CustomCursor = () => {
+  const { t } = useTranslation('common')
   const jellyRef = useRef(null)
   // const textRef = useRef(null)
   const imgRef = useRef<HTMLDivElement | null>(null)
@@ -130,7 +132,7 @@ const CustomCursor = () => {
     drag: (
       <div className="absolute-center">
         <div className={cn(s.drag, 'flex-center')}>
-          <span>Drag</span>
+          <span>{t('cursor.drag')}</span>
         </div>
       </div>
     ),
@@ -140,7 +142,7 @@ const CustomCursor = () => {
     <div ref={jellyRef} className={cn(s.cursor, mediaSrc && [s[cursorType]])}>
       <AnimatePresence mode="popLayout">
         <motion.div
-          key={`${cursorType}-cursor`}
+          key={cursorType}
           initial="open"
           animate="open"
           exit="closed"
@@ -157,7 +159,7 @@ const CustomCursor = () => {
             },
           }}
         >
-          {cursor[cursorType]}
+          {cursor[cursorType] && cursor[cursorType]}
         </motion.div>
       </AnimatePresence>
     </div>

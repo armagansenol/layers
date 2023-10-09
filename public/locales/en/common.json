@@ -101,5 +101,8 @@
     "hamburger": {
         "menu": "menu",
         "close": "close"
+    },
+    "cursor": {
+        "drag": "Drag"
     }
 }

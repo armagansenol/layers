@@ -72,5 +72,8 @@
     "hamburger": {
         "menu": "menu",
         "close": "kapat"
+    },
+    "cursor": {
+        "drag": "Sürükle"
     }
 }
