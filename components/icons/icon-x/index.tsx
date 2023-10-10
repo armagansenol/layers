@@ -1,20 +1,21 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+  fill?: string
+}
 
-const IconX = (props: Props) => {
+const IconX = ({ fill = '#000' }: Props) => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width="100%"
       height="100%"
-      viewBox="0 0 16.971 16.971"
+      viewBox="0 0 1200 1227"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        id="Path_239"
-        data-name="Path 239"
-        d="M13.44-15.114H8.432V-20.16H6.448v5.046H1.44v1.908H6.448V-8.16H8.432v-5.046H13.44Z"
-        transform="translate(13.237 23.759) rotate(-45)"
+        d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"
+        fill={fill}
       />
     </svg>
   )

@@ -17,6 +17,7 @@ import IconFacebook from '@/components/icons/icon-facebook'
 import IconTwitter from '@/components/icons/icon-twitter'
 import IconYoutube from '@/components/icons/icon-youtube'
 import { useErrorStore } from '@/lib/store/error'
+import IconX from '../icons/icon-x'
 
 interface ISubscribeFormData {
   email: string
@@ -129,7 +130,7 @@ const Subscribe = () => {
           rel="noreferrer noopener"
           className={cn(s.iconC, 'cursor-pointer')}
         >
-          <IconTwitter fill="var(--black)" />
+          <IconX fill="var(--black)" />
         </Link>
       </div>
       <form
