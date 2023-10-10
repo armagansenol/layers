@@ -1,8 +1,8 @@
-import countryCodes from '@/public/json/countryCodes.json'
 import timezones from '@/public/json/timezones.json'
 import { cubicBezier } from 'framer-motion'
 import moment, { Moment } from 'moment'
 import 'moment/locale/tr'
+import { defaultCountries, parseCountry } from 'react-international-phone'
 
 export const customEase1 = cubicBezier(0.16, 1, 0.3, 1)
 
@@ -64,9 +64,26 @@ export function getFormattedDate(date?: string, time?: string) {
 }
 
 export function getCountryCodes() {
-  const codes = countryCodes.map((item) => {
-    return { ui: `${item.name} (${item.dial_code})`, value: item.dial_code }
+  const codes = defaultCountries.map((item) => {
+    const country = parseCountry(item)
+
+    return {
+      ui: `+${country.dialCode} (${country.name})`,
+      value: `${country.iso2}`,
+    }
   })
 
   return codes
+}
+
+export function getDialCode(selectedCountryIso2: string) {
+  const country = defaultCountries
+    .map((item) => {
+      return parseCountry(item)
+    })
+    .filter((item) => {
+      return item.iso2 === selectedCountryIso2
+    })
+
+  return country[0].dialCode
 }

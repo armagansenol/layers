@@ -4,6 +4,7 @@ import cn from 'clsx'
 import { FormikProps } from 'formik'
 import { Trans, useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { defaultCountries, usePhoneInput } from 'react-international-phone'
 
 import Select from '@/components/select'
 import { Locales, routes } from '@/global'
@@ -59,8 +60,25 @@ const ClientInfo = ({ formType, formik }: Props) => {
     ])
   }
 
-  function handleCountryCode(val: string) {
-    formik?.setFieldValue(clientInfoFormModel.countryCode.name, val)
+  const {
+    country,
+    setCountry,
+    phone,
+    handlePhoneValueChange,
+    inputRef: phoneInputRef,
+  } = usePhoneInput({
+    countries: defaultCountries,
+    defaultCountry: 'tr',
+    value: formik?.values.phone,
+    disableDialCodeAndPrefix: true,
+    onChange: ({ phone, country }) => {
+      formik?.setFieldValue(clientInfoFormModel.countryCode.name, country)
+      formik?.setFieldValue(clientInfoFormModel.phone.name, phone)
+    },
+  })
+
+  function handleCountryCode(val: any) {
+    setCountry(val)
   }
 
   return (
@@ -205,38 +223,30 @@ const ClientInfo = ({ formType, formik }: Props) => {
       {/* countryCode - phone - companyEmail */}
       <div className={s.row}>
         <div className={s.field}>
-          <div
-            className={cn(s.inputC, s.countryCode, {
-              ['input-required']:
-                formik?.errors.countryCode && formik?.touched.countryCode,
-            })}
-          >
+          <div className={cn(s.inputC, s.countryCode)}>
             <Select
               options={countryCodeOptions}
-              label={formik?.values.countryCode ?? '+90'}
+              label={country}
               callback={handleCountryCode}
-              defaultVal={formik?.values.countryCode}
+              defaultValue={country}
+              value={country}
             />
           </div>
+
           <div
             className={cn(s.inputC, {
               ['input-required']: formik?.errors.phone && formik?.touched.phone,
             })}
           >
             <input
-              placeholder={t('fields.phone')}
-              onInput={(e: any) =>
-                (e.target.value = e.target.value
-                  .replace(/[^0-9.]/g, '')
-                  .replace(/(\..*?)\..*/g, '$1'))
-              }
-              maxLength={12}
               className={s.input}
-              type="tel"
-              id={clientInfoFormModel.phone.name}
               name={clientInfoFormModel.phone.name}
-              onChange={formik?.handleChange}
-              value={formik?.values.phone}
+              id={clientInfoFormModel.phone.name}
+              onChange={handlePhoneValueChange}
+              placeholder={t('fields.phone')}
+              ref={phoneInputRef}
+              type="tel"
+              value={phone}
             />
           </div>
         </div>

@@ -18,7 +18,7 @@ import loadingSpinner from '@/public/lottie/loading-spinner.json'
 
 import api from '@/api-client'
 import { useErrorStore } from '@/lib/store/error'
-import { customEase1, getFormattedDate } from '@/utils'
+import { customEase1, getDialCode, getFormattedDate } from '@/utils'
 import { initialValues as clientInfoInitialValues } from './client-info/form-model'
 import { initialValues as demoDateInitialValues } from './date/form-model'
 import {
@@ -62,7 +62,7 @@ const ContactForm = (props: Props) => {
     }),
     name: Yup.string().required(),
     note: Yup.string(),
-    phone: Yup.string().max(12).required(),
+    phone: Yup.string().required(),
     surname: Yup.string().required(),
     title: Yup.string().required(),
     ...(props.formType === 'demo' && {
@@ -139,7 +139,9 @@ const ContactForm = (props: Props) => {
       ...values,
       formType: props.formType,
       createdDate: moment().format(),
-      phone: `${values.countryCode}${values.phone}`,
+      phone: `+${values.countryCode && getDialCode(values.countryCode)}${
+        values.phone
+      }`,
       interestedProduct: values.interestedProduct?.length
         ? values.interestedProduct.join(',')
         : null,

@@ -212,10 +212,10 @@
 
       &.countryCode {
         @include dims(auto, desktop-vw(48px));
-        flex: 0.2;
+        flex: 0.25;
         overflow: hidden;
-        white-space: nowrap;
         padding: desktop-vw(16px) desktop-vw(8px);
+        white-space: nowrap;
 
         @include mobile {
           @include dims(auto, mobile-vw(51px));

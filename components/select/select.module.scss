@@ -4,9 +4,9 @@
   column-gap: desktop-vw(8px);
   display: inline-flex;
   font-size: desktop-vw(15px);
-  font-family: Inter;
+  font-family: var(--font-inter);
   font-weight: 400;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   @include mobile {
     column-gap: mobile-vw(8px);
@@ -18,14 +18,7 @@
   }
 
   .selectIcon {
-    @include dims(auto, desktop-vw(4px));
-    display: flex;
-    margin-left: auto;
-    object-fit: contain;
-
-    @include mobile {
-      @include dims(auto, mobile-vw(4px));
-    }
+    flex-shrink: 0;
   }
 
   span {
@@ -35,10 +28,10 @@
 }
 
 .selectContent {
-  overflow: hidden;
   background-color: var(--white);
   border: 1px solid var(--hydrargyrum);
   border-radius: desktop-vw(12px);
+  overflow: hidden;
   z-index: z-index('cursor');
 
   @include mobile {
@@ -56,7 +49,6 @@
 
 .selectItem {
   align-items: center;
-  // border-radius: desktop-vw(6px);
   display: flex;
   font-family: Inter;
   font-size: desktop-vw(16px);
@@ -88,18 +80,18 @@
   font-size: desktop-vw(16px);
 }
 
-.selectItemIndicator {
-  @include dims(desktop-vw(12px));
-  position: absolute;
-  left: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+// .selectItemIndicator {
+//   @include dims(desktop-vw(12px));
+//   position: absolute;
+//   left: 0;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
 
-  @include mobile {
-    @include dims(mobile-vw(12px));
-  }
-}
+//   @include mobile {
+//     @include dims(mobile-vw(12px));
+//   }
+// }
 
 .selectScrollButton {
   display: flex;
@@ -109,16 +101,4 @@
   background-color: white;
   color: var(--black);
   cursor: default;
-
-  .iconC {
-    @include dims(desktop-vw(12px));
-
-    @include mobile {
-      @include dims(mobile-vw(12px));
-    }
-
-    &.up {
-      transform: rotate(180deg);
-    }
-  }
 }

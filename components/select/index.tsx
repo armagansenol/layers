@@ -2,9 +2,8 @@ import React from 'react'
 import s from './select.module.scss'
 
 import * as RadixSelect from '@radix-ui/react-select'
+import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
 import cn from 'clsx'
-
-import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 
 const SelectItem: any = React.forwardRef(
   ({ children, className, ...props }: any, forwardedRef) => {
@@ -26,49 +25,50 @@ type Props = {
   label: string
   options: { ui: string; value: string }[]
   callback: (value: string) => void
-  defaultVal?: string
+  defaultValue?: string
+  value?: string
 }
 
 const Select = ({
   callback,
-  defaultVal = '',
+  defaultValue = '',
   label = 'Select',
   options = [],
+  value = '',
 }: Props) => {
   return (
     <RadixSelect.Root
       onValueChange={callback}
-      {...(defaultVal && { defaultValue: defaultVal })}
+      {...(defaultValue && { defaultValue: defaultValue })}
+      {...(value && { value: value })}
     >
       <RadixSelect.Trigger className={s.selectTrigger} aria-label="select">
-        <RadixSelect.Value placeholder={label}></RadixSelect.Value>
+        <RadixSelect.Value placeholder={label} />
         <RadixSelect.Icon className={s.selectIcon}>
-          <IconArrowDropdown />
+          <ChevronDownIcon />
         </RadixSelect.Icon>
       </RadixSelect.Trigger>
 
       <RadixSelect.Portal>
         <RadixSelect.Content className={cn(s.selectContent, 'cursor-pointer')}>
           <RadixSelect.ScrollUpButton className={s.selectScrollButton}>
-            <div className={cn(s.iconC, s.up)}>
-              <IconArrowDropdown />
-            </div>
+            <ChevronUpIcon />
           </RadixSelect.ScrollUpButton>
+
           <RadixSelect.Viewport className={s.selectViewport}>
             <RadixSelect.Group>
               {options.map((option, i) => {
                 return (
                   <SelectItem value={option.value} key={i}>
-                    {option.value}
+                    {option.ui}
                   </SelectItem>
                 )
               })}
             </RadixSelect.Group>
           </RadixSelect.Viewport>
+
           <RadixSelect.ScrollDownButton className={s.selectScrollButton}>
-            <div className={s.iconC}>
-              <IconArrowDropdown />
-            </div>
+            <ChevronDownIcon />
           </RadixSelect.ScrollDownButton>
         </RadixSelect.Content>
       </RadixSelect.Portal>
