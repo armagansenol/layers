@@ -5,19 +5,18 @@ import api from '@/api-client'
 import cn from 'clsx'
 import { useFormik } from 'formik'
 import { AnimatePresence, motion } from 'framer-motion'
+import moment from 'moment'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useMutation } from 'react-query'
 import * as Yup from 'yup'
-import moment from 'moment'
-import { useTranslation } from 'next-i18next'
 
+import IconFacebook from '@/components/icons/icon-facebook'
 import IconInstagram from '@/components/icons/icon-instagram'
 import IconLinkedin from '@/components/icons/icon-linkedin'
-import IconFacebook from '@/components/icons/icon-facebook'
-import IconTwitter from '@/components/icons/icon-twitter'
 import IconYoutube from '@/components/icons/icon-youtube'
+import IconX from '@/components/icons/icon-x'
 import { useErrorStore } from '@/lib/store/error'
-import IconX from '../icons/icon-x'
 
 interface ISubscribeFormData {
   email: string
@@ -133,6 +132,7 @@ const Subscribe = () => {
           <IconX fill="var(--black)" />
         </Link>
       </div>
+
       <form
         className={s.subscribe}
         onSubmit={subscribeFormik.handleSubmit}
