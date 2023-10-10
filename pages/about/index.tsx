@@ -1,62 +1,30 @@
 import s from './about.module.scss'
 
 import cn from 'clsx'
-import { EmblaOptionsType } from 'embla-carousel-react'
 import { GetServerSideProps } from 'next'
 import { Trans, useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import CustomImage from '@/components/custom-image'
 import { CustomLink } from '@/components/custom-link'
-import EmblaCarousel from '@/components/embla-carousel'
 import MarqueeLink from '@/components/marquee-link'
 import MarqueeReferences from '@/components/marquee-references'
 import Subscribe from '@/components/subscribe'
 import { Layout } from '@/layouts/default'
-import { CursorType, useCursorStore } from '@/lib/store/cursor'
 import { CustomHead } from '@/components/custom-head'
 import PoppingTitle from '@/components/popping-title'
-
-const carouselOptions: EmblaOptionsType = {
-  slidesToScroll: 1,
-  breakpoints: {
-    '(min-width: 800px)': { align: 0.1, containScroll: false },
-  },
-}
-
-type Slide = {
-  img: string
-  name: string
-  role: string
-  comment: string
-}
-
-function Slide(props: Slide) {
-  return (
-    <div className={s.slide}>
-      <div className={s.info}>
-        <div className={s.imgC}>
-          <CustomImage
-            src={props.img}
-            alt="Client Profile Photo"
-            loading="lazy"
-            width={500}
-            height={500}
-          />
-        </div>
-        <div className={s.text}>
-          <p>{props.name}</p>
-          <small>{props.role}</small>
-        </div>
-      </div>
-      <p>{props.comment}</p>
-    </div>
-  )
-}
+import SliderTestimonials from '@/components/slider-testimonials'
 
 const About = () => {
-  const { setType } = useCursorStore()
   const { t } = useTranslation('about')
+
+  const references = [
+    { logo: '/img/wired.svg' },
+    { logo: '/img/microsoft.svg' },
+    { logo: '/img/blizzard.svg' },
+    { logo: '/img/uber.svg' },
+    { logo: '/img/walmart.svg' },
+  ]
 
   const slides = [
     {
@@ -84,22 +52,6 @@ const About = () => {
       comment: t('testimonials.slides.s1.comment'),
     },
   ]
-
-  const references = [
-    { logo: '/img/wired.svg' },
-    { logo: '/img/microsoft.svg' },
-    { logo: '/img/blizzard.svg' },
-    { logo: '/img/uber.svg' },
-    { logo: '/img/walmart.svg' },
-  ]
-
-  function handleMouseEnter() {
-    setType(CursorType.drag)
-  }
-
-  function handleMouseLeave() {
-    setType(CursorType.default)
-  }
 
   return (
     <Layout theme="main">
@@ -214,19 +166,7 @@ const About = () => {
 
         <section className={s.testimonials}>
           <h4>{t('testimonials.title')}</h4>
-          <div
-            className="cursor-hidden"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <EmblaCarousel
-              options={carouselOptions}
-              slides={slides.map((data, i) => {
-                return <Slide key={i} {...data} />
-              })}
-              slideSpacing={30}
-            />
-          </div>
+          <SliderTestimonials slides={slides} />
         </section>
 
         <CustomLink href="/demo-request" className="trial-c">
@@ -239,7 +179,6 @@ const About = () => {
   )
 }
 
-// or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale ?? 'en', ['about', 'common'])),

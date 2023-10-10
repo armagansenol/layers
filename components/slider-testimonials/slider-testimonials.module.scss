@@ -1,0 +1,96 @@
+.sliderTestimonials {
+  position: relative;
+
+  .slide {
+    @include dims(desktop-vw(480px), desktop-vw(325px));
+    background: var(--foundation-white);
+    border-radius: desktop-vw(27px);
+    border-top-left-radius: desktop-vw(68px);
+    border-top-right-radius: desktop-vw(68px);
+    border-bottom-right-radius: desktop-vw(68px);
+    overflow: hidden;
+    padding: desktop-vw(20px);
+
+    @include mobile {
+      @include dims(mobile-vw(320px), mobile-vw(450px));
+      border-radius: mobile-vw(27px);
+      padding: mobile-vw(20px);
+    }
+
+    .info {
+      align-items: center;
+      column-gap: desktop-vw(20px);
+      display: flex;
+      margin-bottom: desktop-vw(60px);
+
+      @include mobile {
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .imgC {
+        @include dims(desktop-vw(90px));
+        border-radius: 50%;
+        flex-shrink: 0;
+        overflow: hidden;
+
+        @include mobile {
+          @include dims(mobile-vw(120px));
+          margin-bottom: mobile-vw(20px);
+        }
+      }
+
+      .text {
+        @include mobile {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: desktop-vw(50px);
+        }
+
+        & > p {
+          font-family: var(--font-wt-gothic);
+          font-size: desktop-vw(23px);
+          font-weight: 500;
+          margin-bottom: desktop-vw(5px);
+
+          @include mobile {
+            font-size: mobile-vw(23px);
+            margin-bottom: mobile-vw(10px);
+            text-align: center;
+          }
+        }
+
+        & > small {
+          display: block;
+          font-family: var(--font-wt-gothic);
+          font-size: desktop-vw(15px);
+          font-weight: 400;
+          line-height: 1.5;
+          margin-bottom: desktop-vw(5px);
+          width: desktop-vw(200px);
+
+          @include mobile {
+            font-size: mobile-vw(15px);
+            margin-bottom: mobile-vw(5px);
+            text-align: center;
+            width: 80%;
+          }
+        }
+      }
+    }
+
+    & > p {
+      font-family: var(--font-inter);
+      font-size: desktop-vw(16px);
+      font-weight: 400;
+      line-height: 1.6;
+
+      @include mobile {
+        font-size: mobile-vw(15px);
+        margin-bottom: mobile-vw(5px);
+        text-align: center;
+      }
+    }
+  }
+}
