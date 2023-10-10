@@ -49,6 +49,7 @@ const Footer = () => {
                     />
                   </CustomLink>
                 </li>
+
                 <li className={s.linkC}>
                   <CustomLink
                     className={s.imgC}
@@ -66,7 +67,8 @@ const Footer = () => {
                     />
                   </CustomLink>
                 </li>
-                <li className={s.linkC}>
+
+                {/* <li className={s.linkC}>
                   <CustomLink
                     className={s.imgC}
                     href="#"
@@ -82,7 +84,7 @@ const Footer = () => {
                       loading="lazy"
                     />
                   </CustomLink>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
