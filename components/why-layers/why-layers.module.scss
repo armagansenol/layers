@@ -1,5 +1,5 @@
 .whyLayers {
-  @include dims(100%, 90vh);
+  @include dims(100%, 100vh);
   position: relative;
 
   @include mobile {
