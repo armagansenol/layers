@@ -17,6 +17,8 @@ import { Locales, routes } from '@/global'
 import { useMenuStore } from '@/lib/store/menu'
 import { useTranslation } from 'next-i18next'
 
+const loginUrl = 'https://app.layersup.com/tr/login'
+
 const Header = () => {
   const navbarRef = useRef<any>(null)
   const { currentRoute, isOpen, setIsOpen, isAbsolute } = useMenuStore()
@@ -24,7 +26,6 @@ const Header = () => {
   const [isMounted, toggle] = useReducer((p) => !p, true)
   const [elementRect, setElementRect] = useState<any>()
   const showAnim = useRef<any>(null)
-  const loginUrl = 'https://app.layersup.com/tr/login'
   const { i18n, t } = useTranslation('common')
 
   const handleRect = useCallback((node: HTMLDivElement) => {
@@ -35,15 +36,15 @@ const Header = () => {
   useEffect(() => {
     if (!elementRect) return
 
-    showAnim.current = gsap
-      .from(navbarRef.current, {
-        autoAlpha: 0,
-        paused: true,
-        duration: 0.2,
-      })
-      .progress(1)
-
     const ctx = gsap.context(() => {
+      showAnim.current = gsap
+        .from(navbarRef.current, {
+          autoAlpha: 0,
+          paused: true,
+          duration: 0.2,
+        })
+        .progress(1)
+
       ScrollTrigger.create({
         start: `top+=${window.innerHeight / 4} top+=${elementRect?.bottom}`,
         end: 'max',
