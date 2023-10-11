@@ -1,6 +1,6 @@
 .navigation {
-  --t-color-primary: #{#000};
-  --t-color-secondary: #{#000};
+  --t-color-primary: #{var(--white-transparent)};
+  --t-color-secondary: #{var(--white-transparent)};
   align-items: center;
   background: var(--leukocyte-white);
   border-radius: desktop-vw(11px);
@@ -95,6 +95,9 @@
   .menuC {
     @include position(absolute, 75%, auto, auto, 50%);
     transform: translateX(-50%);
+    z-index: -1;
+
+    // @include outline(red)
   }
 
   .menu {
