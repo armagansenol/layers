@@ -48,28 +48,28 @@ const Header = () => {
       ScrollTrigger.create({
         start: `top+=${window.innerHeight / 4} top+=${elementRect?.bottom}`,
         end: 'max',
-        onEnter: () => {
-          gsap.to(navbarRef.current, {
-            yPercent: -50,
-          })
-        },
-        onEnterBack: () => {
-          gsap.to(navbarRef.current, {
-            yPercent: 0,
-            duration: 0.3,
-          })
-        },
-        onLeave: () => {
-          gsap.to(navbarRef.current, {
-            yPercent: -50,
-          })
-        },
-        onLeaveBack: () => {
-          gsap.to(navbarRef.current, {
-            yPercent: 0,
-            duration: 0.3,
-          })
-        },
+        // onEnter: () => {
+        //   gsap.to(navbarRef.current, {
+        //     yPercent: -50,
+        //   })
+        // },
+        // onEnterBack: () => {
+        //   gsap.to(navbarRef.current, {
+        //     yPercent: 0,
+        //     duration: 0.3,
+        //   })
+        // },
+        // onLeave: () => {
+        //   gsap.to(navbarRef.current, {
+        //     yPercent: -50,
+        //   })
+        // },
+        // onLeaveBack: () => {
+        //   gsap.to(navbarRef.current, {
+        //     yPercent: 0,
+        //     duration: 0.3,
+        //   })
+        // },
         onUpdate: (self) => {
           if (self.direction === -1) {
             showAnim.current.play()
@@ -85,7 +85,7 @@ const Header = () => {
     return () => {
       ctx && ctx.revert()
     }
-  }, [isMounted, elementRect])
+  }, [isMounted, elementRect, setIsOpen])
 
   useEffect(() => {
     if (!showAnim.current) return
