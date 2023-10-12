@@ -62,16 +62,10 @@ const Home = () => {
     { logo: '/img/walmart.svg' },
   ]
 
-  function toFeatures() {
+  function handleMenu(type: MainRoute) {
     isMobile && setHamburger()
     setIsOpen(true)
-    setCurrentRoute(MainRoute.features)
-  }
-
-  function toServices() {
-    isMobile && setHamburger()
-    setIsOpen(true)
-    setCurrentRoute(MainRoute.services)
+    setCurrentRoute(type)
   }
 
   return (
@@ -98,7 +92,10 @@ const Home = () => {
           <div className={cn(s.cards)}>
             <CardStack />
           </div>
-          <div className={s.callToAction} onClick={toFeatures}>
+          <div
+            className={s.callToAction}
+            onClick={() => handleMenu(MainRoute.features)}
+          >
             <MarqueeLink
               text={{
                 t1: t('features.marqueeLink.p1'),
@@ -116,7 +113,7 @@ const Home = () => {
               <Button
                 text={t('hrServices.btn.text')}
                 size="md"
-                callback={toServices}
+                callback={() => handleMenu(MainRoute.services)}
               />
             </div>
             <div className={s.imgs}>

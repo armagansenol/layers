@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useRef } from 'react'
 import s from './navbar-desktop.module.scss'
 
 import cn from 'clsx'
@@ -11,76 +11,55 @@ import IconArrowDropdown from '@/components/icons/icon-arrow-dropdown'
 import { Locales, MainRoute, routes } from '@/global'
 import { useMenuStore } from '@/lib/store/menu'
 
+const animationVariants = {
+  close: {
+    opacity: 0,
+    scale: 0.75,
+    duration: 0.2,
+    ease: 'expo.in',
+  },
+  open: {
+    opacity: 1,
+    scale: 1,
+    duration: 0.3,
+    ease: 'expo.out',
+  },
+}
+
 export function NavbarDesktop() {
   const ref = useRef<HTMLElement>(null)
   const q = gsap.utils.selector(ref)
   const { i18n, t } = useTranslation('common')
   const { currentRoute, isOpen, setCurrentRoute, setIsOpen } = useMenuStore()
   const currentLang = i18n.language as Locales
-  const animation = useRef<gsap.core.Tween>()
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      animation.current = gsap.from(q('.menu'), {
-        opacity: 0,
-        scale: 0.5,
-        yPercent: -10,
-        pointerEvents: 'none',
-        duration: 0.2,
-        onComplete: () => {
-          gsap.to(q('.menu'), {
-            pointerEvents: 'auto',
-          })
-        },
-      })
-    })
-
-    return () => ctx.revert()
-  }, [])
-
-  function handleMenu(type: MainRoute) {
-    // closeMenu()
-
-    // gsap.to(q('.links'), {
-    //   opacity: 0,
-    //   duration: 0.2,
-    //   onComplete: () => {
-    //     if (type) {
-    //       setCurrentRoute(type)
-    //     }
-
-    //     gsap.to(q('.links'), {
-    //       opacity: 1,
-    //       delay: 0.2,
-    //       duration: 0.2,
-    //     })
-    //   },
-    // })
-
-    if (type) {
-      setCurrentRoute(type)
-    }
-
-    openMenu()
-  }
-
-  function openMenu() {
+  function open(type: MainRoute) {
     setIsOpen(true)
+
+    gsap.to(q('.menu'), {
+      ...animationVariants.close,
+      onComplete: () => {
+        setCurrentRoute(type)
+        gsap.to(q('.menu'), {
+          ...animationVariants.open,
+        })
+      },
+    })
   }
 
-  function closeMenu() {
-    setIsOpen(false)
-  }
-
-  useLayoutEffect(() => {
-    if (!animation.current) return
-
-    if (isOpen) {
-      animation.current.play()
-    } else {
-      animation.current.reverse()
+  function close() {
+    if (!currentRoute) {
+      return
     }
-  }, [isOpen])
+
+    gsap.to(q('.menu'), {
+      ...animationVariants.close,
+      onComplete: () => {
+        setCurrentRoute(null)
+        setIsOpen(false)
+      },
+    })
+  }
 
   return (
     <nav
@@ -88,9 +67,8 @@ export function NavbarDesktop() {
         s[currentRoute ? routes[currentLang][currentRoute].type : 'null'],
       ])}
       ref={ref}
-      onMouseLeave={closeMenu}
+      onMouseLeave={close}
     >
-      {/* navbar items */}
       {Object.values(routes[currentLang]).map((value, i) => {
         return (
           <div
@@ -98,7 +76,7 @@ export function NavbarDesktop() {
               [s.active]: value.type === currentRoute && isOpen,
             })}
             key={i}
-            onMouseEnter={() => handleMenu(value.type)}
+            onMouseEnter={() => open(value.type)}
           >
             <p>{value.ui}</p>
             <div className={cn(s.iconC, 'flex-center')}>
@@ -108,24 +86,21 @@ export function NavbarDesktop() {
         )
       })}
 
+      {/* navbar items */}
       <Link
         className={cn(s.navItemC, s.requestADemo, 'cursor-pointer')}
         href="/demo-request"
-        onMouseEnter={closeMenu}
+        onMouseEnter={close}
       >
         <p>{t('header.requestADemo')}</p>
       </Link>
 
       {/* menu */}
-
-      <div className={cn(s.menuC, 'menuC')}>
-        <div
-          className={cn(s.menu, 'flex-center', 'menu')}
-          onMouseLeave={closeMenu}
-        >
-          <div className={cn(s.links, 'links')}>
-            {currentRoute &&
-              Object.values(routes[currentLang][currentRoute].children).map(
+      <div className={s.menuC}>
+        <div className={cn(s.menu, 'flex-center', 'menu')} onMouseLeave={close}>
+          {currentRoute && (
+            <div className={cn(s.links, 'links', [s[currentRoute]])}>
+              {Object.values(routes[currentLang][currentRoute].children).map(
                 (item, i) => {
                   const currentPath = routes[currentLang][currentRoute].path
 
@@ -136,7 +111,7 @@ export function NavbarDesktop() {
                         item.path
                       }`}
                       key={i}
-                      onClick={closeMenu}
+                      onClick={close}
                     >
                       {currentRoute !== MainRoute.resources && (
                         <div className={cn(s.iconC, 'flex-center')}>
@@ -157,7 +132,8 @@ export function NavbarDesktop() {
                   )
                 }
               )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>

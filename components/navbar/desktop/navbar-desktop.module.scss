@@ -96,25 +96,27 @@
     @include position(absolute, 75%, auto, auto, 50%);
     transform: translateX(-50%);
     z-index: -1;
-
-    // @include outline(red)
   }
 
   .menu {
-    background: var(--t-color-secondary);
-    border-radius: desktop-vw(11px);
-    box-shadow: 0px 0px 8px #00000033;
     margin-top: desktop-vw(30px);
-    padding: desktop-vw(15px);
     transform-origin: top center;
 
     .links {
       @include dims(100%);
+      background: var(--t-color-secondary);
+      box-shadow: 0px 0px 8px #00000033;
+      border-radius: desktop-vw(11px);
       column-gap: desktop-vw(40px);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(4, 1fr);
+      padding: desktop-vw(15px);
       row-gap: desktop-vw(10px);
+
+      &.resources {
+        padding: desktop-vw(5px);
+      }
 
       .menuItem {
         align-items: flex-start;
@@ -123,17 +125,13 @@
         display: flex;
         justify-content: flex-start;
         padding: desktop-vw(10px) desktop-vw(15px);
-        transition: 300ms all ease;
+        transition: 300ms background ease;
         width: desktop-vw(345px);
         will-change: transform;
 
         @include hover {
           &:hover {
             background: var(--t-color-primary);
-
-            .desc {
-              color: var(--black);
-            }
           }
         }
 
