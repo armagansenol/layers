@@ -55,9 +55,7 @@ export function Layout({
       <div className={cn(s.layout, className, `theme-${theme}`)}>
         <ErrorMessage messages={errorStore.messages} />
         <UpcomingAccordion />
-        <ClientOnly>
-          <Header />
-        </ClientOnly>
+        <Header />
         <main className={s.main}>{children}</main>
         <Footer />
       </div>

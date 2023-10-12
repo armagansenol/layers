@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useCallback, useLayoutEffect, useRef } from 'react'
 import s from './navbar-desktop.module.scss'
 
 import cn from 'clsx'
@@ -15,8 +15,7 @@ const animationVariants = {
   close: {
     opacity: 0,
     scale: 0.75,
-    duration: 0.2,
-    ease: 'expo.in',
+    duration: 0,
   },
   open: {
     opacity: 1,
@@ -35,7 +34,6 @@ export function NavbarDesktop() {
 
   function open(type: MainRoute) {
     setIsOpen(true)
-
     gsap.to(q('.menu'), {
       ...animationVariants.close,
       onComplete: () => {
