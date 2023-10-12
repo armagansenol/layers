@@ -10,6 +10,7 @@ import ErrorMessage from '@/components/error-message'
 import UpcomingAccordion from '@/components/upcoming-accordion'
 import { useErrorStore } from '@/lib/store/error'
 import { useTranslation } from 'next-i18next'
+import { ClientOnly } from '@/hocs/isomorphic'
 
 type Props = {
   seo?: any
@@ -54,7 +55,9 @@ export function Layout({
       <div className={cn(s.layout, className, `theme-${theme}`)}>
         <ErrorMessage messages={errorStore.messages} />
         <UpcomingAccordion />
-        <Header />
+        <ClientOnly>
+          <Header />
+        </ClientOnly>
         <main className={s.main}>{children}</main>
         <Footer />
       </div>
