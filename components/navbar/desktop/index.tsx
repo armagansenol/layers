@@ -59,6 +59,16 @@ export function NavbarDesktop() {
     })
   }
 
+  useLayoutEffect(() => {
+    if (!currentRoute) return
+
+    if (isOpen) {
+      open(currentRoute)
+    } else {
+      close()
+    }
+  }, [isOpen, currentRoute])
+
   return (
     <nav
       className={cn(s.navigation, s.fixed, [
