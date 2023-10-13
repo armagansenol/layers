@@ -164,10 +164,10 @@ const About = () => {
           </div>
         </section>
 
-        <section className={s.testimonials}>
+        {/* <section className={s.testimonials}>
           <h4>{t('testimonials.title')}</h4>
           <SliderTestimonials slides={slides} />
-        </section>
+        </section> */}
 
         <CustomLink href="/demo-request" className="trial-c">
           <MarqueeLink text={{ t1: t('trial.p1'), t2: t('trial.p2') }} />
