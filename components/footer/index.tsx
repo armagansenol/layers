@@ -13,6 +13,7 @@ import { Locales, routes } from '@/global'
 const Footer = () => {
   const { t, i18n } = useTranslation('common')
   const isMobile = useMedia('(max-width: 800px)', true)
+  const translatedRoutes = routes[i18n.language as Locales]
 
   return (
     <footer>
@@ -166,68 +167,42 @@ const Footer = () => {
           <div>
             <div className={cn(s.linksC, s.features)}>
               <h6>{t('footer.features')}</h6>
-              <ul
-                className={s.links}
-                style={
-                  {
-                    '--column-count': Math.ceil(
-                      Object.keys(
-                        routes[i18n.language as Locales].features.children
-                      ).length / 6
-                    ),
-                  } as React.CSSProperties
-                }
-              >
-                {Object.values(
-                  routes[i18n.language as Locales].features.children
-                ).map((route, i) => {
-                  return (
-                    <li className={s.linkC} key={i}>
-                      <CustomLink
-                        className={s.link}
-                        href={`/${
-                          routes[i18n.language as Locales].features.path
-                        }/${route.path}`}
-                      >
-                        {route.ui}
-                      </CustomLink>
-                    </li>
-                  )
-                })}
+              <ul className={s.links}>
+                {Object.values(translatedRoutes.features.children).map(
+                  (route, i) => {
+                    return (
+                      <li className={s.linkC} key={i}>
+                        <CustomLink
+                          className={s.link}
+                          href={`/${translatedRoutes.features.path}/${route.path}`}
+                        >
+                          {route.ui}
+                        </CustomLink>
+                      </li>
+                    )
+                  }
+                )}
               </ul>
             </div>
           </div>
           <div>
             <div className={cn(s.linksC, s.services)}>
               <h6>{t('footer.services')}</h6>
-              <ul
-                className={s.links}
-                style={
-                  {
-                    '--column-count': Math.ceil(
-                      Object.keys(
-                        routes[i18n.language as Locales].features.children
-                      ).length / 6
-                    ),
-                  } as React.CSSProperties
-                }
-              >
-                {Object.values(
-                  routes[i18n.language as Locales].services.children
-                ).map((route, i) => {
-                  return (
-                    <li className={s.linkC} key={i}>
-                      <CustomLink
-                        className={s.link}
-                        href={`/${
-                          routes[i18n.language as Locales].services.path
-                        }/${route.path}`}
-                      >
-                        {route.ui}
-                      </CustomLink>
-                    </li>
-                  )
-                })}
+              <ul className={s.links}>
+                {Object.values(translatedRoutes.services.children).map(
+                  (route, i) => {
+                    return (
+                      <li className={s.linkC} key={i}>
+                        <CustomLink
+                          className={s.link}
+                          href={`/${translatedRoutes.services.path}/${route.path}`}
+                        >
+                          {route.ui}
+                        </CustomLink>
+                      </li>
+                    )
+                  }
+                )}
               </ul>
             </div>
           </div>
