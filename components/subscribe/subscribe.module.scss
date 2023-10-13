@@ -114,11 +114,10 @@
     padding-left: var(--padding-left);
 
     @include mobile {
-      font-size: mobile-vw(14px);
+      font-size: mobile-vw(13px);
       margin-bottom: mobile-vw(12px);
       padding-left: 0;
       text-align: center;
-      width: 70%;
     }
   }
 
