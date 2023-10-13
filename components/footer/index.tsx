@@ -117,11 +117,11 @@ const Footer = () => {
                     {t('footer.requestADemo')}
                   </CustomLink>
                 </li>
-                <li className={s.linkC}>
+                {/* <li className={s.linkC}>
                   <CustomLink className={s.link} href="/terms-of-use">
                     {t('footer.termsOfUse')}
                   </CustomLink>
-                </li>
+                </li> */}
                 <li className={s.linkC}>
                   {/* <CustomLink
                     href="/pdf/personal-data-protection-and-processing-policy.pdf"
@@ -242,18 +242,6 @@ const Footer = () => {
 
       <div className={s.copyright}>
         <small>© 2023 Layers. {t('footer.rights')}</small>
-        <small className={s.signature}>
-          Designed by{' '}
-          <a
-            className={s.jdfx}
-            target="_blank"
-            rel="noreferrer noopener"
-            href="https://justdesignfx.com"
-          >
-            JUST DESIGN FX
-          </a>
-          <sup>®</sup>{' '}
-        </small>
       </div>
 
       <div className={s.iskur}>
