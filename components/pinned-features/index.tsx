@@ -29,17 +29,20 @@ const PinnedFeatures = () => {
   )
 
   useEffect(() => {
-    const q = gsap.utils.selector(ref)
     function updateVideo(val: number) {
       if (videoRef.current) {
         const mapped = parseFloat(
-          gsap.utils.mapRange(0, 1, 0, 22, val).toString()
+          gsap.utils
+            .mapRange(0, 1, 0, videoRef.current?.duration, val)
+            .toString()
         )
         videoRef.current.currentTime = mapped
       }
     }
 
     const ctx = gsap.context(() => {
+      const q = gsap.utils.selector(ref)
+
       if (isMobile) return
       if (!ref.current) return
 
