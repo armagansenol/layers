@@ -75,10 +75,13 @@
   }
 }
 
-.videoC {
-  @include dims(100%, auto);
+.right {
+  .videoC {
+    @include dims(100%);
 
-  .video {
-    @include dims(100%, auto);
+    .video {
+      @include dims(100%, auto);
+      border: 0;
+    }
   }
 }
